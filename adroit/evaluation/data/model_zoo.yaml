@@ -1,0 +1,4395 @@
+# The model zoo (G0): freeze-out models from the literature with published targets.
+# Built 2026-10-13 from a literature survey (every target's quote checked against its PDF);
+# docs/model_zoo.md gives the rules. Edit an entry only to correct it, never after seeing a result.
+entries:
+- id: inert_doublet_kalinowski
+  title: Inert doublet model (IDM) e+e- benchmark points
+  category: extended_higgs
+  in_library: true
+  library: inert_doublet
+  reference:
+    arxiv: '1809.07712'
+    title: Benchmarking the Inert Doublet Model for e+e- colliders
+    first_author: Jan Kalinowski
+    year: 2018
+  lagrangian:
+    latex: V = -\frac{1}{2}\left[m_{11}^2(\phi_S^\dagger\phi_S) + m_{22}^2(\phi_D^\dagger\phi_D)\right] + \frac{\lambda_1}{2}(\phi_S^\dagger\phi_S)^2
+      + \frac{\lambda_2}{2}(\phi_D^\dagger\phi_D)^2 + \lambda_3(\phi_S^\dagger\phi_S)(\phi_D^\dagger\phi_D) + \lambda_4(\phi_S^\dagger\phi_D)(\phi_D^\dagger\phi_S)
+      + \frac{\lambda_5}{2}\left[(\phi_S^\dagger\phi_D)^2 + (\phi_D^\dagger\phi_S)^2\right]
+    equation: (2)
+    page: 2
+  needs:
+  - perturbative_s_channel
+  - coannihilation
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: phi_D
+      role: dark_matter
+      spin: 0
+      mass_gev: 73.68218992050234
+      mass_justification: μ₂ = √(M_H² − λ₃₄₅v²/2), the inert doublet's mass parameter (V ⊃ μ₂²|φ_D|², μ₂² = −m₂₂²/2); M_H²
+        = μ₂² + λ₃₄₅v²/2, M_A² = μ₂² + (λ₃+λ₄−λ₅)v²/2, M_H±² = μ₂² + λ₃v²/2 (v = 246.22 GeV)
+      charges:
+        su2: 2
+        hypercharge: 0.5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: lam2
+      value: 1.44513
+      justification: from the benchmark's M_H, M_A, M_H±, λ₂, λ₃₄₅
+    - name: lam3
+      value: 0.254454356205408
+      justification: from the benchmark's M_H, M_A, M_H±, λ₂, λ₃₄₅
+    - name: lam4
+      value: -0.1545134435588876
+      justification: from the benchmark's M_H, M_A, M_H±, λ₂, λ₃₄₅
+    - name: lam5
+      value: -0.10434814264652045
+      justification: from the benchmark's M_H, M_A, M_H±, λ₂, λ₃₄₅
+    terms:
+    - fields:
+      - field: phi_D
+      - field: phi_D
+        conjugate: true
+      - field: phi_D
+      - field: phi_D
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam2/2
+      text: −(λ₂/2)(φ_D†φ_D)²
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: phi_D
+      - field: phi_D
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam3
+      text: −λ₃(φ_S†φ_S)(φ_D†φ_D)
+      indices: H*[i] H[i] phi_D*[j] phi_D[j]
+    - fields:
+      - field: H
+        conjugate: true
+      - field: phi_D
+      - field: phi_D
+        conjugate: true
+      - field: H
+      lorentz: scalar
+      coupling: -lam4
+      text: −λ₄(φ_S†φ_D)(φ_D†φ_S)
+      indices: H*[i] phi_D[i] phi_D*[j] H[j]
+    - fields:
+      - field: H
+        conjugate: true
+      - field: H
+        conjugate: true
+      - field: phi_D
+      - field: phi_D
+      lorentz: scalar
+      coupling: -lam5/2
+      plus_hc: true
+      text: −(λ₅/2)[(φ_S†φ_D)² + h.c.]
+      indices: H*[i] phi_D[i] H*[j] phi_D[j]
+    stability: 'Z2: φ_D → −φ_D'
+    assumptions:
+    - φ_S is the Standard Model Higgs doublet H
+  targets:
+  - quantity: omega_h2
+    value: 0.12007
+    at:
+      M_H: 72.77
+      M_A: 107.803
+      M_Hpm: 114.639
+      lambda_2: 1.44513
+      lambda_345: -0.00440723
+      M_h: 125.1
+    source:
+      arxiv: '1809.07712'
+      page: 10
+      location: Table 1, row BP1
+      quote: BP1 72.77 107.803 114.639 1.44513 -0.00440723 0.12007
+    tool: micrOMEGAs 4.3.5
+    point:
+      m_chi: 72.77
+      m_med: 114.639
+      g_chi: -0.00440723
+      g_q: 35.033
+  - quantity: omega_h2
+    value: 0.12478
+    at:
+      M_H: 990
+      M_A: 992.36
+      M_Hpm: 998.12
+      lambda_2: 3.3345
+      lambda_345: -0.051
+      M_h: 125.1
+    source:
+      arxiv: '1809.07712'
+      page: 14
+      location: Table 4, row HP10
+      quote: HP10 990 992.36 998.12 3.3345 -0.051 0.12478
+    tool: micrOMEGAs 4.3.5
+    overrides:
+      masses:
+        phi_D: 990.7804574976113
+      couplings:
+        lam2: 3.3345
+        lam3: 0.48157797236064104
+        lam4: -0.4554078640750093
+        lam5: -0.07717010828563171
+    point:
+      m_chi: 990.0
+      m_med: 998.12
+      g_chi: -0.051
+      g_q: 2.36
+  notes: 'Table columns (verbatim header): "No. MH MA MH± Z W DM λ2 λ345 ΩHh2" (the Z/W/DM columns are on-shell/>50% check-marks,
+    lost in text extraction).
+
+    Table 1 caption: "In all benchmarks Mh = 125.1 GeV. Bold font denotes BP with 100% DM relic density."; Table 4 caption:
+    "HP10 provides exact relic density."
+
+    Planck value used by the authors: "Ωc h2 = 0.1197 ± 0.0022" (eq. 11, p5), required within 2 sigma for 100% DM.
+
+    BP1 (M_H = 72.77 GeV) sits just below the WW threshold where 3-body WW* final states matter; HP10 (990 GeV) is a compressed-spectrum
+    point with strong coannihilation (Delta M ~ 2-8 GeV).
+
+    Five free parameters after EWSB are (M_H, M_A, M_H±, λ2, λ345) with λ345 = λ3 + λ4 + λ5; the DM is the CP-even H. lambda_2
+    does not affect the relic density at tree level.
+
+    Components H, A, H± are listed with their parent-doublet quantum numbers (su2 = 2, Y = 1/2) and their broken-phase electric
+    charge.
+
+    BP1 sits below the WW threshold (M_H = 72.77 GeV), where the off-shell WW* channel matters: beyond 2 → 2.
+
+    G1 conventions (2026-10-13): the λ₃, λ₄, λ₅ terms state their SU(2) contractions.'
+- id: scalar_singlet_higgs_portal_gambit
+  title: Real scalar singlet (Z2) Higgs-portal dark matter, GAMBIT best-fit points
+  category: higgs_portal
+  in_library: true
+  library: higgs_portal_scalar
+  reference:
+    arxiv: '1705.07931'
+    title: Status of the scalar singlet dark matter model
+    first_author: Peter Athron (GAMBIT Collaboration)
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L} = \frac{1}{2}\mu_S^2 S^2 + \frac{1}{2}\lambda_{hS} S^2 |H|^2 + \frac{1}{4}\lambda_S S^4 + \frac{1}{2}\partial_\mu
+      S \partial^\mu S, \qquad m_S = \sqrt{\mu_S^2 + \frac{1}{2}\lambda_{hS} v_0^2}
+    equation: (1), (2)
+    page: 3
+  needs:
+  - perturbative_s_channel
+  - resonance
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: S
+      role: dark_matter
+      spin: 0
+      self_conjugate: true
+      mass_gev: 9785.199671960123
+      mass_justification: μ_S = √(m_S² − λ_hS v²/2), the Lagrangian mass of m_S = 9.79 TeV
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: lam_hS
+      value: 3.1
+    terms:
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: S
+      - field: S
+      lorentz: scalar
+      coupling: -lam_hS/2
+      text: '−½λ_hS S²|H|² (GAMBIT''s eq. (1) is written as L with potential signs: V ⊃ ½λ_hS S²|H|²)'
+    stability: 'Z2: S → −S'
+    dropped:
+    - the singlet quartic ¼λ_S S⁴ (irrelevant to the relic density at tree level)
+  targets:
+  - quantity: omega_h2
+    value: 0.1131
+    at:
+      m_S: 9790.0
+      lambda_hS: 3.1
+    source:
+      arxiv: '1705.07931'
+      page: 13
+      location: Table 5, row 'High mass / Best fit / ΩSh2 ∼ ΩDMh2'
+      quote: Best fit ΩSh2 ∼ΩDMh2 3.1 9.790 × 103 0.1131 4.311 0.362
+    tool: GAMBIT 1.0 DarkBit; effective rate W_eff passed to the DarkSUSY Boltzmann solver
+    point:
+      m_chi: 9790.0
+      m_med: 125.09
+      g_chi: 3.1
+  - quantity: omega_h2
+    value: 0.1129
+    at:
+      m_S: 62.27
+      lambda_hS: 0.00029
+    source:
+      arxiv: '1705.07931'
+      page: 13
+      location: Table 5, row 'Low mass / Best fit / ΩSh2 ∼ ΩDMh2'
+      quote: Low mass Best fit ΩSh2 ≲ΩDMh2 6.5 × 10−4 62.51 0.0179 4.566 0.107 Best fit ΩSh2 ∼ΩDMh2 2.9 × 10−4 62.27 0.1129
+        4.431 0.242
+    tool: GAMBIT 1.0 DarkBit; effective rate W_eff passed to the DarkSUSY Boltzmann solver
+    overrides:
+      masses:
+        S: 62.19937622816899
+      couplings:
+        lam_hS: 0.00029
+    point:
+      m_chi: 62.27
+      m_med: 125.09
+      g_chi: 0.00029
+  notes: 'Table 5 column header (verbatim): "Mode Statistic Relic density condition λhS mS (GeV) ΩSh2 log(L) ∆ln L".
+
+    Text p12: "In the high-mass region, the best fit able to reproduce the entire observed relic density is at λhS = 3.1,
+    mS = 9.79 TeV"; "the best fit occurs at the bottom of the resonance, at λhS = 2.9× 10−4, mS = 62.27 GeV".
+
+    Relic criterion: "ΩSh2 within 1σ of the Planck value ΩDMh2 = 0.1188 ± 0.006 (the uncertainty includes theoretical and
+    observational contributions added in quadrature)" (p12).
+
+    The paper writes eq. (1) as "L =" with all-positive signs; the mass relation eq. (2) shows the S^2 and S^2|H|^2 terms
+    act as potential terms (V convention), so the hSS coupling is -lambda_hS v0 h S^2/2 in the Lagrangian. v0 = 246 GeV.
+
+    Best-fit points come with 13 nuisance parameters (Higgs mass, quark masses, alpha_s, nuclear and halo inputs) that "do
+    not deviate significantly from the central values"; the resonance point (m_S = 62.27 GeV, just above m_h/2 with m_h ~
+    125 GeV) is extremely sensitive to m_h and Gamma_h, and to the treatment of the thermal average across the Higgs pole.
+    The high-mass point has a large coupling (3.1) and is dominated by s-channel h, contact and t/u-channel h exchange into
+    hh, WW, ZZ, tt.
+
+    Partial cross sections (p7): annihilation rates from the paper''s eq. (5) (off-shell Higgs width trick), with "For mS
+    < 150 GeV we use the SM Higgs partial widths contained in DecayBit", "whereas for mS > 150 GeV we revert to the tree-level
+    expressions from Appendix A of Ref. [26]", plus the hh channel for mS > mh.
+
+    G1 conventions (2026-10-13): S''s mass is the Lagrangian μ_S; the λ_S term is dropped.'
+- id: wino_majorana_triplet_bottaro
+  title: Pure wino (Majorana SU(2)_L triplet, Y = 0) thermal mass with Sommerfeld and bound states
+  category: electroweak_multiplet
+  in_library: true
+  library: wino
+  reference:
+    arxiv: '2107.09688'
+    title: Closing the window on WIMP Dark Matter
+    first_author: Salvatore Bottaro
+    year: 2021
+  lagrangian:
+    latex: \mathcal{L}_f = \frac{1}{2}\chi\left(i\bar\sigma^\mu D_\mu - M_\chi\right)\chi, \qquad D_\mu = \partial_\mu - i
+      g_2 W^a_\mu T^a_\chi
+    equation: (2)
+    page: 2
+  needs:
+  - coannihilation
+  - sommerfeld
+  - bound_states
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 2860.0
+      mass_justification: M_χ, the triplet's mass
+      charges:
+        su2: 3
+      dark_parity: -1
+    stability: 'Z2 (R-parity-like): χ → −χ'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 2860.0
+    uncertainty: 10.0
+    at: {}
+    source:
+      arxiv: '2107.09688'
+      page: 3
+      location: Table I, row 'Majorana fermion, n = 3'
+      quote: Majorana fermion 3 2.86 ± 0.01
+    tool: authors' own coupled Boltzmann (DM + bound states) solution with electroweak Sommerfeld enhancement and bound-state
+      formation
+    omega_target: 0.1193
+    point:
+      m_chi: 2860.0
+      m_med: 1.0
+      g_q: 0.0
+  - quantity: thermal_mass_gev
+    value: 2880.0
+    at:
+      M1_over_M2: 3
+      mu_over_M2: 2
+      M_sf: 20000.0
+    source:
+      arxiv: '1601.04718'
+      page: 2
+      location: Introduction, p. 2
+      quote: we find that the observed relic density is attained at significantly larger mass mχ = 2.88 TeV when the Sommerfeld
+        effect is accounted for, instead of 2.22 TeV at tree level, when M1 = 3M2, µ = 2M2 and the common sfermion mass Msf
+        = 20 TeV, which corresponds effectively to the pure-wino limit.
+    tool: Beneke et al. NR-EFT Sommerfeld code (no bound-state formation) + micrOMEGAs/FeynHiggs MSSM inputs; Ωh2 = 0.1188
+    omega_target: 0.1188
+    point:
+      m_chi: 2880.0
+      m_med: 1.0
+      g_q: 0.0
+  notes: 'Two-component (Weyl) notation; T^a_chi are SU(2) generators in the n = 3 representation; Q = T3 + Y with Y = 0.
+
+    Bottaro et al. fit to "ΩDMh2 = 0.11933 ± 0.00091" (p1). Table I caption: "The annihilation cross-section includes both
+    the contribution of SE and BSF." For the 3-plet BSF is a small effect; the result is dominated by Sommerfeld-enhanced
+    chi chi -> WW, ZZ, Z gamma, gamma gamma co-annihilations with chi+-.
+
+    Radiative splitting quoted as "MQ −M0 ≃ Q^2 αem mW / (2(1 + cos θW)) = Q2 ×(167 ± 4) MeV" (eq. 3, p2); Beneke et al. use
+    the two-loop-corrected pure-wino splitting near 160 MeV and Ωh2|exp = 0.1188 ± 0.0010 (p21).
+
+    The second target (2.88 TeV) is an MSSM computation in the pure-wino limit with Sommerfeld but without bound states; tree
+    level gives 2.22 TeV. The Sommerfeld resonance near 2.33 TeV (Beneke p2) makes the relic density non-monotonic in the
+    mass, so a code must handle the zero-energy-resonance region.'
+- id: higgsino_dirac_doublet_bottaro
+  title: Pure higgsino (Dirac SU(2)_L doublet, Y = 1/2) thermal mass
+  category: electroweak_multiplet
+  in_library: true
+  library: higgsino
+  reference:
+    arxiv: '2205.04486'
+    title: The last Complex WIMPs standing
+    first_author: Salvatore Bottaro
+    year: 2022
+  lagrangian:
+    latex: \mathscr{L}_D = \overline{\chi}\left(i\slashed{D} - M_\chi\right)\chi + \frac{y_0}{\Lambda_{UV}^{4Y-1}}\mathcal{O}_0
+      + \frac{y_+}{\Lambda_{UV}}\mathcal{O}_+ + \mathrm{h.c.}, \quad \mathcal{O}_0 = \frac{1}{2(4Y)!}\left(\overline{\chi}(T^a)^{2Y}\chi^c\right)\left[(H^{c\dagger})\frac{\sigma^a}{2}H\right]^{2Y},
+      \quad \mathcal{O}_+ = -\overline{\chi}T^a\chi H^\dagger\frac{\sigma^a}{2}H
+    equation: (1)
+    page: 3
+  needs:
+  - coannihilation
+  - sommerfeld
+  - bound_states
+  - ewsb_mixing
+  - higher_dimensional_operator
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 1080.0
+      mass_justification: M_χ, the doublet's Dirac mass
+      charges:
+        su2: 2
+        hypercharge: 0.5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings: []
+    terms: []
+    stability: 'Z2: χ → −χ'
+    dropped:
+    - 'the splitting operators O₀ and O₊: free within the paper''s viable window, and the thermal mass does not depend on
+      them (they set the small splittings that G8 needs)'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 1080.0
+    uncertainty: 20.0
+    at: {}
+    source:
+      arxiv: '2205.04486'
+      page: 2
+      location: Table I, row 'Dirac fermion 2_{1/2}'
+      quote: Dirac fermion 21/2 1.08 ± 0.02 > MPl - 0.22 - 2 × 104 107 4.8 - 104
+    tool: authors' own computation including Sommerfeld enhancement and bound-state formation
+    omega_target: 0.1193
+    point:
+      m_chi: 1080.0
+      m_med: 1.0
+      g_q: 0.0
+  notes: 'Table I header: "DM spin nY MDM (TeV) ΛLandau/MDM (σv)J=0 tot /(σv)J=0 max δm0 [MeV] Λmax UV /MDM δmQM [MeV]"; caption:
+    "Thermal masses of complex WIMPs with Y ≠ 0, obtained including Sommerfeld enhancement and BSF."
+
+    Relic target: "ΩDMh2 = 0.11933 ± 0.00091" (p1).
+
+    For the 2_{1/2} the viable window of the neutral splitting is delta_m0 = 0.22 MeV - 2e4 MeV and of the charged splitting
+    delta_m_QM = 4.8 MeV - 1e4 MeV (Table I); the pure electroweak charged splitting is 354 MeV (p7: "354 MeV for 21/2").
+    The thermal mass is insensitive to these splittings in the quoted window (Appendix B 3).
+
+    Q = T3 + Y convention (stated p3). With Y = 1/2 the operator O_0 is dimension 5 (Lambda_UV^{4Y-1} = Lambda_UV).
+
+    Note: the paper writes the conjugate field as chi-bar in O_0 and O_+; the fermion is Dirac (4-component).
+
+    G1 conventions (2026-10-13): the splitting operators O₀ and O₊ are dropped (their couplings are free and do not set the
+    thermal mass).'
+- id: dmwg_dirac_vector_zprime_v1
+  title: Dirac fermion DM with s-channel vector Z′ coupled to quarks (LHC DM WG scenario V1)
+  category: vector_mediator
+  in_library: true
+  reference:
+    arxiv: '1703.05703'
+    title: 'Recommendations of the LHC Dark Matter Working Group: Comparing LHC searches for heavy mediators of dark matter
+      production in visible and invisible decay channels'
+    first_author: Andreas Albert
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L}_{\rm vector} = -g_{\rm DM} Z'_\mu \bar\chi\gamma^\mu\chi - g_q \sum_{q=u,d,s,c,b,t} Z'_\mu \bar q\gamma^\mu
+      q - g_\ell \sum_{\ell=e,\mu,\tau} Z'_\mu \bar\ell\gamma^\mu\ell
+    equation: (2.1)
+    page: 5
+  needs:
+  - perturbative_s_channel
+  - resonance
+  - annihilation_to_mediators
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 715.0
+      dark_parity: -1
+    - name: Zp
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 3000.0
+    - name: q
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: l
+      role: standard_model
+      spin: 0.5
+    couplings:
+    - name: g_DM
+      value: 1.0
+    - name: g_q
+      value: 0.25
+    - name: g_l
+      value: 0.0
+    terms:
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: Zp
+      lorentz: vector
+      coupling: -g_DM
+      text: −g_DM Z′_μ χ̄γ^μχ
+    - fields:
+      - field: q
+        conjugate: true
+      - field: q
+      - field: Zp
+      lorentz: vector
+      coupling: -g_q
+      text: −g_q Σ_q Z′_μ q̄γ^μq
+    - fields:
+      - field: l
+        conjugate: true
+      - field: l
+      - field: Zp
+      lorentz: vector
+      coupling: -g_l
+      text: −g_ℓ Σ_ℓ Z′_μ ℓ̄γ^μℓ
+    stability: 'Z2: χ → −χ'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 715.0
+    uncertainty: 25.0
+    at:
+      M_med: 3000.0
+      g_DM: 1.0
+      g_q: 0.25
+      g_l: 0.0
+    source:
+      arxiv: '1703.05703'
+      page: 12
+      location: Fig. 2 top-left (scenario V1), Ωh2 = 0.118 contour, x-axis m_med [GeV] (linear 0-5000), y-axis m_DM [GeV]
+        (linear 0-2500) (read from curve)
+      quote: The contour lines correspond to the region of parameter space where the relic density is consistent with the
+        value Ωh2 = 0.118.
+    tool: MadDM 2.0.6 with DMsimp 2.0 (UFO)
+    omega_target: 0.118
+  - quantity: thermal_mass_gev
+    value: 358.0
+    uncertainty: 20.0
+    at:
+      M_med: 2000.0
+      g_DM: 1.0
+      g_q: 0.25
+      g_l: 0.0
+    source:
+      arxiv: '1703.05703'
+      page: 12
+      location: Fig. 2 top-left (scenario V1), Ωh2 = 0.118 contour at m_med = 2000 GeV (read from curve)
+      quote: 'Top left: scenario V1, vector mediator with couplings only to quarks (gq = 0.25).'
+    tool: MadDM 2.0.6 with DMsimp 2.0 (UFO)
+    omega_target: 0.118
+    overrides:
+      masses:
+        Zp: 2000.0
+        chi: 358.0
+  notes: 'CURVE READING: the paper gives only contours. I digitised the raster figure (page 12 rendered at 6x; frame calibrated
+    on the axis lines: m_med = 0 at x = 665.5 px, 5000 GeV at 1534.5 px; m_DM = 0 at y = 1652.5 px, 2500 GeV at 538 px) and
+    took the orange Ωh2 = 0.118 contour pixels. Readings: m_med = 2000 -> m_DM ~ 358 GeV; 3000 -> ~715 GeV; 4500 -> ~1340
+    GeV; 5000 -> ~1540 GeV. Quoted uncertainty is line width + calibration (+-20-25 GeV), not physics.
+
+    The contour is the lower branch (m_DM < M_med/2): DM is overproduced below/right of it ("all models predict an overabundance
+    of DM for Mmed ≫mDM").
+
+    DM is a Dirac fermion (p4: "assume that DM is a Dirac fermion χ"); relic target Ωh2 = 0.118 (Planck). Mediator width:
+    "the DMsimp model was modified to use the mediator width formulas" (minimal width, eqs. 2.4-2.7). The earlier LHC DM WG
+    relic curves "used an earlier version of MadDM which did not include t-channel annihilation to pairs of mediators" (p11);
+    irrelevant on the V1 lower branch where m_DM < M_med.
+
+    Couplings: all quark flavours equal g_q (incl. top); g_l = 0 for V1.
+
+    Library tag "in_library: true" assumes this is the code''s LHC DM WG vector benchmark.'
+- id: real_scalar_quintuplet_bottaro
+  title: Real scalar SU(2)_L 5-plet (Y = 0) electroweak WIMP
+  category: electroweak_multiplet
+  in_library: false
+  reference:
+    arxiv: '2107.09688'
+    title: Closing the window on WIMP Dark Matter
+    first_author: Salvatore Bottaro
+    year: 2021
+  lagrangian:
+    latex: \mathcal{L}_s = \frac{1}{2}(D_\mu\chi)^2 - \frac{1}{2}M_\chi^2\chi^2 - \frac{\lambda_H}{2}\chi^2|H|^2 - \frac{\lambda_\chi}{4}\chi^4,
+      \qquad D_\mu = \partial_\mu - i g_2 W^a_\mu T^a_\chi
+    equation: (1)
+    page: 2
+  needs:
+  - coannihilation
+  - sommerfeld
+  - bound_states
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0
+      self_conjugate: true
+      mass_gev: 15400.0
+      mass_justification: M_χ, the real 5-plet's mass
+      charges:
+        su2: 5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: lam_H
+      value: 0.0
+      justification: the Higgs-portal quartic, set negligible for the thermal-mass prediction
+    terms:
+    - fields:
+      - field: chi
+      - field: chi
+      - field: H
+        conjugate: true
+      - field: H
+      lorentz: scalar
+      coupling: -lam_H/2
+      text: −(λ_H/2) χ²|H|²
+    stability: 'accidental: no renormalisable decay of a 5-plet with Y = 0'
+    dropped:
+    - the 5-plet's quartic λ_χ χ⁴ (unspecified, irrelevant to freeze-out)
+  targets:
+  - quantity: thermal_mass_gev
+    value: 15400.0
+    uncertainty: 700.0
+    at:
+      lambda_H: 0.0
+    source:
+      arxiv: '2107.09688'
+      page: 3
+      location: Table I, row 'Real scalar, n = 5'
+      quote: Real scalar 3 2.53 ± 0.01 – 2.4 × 1037 4 × 1024* 5 15.4 ± 0.7 0.002
+    tool: authors' own coupled Boltzmann (DM + bound states) solution with electroweak Sommerfeld enhancement and bound-state
+      formation
+    omega_target: 0.1193
+  notes: 'Table I caption: "Freeze-out mass predictions for WIMP DM in real EW multiplets with Y = 0. The annihilation cross-section
+    includes both the contribution of SE and BSF." The +-0.7 TeV is the theory error, "the error on the WIMP mass grows proportionally
+    to the enhancement of the next-to-leading order (NLO) contributions estimated in Eq. (23)".
+
+    Relic target "ΩDMh2 = 0.11933 ± 0.00091" (p1). The Higgs-portal term "is bounded from above by direct detection constraints
+    (see Fig. 8 right) and gives a negligible contribution to the annihilation cross-section" (p2), so set lambda_H = 0.
+
+    In the extracted text exponents are flattened ("2.4 × 1037" = 2.4 × 10^37). The same table gives the real scalar 3-plet
+    at 2.53 ± 0.01 TeV and 7-plet at 54.2 ± 3.1 TeV, useful as extra checks.
+
+    Bound states matter a lot for n >= 5 (Fig. 1 shows SE-only and perturbative lines well below); a code without BSF will
+    undershoot the mass. Freeze-out starts in the (nearly) unbroken phase; the paper treats potentials with W/Z masses and
+    the splitting of eq. (3).
+
+    G1 conventions (2026-10-13): the unspecified quartic λ_χ is dropped.'
+- id: majorana_quintuplet_mdm_bottaro
+  title: Minimal Dark Matter Majorana fermion 5-plet (Y = 0)
+  category: electroweak_multiplet
+  in_library: true
+  library: quintuplet
+  reference:
+    arxiv: '2107.09688'
+    title: Closing the window on WIMP Dark Matter
+    first_author: Salvatore Bottaro
+    year: 2021
+  lagrangian:
+    latex: \mathcal{L}_f = \frac{1}{2}\chi\left(i\bar\sigma^\mu D_\mu - M_\chi\right)\chi, \qquad D_\mu = \partial_\mu - i
+      g_2 W^a_\mu T^a_\chi
+    equation: (2)
+    page: 2
+  needs:
+  - coannihilation
+  - sommerfeld
+  - bound_states
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 13600.0
+      mass_justification: M_χ, the Majorana 5-plet's mass
+      charges:
+        su2: 5
+      dark_parity: -1
+    stability: 'accidental: no renormalisable decay of a 5-plet with Y = 0'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 13600.0
+    uncertainty: 800.0
+    at: {}
+    source:
+      arxiv: '2107.09688'
+      page: 3
+      location: Table I, row 'Majorana fermion, n = 5'
+      quote: Majorana fermion 3 2.86 ± 0.01 – 2.4 × 1037 2 × 1012* 5 13.6 ± 0.8 0.003
+    tool: authors' own coupled Boltzmann (DM + bound states) solution with electroweak Sommerfeld enhancement and bound-state
+      formation
+    omega_target: 0.1193
+    point:
+      m_chi: 13600.0
+      m_med: 1.0
+      g_q: 0.0
+  - quantity: thermal_mass_gev
+    value: 14000.0
+    at: {}
+    source:
+      arxiv: '1702.01141'
+      page: 29
+      location: Section 7.2 (Minimal Dark Matter fermion quintuplet), text
+      quote: After including bound state formation, the cosmological DM abundance is reproduced for Mχ ≈14 TeV.
+    tool: Mitridate-Redi-Smirnov-Strumia, SU(2)_L-invariant Sommerfeld + bound-state (1s, 2s, 2p 'quintonium') Boltzmann treatment;
+      ΩDMh2 = 0.119 ± 0.002
+    omega_target: 0.119
+    point:
+      m_chi: 14000.0
+      m_med: 1.0
+      g_q: 0.0
+  notes: 'Majorana 5-plet in two-component notation; components chi0 (DM), chi+- (+167 MeV), chi++ (+4 x 167 MeV) by the radiative
+    splitting eq. (3).
+
+    Relic targets: 2107.09688 uses "ΩDMh2 = 0.11933 ± 0.00091"; 1702.01141 uses "ΩDMh2 = 0.119 ± 0.002" (p3).
+
+    1702.01141 p29: "bound state formation increase by ∼40% the effective annihilation cross section ..., leading to a ∼20%
+    increase in the value of Mχ"; its SE-only value is quoted as "Mχ ≈ 9.3 TeV [31, 32]" (p27). So: tree ~ 4.4 TeV (hep-ph/0512090),
+    SE-only ~ 9-10 TeV, SE+BSF 13.6-14 TeV. A code must include bound-state formation to hit the target.
+
+    The 5-plet is "special, because it can be made accidentally stable by raising the scale ΛUV" (p4); no Z2 needed but dark_parity
+    -1 is assigned for the code.'
+- id: complex_scalar_triplet_y1_bottaro
+  title: Complex scalar SU(2)_L triplet with Y = 1 (3_1) electroweak WIMP
+  category: electroweak_multiplet
+  in_library: false
+  reference:
+    arxiv: '2205.04486'
+    title: The last Complex WIMPs standing
+    first_author: Salvatore Bottaro
+    year: 2022
+  lagrangian:
+    latex: \mathscr{L}_S = |D_\mu\chi|^2 - M_\chi|\chi|^2 + \frac{y_0}{\Lambda_{UV}^{4Y-2}}\mathcal{O}^S_0 + y_+\mathcal{O}^S_+
+      + \mathrm{h.c.}, \quad \mathcal{O}^S_0 = \frac{1}{2(4Y)!}\left(\chi^\dagger(T^a)^{2Y}\chi^c\right)\left[H^{c\dagger}\frac{\sigma^a}{2}H\right]^{2Y},
+      \quad \mathcal{O}^S_+ = -\chi^\dagger T^a\chi H^\dagger\frac{\sigma^a}{2}H
+    equation: (A5)
+    page: 16
+  needs:
+  - coannihilation
+  - sommerfeld
+  - bound_states
+  - ewsb_mixing
+  - higher_dimensional_operator
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0
+      mass_gev: 2100.0
+      mass_justification: M_χ, the complex triplet's mass
+      charges:
+        su2: 3
+        hypercharge: 1.0
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings: []
+    terms: []
+    stability: 'Z2: χ → −χ'
+    dropped:
+    - 'the splitting operators O₀ˢ and O₊ˢ: free within the paper''s viable window, and the thermal mass does not depend on
+      them (they set the small splittings that G8 needs)'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 2100.0
+    uncertainty: 100.0
+    at:
+      y_0: 0.0
+      y_plus: 0.0
+      chosen by the zoo: 'y_0 = y_+ = 0, i.e. the splitting operators O₀ˢ and O₊ˢ dropped: the paper leaves both couplings
+        free within its viable window, and the thermal mass does not depend on them (the entry''s "dropped")'
+    source:
+      arxiv: '2205.04486'
+      page: 2
+      location: Table I, row 'Complex scalar 3_1'
+      quote: 31 2.1 ± 0.1 > MPl - 3.7 - 500 120 75 - 1.3 ×104
+    tool: authors' own computation including Sommerfeld enhancement and bound-state formation
+    omega_target: 0.1193
+  notes: 'Table I caption: "Thermal masses of complex WIMPs with Y ≠ 0, obtained including Sommerfeld enhancement and BSF."
+    Relic target ΩDMh2 = 0.11933 ± 0.00091.
+
+    The paper''s eq. (A5) prints the mass term as "−Mχ|χ|2" (dimensionally it is M_chi^2 |chi|^2); quoted verbatim in the
+    latex field. For Y = 1 the scalar O^S_0 is suppressed by Lambda_UV^{4Y-2} = Lambda_UV^2 (dimension-6), and O^S_+ is renormalizable.
+
+    The 3_1 is one of "the only two complex candidates for which the lightest component of the multiplet is guaranteed to
+    be electrically neutral" (p2); with minimal splitting the Q = 1 splitting is the EW value ("542 MeV for 31", p7).
+
+    The same Table gives the Dirac fermion 3_1 at 2.85 ± 0.14 TeV and the complex scalar 2_{1/2} (inert-doublet-like, high-mass
+    regime) at 0.58 ± 0.01 TeV, useful as cross-checks.
+
+    The Higgs-portal quartics of the scalar (|chi|^2|H|^2) are not written in (A5); the thermal mass assumes they are negligible.
+
+    G1 conventions (2026-10-13): the splitting operators O₀ˢ and O₊ˢ are dropped (their couplings are free and do not set
+    the thermal mass).'
+- id: dirac_fermion_higgs_portal_eft_cpv_gambit
+  title: Singlet Dirac fermion with dimension-5 CP-violating Higgs-portal operator (high-mass best fit)
+  category: higgs_portal
+  in_library: true
+  library: higgs_portal_dirac_cpv
+  reference:
+    arxiv: '1808.10465'
+    title: Global analyses of Higgs portal singlet dark matter models using GAMBIT
+    first_author: Peter Athron (GAMBIT Collaboration)
+    year: 2018
+  lagrangian:
+    latex: \mathcal{L}_\psi = \mathcal{L}_{SM} + \bar\psi(i\slashed{\partial} - m_\psi)\psi - \frac{\lambda_{h\psi}}{\Lambda_\psi}\left[\cos\xi\,\bar\psi\psi
+      + \sin\xi\,\bar\psi i\gamma_5\psi\right]\left(v_0 h + \frac{1}{2}h^2\right)
+    equation: (8) (post-EWSB form of eq. (3))
+    page: 3
+  needs:
+  - perturbative_s_channel
+  - p_wave
+  - higher_dimensional_operator
+  - ewsb_mixing
+  spec:
+    phase: broken
+    fields:
+    - name: psi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 9895.0
+      mass_justification: the physical mass
+      dark_parity: -1
+    - name: h
+      role: standard_model
+      spin: 0
+      self_conjugate: true
+    couplings:
+    - name: lam_over_Lambda
+      value: 0.00036
+      mass_dimension: -1
+      justification: λ_h/Λ
+    - name: xi
+      value: 2.07
+      justification: the CP angle after the chiral rotation
+    terms:
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: h
+      lorentz: scalar
+      coupling: -lam_over_Lambda*cos(xi)*v
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: h
+      lorentz: pseudoscalar
+      coupling: -lam_over_Lambda*sin(xi)*v
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: h
+      - field: h
+      lorentz: scalar
+      coupling: -lam_over_Lambda*cos(xi)/2
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: h
+      - field: h
+      lorentz: pseudoscalar
+      coupling: -lam_over_Lambda*sin(xi)/2
+    stability: 'Z2: psi → −psi'
+    assumptions:
+    - 'the Higgs field after symmetry breaking: H†H → v₀h + h²/2 (v₀ = 246.22 GeV)'
+  targets:
+  - quantity: omega_h2
+    value: 0.1155
+    at:
+      m_psi: 9895.0
+      lambda_hpsi_over_Lambda: 0.00036
+      xi: 2.07
+    source:
+      arxiv: '1808.10465'
+      page: 13
+      location: Table 7, row 'Dirac / Ωψh2 ∼ ΩDMh2'
+      quote: Dirac Ωψh2 ≲ΩDMh2 6.3 × 10−4 GeV−1 9.950 × 103 2.06 3.813 × 10−2 0.307 Ωψh2 ∼ΩDMh2 3.6 × 10−4 GeV−1 9.895 × 103
+        2.07 1.155 × 10−1 0.553
+    tool: GAMBIT 1.2 DarkBit, Boltzmann equation solved with DarkSUSY routines
+    engine_options:
+      xi: 2.07
+    point:
+      m_chi: 9895.0
+      m_med: 125.09
+      g_chi: 0.00036
+  - quantity: omega_h2
+    value: 0.03813
+    at:
+      m_psi: 9950.0
+      lambda_hpsi_over_Lambda: 0.00063
+      xi: 2.06
+    source:
+      arxiv: '1808.10465'
+      page: 13
+      location: Table 7, row 'Dirac / Ωψh2 ≲ ΩDMh2'
+      quote: Dirac Ωψh2 ≲ΩDMh2 6.3 × 10−4 GeV−1 9.950 × 103 2.06 3.813 × 10−2 0.307
+    tool: GAMBIT 1.2 DarkBit, Boltzmann equation solved with DarkSUSY routines
+    overrides:
+      masses:
+        psi: 9950.0
+      couplings:
+        lam_over_Lambda: 0.00063
+        xi: 2.06
+    engine_options:
+      xi: 2.06
+    point:
+      m_chi: 9950.0
+      m_med: 125.09
+      g_chi: 0.00063
+  notes: 'Table 7 header (verbatim): "Model Relic density condition λhX mX (GeV) ξ (rad) ΩXh2 ∆ln L"; caption: "Details of
+    the best-fit parameter points ... both with and without the requirement that the predicted relic density is within 1σ
+    of the Planck observed value."
+
+    Relic: "ΩDMh2 = 0.1188±0.0010" with "a 5% theoretical error on the computed values of the relic density" (p5).
+
+    Text p14: "If ψ makes up all of the DM, the best-fit point shifts slightly to the bottom of the high mass triangle at
+    λhψ/Λψ = 3.6 × 10−4 GeV−1, mψ = 9.9 TeV and ξ = 2.07 rad."
+
+    Parameterisation: the pre-EWSB Lagrangian (eq. 3) has mass parameter mu_psi and angle theta; after EWSB a chiral rotation
+    removes the i gamma5 mass term, giving physical m_psi and xi = theta + alpha (eqs. 6-10). The table and targets use the
+    post-EWSB (m_psi, lambda/Lambda, xi). Only even powers of sin xi enter; physics symmetric under xi -> -xi.
+
+    At m_psi ~ 10 TeV the dominant channels are psi psi -> hh, WW, ZZ, tt via s-channel h plus the contact (h^2) term and
+    t/u-channel psi; sin xi ~ 0.88 gives s-wave (pseudoscalar) annihilation while cos xi ~ -0.48 gives a p-wave scalar piece.
+    EFT validity (eq. 33, lambda/Lambda <= 4 pi/(2 m)) is imposed in the paper.
+
+    Best fits come with nuisance parameters (m_h, alpha_s, nuclear, halo) that "do not differ significantly from the central
+    values".'
+- id: majorana_fermion_higgs_portal_eft_resonance_gambit
+  title: Singlet Majorana fermion with CP-violating dimension-5 Higgs portal at the Higgs resonance
+  category: resonance
+  in_library: true
+  library: higgs_portal_majorana
+  reference:
+    arxiv: '1808.10465'
+    title: Global analyses of Higgs portal singlet dark matter models using GAMBIT
+    first_author: Peter Athron (GAMBIT Collaboration)
+    year: 2018
+  lagrangian:
+    latex: \mathcal{L}_\chi = \mathcal{L}_{SM} + \frac{1}{2}\bar\chi(i\slashed{\partial} - m_\chi)\chi - \frac{1}{2}\frac{\lambda_{h\chi}}{\Lambda_\chi}\left[\cos\xi\,\bar\chi\chi
+      + \sin\xi\,\bar\chi i\gamma_5\chi\right]\left(v_0 h + \frac{1}{2}h^2\right)
+    equation: (7) (post-EWSB form of eq. (2))
+    page: 3
+  needs:
+  - resonance
+  - perturbative_s_channel
+  - higher_dimensional_operator
+  - ewsb_mixing
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 61.03
+      mass_justification: the physical mass
+      dark_parity: -1
+    - name: h
+      role: standard_model
+      spin: 0
+      self_conjugate: true
+    couplings:
+    - name: lam_over_Lambda
+      value: 6.3e-06
+      mass_dimension: -1
+      justification: λ_h/Λ
+    - name: xi
+      value: 1.41
+      justification: the CP angle after the chiral rotation
+    terms:
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: h
+      lorentz: scalar
+      coupling: -lam_over_Lambda*cos(xi)*v/2
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: h
+      lorentz: pseudoscalar
+      coupling: -lam_over_Lambda*sin(xi)*v/2
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: h
+      - field: h
+      lorentz: scalar
+      coupling: -lam_over_Lambda*cos(xi)/2/2
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: h
+      - field: h
+      lorentz: pseudoscalar
+      coupling: -lam_over_Lambda*sin(xi)/2/2
+    stability: 'Z2: chi → −chi'
+    assumptions:
+    - 'the Higgs field after symmetry breaking: H†H → v₀h + h²/2 (v₀ = 246.22 GeV)'
+  targets:
+  - quantity: omega_h2
+    value: 0.1128
+    at:
+      m_chi: 61.03
+      lambda_hchi_over_Lambda: 6.3e-06
+      xi: 1.41
+    source:
+      arxiv: '1808.10465'
+      page: 13
+      location: Table 7, row 'Majorana / Ωχh2 ∼ ΩDMh2'
+      quote: Ωχh2 ∼ΩDMh2 6.3 × 10−6 GeV−1 61.03 1.41 1.128 × 10−1 0.439
+    tool: GAMBIT 1.2 DarkBit, Boltzmann equation solved with DarkSUSY routines
+    engine_options:
+      xi: 1.41
+    point:
+      m_chi: 61.03
+      m_med: 125.09
+      g_chi: 6.3e-06
+  notes: 'Resonant annihilation through the SM Higgs: 2 m_chi = 122.06 GeV is just below m_h ~ 125 GeV, so the thermal average
+    samples the Breit-Wigner tail; the result is extremely sensitive to m_h (a nuisance parameter whose best-fit value is
+    not quoted, "they do not differ significantly from the central values") and to Gamma_h.
+
+    xi = 1.41 rad is close to pi/2 (nearly pure pseudoscalar coupling, s-wave). Relic criterion ΩDMh2 = 0.1188 ± 0.0010 with
+    5% theory error (p5).
+
+    The paper (p4, footnote 4) assumes local thermal equilibrium, noting it "can break down very close to the resonance",
+    and says "we stick to the standard approximation of LTE" — the target is the standard (local thermal equilibrium) Boltzmann
+    result.
+
+    Majorana normalisation: factor 1/2 on both the kinetic and the portal terms (eq. 7).
+
+    The same table''s other Majorana best fit (relic allowed below Planck) has a huge coupling and Ωχh2 = 6.588e-8 at 138.4
+    GeV; not used as a target.
+
+    The thermal average samples the Higgs pole''s tail (2m_χ = 122.06 GeV): extremely sensitive to m_h, which GAMBIT varies
+    as a nuisance parameter and does not print.'
+- id: u1x_vector_dm_dark_higgs_kamon
+  title: U(1)_X gauge-boson (vector) DM with a dark Higgs mixing with the SM Higgs (renormalisable Higgs-portal VDM)
+  category: gauged_u1
+  in_library: false
+  reference:
+    arxiv: '1705.02149'
+    title: Characterizing Higgs portal dark matter models at the ILC
+    first_author: Teruki Kamon
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L}_{\rm VDM} = -\frac{1}{4}V_{\mu\nu}V^{\mu\nu} + D_\mu\Phi^\dagger D^\mu\Phi - \lambda_\Phi\left(\Phi^\dagger\Phi
+      - \frac{v_\phi^2}{2}\right)^2 - \lambda_{H\Phi}\left(H^\dagger H - \frac{v_h^2}{2}\right)\left(\Phi^\dagger\Phi - \frac{v_\phi^2}{2}\right),
+      \quad D_\mu\Phi = (\partial_\mu + i g_V Q_\Phi V_\mu)\Phi;\quad \mathcal{L}^{\rm int}_{\rm VDM} = -(H_1\cos\alpha +
+      H_2\sin\alpha)\left(\sum_f \frac{m_f}{v_h}\bar f f - \frac{2m_W^2}{v_h}W^+_\mu W^{-\mu} - \frac{m_Z^2}{v_h}Z_\mu Z^\mu\right)
+      - \frac{1}{2}g_V m_V (H_1\sin\alpha - H_2\cos\alpha)V_\mu V^\mu
+    equation: (II.8), (II.9), (II.10)
+    page: 5
+  needs:
+  - perturbative_s_channel
+  - new_gauge_group
+  - mass_mixing
+  - ewsb_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: Vx
+      role: dark_matter
+      spin: 1
+      self_conjugate: true
+      mass_justification: m_V = g_V v_φ, from the vacuum
+      dark_parity: -1
+    - name: Phi
+      role: mediator
+      spin: 0
+      charges:
+        extra:
+          Vx: 1.0
+      vev_gev: 22.6628895184136
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: g_V
+      value: 3.53
+    - name: lam_Phi
+      value: 36.80467973632812
+    - name: lam_HPhi
+      value: 1.2501110212251436
+    - name: lam_H
+      value: 0.14696090567690578
+    terms:
+    - fields:
+      - field: Vx
+      - field: Phi
+        conjugate: true
+      - field: Phi
+      lorentz: scalar_current
+      coupling: -g_V
+      text: from |D_μΦ|², D_μ = ∂_μ + i g_V V_μ
+    - fields:
+      - field: Vx
+      - field: Vx
+      - field: Phi
+        conjugate: true
+      - field: Phi
+      lorentz: scalar
+      coupling: g_V**2
+      text: g_V² V_μV^μ Φ†Φ
+    - fields:
+      - field: Phi
+      - field: Phi
+        conjugate: true
+      - field: Phi
+      - field: Phi
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam_Phi
+      text: −λ_Φ(Φ†Φ − v_φ²/2)²
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: Phi
+      - field: Phi
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam_HPhi
+      text: −λ_HΦ(H†H − v²/2)(Φ†Φ − v_φ²/2)
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: H
+      - field: H
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam_H
+      text: −λ_H|H|⁴ with m_h₁ = 125 GeV after mixing
+    stability: the dark charge conjugation V → −V, Φ → Φ*
+    assumptions:
+    - 'V is the U(1)_X gauge boson: its couplings follow from Φ''s covariant derivative'
+  targets:
+  - quantity: omega_h2
+    value: 0.000478
+    at:
+      m_V: 80.0
+      sin_alpha: 0.3
+      m_H2: 200.0
+      g_V: 3.53
+      m_H1: 125.0
+    source:
+      arxiv: '1705.02149'
+      page: 16
+      location: Table V, row 'VDM Ωh2', column mH2 = 200 GeV (gV from Table I, p6)
+      quote: VDM Ωh2 4.78 × 10−4 1.60 × 10−3 3.05 × 10−3 4.88 × 10−3
+    tool: micrOMEGAs (CalcHEP model files from FeynRules; version not stated)
+  - quantity: omega_h2
+    value: 0.00488
+    at:
+      m_V: 80.0
+      sin_alpha: 0.3
+      m_H2: 500.0
+      g_V: 1.91
+      m_H1: 125.0
+    source:
+      arxiv: '1705.02149'
+      page: 16
+      location: Table V, row 'VDM Ωh2', column mH2 = 500 GeV (gV from Table I, p6)
+      quote: VDM Ωh2 4.78 × 10−4 1.60 × 10−3 3.05 × 10−3 4.88 × 10−3
+    tool: micrOMEGAs (CalcHEP model files from FeynRules; version not stated)
+    overrides:
+      couplings:
+        g_V: 1.91
+        lam_Phi: 65.2400695800781
+        lam_HPhi: 6.503900769612183
+        lam_H: 0.3028394671525155
+      vevs:
+        Phi: 41.8848167539267
+  notes: 'Benchmarks (p6): "the parameters for the vector DM production are chosen accordingly: sin α = 0.3, mV = 80 GeV (III.4)"
+    with gV per Table I: "mH2 [GeV] 200 300 400 500 / Γmin(H2) [GeV] 14.2 60.1 103.0 144.5 / gV 3.53 3.07 2.37 1.91". The
+    intermediate points (300 GeV, gV = 3.07, Ωh2 = 1.60e-3; 400 GeV, gV = 2.37, Ωh2 = 3.05e-3) are extra checks.
+
+    These are UNDER-abundant points (the paper: "the relic abundances of our DM particles are always below the measurement
+    (Ωh2 0 = 0.1198)"), i.e. tests of the Ωh2 computation, not thermal-mass targets.
+
+    Physics: "For all benchmark points, the DMs are dominantly annihilatting into WW∗ through scalar mediator(s) where W∗is
+    the off-shell W boson" (p15). Since m_V = 80 GeV < m_W, the dominant channel is VV -> W W* (3-body final state) via s-channel
+    H1 and H2 with destructive/constructive interference; a code restricted to on-shell 2-body final states will badly underestimate
+    the annihilation rate and overestimate Ωh2. Set H2 widths consistently (the paper''s Γmin(H2) assumes H2 -> H1H1 negligible,
+    footnote 3).
+
+    Kinetic mixing of V with hypercharge is forbidden by an imposed Z2/charge conjugation (p5), so V is stable; there is no
+    Z'' portal. The H1-H2 trilinear couplings (from λΦ, λHΦ) do not enter at m_V = 80 GeV because VV -> H1H1 is closed.
+
+    The paper''s coefficient "-1/2 gV mV" for the H VV vertex should be cross-checked against D_mu Phi with Q_Phi = 1 (which
+    gives g_V m_V phi V.V from |D Phi|^2); use the covariant derivative as the definition. v_h = 246 GeV assumed (not printed
+    numerically).
+
+    σ_SI is tabulated only as σ_SI^p × Ωh2/0.1198 (8.44e-10 pb at m_H2 = 200 GeV).
+
+    At m_V = 80 GeV the relic is set by VV → WW* (off-shell W): beyond 2 → 2. The paper''s L^int prints the H–V–V coefficient
+    as ½g_V m_V; the covariant derivative gives g_V m_V, which the typed model keeps. At m_H₂ = 200 GeV, λ_Φ ≈ 37 exceeds
+    4π (the benchmark''s g_V = 3.53 is chosen for the H₂ width).
+
+    G1 conventions (2026-10-13): Φ has its vacuum value v_φ = m_V/g_V (m_V = 80 GeV at both benchmarks), V''s mass comes from
+    it, and λ_H is stated so that m_h₁ = 125 GeV after the h–φ mixing. The sign of λ_HΦ makes H₂ the heavier state for sin
+    α > 0.
+
+    Correction (2026-10-15, the owner''s decision D20): the quartic −λ_Φ(Φ†Φ − v_φ²/2)² was transcribed with one Φ† too
+    few (Φ Φ† Φ Φ, net U(1)_X charge +2), so G1 refused the entry. Its fields are now Φ Φ† Φ Φ†, as eq. (II.8) prints it.
+    The second benchmark (m_H₂ = 500 GeV, g_V = 1.91) kept the first one''s vacuum value v_φ = 80/3.53 GeV, so its V
+    came out at 43 GeV; it now overrides v_φ = m_V/g_V = 80/1.91 GeV, as the notes above state (a target may now
+    override a vacuum value). Each benchmark now also states m_H₁ = 125 GeV, the SM-like h''s mass the entry''s λ_H is
+    set for (descriptive: it changes nothing computed). Found by G10''s intake gate, which compares specs only; the G4
+    and G7 held-out runs refused the entry, so this entry is not blind at G12.'
+- id: singlet_doublet_majorana_cohen
+  title: Singlet-doublet Majorana fermion DM (bino-higgsino-like, doublet-like blind-spot point)
+  category: mixed_multiplets
+  in_library: false
+  reference:
+    arxiv: '1109.2604'
+    title: Singlet–Doublet Dark Matter
+    first_author: Timothy Cohen
+    year: 2011
+  lagrangian:
+    latex: \Delta\mathcal{L} = -\lambda D H S - \lambda' D^c \tilde{H} S - M_D D D^c - \frac{1}{2} M_S S^2 + \text{h.c.},
+      \qquad D = \begin{pmatrix}\nu\\ E\end{pmatrix},\ D^c = \begin{pmatrix}-E^c\\ \nu^c\end{pmatrix},\ \tilde{H} \equiv i\sigma_2
+      H^*
+    equation: (1), (2)
+    page: 4
+  needs:
+  - perturbative_s_channel
+  - t_channel_exchange
+  - coannihilation
+  - ewsb_mixing
+  - mass_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: S
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      mass_gev: 2000.0
+      mass_justification: M_S, the singlet's Majorana mass
+      dark_parity: -1
+    - name: D
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      mass_gev: 1100.0
+      mass_justification: M_D, the vectorlike mass
+      charges:
+        su2: 2
+        hypercharge: -0.5
+      dark_parity: -1
+    - name: Dc
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      mass_gev: 1100.0
+      mass_justification: M_D
+      charges:
+        su2: 2
+        hypercharge: 0.5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: lam
+      value: 0.2
+    - name: lam_prime
+      value: -0.2
+    - name: M_D
+      value: 1100.0
+      mass_dimension: 1
+    terms:
+    - fields:
+      - field: D
+      - field: H
+      - field: S
+      lorentz: scalar
+      coupling: -lam
+      plus_hc: true
+      text: −λ D H S + h.c.
+      indices: eps[i,j] D[i] H[j] S
+    - fields:
+      - field: Dc
+      - field: H
+        conjugate: true
+      - field: S
+      lorentz: scalar
+      coupling: -lam_prime
+      plus_hc: true
+      text: −λ′ D^c H̃ S + h.c.
+      indices: Dc[i] H*[i] S
+    - fields:
+      - field: D
+      - field: Dc
+      lorentz: scalar
+      coupling: -M_D
+      plus_hc: true
+      text: −M_D D D^c + h.c.
+      indices: eps[i,j] D[i] Dc[j]
+    stability: 'Z2: S, D, D^c → −S, −D, −D^c'
+    assumptions:
+    - two-component Weyl fields; the dark matter is the lightest neutral mixture of S, ν and ν^c
+  targets:
+  - quantity: thermal_mass_gev
+    value: 1100
+    at:
+      M_S: 2000
+      lambda: 0.2
+      lambda_prime: -0.2
+    source:
+      arxiv: '1109.2604'
+      page: 9
+      location: text, Sec. II B (paragraph after Fig. 2)
+      quote: For instance, we find that for MS = 2 TeV and λ = −λ′ = 0.2, the correct relic density is achieved for MD = 1.1
+        TeV.
+    tool: micrOMEGAs 2.4 (authors' model implementation)
+    omega_target: 0.112
+    scan: M_D
+  notes: 'Two-component Weyl notation; doublets contracted with epsilon_ij. Paper: "We denote the singlet as S and the doublets
+    as D and Dc ... with hypercharges −1/2 and +1/2 respectively" (Q = T3 + Y, no conversion needed). Neutral mass matrix
+    in basis (S, ν, νc) is eq. (3) with off-diagonal entries λv/√2 and λ′v/√2.
+
+    The benchmark sits at λ+ ≡ λ′ + λ = 0: the DM is ν1 = (νc + ν)/√2 with mass exactly M_D at tree level and vanishing ν1ν1h
+    coupling (p9: "the condition for ν1ν1h cancellation to be λ′crit = −λ ⇒ λ+ = 0 (mν1 = MD)"); relic set by coannihilation
+    with the charged Dirac state ψE (mass M_D) and the second neutral state, with "mν2 − mν1 ∼ 1 GeV". Physically this is
+    a higgsino-like doublet; the paper notes pure Higgsino "MD ∼ 1.1 TeV yields the correct value of Ωh2".
+
+    Relic window used in the paper: "0.1053 ≤ Ωh2 ≤ 0.1193, a 2σ range" (WMAP7, p10). micrOMEGAs 2.4 includes only 2→2 processes;
+    no Sommerfeld enhancement. The Higgs mass is not stated for this point (the paper''s scans use mh = 140 GeV or 500 GeV);
+    irrelevant at this order because the hν1ν1 coupling vanishes.
+
+    Fields S, D, Dc are listed with role dark_matter because the DM is a mixture of their neutral components; nu_1 (DM eigenstate)
+    and psi_E are listed with the quantum numbers of their dominant parent (doublet) at this benchmark; nu_1 = (νc + ν)/√2
+    is an equal mix of the Y = +1/2 and Y = −1/2 neutral components, so its hypercharge entry 0.0 is nominal.
+
+    The thermal mass is M_D at fixed M_S = 2 TeV and λ = −λ′ = 0.2; Ωh² target the centre of the paper''s 0.1053–0.1193 window.
+
+    G1 conventions (2026-10-13): the contractions are those that reproduce the paper''s mass matrix, eq. (3). the thermal
+    mass varies M_D (scan), as the paper''s does.'
+- id: singlet_doublet_dirac_yaguna
+  title: 'Singlet-doublet Dirac fermion DM (SD³M): vector-like singlet + Y = −1/2 doublet with chiral Yukawas y₁, y₂; relic
+    density set by coannihilation with the doublet'
+  category: mixed_multiplets
+  in_library: false
+  reference:
+    arxiv: '1510.06151'
+    title: Singlet-Doublet Dirac Dark Matter
+    first_author: Carlos E. Yaguna
+    year: 2015
+    journal: Phys. Rev. D 92, 115002 (2015)
+  lagrangian:
+    latex: \mathscr{L}_{\rm SD^3M} = i\bar\psi \slashed{D}\psi + i\bar S \slashed{\partial} S - M_D \bar\psi_L \psi_R - M_S
+      \bar S_L S_R - y_1 \bar\psi_L \tilde H S_R - y_2 \bar\psi_R \tilde H S_L + h.c., \qquad \tilde H = i\sigma_2 H \ (\text{as
+      printed; } i\sigma_2 H^* \text{ meant})
+    equation: (1)
+    page: 3
+  needs:
+  - perturbative_s_channel
+  - t_channel_exchange
+  - coannihilation
+  - ewsb_mixing
+  - mass_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi0
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 200.0
+      mass_justification: M_S, the singlet's Dirac mass; M_χ1 = M_S to better than 10⁻⁴ (p7), and the first target sits at
+        M_χ1 = 200 GeV
+      dark_parity: -1
+    - name: N
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 212.0
+      mass_justification: M_D, the doublet's Dirac mass; M_χ2 = M_D to better than 10⁻⁴ (p7). Start value M_D = 1.06 M_S from
+        the paper's 'of order 6%' at M_χ1 = 200 GeV; the thermal-splitting solve varies it
+      charges:
+        su2: 2
+        hypercharge: -0.5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: y1
+      value: 1.0e-05
+      justification: 'not printed at any point: the viable models have y₁, y₂ ≲ 4×10⁻³ and ''below their upper bound, the
+        Yukawa couplings can take essentially any value'' (p7–9); 10⁻⁵ is inside the scanned range (> 10⁻⁶) and keeps sin
+        θ_L,R ≲ 4×10⁻² (the paper''s viable region, Fig. 3) at both targets'
+    - name: y2
+      value: 1.0e-05
+      justification: as y1
+    terms:
+    - fields:
+      - field: N
+        conjugate: true
+      - field: H
+        conjugate: true
+      - field: chi0
+      lorentz: chiral
+      coupling: -y1
+      plus_hc: true
+      text: −y₁ ψ̄_L H̃ S_R + h.c. (= −y₁ N̄ P_R χ⁰ H̃ + h.c.)
+      indices: eps[i,j] N*[i] H*[j] chi0
+    - fields:
+      - field: chi0
+        conjugate: true
+      - field: N
+      - field: H
+      lorentz: chiral
+      coupling: -y2
+      plus_hc: true
+      text: '−y₂ ψ̄_R H̃ S_L + h.c., written through its h.c.: −y₂ χ̄⁰ P_R N H̃† + h.c.'
+      indices: eps[i,j] N[i] H[j] chi0*
+    stability: 'Z2: ψ, S → −ψ, −S (SM even); a U(1) under which ψ and S carry the same charge forbids Majorana masses for
+      S'
+    assumptions:
+    - 'both new fermions are Dirac (vector-like); no Majorana mass for S_L,R (p3: a global U(1) with equal charges for the
+      new fields, or a gauged one as in Sec. 5)'
+    - the dark matter χ₁ is mostly singlet (M_S < M_D); χ₂ and the charged χ± are mostly doublet
+  targets:
+  - quantity: thermal_splitting
+    value: 0.06
+    uncertainty: 0.01
+    at:
+      M_chi1: 200
+      M_S: 200
+      y1: 'not printed: any value ≲ 4×10⁻³ (p7–9, ''the dark matter constraint does not restrict the possible values of y1
+        and y2''); 1×10⁻⁵ used here'
+      y2: 'not printed: any value ≲ 4×10⁻³ (p7–9, ''the dark matter constraint does not restrict the possible values of y1
+        and y2''); 1×10⁻⁵ used here'
+    source:
+      arxiv: '1510.06151'
+      page: 7
+      location: text, Sec. 4, second paragraph (describing Fig. 2, right panel)
+      quote: For Mχ1 = 200, 500, 600 GeV the ratio Mχ2 /Mχ1 is respectively of order 6%, 2%, 1%.
+    tool: micrOMEGAs with LanHEP ("For the calculation of the relic density we have used micrOMEGAs [17](and LanHEP [18]),
+      which automatically takes into account all coannihilation processes", p7; ref. [17] is the micrOMEGAs 3.1 paper, the
+      version run is not stated); tree-level 2→2 annihilation, no Sommerfeld effect; Δ ≡ M_χ2/M_χ1 − 1 = M_D/M_S − 1 (the
+      quote's 'ratio … of order 6%' read as M_χ2/M_χ1 − 1 ≈ 0.06)
+    engine_options:
+      sommerfeld: false
+    omega_target: 0.12
+    scan: chi0
+    tied: N
+  - quantity: thermal_mass_gev
+    value: 750
+    at:
+      M_D: 'M_S (Δ → 0: ''the mass difference between χ1 and χ2 becomes negligible'')'
+      y1: 'not printed: any value ≲ 4×10⁻³ (p7–9, ''the dark matter constraint does not restrict the possible values of y1
+        and y2''); 1×10⁻⁵ used here'
+      y2: 'not printed: any value ≲ 4×10⁻³ (p7–9, ''the dark matter constraint does not restrict the possible values of y1
+        and y2''); 1×10⁻⁵ used here'
+    source:
+      arxiv: '1510.06151'
+      page: 7
+      location: text, Sec. 4, second paragraph (describing Fig. 2); two sentences of the same paragraph joined by '…'
+      quote: From the figure we see that the upper bound on MD , MS is of order 750 GeV, consistent with our estimate in the
+        previous section. … Close to Mχ1 ∼ 750 GeV, the mass difference between χ1 and χ2 becomes negligible.
+    tool: micrOMEGAs with LanHEP ("For the calculation of the relic density we have used micrOMEGAs [17](and LanHEP [18]),
+      which automatically takes into account all coannihilation processes", p7; ref. [17] is the micrOMEGAs 3.1 paper, the
+      version run is not stated); tree-level 2→2 annihilation, no Sommerfeld effect; the upper bound on the dark matter mass
+      is reached as M_D → M_S, taken here as M_D = 1.0001 M_S (mediator_ratio), as in the coloured-coannihilation entries
+    engine_options:
+      sommerfeld: false
+    omega_target: 0.12
+    mediator_ratio: 1.0001
+    overrides:
+      masses:
+        chi0: 750.0
+        N: 750.075
+    scan: chi0
+    tied: N
+  notes: 'Model (p3, eq. 1): "two Dirac fermions: an SU (2) doublet with Y = −1/2, ψL,R , and a singlet, SL,R". A doublet
+    with a neutral member at Y = −1/2 is the Q = T3 + Y convention, so no hypercharge conversion: N ≡ ψ = (ψ⁰, ψ⁻) with Y
+    = −1/2, chi0 ≡ S. The charged member is named χ+ in the paper, "with mass Mχ+ = MD + 341 MeV" (p4); the 341 MeV is the
+    radiative splitting, which the typed model (tree level, M_χ± = M_D) leaves out.
+
+    Higgs conjugate: the paper prints "H̃ = iσ2 H" (p3). Hypercharge needs iσ2H* (ψ̄_L H̃ S_R must have Y = 0), which is used
+    here; with ⟨H⁰⟩ = v/√2 it reproduces the paper''s mass matrix. Index contraction ε₁₂ = +1: ψ̄_i H̃_i = ε_ij ψ̄_i H*_j
+    = ψ̄⁰H⁰* − ψ̄⁻H⁻.
+
+    Yukawa normalisation: eq. (2) (p4), basis (S, ψ), has rows (MS, y2 v/√2) and (y1 v/√2, MD), "where v = 246 GeV"; rows
+    are the left-handed and columns the right-handed states (Md = UL† M UR, eq. 3). This is ⟨H⁰⟩ = v/√2, v = 246 GeV, the
+    same as ADROIT''s, so y₁, y₂ are used as printed. Check: tan 2θL = √2v(MS y1 + MD y2)/(MD² − MS² + v²(y1² − y2²)/2) (eq.
+    5) is the (1,2) element of M M† over the difference of its diagonal entries.
+
+    Two chiral Yukawas (the paper''s own; no left-right equality is assumed): y1 multiplies ψ̄_L S_R, y2 multiplies ψ̄_R S_L.
+    ADROIT''s lorentz: chiral is Ψ̄_a P_R Ψ_b (barred field first). The y1 term is written as printed, −y1 N̄ P_R χ⁰ H̃ +
+    h.c. The y2 term, −y2 ψ̄ P_L S H̃ + h.c., is written through its Hermitian conjugate, −y2 χ̄⁰ P_R N H̃† + h.c., with (H̃_i)*
+    = ε_ij H_j, so that both terms use P_R; for real y2 it is the same Lagrangian. Mass terms −MD ψ̄ψ − MS S̄S are the fields''
+    Dirac masses (mass_gev).
+
+    Independent inputs: "the model contains only 4 free parameters" (p4), MS, MD, y1, y2, or equivalently "Mχ1 , Mχ2 , θL
+    , and θR" (p4). The targets are stated in physical masses, and "the viable models satisfy Mχ1 /MS ≈ 1 and Mχ2 /MD ≈ 1
+    to a precision better than 10−4" (p7), so M_S = M_χ1 and M_D = M_χ2 here. The paper prints no Yukawa value at either point:
+    its scan has "MD , MS < 2 TeV, y1 , y2 > 10−6" (p7), the viable models "fulfill y1 , y2 ≲ 4 × 10−3" (p7) and "below their
+    upper bound, the Yukawa couplings can take essentially any value. That is, the dark matter constraint does not restrict
+    the possible values of y1 and y2" (p8–9). y1 = y2 = 1e-5 is this entry''s choice, not the paper''s: sin θ_L,R ≈ 1.5e-4
+    at the first target and ≈ 0.02 at M_D = 1.0001 M_S = 750 GeV, both within the viable sin θ_L,R ≲ 4e-2 of Fig. 3. The Ωh²
+    targets should not depend on it.
+
+    Relic physics (p9, Fig. 4): "the dark matter relic density is entirely determined by coannihilation processes"; χ2χ+ →
+    f f̄′ via W± (about 55%), χ+χ− → f f̄ and χ2χ̄2 → f f̄ (about 30%), the rest gauge-boson final states (χ2χ+ → A/Z W+,
+    χ+χ− → W+W−, χ2χ̄2 → ZZ); "Processes involving the annihilation of dark matter particles give a negligible contribution".
+    Degrees of freedom gS = 4, gψ = 8 (p6). No Ωh² value is printed: "a relic density in agreement with current observations
+    [16]" (Planck 2013, p7), so Ωh² = 0.12 (the zoo''s rule for papers that print no value). engine_options sommerfeld
+    false: micrOMEGAs computes tree-level 2→2 rates.
+
+    Target 1 (thermal splitting): Δ = M_D/M_S − 1 solved at fixed M_S = 200 GeV. The text says "of order" and prints the value to the nearest percent, so the target carries ±0.01 (this entry''s
+    choice, made before any result). Fig. 2 (right), read by eye (a reading, not a target), puts the viable band at about
+    1.048–1.054 at 200 GeV (Δ ≈ 0.05), 1.011–1.017 at 500 GeV and 1.002–1.008 at 600 GeV. The same sentence''s 500 and 600
+    GeV values ("2%, 1%") are not used: they sit further from the figure in relative terms.
+
+    Target 2 (thermal mass at Δ → 0): the largest dark matter mass, reached when χ1, χ2, χ± are degenerate; abstract and conclusions:
+    "the dark matter mass should be below 750 GeV" (p1, p12). The paper''s analytic estimate, eq. (11), Ωχ1h² = Ωχ2h²((gψ
+    + gS)/gψ)² with Ωχ2h² ≈ 0.11 (Mχ2/1.1 TeV)² (p6), gives "Mχ1 ≲ 733 GeV" (p6) for Ωh² = 0.11; the target is the numerical
+    (micrOMEGAs) value, 750 GeV, at Ωh² = 0.12.
+
+    No σ_SI target: the paper gives σ_SI only as a formula, eq. (9), σ^{A,Z}_SI = G_F²μ²/(8π)(sin²θL + sin²θR)² [(1 − 4 sin²θW)Z
+    − (A − Z)]², converted to a per-nucleon σ^N_SI = m_N²/(μ²A²) σ^{A,Z}_SI (eq. 10), and as the scatter of Fig. 6; it prints
+    no σ_SI at a stated parameter point. The Z exchange is isospin-violating: "Since 1 − 4 sin2 θW is small, the dark matter
+    particle hardly interacts with protons" (p5), so the paper''s σ^N is not the DM–proton cross-section the zoo compares.
+
+    Sec. 5 embeds the model in a gauged U(1)_B extension; only eq. (1) is encoded (the paper itself uses eq. (1) for Secs.
+    2–4).'
+- id: singlet_triplet_fermion_choubey
+  title: Singlet-triplet Majorana fermion DM mixed through a real scalar triplet vev
+  category: mixed_multiplets
+  in_library: false
+  reference:
+    arxiv: '1711.08888'
+    title: Singlet-Triplet Fermionic Dark Matter and LHC Phenomenology
+    first_author: Sandhya Choubey
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L} = \mathcal{L}_{SM} + Tr[\bar\rho\, i\gamma^\mu D_\mu \rho] + \bar N' i\gamma^\mu D_\mu N' + Tr[(D_\mu\Delta)^\dagger(D^\mu\Delta)]
+      - V(\phi_h,\Delta) - Y_{\rho\Delta}\left(Tr[\bar\rho\,\Delta] N' + h.c.\right) - M_\rho Tr[\bar\rho^c\rho] - M_{N'}\bar
+      N'^c N' ;\quad V(\phi_h,\Delta) = -\mu_h^2\phi_h^\dagger\phi_h + \frac{\lambda_h}{4}(\phi_h^\dagger\phi_h)^2 + \mu_\Delta^2
+      Tr[\Delta^\dagger\Delta] + \lambda_\Delta(\Delta^\dagger\Delta)^2 + \lambda_1(\phi_h^\dagger\phi_h)Tr[\Delta^\dagger\Delta]
+      + \lambda_2\left(Tr[\Delta^\dagger\Delta]\right)^2 + \lambda_3 Tr[(\Delta^\dagger\Delta)^2] + \lambda_4\phi_h^\dagger\Delta\Delta^\dagger\phi_h
+      + (\mu\phi_h^\dagger\Delta\phi_h + h.c.)
+    equation: (5), (7)
+    page: 6
+  needs:
+  - perturbative_s_channel
+  - t_channel_exchange
+  - coannihilation
+  - resonance
+  - ewsb_mixing
+  - mass_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: Np
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 88.004
+      mass_justification: M_N′ from M_ρ⁰₁, M_ρ⁰₂ and sin β
+      dark_parity: -1
+    - name: rho
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 127.596
+      mass_justification: M_ρ from M_ρ⁰₁, M_ρ⁰₂ and sin β
+      charges:
+        su2: 3
+      dark_parity: -1
+    - name: Delta
+      role: mediator
+      spin: 0
+      self_conjugate: true
+      charges:
+        su2: 3
+      vev_gev: 3.694957855317822
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: Y
+      value: 2.1758024872329633
+    - name: mu
+      value: 4.6547520089429035
+      mass_dimension: 1
+    - name: lam32
+      value: 1.0382716187093004
+    - name: lam41
+      value: 1.0382716187088368
+    - name: lam_h
+      value: 0.5202706127047497
+    terms:
+    - fields:
+      - field: rho
+        conjugate: true
+      - field: Np
+      - field: Delta
+      lorentz: scalar
+      coupling: -Y/2
+      text: −Y_ρΔ Tr[ρ̄Δ]N′ (= −½Y ρ̄^AΔ^A N′); eq. (16)'s Y v_Δ/2
+    - fields:
+      - field: H
+        conjugate: true
+      - field: Delta
+      - field: H
+      lorentz: scalar
+      coupling: -mu/2
+      plus_hc: true
+      text: −(μ φ_h†Δφ_h + h.c.), Δ = Δ^Aσ^A/2
+      indices: H*[i] sigma[A,i,j] H[j] cart[A,m] Delta[m]
+    - fields:
+      - field: Delta
+      - field: Delta
+      - field: Delta
+      - field: Delta
+      lorentz: scalar
+      coupling: -lam32/8
+      text: −(λ₃ + 2λ₂)(Δ·Δ)²/8
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: Delta
+      - field: Delta
+      lorentz: scalar
+      coupling: -lam41/4
+      text: −(λ₄ + 2λ₁)(φ_h†φ_h)(Δ·Δ)/4
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: H
+      - field: H
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam_h/4
+      text: −(λ_h/4)(φ_h†φ_h)²
+    stability: 'Z2: ρ, N′ → −ρ, −N′'
+    assumptions:
+    - Δ is a real triplet with ⟨Δ⁰⟩ = v_Δ, tan δ = 2v_Δ/v (their eq. (14))
+    dropped:
+    - λ_Δ(Δ†Δ)², which for a real triplet only adds to λ₃ + 2λ₂
+  targets:
+  - quantity: omega_h2
+    value: 0.1207
+    at:
+      M_rho01: 87.6
+      M_rho02: 128.0
+      M_rhopm: 128.2
+      M_h2: 195.5
+      M_Hpm: 195.5
+      M_h1: 125.5
+      sin_alpha: 0.03
+      sin_beta: 0.1
+      sin_delta: 0.03
+    source:
+      arxiv: '1711.08888'
+      page: 22
+      location: Table IV, row BP1
+      quote: BP1 87.6 128.0 128.2 195.5 195.5 2.1 ×10−12 0.1207
+    tool: micrOMEGAs (via FeynRules/CalcHEP model files; version not stated)
+    overrides: {}
+  - quantity: sigma_si_cm2
+    value: 8.22e-48
+    at:
+      M_rho01: 87.6
+      M_rho02: 128.0
+      M_rhopm: 128.2
+      M_h2: 195.5
+      M_Hpm: 195.5
+      M_h1: 125.5
+      sin_alpha: 0.03
+      sin_beta: 0.1
+      sin_delta: 0.03
+    source:
+      arxiv: '1711.08888'
+      page: 22
+      location: eq. (23) at Table IV's BP1 inputs (f_N = 0.3, m_N = 0.939 GeV, M_h1 = 125.5 GeV); the table itself gives
+        2.1e-12 pb (corrected, see notes)
+      quote: BP1 87.6 128.0 128.2 195.5 195.5 2.1 ×10−12 0.1207
+    tool: micrOMEGAs / analytic eq. (23) with fN = 0.3
+    overrides: {}
+  - quantity: omega_h2
+    value: 0.1197
+    at:
+      M_rho01: 171.1
+      M_rho02: 211.0
+      M_rhopm: 211.2
+      M_h2: 400.0
+      M_Hpm: 400.0
+      M_h1: 125.5
+      sin_alpha: 0.03
+      sin_beta: 0.1
+      sin_delta: 0.03
+    source:
+      arxiv: '1711.08888'
+      page: 22
+      location: Table IV, row BP3
+      quote: BP3 171.1 211.0 211.2 400.0 400.0 4.8 ×10−12 0.1197
+    tool: micrOMEGAs (via FeynRules/CalcHEP model files; version not stated)
+    overrides:
+      masses:
+        Np: 171.499
+        rho: 210.60100000000003
+      couplings:
+        Y: 2.1488742386285944
+        mu: 19.486013865185726
+        lam32: 1.0382716187098333
+        lam41: 1.0382716187088372
+        lam_h: 0.5238863940851038
+  notes: 'Table IV header (verbatim): "Parameters Mρ0 1 [GeV] Mρ0 2 [GeV] Mρ+ [GeV] Mh2 [GeV] MH± [GeV] σSI [pb] Ωh2"; caption:
+    "Benchmark points to study LHC phenomenology. We ﬁxed other BSM parameters as sin α = 0.03, sin β = 0.1."
+
+    sin δ is not in the caption; the paper states (p14) "In our analysis we have taken sin α = sin δ for simplicity", hence
+    sin δ = 0.03 (tan δ = 2 v∆/v, eq. 14). SM-like Higgs: "the SM-like Higgs mass is ﬁxed at Mh1 = 125.5 GeV" (p15).
+
+    The singlet and triplet fermions mix only through the induced vev v∆ of the real (Y = 0) scalar triplet ∆: fermion mass
+    matrix eq. (16) with off-diagonal Yρ∆ v∆/2; mixing ρ0_1 = −sin β ρ0 + cos β N′c (eq. 17); Yρ∆ = ∆M21 sin 2β/(2v∆) (eq.
+    19). Scalar sector: h1 = cos α H + sin α ∆0, h2 = −sin α H + cos α ∆0; couplings in terms of masses in eq. (15).
+
+    Note the paper''s normalisation ρ = [[ρ0/2, ρ+/√2],[ρ−/√2, −ρ0/2]] (eq. 6). Relic band used: Planck "0.1172 ≤ Ωh2 ≤ 0.1226
+    at 68% C.L." (eq. 26). Pure-triplet limit of the same paper: "the present day observed value of the DM relic density is
+    satisﬁed around Mρ0 ∼2370 GeV" (p5, tree level, no Sommerfeld).
+
+    DM is mostly singlet; relic set by coannihilation with the triplet states (∆M21 ≈ 40 GeV) plus h2/H± mediated channels.
+    Remaining quartics (λ∆, λ2+..., μ) are fixed by eq. (15) only in combinations; the paper does not list all of them.
+
+    G1 conventions (2026-10-13): the potential and Yukawa are in Lagrangian parameters from the paper''s eqs. (14)–(16). The
+    fermion mixing follows eq. (16), Y v_Δ/2, and eq. (19)''s Y is not used (it is a factor 2 off eq. (16)); ρ± is at the
+    tree-level M_ρ (127.6 GeV), not the paper''s M_ρ⁰₂ + 0.16.
+
+    Correction (2026-10-14, the owner''s decision on D12): the σ_SI target is the paper''s own eq. (23), σ = 4μ²f²/π for
+    Majorana dark matter, evaluated at Table IV''s BP1 inputs: 8.22e-48 cm². Table IV''s column is a quarter of eq. (23) at
+    every benchmark point (eq. (23)/table = 3.92, 3.90, 3.97, 3.52, 3.98 for BP1–BP5): it matches eq. (20), the Dirac
+    μ²/π, with the Majorana coupling of eqs. (19) and (22). The target was 2.1e-48 cm² (the table) before.'
+- id: doublet_triplet_fermion_dedes
+  title: Doublet-triplet fermionic DM with custodial Yukawas (EW-scale DM via t/u-channel)
+  category: mixed_multiplets
+  in_library: false
+  reference:
+    arxiv: '1403.7744'
+    title: Doublet-Triplet Fermionic Dark Matter
+    first_author: Athanasios Dedes
+    year: 2014
+  lagrangian:
+    latex: \mathscr{L}^{DM}_{Yuk} = Y_1\, \epsilon^{ab}\, T^A H_a (\tau^A)^c_b \bar D_{1c} - Y_2\, T^A H^{\dagger a} (\tau^A)^c_a
+      \bar D_{2c} - M_D\, \epsilon^{ab} \bar D_{1a}\bar D_{2b} - \frac{1}{2} M_T T^A T^A + \text{H.c.}
+    equation: (2.9)
+    page: 6
+  needs:
+  - t_channel_exchange
+  - ewsb_mixing
+  - mass_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: T
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      mass_gev: 100.0
+      mass_justification: M_T
+      charges:
+        su2: 3
+      dark_parity: -1
+    - name: D1bar
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      charges:
+        su2: 2
+        hypercharge: -0.5
+      dark_parity: -1
+    - name: D2bar
+      role: dark_matter
+      spin: 0.5
+      chirality: L
+      charges:
+        su2: 2
+        hypercharge: 0.5
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: Y1
+      value: 1.1487414285359394
+      justification: m₁ = Y₁ v/√2 (their v ≃ 174 GeV)
+    - name: Y2
+      value: 1.1487414285359394
+    - name: M_D
+      value: 110.0
+      mass_dimension: 1
+    terms:
+    - fields:
+      - field: T
+      - field: H
+      - field: D1bar
+      lorentz: scalar
+      coupling: Y1
+      plus_hc: true
+      text: Y₁ ε^{ab} T^A H_a (τ^A)^c_b D̄_{1c} + H.c.
+      indices: eps[a,b] D1bar[a] sigma[A,b,c] H[c] cart[A,m] T[m]
+    - fields:
+      - field: T
+      - field: H
+        conjugate: true
+      - field: D2bar
+      lorentz: scalar
+      coupling: -Y2
+      plus_hc: true
+      text: −Y₂ T^A H^{†a} (τ^A)^c_a D̄_{2c} + H.c.
+      indices: H*[a] sigma[A,a,c] D2bar[c] cart[A,m] T[m]
+    - fields:
+      - field: D1bar
+      - field: D2bar
+      lorentz: scalar
+      coupling: -M_D
+      plus_hc: true
+      text: −M_D ε^{ab} D̄_{1a} D̄_{2b} + H.c.
+      indices: eps[a,b] D1bar[a] D2bar[b]
+    stability: 'Z2: T, D̄₁, D̄₂ odd'
+  targets:
+  - quantity: omega_h2
+    value: 0.12
+    uncertainty: 0.005
+    at:
+      M_D: 110
+      M_T: 100
+      m: 200
+    source:
+      arxiv: '1403.7744'
+      page: 3
+      location: Fig. 1 caption
+      quote: For the spectrum masses written to the right we have chosen MD = 110 GeV, MT = 100 GeV and m = Y v = 200 GeV.
+        It provides the correct relic density abundance for dark matter [see Section 4]
+    tool: authors' tree-level calculation of χχ → W+W−, ZZ via t/u-channel exchange (Sec. 4)
+  - quantity: omega_h2
+    value: 0.12
+    uncertainty: 0.005
+    at:
+      M_D: 91
+      M_T: 91
+      m: 140
+    source:
+      arxiv: '1403.7744'
+      page: 20
+      location: text below eq. (4.69), discussing Fig. 7b (MD = MT)
+      quote: For mχ ≃ 91 GeV the correct density is obtained for m ≃ 140 GeV.
+    tool: authors' tree-level calculation (Sec. 4)
+    overrides:
+      masses:
+        T: 91.0
+      couplings:
+        Y1: 0.8041189999751576
+        Y2: 0.8041189999751576
+        M_D: 91.0
+  notes: 'The paper uses Q = I3W + Y/2: "T ∼ (1c, 3)0L, D1 ∼ (1c, 2)+1R, D2 ∼ (1c, 2)−1R" (eq. 2.3) and in LH Weyl form "D̄1
+    ∼ (1c, 2)−1, D̄2 ∼ (1c, 2)+1" (eq. 2.6). Converted here to Q = T3 + Y: D̄1 has Y = −1/2, D̄2 has Y = +1/2, T has Y = 0.
+    Higgs normalised as H0 = v + h/√2 with v ≃ 174 GeV ("Y = m/v ≃ 200/174 ≃ 1.15", p15).
+
+    Custodial limit Y1 = Y2 ≡ Y (m1 = m2 = m): the eigenvalue MD decouples, so mχ01 = MD exactly and the χ01χ01Z and χ01χ01h
+    tree couplings vanish; annihilation only via t/u-channel χχ → W+W−, ZZ (eqs. 4.66–4.67). Fig. 1 caption: "The lightest
+    neutral particle, χ0 1 is an equal admixture of the two doublets and has mass MD" (its hypercharge entry 0.0 here is nominal;
+    chi_pm is a doublet-triplet mixture listed with triplet quantum numbers). Fig. 1 spectrum for the benchmark: χ01 at 110
+    GeV, heavier states at 297 and 307 GeV ("MD ∼ √2 m" region). No significant coannihilation (splitting > 50%).
+
+    Relic target used: Planck "Ωh2 = 0.1199 ± 0.0027" (eq. 4.69); the paper''s Fig. 7 draws the 2σ band as contours 0.115
+    and 0.125, hence value 0.12 ± 0.005 here (the paper gives no Ωh2 number at the point itself).
+
+    The paper states "Our calculation is a tree level one" and explicitly excludes MD < MZ (three-body final states); the
+    second target (MD = MT ≃ 91 GeV) sits at that boundary and is read from text with "≃".
+
+    The Fig. 1 benchmark lies at the upper MD edge of the allowed band of Fig. 7a (92 ≲ mχ ≲ 110 GeV for m = 200 GeV).
+
+    The second point has M_D ≈ M_Z, which the authors say they do not treat.
+
+    G1 conventions (2026-10-13): the Yukawas are written in invariant form; the signs reproduce the paper''s mass matrices,
+    eq. (2.12). The doublets'' mass is the −M_D term alone.
+
+    Re-read (2026-10-14, D12): the text''s point (m_χ ≃ 91, m ≃ 140) lies about 1 GeV outside Fig. 7b''s plotted region,
+    whose 0.12 contour passes near M_D = M_T = 92 GeV, m ≈ 138.5 GeV. The second target keeps the text''s point, the
+    paper''s own statement; no value was changed.'
+- id: coloured_coannihilation_scalar_triplet_desimone
+  title: Singlet Majorana DM coannihilating with a degenerate coloured scalar triplet (stop-bino-like), QCD Sommerfeld
+  category: coannihilation
+  in_library: true
+  library: tchannel_uR_majorana
+  reference:
+    arxiv: '1402.6287'
+    title: Benchmarks for Dark Matter Searches at the LHC
+    first_author: Andrea De Simone
+    year: 2014
+  lagrangian:
+    latex: \sigma(\chi'\chi' \to gg, q\bar q)\, v = \frac{g_3^4}{M_{\chi'}^2} \times \left\{ \frac{7}{432\pi}\ (\text{scalar
+      triplet});\ \frac{27}{256\pi}\ (\text{scalar octet});\ \frac{7}{864\pi} + \frac{1}{24\pi}\ (\text{fermion triplet});\
+      \frac{27}{512\pi} + \frac{9}{128\pi}\ (\text{fermion octet}) \right\},\qquad \langle\sigma v\rangle = \sigma(\chi'\chi'\to
+      \text{SM})v \times R^2
+    equation: (2.12), (2.4) — the paper writes no Lagrangian; chi' interacts only through QCD minimal coupling
+    page: 4
+  needs:
+  - coannihilation
+  - coloured
+  - sommerfeld
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 1000.0
+      dark_parity: -1
+    - name: chi_prime
+      role: other
+      spin: 0
+      mass_gev: 1000.0
+      mass_justification: degenerate with the dark matter (ΔM = 0)
+      charges:
+        su3: '3'
+      dark_parity: -1
+    - name: G
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+      charges:
+        su3: '8'
+    stability: a Z2 under which χ and its coloured partner are odd
+    assumptions:
+    - 'only strong interactions: the partner''s interactions with χ are unspecified and keep the two in chemical equilibrium
+      (fast conversions)'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 1300
+    at:
+      Delta_M: 0
+      g_chi: 2
+      treatment: perturbative (no Sommerfeld)
+    source:
+      arxiv: '1402.6287'
+      page: 9
+      location: table in eq. (2.26), column 'Scalar triplet', row 'MDM (Sommerfeld neglected)'
+      quote: 'For vanishing mass splitting in the dark sector, ∆M = 0, the Sommerfeld corrections significantly increase the
+        particle mass needed to reproduce the observed DM abundance: Scalar Fermion Scalar Fermion triplet triplet octet octet
+        MDM (Sommerfeld neglected) 1.3 TeV 2.4 TeV 3.2 TeV 3.7 TeV MDM (Sommerfeld included) 1.7 TeV 4 −5 TeV 5 −6 TeV 7 −8
+        TeV'
+    tool: authors' numerical Boltzmann solution (single-species effective cross-section, s+p wave)
+    engine_options:
+      sommerfeld: false
+      bound_states: false
+    mediator_ratio: 1.0001
+    point:
+      m_chi: 1300.0
+      m_med: 1300.13
+      g_chi: 0.1
+    tied: chi_prime
+  - quantity: thermal_mass_gev
+    value: 1700
+    at:
+      Delta_M: 0
+      g_chi: 2
+      treatment: QCD Sommerfeld included
+    source:
+      arxiv: '1402.6287'
+      page: 9
+      location: table in eq. (2.26), column 'Scalar triplet', row 'MDM (Sommerfeld included)'
+      quote: MDM (Sommerfeld included) 1.7 TeV 4 −5 TeV 5 −6 TeV 7 −8 TeV
+    tool: authors' numerical Boltzmann solution with QCD Sommerfeld factors from the full running-coupling potential with
+      thermal gluon mass (numerical Schrödinger solution)
+    engine_options:
+      sommerfeld: true
+      bound_states: false
+    mediator_ratio: 1.0001
+    point:
+      m_chi: 1700.0
+      m_med: 1700.17
+      g_chi: 0.1
+    tied: chi_prime
+  notes: 'Setup (p3): "We consider the possibility that the DM particle, stabilized by a discrete symmetry, is accompanied
+    by a nearby coloured state χ′ ... Since we neglect any interaction between the SM and dark sectors, other than strong
+    interactions, there are only two parameters relevant for our analysis: the DM mass MDM and the mass splitting ∆M". DM–χ′
+    conversions assumed fast; one χ per χ′ decay.
+
+    DM d.o.f. (p5): "For deﬁniteness, we assume that the DM particle is a Majorana fermion, such as the supersymmetric neutralino,
+    or a complex scalar: gχ = 2 in both cases." gχ′ = {6, 8, 12, 16} for {S3, S8, F3, F8}; R = (1 + gχ/gχ′)^−1 at ∆M = 0 (eq.
+    2.5).
+
+    The paper neglects electroweak interactions of χ′ ("We neglected the electroweak contributions to the annihilation cross
+    sections"), so χ′''s hypercharge/electric charge are left null here (the Fig. 1 label "Stopbino" suggests a right-handed-stop-like
+    state). The DM mass target equals Mχ′ since ∆M = 0.
+
+    Normalisation: "⟨σv⟩cosmo = (2.3 ± 0.1) × 10−26 cm3 s−1" (eq. 2.3) quoted for orientation; the exact ΩDM h2 used in Sec.
+    2 is not stated (Sec. 4 normalises to ΩDMh2 = 0.1187). The "Sommerfeld included" value uses the running QCD potential
+    and a thermal gluon mass m3 = √2 g3 T (p9). Bound-state formation is NOT included (compare entry coloured_coannihilation_bsf_harz).
+
+    Footnote 1 (p4): their formulas agree with an earlier reference "taking into account that the parameter ⟨σAv⟩ there deﬁned
+    equals 2 times the conventional ⟨σv⟩cosmo here employed."
+
+    Library route: the S3M_uR partner with y = 0.1 stands in for the unspecified conversions; at ΔM = 0 its own annihilation
+    (∝ y⁴) is negligible beside φφ* → gg. Ωh² target not printed: 0.12. ΔM = 0 is taken as m_φ = 1.0001 m_χ, since the engine
+    computes only m_φ > m_χ (an entry correction of 2026-10-13: in the first development run every target stopped at that
+    domain; the partner''s Boltzmann factor moves by ≈ 0.25%).'
+- id: coloured_coannihilation_fermion_octet_desimone
+  title: Singlet Majorana DM coannihilating with a degenerate Majorana colour octet (gluino-bino-like), QCD Sommerfeld
+  category: coannihilation
+  in_library: false
+  reference:
+    arxiv: '1402.6287'
+    title: Benchmarks for Dark Matter Searches at the LHC
+    first_author: Andrea De Simone
+    year: 2014
+  lagrangian:
+    latex: \sigma(\chi'\chi' \to gg, q\bar q)\, v = \frac{g_3^4}{M_{\chi'}^2} \times \left( \frac{27}{512\pi} + \frac{9}{128\pi}
+      \right)\ (\text{fermion octet}),\qquad \langle\sigma v\rangle = \sigma(\chi'\chi'\to \text{SM})v \times R^2
+    equation: (2.12), (2.4) — the paper writes no Lagrangian; chi' interacts only through QCD minimal coupling
+    page: 4
+  needs:
+  - coannihilation
+  - coloured
+  - sommerfeld
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 1000.0
+      dark_parity: -1
+    - name: chi_prime
+      role: other
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 1000.0
+      mass_justification: degenerate with the dark matter (ΔM = 0)
+      charges:
+        su3: '8'
+      dark_parity: -1
+    - name: G
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+      charges:
+        su3: '8'
+    stability: a Z2 under which χ and its coloured partner are odd
+    assumptions:
+    - 'only strong interactions: the partner''s interactions with χ are unspecified and keep the two in chemical equilibrium
+      (fast conversions)'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 3700
+    at:
+      Delta_M: 0
+      g_chi: 2
+      treatment: perturbative (no Sommerfeld)
+    source:
+      arxiv: '1402.6287'
+      page: 9
+      location: table in eq. (2.26), column 'Fermion octet', row 'MDM (Sommerfeld neglected)'
+      quote: MDM (Sommerfeld neglected) 1.3 TeV 2.4 TeV 3.2 TeV 3.7 TeV
+    tool: authors' numerical Boltzmann solution
+    engine_options:
+      sommerfeld: false
+      bound_states: false
+    mediator_ratio: 1.0001
+    tied: chi_prime
+  - quantity: thermal_mass_gev
+    value: 7500
+    uncertainty: 500
+    at:
+      Delta_M: 0
+      g_chi: 2
+      treatment: QCD Sommerfeld included
+    source:
+      arxiv: '1402.6287'
+      page: 9
+      location: table in eq. (2.26), column 'Fermion octet', row 'MDM (Sommerfeld included)'
+      quote: MDM (Sommerfeld included) 1.7 TeV 4 −5 TeV 5 −6 TeV 7 −8 TeV
+    tool: authors' numerical Boltzmann solution with QCD Sommerfeld factors (running coupling, thermal gluon mass)
+    engine_options:
+      sommerfeld: true
+      bound_states: false
+    mediator_ratio: 1.0001
+    tied: chi_prime
+  notes: 'Same paper and conventions as coloured_coannihilation_scalar_triplet_desimone (gχ = 2 Majorana DM, ∆M = 0, electroweak
+    interactions neglected). The Sommerfeld-included result is given only as the range "7 −8 TeV"; encoded as 7500 ± 500 GeV
+    (the paper gives no central value).
+
+    Octet colour factors (eq. 2.9): d = 8, T = 3, C = 3, K1 = 72, K2 = 36. For a stable gluino-like octet the paper notes
+    one multiplies its Fig. 1 octet curves by R = 8/9 (p9).
+
+    The irregular peak structure of the Sommerfeld-corrected abundance (Fig. 1) "corresponds to the appearance of two-body
+    bound states with zero binding energy" — the mass target is therefore sensitive to the treatment of the QCD potential;
+    bound-state formation itself is not included.
+
+    Ωh² target not printed: 0.12. The Sommerfeld-included value is printed as the range 7–8 TeV. ΔM = 0 is taken as m_χ′ =
+    1.0001 m_χ, as for the scalar triplet.'
+- id: coloured_coannihilation_bsf_harz
+  title: Majorana DM coannihilating with a coloured scalar triplet including gluon-emission bound-state formation
+  category: coannihilation
+  in_library: true
+  library: tchannel_uR_majorana
+  reference:
+    arxiv: '1805.01200'
+    title: Radiative bound-state formation in unbroken perturbative non-Abelian theories and implications for dark matter
+    first_author: Julia Harz
+    year: 2018
+  lagrangian:
+    latex: \delta\mathcal{L} = (D_{\mu,ij}X_j)^\dagger (D^\mu_{ij'}X_{j'}) - m_X^2 X_j^\dagger X_j,\qquad D_{\mu,ij} = \delta_{ij}\partial_\mu
+      + i g_s G^a_\mu T^a_{ij}
+    equation: (3.1)
+    page: 16
+  needs:
+  - coannihilation
+  - coloured
+  - sommerfeld
+  - bound_states
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 1000.0
+      dark_parity: -1
+    - name: X
+      role: other
+      spin: 0
+      mass_gev: 1000.0
+      mass_justification: degenerate with the dark matter (ΔM = 0)
+      charges:
+        su3: '3'
+      dark_parity: -1
+    - name: G
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+      charges:
+        su3: '8'
+    stability: a Z2 under which χ and its coloured partner are odd
+    assumptions:
+    - 'only strong interactions: the partner''s interactions with χ are unspecified and keep the two in chemical equilibrium
+      (fast conversions)'
+  targets:
+  - quantity: thermal_mass_gev
+    value: 3300
+    at:
+      Delta_m: 0
+      treatment: Sommerfeld + bound-state formation
+    source:
+      arxiv: '1805.01200'
+      page: 24
+      location: text below Fig. 7 (Sec. 3.5); endpoint of the yellow band of Fig. 7 left at Delta_m = 0
+      quote: It implies that the mass splitting can be as high as ∼ 38 GeV, and DM can be as heavy as 3.3 TeV.
+    tool: authors' Boltzmann equation (3.5) with effective BSF cross-section (3.23), running alpha_s, own code
+    engine_options:
+      sommerfeld: true
+      bound_states: true
+    mediator_ratio: 1.0001
+    point:
+      m_chi: 3300.0
+      m_med: 3300.33
+      g_chi: 0.1
+    tied: X
+  - quantity: thermal_mass_gev
+    value: 1865
+    uncertainty: 50
+    at:
+      Delta_m: 0
+      treatment: Sommerfeld only (no BSF)
+    source:
+      arxiv: '1805.01200'
+      page: 24
+      location: 'Fig. 7 left, purple dashed band at Delta_m = 0 (read from the vector-graphics band edges: 1.82-1.91 TeV)'
+      quote: The blue dotted band takes into account perturbative annihilation only, the purple dashed band incorporates the
+        Sommerfeld effect on the direct annihilation, and the yellow solid band includes also the effect of bound-state formation
+        and decay. The width of the bands arises from the 3σ uncertainty on the DM density.
+    tool: authors' Boltzmann equation; value read from figure
+    engine_options:
+      sommerfeld: true
+      bound_states: false
+    mediator_ratio: 1.0001
+    point:
+      m_chi: 1865.0
+      m_med: 1865.19
+      g_chi: 0.1
+    tied: X
+  - quantity: thermal_mass_gev
+    value: 1330
+    uncertainty: 40
+    at:
+      Delta_m: 0
+      treatment: perturbative only
+    source:
+      arxiv: '1805.01200'
+      page: 24
+      location: 'Fig. 7 left, blue dotted band at Delta_m = 0 (read from the vector-graphics band edges: 1.29-1.36 TeV)'
+      quote: The blue dotted band takes into account perturbative annihilation only
+    tool: authors' Boltzmann equation; value read from figure
+    engine_options:
+      sommerfeld: false
+      bound_states: false
+    mediator_ratio: 1.0001
+    point:
+      m_chi: 1330.0
+      m_med: 1330.13
+      g_chi: 0.1
+    tied: X
+  notes: 'Model (p16): "We assume that DM is a Majorana fermion χ of mass mχ, that co-annihilates with a complex scalar triplet
+    under SU(3)c, denoted by X." The χ–X interactions are left unspecified and assumed to keep χ and X in chemical equilibrium
+    (standard coannihilation, single Boltzmann equation for Ỹ = Yχ + 2YX, eq. 3.3–3.5 with gχ = 2, gX = 3). EW quantum numbers
+    of X are not specified (QCD only), hence hypercharge/charge null here.
+
+    Annihilation XX† → gg with Sommerfeld factors for colour-singlet and colour-octet scattering states (αs evaluated at the
+    scales of Table 2); BSF into the colour-singlet ground state by gluon emission (octet → singlet), with ionisation (Milne
+    relation) and decay; effective BSF cross-section eq. (3.23). The s-channel XX† → qq̄ p-wave contribution is neglected
+    ("which we neglect", Fig. 2b caption).
+
+    Curve readings (Fig. 7 left, figure is vector graphics; x calibrated on the 1.0–3.0 TeV gridlines, y = 0 at the frame):
+    at ∆m = 0 the bands span 1.29–1.36 TeV (perturbative), 1.82–1.91 TeV (Sommerfeld), 3.16–3.31 TeV (SE + BSF); band widths
+    reflect the 3σ uncertainty on ΩDM. The quoted "3.3 TeV" is the upper edge. The maximal ∆m of the SE+BSF band is ≈ 37 GeV
+    at mχ ≈ 0.7 TeV (text: "∼ 38 GeV").
+
+    The numerical ΩDMh2 value used is not printed in the paper text (only "3σ uncertainty on the DM density"). Text extraction
+    of this PDF maps symbols oddly (e.g. "„" for ∼); quotes here are transcribed from the rendered page.
+
+    Cross-check: the perturbative and SE-only endpoints should be compared with De Simone et al. (1402.6287) S3 values 1.3
+    and 1.7 TeV for the same degrees of freedom; the BSF effect nearly doubles the thermal mass ("BSF depletes DM by (40 −
+    240)%").
+
+    Library route as for De Simone et al. Ωh² target not printed: 0.12. The printed 3.3 TeV is the upper edge of the 3σ band
+    (3.16–3.31 TeV). ΔM = 0 is taken as m_φ = 1.0001 m_χ, since the engine computes only m_φ > m_χ (an entry correction of
+    2026-10-13: in the first development run every target stopped at that domain; the partner''s Boltzmann factor moves by
+    ≈ 0.25%).'
+- id: secluded_dirac_vector_pospelov
+  title: Secluded Dirac WIMP annihilating into a pair of U(1)' vectors
+  category: secluded
+  in_library: false
+  reference:
+    arxiv: '0810.1502'
+    title: Astrophysical Signatures of Secluded Dark Matter
+    first_author: Maxim Pospelov
+    year: 2008
+  lagrangian:
+    latex: \mathcal{L}_{\rm WIMP+V-portal} = \mathcal{L}_{\rm WIMP} - \frac{1}{4}V_{\mu\nu}^2 + \frac{1}{2}m_V^2 V_\mu^2 +
+      \kappa V_\nu\partial_\mu F^{\mu\nu} + \mathcal{L}_{h'}, \qquad \mathcal{L}^f_{\rm WIMP} = \bar\psi(iD_\mu\gamma^\mu
+      - m_\psi)\psi + \mathcal{L}(\Delta m_\psi), \qquad D_\mu = \partial_\mu + i e' V_\mu
+    equation: (3), (4)
+    page: 4
+  needs:
+  - annihilation_to_mediators
+  - t_channel_exchange
+  - kinetic_mixing
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: psi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 270.0
+      charges:
+        extra:
+          V: 1.0
+      dark_parity: -1
+    - name: V
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 1.0
+      mass_justification: m_V ≪ m_ψ (the paper's limit m_V → 0; 1 GeV here)
+    - name: A
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+    couplings:
+    - name: e_prime
+      value: 0.3544907701811032
+      justification: α′ = e′²/4π = 0.01
+    - name: kappa
+      justification: small, only so that V decays; the paper's κ ≪ 1
+      value: 1.0e-06
+    terms:
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: V
+      lorentz: vector
+      coupling: -e_prime
+      text: from D_μ = ∂_μ + i e′V_μ
+    - fields:
+      - field: V
+      - field: A
+      lorentz: kinetic_mixing
+      coupling: -kappa/2
+      text: κ V_ν ∂_μF^{μν} = −(κ/2)V_{μν}F^{μν} + total derivative
+    stability: the dark U(1)′ charge
+  targets:
+  - quantity: sigma_v_cm3_s
+    value: 2.5e-26
+    at:
+      m_psi: 270.0
+      alpha_prime: 0.01
+      m_V: 1.0
+      kappa: 1.0e-06
+      chosen by the zoo: 'm_ψ = 270 GeV, α′ = 0.01 (the paper''s relic relation), m_V = 1 GeV (the paper''s limit m_V → 0)
+        and κ = 10⁻⁶ (the paper''s κ ≪ 1, small only so that V decays)'
+    source:
+      arxiv: '0810.1502'
+      page: 5
+      location: eq. (7) and the sentence before it
+      quote: 'Assuming that ψ (or φ) is the dominant component of dark matter, and relating the cross section to the measured
+        cold dark matter energy density, we obtain: 10^−10 x_f / (sqrt(g∗(T_f)) × ⟨σv⟩) ≤ Ω_DM h^2 ≈ 0.1 =⇒ ⟨σv⟩ = 2.5 × 10−26
+        cm3s−1, (7)'
+    tool: analytic freeze-out estimate (x_f ~ 20, g* ~ O(100))
+  - quantity: thermal_mass_gev
+    value: 270.0
+    at:
+      alpha_prime: 0.01
+      m_V: 0.0
+    source:
+      arxiv: '0810.1502'
+      page: 5
+      location: eq. (8) (fermionic WIMP relation) and preceding sentence
+      quote: Eq. (7) implies that in the limit of small mixing, κ ≪1, the correct dark matter abundance is achieved if the
+        WIMP masses and couplings satisfy the relation(s) α′ ≃ 10^−2 × (mψ / 270 GeV), α′ ≃ 10^−2 × (mφ / 380 GeV). (8) (These
+        formulae also correct a small numerical error in Eq. (13) of Ref. [3].)
+    tool: analytic freeze-out estimate
+    omega_target: 0.1
+  notes: 'Annihilation that sets the abundance is psi psibar -> V V (t/u-channel psi exchange), with spin-averaged cross section
+    (eq. 6, p5) sigma v|^{+-}_{2V} = pi alpha''^2/m_psi^2 sqrt(1 - m_V^2/m_psi^2) -> pi alpha''^2/m_psi^2 for m_V << m_psi.
+
+    Convention: the paper''s <sigma v> in eq. (7) is the average over +-, ++ and -- collisions, <sigma v> = (1/2) sigma v|^{+-}_{2V};
+    the target 2.5e-26 cm^3/s therefore corresponds to sigma v|^{+-} = 5e-26 cm^3/s. Check: pi*(0.01)^2/(270 GeV)^2 = 4.3e-9
+    GeV^-2 = 5.0e-26 cm^3/s, consistent.
+
+    The paper normalises to Omega_DM h^2 ≈ 0.1 (old WMAP-era value), not 0.12; rescale by ~0.1/0.12 in <sigma v> (or ~sqrt
+    of that in alpha'') when comparing to a modern code. Target is an analytic order-of-magnitude-level estimate; allow O(10-20%)
+    tolerance.
+
+    For a complex scalar WIMP phi, eq. (6) is multiplied by 2, giving the second relation alpha'' ≃ 1e-2 (m_phi/380 GeV).
+
+    This paper explicitly corrects eq. (13) of the original secluded-WIMP paper (Pospelov, Ritz, Voloshin, arXiv:0711.4866,
+    PDF p7), which reads "α′ × (1 − m_V^2/m_ψ^2)^{1/4} ≃ 5 × 10^−3 × (m_ψ/500 GeV)"; that older relation is low by a factor
+    ~3.5 in alpha'' and should NOT be used as a target. The original PRV Lagrangian (eq. 2 of 0711.4866) is the same model
+    with kinetic mixing written as -(kappa/2) V_{mu nu} B^{mu nu} with hypercharge.
+
+    The dark Higgs h'' and the mixing kappa are irrelevant for the relic density in the secluded limit (they only need V and
+    h'' to decay before BBN); DM stability is from the unbroken DM-number (U(1)'' charge) — dark_parity -1 is assigned to
+    psi as an effective Z2 label.
+
+    The thermal mass is the paper''s analytic estimate from ⟨σv⟩ = 2.5 × 10⁻²⁶ cm³/s (ψψ̄ → VV), normalised to Ωh² ≈ 0.1;
+    the earlier 0711.4866 eq. (13) is not used.
+
+    G1 conventions (2026-10-13): the unspecified kinetic mixing kappa is set to 1e-06 (small, only so that V decays; the paper''s
+    κ ≪ 1).'
+- id: forbidden_dark_photon_dagnolo
+  title: Forbidden Dirac dark matter annihilating into heavier dark photons
+  category: forbidden
+  in_library: false
+  reference:
+    arxiv: '1505.07107'
+    title: Forbidden Dark Matter
+    first_author: Raffaele Tito D'Agnolo
+    year: 2015
+  lagrangian:
+    latex: \mathcal{L} \supset -\frac{\epsilon}{2} F^d_{\mu\nu} F^{\mu\nu}
+    equation: (6)
+    page: 3
+  needs:
+  - forbidden_channels
+  - annihilation_to_mediators
+  - t_channel_exchange
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: psi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 1.0
+      charges:
+        extra:
+          gamma_d: 1.0
+      dark_parity: -1
+    - name: gamma_d
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 1.309
+      mass_justification: m_γd = m_ψ(1 + Δ)
+    - name: A
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+    couplings:
+    - name: g_d
+      value: 1.1209982432795857
+      justification: α_d = 0.1
+    - name: epsilon
+      justification: small enough not to affect the annihilation; the paper's 'irrelevant'
+      value: 1.0e-05
+    terms:
+    - fields:
+      - field: psi
+        conjugate: true
+      - field: psi
+      - field: gamma_d
+      lorentz: vector
+      coupling: -g_d
+      text: the U(1)_d gauge coupling (described in words)
+    - fields:
+      - field: gamma_d
+      - field: A
+      lorentz: kinetic_mixing
+      coupling: -epsilon/2
+      text: −(ε/2)F^d_{μν}F^{μν}
+    stability: the dark U(1)_d charge
+  targets:
+  - quantity: thermal_splitting
+    value: 0.309
+    at:
+      m_psi: 1.0
+      alpha_d: 0.1
+      Delta: 0.309
+      epsilon: 1.0e-05
+      chosen by the zoo: 'ε = 10⁻⁵, small enough not to affect the annihilation (the paper: irrelevant to it)'
+    source:
+      arxiv: '1505.07107'
+      page: 3
+      location: Fig. 2 left, blue curve (alpha_d = 0.1), read at m_psi = 1 GeV from the vector-graphics path (Fig. 1 right
+        gives the same crossing, Delta = 0.311)
+      quote: The left side shows the splitting ∆, versus mψ, with Ωψh2 fixed to the observed abundance. Different curves correspond
+        to different values of αd. For mψ > 1 MeV the dark sector temperature equals the SM temperature
+    tool: micrOMEGAs v4 ("Our numerical results here, and throughout this letter, utilize MicrOMEGASv4 [29] to solve the Boltzmann
+      equations")
+    uncertainty: 0.003
+    omega_target: 0.1197
+    tied: gamma_d
+  - quantity: thermal_splitting
+    value: 0.101
+    at:
+      m_psi: 1.0
+      alpha_d: 0.001
+      Delta: 0.101
+    source:
+      arxiv: '1505.07107'
+      page: 3
+      location: Fig. 2 left, red curve (alpha_d = 1e-3), read at m_psi = 1 GeV from the vector-graphics path (Fig. 1 right
+        dashed curve crosses Omega_obs at Delta = 0.104)
+      quote: The left side shows the splitting ∆, versus mψ, with Ωψh2 fixed to the observed abundance. Different curves correspond
+        to different values of αd.
+    tool: micrOMEGAs v4
+    uncertainty: 0.003
+    omega_target: 0.1197
+    overrides:
+      masses:
+        gamma_d: 1.101
+      couplings:
+        g_d: 0.11209982432795858
+    tied: gamma_d
+  - quantity: thermal_splitting
+    value: 0.651
+    at:
+      m_psi: 0.01
+      alpha_d: 0.1
+      Delta: 0.651
+    source:
+      arxiv: '1505.07107'
+      page: 3
+      location: Fig. 2 left, blue curve (alpha_d = 0.1), read at m_psi = 10 MeV from the vector-graphics path
+      quote: The left side shows the splitting ∆, versus mψ, with Ωψh2 fixed to the observed abundance. Different curves correspond
+        to different values of αd.
+    tool: micrOMEGAs v4
+    uncertainty: 0.003
+    omega_target: 0.1197
+    overrides:
+      masses:
+        psi: 0.01
+        gamma_d: 0.01651
+    tied: gamma_d
+  notes: 'All targets are CURVE READINGS (no numbers printed). Figures are vector graphics; paths were digitised directly
+    from the PDF drawing operators with axis calibration from the tick marks (Fig. 2 left: log10 m_psi 28.18 pt/decade, Delta
+    linear 0-1 over 121.9 pt). Reading precision Delta ± 0.003. Because Omega ∝ exp(2 Delta x_f) with x_f ≈ 20 (Fig. 2 right),
+    delta(Delta) = 0.003 is ≈ 12% in Omega h^2, so the comparison should be done in Delta (thermal splitting at fixed m_psi,
+    alpha_d) rather than in Omega.
+
+    The numeric value of Omega_obs is not printed; the dotted "Ωobs" line in Fig. 1 right digitises to Omega h^2 = 0.1197,
+    i.e. 0.12.
+
+    Model (p1): Dirac fermion psi, SM singlet, charged under a broken hidden U(1)_d; parameters (m_psi, m_gamma_d, alpha_d);
+    forbidden regime m_psi < m_gamma_d; relic set by psi psibar -> gamma_d gamma_d (t/u-channel), with gamma_d in equilibrium.
+    Paper''s thermally averaged forbidden rate (eq. 3): <σv> = (n_eq,γd)^2/(n_eq,ψ)^2 <σ_γdγd v> ≈ 8π f_Δ α_d^2/m_ψ^2 e^{-2Δx},
+    using g = 2 (3) for psi (gamma_d) and zero chemical potential. "Note that we indicate with Ωψh2 the total relic density
+    of ψ and ¯ψ."
+
+    For m_psi > 1 MeV the paper takes T_dark = T_SM (so the 1 GeV and 10 MeV targets assume a thermalised dark sector).
+
+    The only explicit Lagrangian term printed is the kinetic mixing (eq. 6); the DM-dark-photon coupling is the standard U(1)_d
+    gauge coupling of a unit-charge Dirac fermion (described in words, p1). Kinetic mixing epsilon is irrelevant to the relic
+    density except via the subdominant psi psibar -> e+e- channel (eq. 7).
+
+    Caption/colour mismatch in Fig. 1 right (see Doubts): the caption says red = 1 GeV, but the in-figure labels and Fig.
+    2 imply blue = 1 GeV; Fig. 2 was used for the targets.
+
+    Compared in Δ (the research agent''s advice): Ω ∝ exp(2Δx_f), so a reading error of 0.003 in Δ is ≈ 12% in Ω. The figure''s
+    curves are Ωh² = 0.1197.
+
+    G1 conventions (2026-10-13): the unspecified kinetic mixing epsilon is set to 1e-05 (small enough not to affect the annihilation;
+    the paper''s ''irrelevant'').'
+- id: dark_photon_complex_scalar_feng
+  title: Complex scalar DM with an invisibly decaying dark photon (m_A' = 3 m_X thermal target)
+  category: dark_photon
+  in_library: false
+  reference:
+    arxiv: '1707.03835'
+    title: Impact of Resonance on Thermal Targets for Invisible Dark Photon Searches
+    first_author: Jonathan L. Feng
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} - \frac{1}{4}F'_{\mu\nu}F'^{\mu\nu} + \frac{1}{2}m_{A'}^2 A'^2 +
+      \sum_f \bar f(i\partial\!\!\!/ - e q_f A\!\!\!/ - \kappa e q_f A\!\!\!/' - m_f) f, \qquad \mathcal{L}_\varphi = \left|(\partial_\mu
+      + i g_X A'_\mu)\varphi\right|^2 - m_\varphi^2|\varphi|^2
+    equation: (1), (4)
+    page: 3
+  needs:
+  - perturbative_s_channel
+  - p_wave
+  - kinetic_mixing
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: phi
+      role: dark_matter
+      spin: 0
+      mass_gev: 0.03333
+      charges:
+        extra:
+          A_prime: 1.0
+      dark_parity: -1
+    - name: A_prime
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 0.1
+    - name: u
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: c
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: t
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: d
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: s
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: b
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: e
+      role: standard_model
+      spin: 0.5
+    - name: mu
+      role: standard_model
+      spin: 0.5
+    - name: tau
+      role: standard_model
+      spin: 0.5
+    couplings:
+    - name: g_X
+      value: 2.5066282746310002
+      justification: α_X = 0.5
+    - name: kappa
+      value: 0.0001391402170474087
+    terms:
+    - fields:
+      - field: A_prime
+      - field: phi
+        conjugate: true
+      - field: phi
+      lorentz: scalar_current
+      coupling: g_X
+      text: from |(∂_μ + i g_X A′_μ)φ|²
+    - fields:
+      - field: A_prime
+      - field: A_prime
+      - field: phi
+        conjugate: true
+      - field: phi
+      lorentz: scalar
+      coupling: g_X**2
+      text: g_X² A′² |φ|²
+    - fields:
+      - field: u
+        conjugate: true
+      - field: u
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = u
+    - fields:
+      - field: c
+        conjugate: true
+      - field: c
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = c
+    - fields:
+      - field: t
+        conjugate: true
+      - field: t
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = t
+    - fields:
+      - field: d
+        conjugate: true
+      - field: d
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = d
+    - fields:
+      - field: s
+        conjugate: true
+      - field: s
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = s
+    - fields:
+      - field: b
+        conjugate: true
+      - field: b
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = b
+    - fields:
+      - field: e
+        conjugate: true
+      - field: e
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = e
+    - fields:
+      - field: mu
+        conjugate: true
+      - field: mu
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = mu
+    - fields:
+      - field: tau
+        conjugate: true
+      - field: tau
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = tau
+    stability: the dark U(1)_X charge
+    assumptions:
+    - the mass-basis form of photon kinetic mixing, κ ≪ 1
+  targets:
+  - quantity: omega_h2
+    value: 0.2398
+    uncertainty: 0.14025738755217504
+    at:
+      m_Aprime: 0.1
+      m_X: 0.03333
+      alpha_X: 0.5
+      kappa2: 1.936e-08
+    source:
+      arxiv: '1707.03835'
+      page: 9
+      location: Fig. 1 top (Scalar), solid black contour labelled 'mA′ = 3mX', read at m_A' = 100 MeV from the vector-graphics
+        path
+      quote: 'Solid Black Contours: Thermal target contours in dark photon parameter space (mA′, κ2) for αX = 0.5 in the non-degenerate
+        cases with mA′ = 3mX'
+    tool: own Boltzmann code (non-relativistic thermal average, eqs. (8), (9), (26); SciPy Faddeeva function)
+    engine_options:
+      sommerfeld: false
+  - quantity: omega_h2
+    value: 0.2398
+    uncertainty: 0.14025738755217504
+    at:
+      m_Aprime: 0.03
+      m_X: 0.01
+      alpha_X: 0.5
+      kappa2: 1.556e-09
+    source:
+      arxiv: '1707.03835'
+      page: 9
+      location: Fig. 1 top (Scalar), solid black contour 'mA′ = 3mX', read at m_A' = 30 MeV from the vector-graphics path
+      quote: 'Solid Black Contours: Thermal target contours in dark photon parameter space (mA′, κ2) for αX = 0.5 in the non-degenerate
+        cases with mA′ = 3mX'
+    tool: own Boltzmann code (non-relativistic thermal average)
+    engine_options:
+      sommerfeld: false
+    overrides:
+      masses:
+        phi: 0.01
+        A_prime: 0.03
+      couplings:
+        kappa: 3.944616584663204e-05
+  notes: 'CURVE READINGS from vector graphics (path digitised from the PDF; axis calibration from tick marks: 58.97 pt per
+    decade in m_A'', 14.27 pt per decade in kappa^2). Reading precision about ±0.01 in log10(kappa^2), i.e. ±3% in kappa^2.
+    Readings at m_A'' = 30, 100, 300 MeV: log10 kappa^2 = -8.808, -7.713, -6.704.
+
+    Omega h^2 value from p2: "ΩXh2 = 0.1199± 0.0022".
+
+    Annihilation phi phi* -> A''* -> SM is p-wave (eq. 28); the A'' width includes A'' -> phi phi* (eq. 5), which dominates
+    (invisible decays, B_i ≈ 1). For m_A'' > 2 m_mu the SM width uses the measured R ratio via B_e(m_A'') (eq. 3); the 30
+    and 100 MeV benchmarks are below the dimuon threshold so only e+e- final states matter.
+
+    The authors use the non-relativistic thermal average and state their m_A'' = 3 m_X contours agree "within ∼10%" with the
+    relativistic treatment of their Ref. [33] (shown dotted in the figure; the dotted curve sits about 0.2 dex lower in kappa^2
+    at 100 MeV). Expect O(10-50%) differences in kappa^2 from the thermal-averaging prescription.
+
+    kappa here is the photon kinetic mixing in the mass basis (coupling kappa e q_f); there is no Z mixing in eq. (1). DM
+    stability from the U(1)_X DM number (dark_parity -1 is an effective label). Hypercharge/electric charge of the generic
+    SM fermion f left null (all charged SM fermions, coupling ∝ q_f).
+
+    Uncertainty ±0.2 dex in κ² (≈ 58% in Ωh²): the paper''s non-relativistic thermal average puts its m_A′ = 3m_X curve 0.2
+    dex above the relativistic reference curve it overlays.
+
+    Correction (2026-10-14, the owner''s decision D9): each target now records the authors'' perturbative treatment (engine_options sommerfeld: false). The paper''s thermally averaged cross-section, eq. (26), has no Sommerfeld factor. Noticed after the G4 generic route refused the entry: with α_X = 0.5 the Sommerfeld effect is about a factor 1.4–1.9 here.
+
+    Correction (2026-10-16, the owner''s decision D31): the paper''s relic formula, eq. (8) with eq. (9)''s g = 1, is the
+    one for a self-conjugate particle, dn/dt = −⟨σv⟩(n² − n_eq²), applied to the φφ* cross section of eq. (28). For a
+    complex scalar each annihilation removes one φ and one φ*, so the total n_φ + n_φ* obeys dn/dt = −(⟨σv⟩/2)(n² −
+    n_eq²) and its Ωh² is twice the formula''s (x_f is unchanged: eq. (9) depends on g⟨σv⟩). The paper''s thermal
+    target, Ωh² = 0.1199 in its counting, is therefore Ωh² = 0.2398 of φ and φ* together, the quantity ADROIT computes;
+    the target''s value and uncertainty are doubled. Found by an independent calculation (the G12 closure record, the Feng
+    question): the paper''s own method reproduces 0.112–0.120 at the four readings; ADROIT''s cross section matches the
+    analytic one to under 1%; what remains is the paper''s freeze-out approximation (eqs. (8)–(9) against a full
+    solution, −6% to −19%) and its non-relativistic average (−12% to +6%, by the resonance''s width). The doubled
+    target is a derived convention conversion (the external audit''s A11, 2026-10-16): neither the paper''s native
+    target nor a fresh blind reproduction, and its 58% uncertainty is the readings'' and the paper''s prescription''s,
+    not a precision comparison.'
+- id: dark_photon_scalar_resonance_feng
+  title: Complex scalar DM annihilating near the dark-photon pole (epsilon_R = 0.1, 0.01)
+  category: resonance
+  in_library: false
+  reference:
+    arxiv: '1707.03835'
+    title: Impact of Resonance on Thermal Targets for Invisible Dark Photon Searches
+    first_author: Jonathan L. Feng
+    year: 2017
+  lagrangian:
+    latex: \mathcal{L}_\varphi = \left|(\partial_\mu + i g_X A'_\mu)\varphi\right|^2 - m_\varphi^2|\varphi|^2, \qquad \mathcal{L}
+      \supset \frac{1}{2}m_{A'}^2 A'^2 - \sum_f \kappa e q_f \bar f A\!\!\!/' f
+    equation: (4), (1)
+    page: 4
+  needs:
+  - resonance
+  - perturbative_s_channel
+  - p_wave
+  - kinetic_mixing
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: phi
+      role: dark_matter
+      spin: 0
+      mass_gev: 0.04767
+      charges:
+        extra:
+          A_prime: 1.0
+      dark_parity: -1
+    - name: A_prime
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 0.1
+    - name: u
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: c
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: t
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: d
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: s
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: b
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+    - name: e
+      role: standard_model
+      spin: 0.5
+    - name: mu
+      role: standard_model
+      spin: 0.5
+    - name: tau
+      role: standard_model
+      spin: 0.5
+    couplings:
+    - name: g_X
+      value: 2.5066282746310002
+      justification: α_X = 0.5
+    - name: kappa
+      value: 1.5684387141358121e-06
+    terms:
+    - fields:
+      - field: A_prime
+      - field: phi
+        conjugate: true
+      - field: phi
+      lorentz: scalar_current
+      coupling: g_X
+      text: from |(∂_μ + i g_X A′_μ)φ|²
+    - fields:
+      - field: A_prime
+      - field: A_prime
+      - field: phi
+        conjugate: true
+      - field: phi
+      lorentz: scalar
+      coupling: g_X**2
+      text: g_X² A′² |φ|²
+    - fields:
+      - field: u
+        conjugate: true
+      - field: u
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = u
+    - fields:
+      - field: c
+        conjugate: true
+      - field: c
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = c
+    - fields:
+      - field: t
+        conjugate: true
+      - field: t
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(0.666667)
+      text: −κ e q_f f̄ A̸′ f, f = t
+    - fields:
+      - field: d
+        conjugate: true
+      - field: d
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = d
+    - fields:
+      - field: s
+        conjugate: true
+      - field: s
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = s
+    - fields:
+      - field: b
+        conjugate: true
+      - field: b
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-0.333333)
+      text: −κ e q_f f̄ A̸′ f, f = b
+    - fields:
+      - field: e
+        conjugate: true
+      - field: e
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = e
+    - fields:
+      - field: mu
+        conjugate: true
+      - field: mu
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = mu
+    - fields:
+      - field: tau
+        conjugate: true
+      - field: tau
+      - field: A_prime
+      lorentz: vector
+      coupling: -kappa*e*(-1)
+      text: −κ e q_f f̄ A̸′ f, f = tau
+    stability: the dark U(1)_X charge
+    assumptions:
+    - the mass-basis form of photon kinetic mixing, κ ≪ 1
+  targets:
+  - quantity: omega_h2
+    value: 0.2398
+    uncertainty: 0.14025738755217504
+    at:
+      m_Aprime: 0.1
+      epsilon_R: 0.1
+      m_X: 0.04767
+      alpha_X: 0.5
+      kappa2: 2.46e-12
+    source:
+      arxiv: '1707.03835'
+      page: 9
+      location: Fig. 1 top (Scalar), solid black contour labelled 'ϵR = 0.1', read at m_A' = 100 MeV from the vector-graphics
+        path
+      quote: Thermal target contours in dark photon parameter space (mA′, κ2) for αX = 0.5 in the non-degenerate cases with
+        mA′ = 3mX and ϵR ≡(m2A′ −4m2X)/(4m2X) = 0.3, and in the degenerate cases with ϵR = 10−n, where n = 1, 2, . . . 6.
+    tool: own Boltzmann code (non-relativistic thermal average with full Breit-Wigner via Faddeeva function, eq. (26))
+    engine_options:
+      sommerfeld: false
+  - quantity: omega_h2
+    value: 0.2398
+    uncertainty: 0.14025738755217504
+    at:
+      m_Aprime: 0.1
+      epsilon_R: 0.01
+      m_X: 0.04975
+      alpha_X: 0.5
+      kappa2: 8.67e-14
+    source:
+      arxiv: '1707.03835'
+      page: 9
+      location: Fig. 1 top (Scalar), solid black contour labelled 'ϵR = 0.01', read at m_A' = 100 MeV from the vector-graphics
+        path
+      quote: Thermal target contours in dark photon parameter space (mA′, κ2) for αX = 0.5 in the non-degenerate cases with
+        mA′ = 3mX and ϵR ≡(m2A′ −4m2X)/(4m2X) = 0.3, and in the degenerate cases with ϵR = 10−n, where n = 1, 2, . . . 6.
+    tool: own Boltzmann code (non-relativistic thermal average)
+    engine_options:
+      sommerfeld: false
+    overrides:
+      masses:
+        phi: 0.04975
+      couplings:
+        kappa: 2.9444863728670914e-07
+  notes: 'CURVE READINGS from vector graphics (same digitisation as dark_photon_complex_scalar_feng). At m_A'' = 100 MeV the
+    eight scalar contours read log10 kappa^2 = -7.713 (3m_X), -9.669 (eps_R 0.3), -11.609 (0.1), -13.062 (0.01), -13.744 (1e-3),
+    -14.338 (1e-4), -14.627 (1e-5), -14.659 (1e-6); contour identities assigned by ordering and by matching path end-points
+    to the in-figure labels. Precision ±0.01 dex.
+
+    Cross-check stated in the text (p8): "For the degenerate case ϵR = 0.1, as expected given the analytic estimate of Sec.
+    III, the thermal targets for scalar (pseudo-Dirac) dark matter move to values of κ2 that are four (two) orders of magnitude
+    lower, relative to the mA′ = 3mX non-degenerate case." (digitised difference at 100 MeV: 3.9 dex).
+
+    Physics: the p-wave phi phi* -> A'' -> SM cross section is hit on resonance by the thermal tail; the authors use the non-relativistic
+    thermal average but NOT the narrow-width approximation in the numerics (eqs. 22-30). The A'' width is dominated by the
+    invisible phi phi* channel (eq. 5) with alpha_X = 0.5, so Gamma_A''/m_A'' is not tiny; the resonance width matters. For
+    eps_R << 0.1 the authors note additional effects (late-time annihilation) and eq. (41): Omega h^2 ∝ 1/(sqrt(eps_R) kappa^2).
+
+    Omega h^2 = 0.1199 ± 0.0022 (p2). Same paper as dark_photon_complex_scalar_feng (different regime).
+
+    Uncertainty as for the off-resonance entry (the non-relativistic thermal average).
+
+    Correction (2026-10-14, the owner''s decision D9): each target now records the authors'' perturbative treatment (engine_options sommerfeld: false), as the off-resonance entry. Noticed after the G4 held-out run, which refused it for want of the Sommerfeld effect, so this entry is not blind at G7.
+
+    Correction (2026-10-16, the owner''s decision D31): the paper''s relic formula, eq. (8) with eq. (9)''s g = 1, is the
+    one for a self-conjugate particle, dn/dt = −⟨σv⟩(n² − n_eq²), applied to the φφ* cross section of eq. (28). For a
+    complex scalar each annihilation removes one φ and one φ*, so the total n_φ + n_φ* obeys dn/dt = −(⟨σv⟩/2)(n² −
+    n_eq²) and its Ωh² is twice the formula''s (x_f is unchanged: eq. (9) depends on g⟨σv⟩). The paper''s thermal
+    target, Ωh² = 0.1199 in its counting, is therefore Ωh² = 0.2398 of φ and φ* together, the quantity ADROIT computes;
+    the target''s value and uncertainty are doubled. Found by an independent calculation (the G12 closure record, the Feng
+    question): the paper''s own method reproduces 0.112–0.120 at the four readings; ADROIT''s cross section matches the
+    analytic one to under 1%; what remains is the paper''s freeze-out approximation (eqs. (8)–(9) against a full
+    solution, −6% to −19%) and its non-relativistic average (−12% to +6%, by the resonance''s width). The doubled
+    target is a derived convention conversion (the external audit''s A11, 2026-10-16): neither the paper''s native
+    target nor a fresh blind reproduction, and its 58% uncertainty is the readings'' and the paper''s prescription''s,
+    not a precision comparison.
+
+    Not blind after G12 (2026-10-16): this held-out entry was computed to localise its difference, at the owner''s
+    request; no other held-out entry was.'
+- id: inelastic_pseudo_dirac_dark_photon_berlin
+  title: Inelastic (pseudo-Dirac) fermion DM coannihilating through a GeV-scale dark photon
+  category: dark_photon
+  in_library: true
+  library: inelastic_dark_photon
+  reference:
+    arxiv: '1810.01879'
+    title: 'Inelastic Dark Matter at the LHC Lifetime Frontier: ATLAS, CMS, LHCb, CODEX-b, FASER, and MATHUSLA'
+    first_author: Asher Berlin
+    year: 2018
+  lagrangian:
+    latex: \mathcal{L} \supset \frac{\epsilon}{2\cos\theta_w} A'_{\mu\nu}B^{\mu\nu}, \qquad -\mathcal{L} \supset m_D\,\eta\xi
+      + \frac{1}{2}\delta_\eta\,\eta^2 + \frac{1}{2}\delta_\xi\,\xi^2 + {\rm h.c.}, \qquad \mathcal{L} \supset i e_D A'_\mu
+      \bar\chi_1\gamma^\mu\chi_2 + \mathcal{O}(\delta_{\eta,\xi}/m_D)
+    equation: (3), (4), (8)
+    page: 2
+  needs:
+  - coannihilation
+  - perturbative_s_channel
+  - kinetic_mixing
+  - new_gauge_group
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi1
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 10.0
+      mass_justification: m₁
+      dark_parity: -1
+    - name: chi2
+      role: other
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 11.0
+      mass_justification: m₂ = m₁(1 + Δ)
+      dark_parity: -1
+    - name: A_prime
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 30.0
+    - name: B
+      role: standard_model
+      spin: 1
+      self_conjugate: true
+    couplings:
+    - name: e_D
+      value: 1.1209982432795857
+      justification: α_D = 0.1
+    - name: eps
+      value: 0.0137
+    - name: cw
+      value: 0.8768067061787336
+      justification: cos θ_w
+    terms:
+    - fields:
+      - field: A_prime
+      - field: B
+      lorentz: kinetic_mixing
+      coupling: eps/(2*cw)
+      text: (ε/2cos θ_w) A′_{μν}B^{μν}
+    - fields:
+      - field: chi1
+        conjugate: true
+      - field: chi2
+      - field: A_prime
+      lorentz: vector
+      coupling: I*e_D
+      text: i e_D A′_μ χ̄₁γ^μχ₂ (off-diagonal)
+    stability: 'Z2: χ₁, χ₂ odd'
+    assumptions:
+    - 'the pseudo-Dirac pair in the mass basis: χ₁ ≃ i(η − ξ)/√2, χ₂ ≃ (η + ξ)/√2; the diagonal A′ couplings neglected (they
+      vanish for δ_η = δ_ξ)'
+  targets:
+  - quantity: omega_h2
+    value: 0.12
+    at:
+      m_Aprime: 30.0
+      m1: 10.0
+      Delta: 0.1
+      alpha_D: 0.1
+      epsilon: 0.0137
+      cos_theta_W: 0.8768067061787336
+      chosen by the zoo: 'cos θ_W = 0.8768 in ε/(2 cos θ_W), the MS-bar value (sin²θ_W = 0.2312)'
+    source:
+      arxiv: '1810.01879'
+      page: 4
+      location: Fig. 1, orange dotted contour (m_A'/m1 = 3, Delta = 0.1), read at m_A' = 30 GeV from the vector-graphics path
+      quote: Along the colored contours, χ1 acquires an abundance (through χ1χ2 →A′∗, Z∗→f ¯f) that is in agreement with the
+        observed dark matter energy density. Solid, dashed, and dotted contours correspond to relative χ1 −χ2 mass-splittings
+        of ∆= 0.02, 0.05, and 0.1, respectively, while the orange and blue sets of contours correspond to the A′ −χ1 mass
+        ratios of mA′/m1 = 3 and 5, respectively.
+    tool: own Boltzmann code (hadronic and leptonic final states, A'/Z exchange), cross-checked with FeynRules + micrOMEGAs
+    point:
+      m_chi: 10.0
+      m_med: 30.0
+      g_chi: 1.1209982432795857
+      g_q: 0.0137
+      g_l: 0.1
+  - quantity: omega_h2
+    value: 0.12
+    at:
+      m_Aprime: 30.0
+      m1: 10.0
+      Delta: 0.02
+      alpha_D: 0.1
+      epsilon: 0.00667
+    source:
+      arxiv: '1810.01879'
+      page: 4
+      location: Fig. 1, orange solid contour (m_A'/m1 = 3, Delta = 0.02), read at m_A' = 30 GeV from the vector-graphics path
+      quote: Solid, dashed, and dotted contours correspond to relative χ1 −χ2 mass-splittings of ∆= 0.02, 0.05, and 0.1, respectively,
+        while the orange and blue sets of contours correspond to the A′ −χ1 mass ratios of mA′/m1 = 3 and 5, respectively.
+    tool: own Boltzmann code, cross-checked with FeynRules + micrOMEGAs
+    overrides:
+      masses:
+        chi2: 10.2
+      couplings:
+        eps: 0.00667
+    point:
+      m_chi: 10.0
+      m_med: 30.0
+      g_chi: 1.1209982432795857
+      g_q: 0.00667
+      g_l: 0.02
+  notes: 'CURVE READINGS from vector graphics (Fig. 1 axis calibration from tick marks: 111.44 pt per decade in m_A'', 52.84
+    pt per decade in epsilon; precision ≈ ±3% in epsilon). Other digitised points (orange, m_A''/m1 = 3): Delta=0.1: eps =
+    6.88e-3 (m_A''=15 GeV), 2.70e-2 (60 GeV); Delta=0.05: 4.46e-3, 8.46e-3, 1.64e-2 at 15, 30, 60 GeV; blue (m_A''/m1 = 5),
+    Delta=0.02: 1.86e-2 at 30 GeV.
+
+    Numeric Omega h^2 is not printed ("in agreement with the observed dark matter energy density"); 0.12 is assumed.
+
+    Relic set by chi1 chi2 -> A''*, Z* -> f fbar coannihilation (Boltzmann-suppressed chi2 population, eq. 10: <σv> ∼ O(10^2)
+    α_D α_em ε^2 m1^2/m_A''^4 e^{-Δx}); chi2 is kept in equilibrium with chi1 by dark-sector scattering/decays. Hadronic final
+    states included; GeV-scale hadronic resonances NOT included (fine at m1 = 10 GeV). Z-exchange and A''-Z mixing for m_A''
+    ≳ 10 GeV are included (Appendix B, eq. B22; destructive A''/Z interference near m_A'' ≈ m_Z, so no enhancement there).
+
+    Kinetic-mixing normalisation is with hypercharge: L ⊃ ε/(2 cos θ_w) A''_{μν}B^{μν}, so for m_A'' << m_Z the A'' couples
+    to ε e Q_f. Pseudo-Dirac pair: chi1 ≃ i(η−ξ)/√2, chi2 ≃ (η+ξ)/√2 (eq. 5), masses m_{1,2} ≃ m_D ∓ (δ_η+δ_ξ)/2; the diagonal
+    A'' couplings are neglected (vanish for δ_η = δ_ξ). eta and xi are two-component (left-handed Weyl) fields; chi1, chi2
+    are Majorana.
+
+    Ωh² not printed ("in agreement with the observed"): 0.12.'
+- id: dark_qed_bound_states_vonharling
+  title: Dirac fermion DM with a massless dark photon (dark QED) including Sommerfeld and bound-state formation
+  category: other
+  in_library: false
+  reference:
+    arxiv: '1407.7874'
+    title: Bound-state formation for thermal relic dark matter and unitarity
+    first_author: Benedict von Harling
+    year: 2014
+  lagrangian:
+    latex: \mathcal{L} = \bar X(iD\!\!\!/ - m)X - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}, \qquad D_\mu = \partial_\mu + i g A_\mu,
+      \quad \alpha \equiv g^2/(4\pi)
+    equation: (2.1)
+    page: 3
+  needs:
+  - annihilation_to_mediators
+  - t_channel_exchange
+  - sommerfeld
+  - bound_states
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: X
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 1040.0
+      charges:
+        extra:
+          A_dark: 1.0
+      dark_parity: -1
+    - name: A_dark
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 0.0
+      mass_justification: 'massless: the dark U(1) is unbroken'
+    couplings:
+    - name: g
+      value: 0.5571259769340069
+      justification: α = g²/4π = 0.0247
+    terms:
+    - fields:
+      - field: X
+        conjugate: true
+      - field: X
+      - field: A_dark
+      lorentz: vector
+      coupling: -g
+      text: from D_μ = ∂_μ + i g A_μ
+    stability: the dark U(1) charge
+  targets:
+  - quantity: thermal_mass_gev
+    value: 1040.0
+    at:
+      alpha: 0.0247
+    source:
+      arxiv: '1407.7874'
+      page: 9
+      location: 'eq. (4.10) and following sentence: at m = m0 the fit gives alpha = alpha0 exactly'
+      quote: We find that for m ≳ 100 GeV and up the unitarity bound (see below), the fit α = α0 (m/m0) [2/(1 + (m/m0)^r)]^s,
+        (4.10) with α0 = 0.0247, m0 = 1.04 TeV, r = 1.28, s = 0.328, reproduces the values of α found numerically to better
+        than 1% accuracy.
+    tool: own coupled Boltzmann equations for X, para- and ortho-dark-positronium (eqs. 4.1-4.3)
+    omega_target: 0.1209
+  notes: 'The fit reproduces the solid line of Fig. 3, which includes BSF and the Sommerfeld effect on X Xbar -> 2 dark photons
+    ("The solid blue line incorporates the effect of BSF and the SE of the direct DM annihilation into two dark photons.").
+    Fit accuracy: better than 1% in alpha (so the thermal mass at fixed alpha is fixed to roughly ±1-2%).
+
+    Target abundance is Omega (not Omega h^2): "We evaluate YX(zs), and determine α, such that the observed DM density, ΩX
+    = ΩDM ≃ 0.26 [40], is reproduced." (p9; Planck 2013, h ≈ 0.67 → Omega h^2 ≈ 0.118). Omega_X counts X + Xbar (eq. 4.9).
+
+    Strong assumptions to reproduce: "We take g∗= g∗S = 108.75 to account for the SM plus the two dark-photon degrees of freedom,
+    and assume that g∗and g∗S remain constant." (p8); dark photons at the same temperature as the SM plasma; kinetic decoupling
+    at z_kd (eq. 3.2) with DM temperature z_X = z^2/z_kd afterwards; BSF into the ground state only, with ionisation (Milne
+    relation, eq. 2.14) and para/ortho decays tracked; integration from x_i = 5 to z_s = 100 z_kd.
+
+    The fit (4.10) can be evaluated at other masses as an extra check (the authors quote < 1% accuracy for m from ~100 GeV
+    up to the unitarity bound); only the m = m0 point is used as a target because there the paper''s printed numbers give
+    alpha = alpha0 directly, with no evaluation needed. Unitarity bound quoted for Dirac DM: m^D_uni ≃ 139 TeV (eq. 5.1, p10).
+
+    Ω_X = 0.26 with ρ_c ≃ 4.9 × 10⁻⁶ GeV cm⁻³ (h² = 0.465): Ωh² = 0.1209. The dark sector''s temperature is taken equal to
+    the SM''s (constant g* = 108.75).'
+- id: b_minus_l_rhn_zprime_okada
+  title: Z2-odd right-handed-neutrino DM in minimal gauged U(1)_B-L (Z'_BL resonance)
+  category: gauged_u1
+  in_library: false
+  reference:
+    arxiv: '1601.07526'
+    title: Z'_BL portal dark matter and LHC Run-2 results
+    first_author: Nobuchika Okada
+    year: 2016
+  lagrangian:
+    latex: \mathcal{L}_{\rm Yukawa} \supset -\sum_{i=1}^{3}\sum_{j=1}^{2} Y_D^{ij}\,\overline{\ell^i_L} H N^j_R - \frac{1}{2}\sum_{k=1}^{2}
+      Y_N^k \Phi\, \overline{N^{k\,C}_R} N^k_R - \frac{1}{2} Y_N \Phi\, \overline{N^C_R} N_R + {\rm h.c.}
+    equation: (1)
+    page: 4
+  needs:
+  - resonance
+  - perturbative_s_channel
+  - p_wave
+  - new_gauge_group
+  spec:
+    phase: unbroken
+    fields:
+    - name: N
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 1432.3
+      mass_justification: 'm_DM = Y_N v_BL/√2: the Z2-odd right-handed neutrino as a Majorana field'
+      charges:
+        extra:
+          Zp: -1.0
+      dark_parity: -1
+    - name: Zp
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 3000.0
+      mass_justification: m_Z′ = 2g_BL v_BL
+    - name: q
+      role: standard_model
+      spin: 0.5
+      charges:
+        su3: '3'
+        extra:
+          Zp: 0.3333333333333333
+    - name: l
+      role: standard_model
+      spin: 0.5
+      charges:
+        extra:
+          Zp: -1.0
+    - name: nu
+      role: standard_model
+      spin: 0.5
+      chirality: L
+      charges:
+        extra:
+          Zp: -1.0
+    couplings:
+    - name: g_BL
+      value: 0.19416259125556992
+      justification: α_BL = 0.003
+    terms:
+    - fields:
+      - field: N
+      - field: N
+      - field: Zp
+      lorentz: axial
+      coupling: g_BL/2
+      text: (g_BL/2) Z′_μ N̄γ^μγ⁵N (B−L charge −1; the vector part vanishes)
+    - fields:
+      - field: q
+        conjugate: true
+      - field: q
+      - field: Zp
+      lorentz: vector
+      coupling: -g_BL/3
+      text: −(g_BL/3) Z′_μ q̄γ^μq
+    - fields:
+      - field: l
+        conjugate: true
+      - field: l
+      - field: Zp
+      lorentz: vector
+      coupling: g_BL
+      text: g_BL Z′_μ ℓ̄γ^μℓ
+    - fields:
+      - field: nu
+        conjugate: true
+      - field: nu
+      - field: Zp
+      lorentz: vector
+      coupling: g_BL
+      text: g_BL Z′_μ ν̄_Lγ^μν_L
+    stability: 'Z2: N_R → −N_R'
+    dropped:
+    - the other two right-handed neutrinos (heavier than m_Z′/2)
+    - the Higgs portal λ_HΦ (taken negligible)
+    - 'the B−L Higgs Φ and the Yukawa ½Y_N Φ N̄ᶜN: N''s mass is given, and the paper keeps only the Z′ channel'
+  targets:
+  - quantity: omega_h2
+    value: 0.1198
+    uncertainty: 0.0015
+    at:
+      m_Zp: 3000.0
+      alpha_BL: 0.003
+      m_DM: 1432.3
+    source:
+      arxiv: '1601.07526'
+      page: 8
+      location: Fig. 2 left (m_Z' = 3 TeV), solid black curve, lower-mass branch read at alpha_BL = 0.003 from the vector-graphics
+        path
+      quote: The dark matter mass as a function of αBL for mZ′ = 3 TeV (left panel) and mZ′ = 4 TeV (right panel). Along the
+        solid (black) curve in each panel, ΩDMh2 = 0.1198 is satisfied.
+    tool: own Boltzmann code (eqs. (6)-(11), g* = 106.75)
+  - quantity: omega_h2
+    value: 0.1198
+    uncertainty: 0.0015
+    at:
+      m_Zp: 3000.0
+      alpha_BL: 0.003
+      m_DM: 1493.1
+    source:
+      arxiv: '1601.07526'
+      page: 8
+      location: Fig. 2 left (m_Z' = 3 TeV), solid black curve, upper-mass branch read at alpha_BL = 0.003 from the vector-graphics
+        path
+      quote: For a αBL value larger than the lower bound, we can find two values of mDM which result in the center value of
+        the observed relic abundance ΩDMh2 = 0.1198.
+    tool: own Boltzmann code (eqs. (6)-(11), g* = 106.75)
+    overrides:
+      masses:
+        N: 1493.1
+  notes: 'CURVE READINGS from vector graphics (Fig. 2 left calibration from tick marks: 32.01 pt per 0.001 in alpha_BL, 0.8478
+    pt/GeV in m_DM; precision ±1 GeV). Other readings on the same curve: alpha_BL = 0.002 -> m_DM = 1449.3 and 1488.3 GeV;
+    alpha_BL = 0.005 -> 1412.6 and 1499.0 GeV. Text (p8) along the lower bound on alpha_BL: "the dark matter mass is approximately
+    given by mDM ≃0.49 mZ′".
+
+    Omega h^2 = 0.1198 ± 0.0015 (eq. 5); allowed band 0.1183 ≤ Ω h^2 ≤ 0.1213.
+
+    Only the Z'' channel is kept: Higgs-portal (λ_HΦ) contributions are assumed negligible (|λ_HΦ| << 1), all SM fermion masses
+    neglected except m_t = 173.34 GeV, and m_N^j > m_Z''/2 (the other RH neutrinos do not appear in Z'' decays). Cross section
+    (eq. 9): σ(s) = (π/4) α_BL^2 sqrt(s(s−4m_DM^2)) / [(s−m_Z''^2)^2 + m_Z''^2 Γ_Z''^2] [148/9 + (4/3)β_t(1 − β_t^2/3)], width
+    eq. (10). Thermal average eq. (8) (relativistic Gondolo-Gelmini form) with g_DM = 2 and constant g* = 106.75; M_Pl = 1.22e19
+    GeV; s0 = 2890 cm^-3, rho_c/h^2 = 1.05e-5 GeV/cm^3.
+
+    Majorana DM: only the axial coupling to Z'' survives, so annihilation is p-wave away from the pole; the relic is reproduced
+    only near m_DM ≈ m_Z''/2 (resonance via the thermal tail; minimum of Omega slightly below m_Z''/2).
+
+    Charges from Table 1 (p4): q_L 1/3, u_R 1/3, d_R 1/3, l_L −1, e_R −1, H 0, N_R^j −1, N_R −1 (Z2-odd), Φ +2. The paper''s
+    Table 1 lists H with U(1)_Y = −1/2 (it writes ⟨H⟩ = (v/√2, 0)^T); converted here unchanged since the paper already uses
+    Q = T3 + Y. Gauge interactions are not written explicitly; they follow from the B−L charges with coupling g_BL. m_Z''
+    = 2 g_BL v_BL, m_DM = Y_N v_BL/√2 (eq. 4).
+
+    G1 conventions (2026-10-13): Φ and its Yukawa are dropped, as the paper drops their effect.'
+- id: lmu_minus_ltau_dirac_resonance_holst
+  title: Dirac DM with unit L_mu - L_tau charge annihilating near the Z' pole, g' fixed by (g-2)_mu
+  category: gauged_u1
+  in_library: true
+  library: lmu_minus_ltau
+  reference:
+    arxiv: '2107.09067'
+    title: The Simplest and Most Predictive Model of Muon g-2 and Thermal Dark Matter
+    first_author: Ian Holst
+    year: 2021
+  lagrangian:
+    latex: \mathcal{L}_{\rm int} = g' Z'_\mu (J^\mu_{\rm SM} + J^\mu_{\rm DM}), \qquad J^\nu_{\rm SM} = \bar\mu\gamma^\nu\mu
+      + \bar\nu_\mu\gamma^\nu P_L\nu_\mu - \bar\tau\gamma^\nu\tau - \bar\nu_\tau\gamma^\nu P_L\nu_\tau, \qquad J^\mu_{\rm
+      DM} \equiv \bar\chi\gamma^\mu\chi
+    equation: (3), (4)
+    page: 1
+  needs:
+  - resonance
+  - perturbative_s_channel
+  - leptophilic
+  - new_gauge_group
+  spec:
+    phase: broken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 0.05
+      charges:
+        extra:
+          Zp: 1.0
+      dark_parity: -1
+    - name: Zp
+      role: mediator
+      spin: 1
+      self_conjugate: true
+      mass_gev: 0.1343
+      mass_justification: m_Z′ = 2.686 m_χ (the curve reading)
+    - name: mu
+      role: standard_model
+      spin: 0.5
+      charges:
+        extra:
+          Zp: 1.0
+    - name: tau
+      role: standard_model
+      spin: 0.5
+      charges:
+        extra:
+          Zp: -1.0
+    - name: nu_mu
+      role: standard_model
+      spin: 0.5
+      chirality: L
+      charges:
+        extra:
+          Zp: 1.0
+    - name: nu_tau
+      role: standard_model
+      spin: 0.5
+      chirality: L
+      charges:
+        extra:
+          Zp: -1.0
+    couplings:
+    - name: g_prime
+      value: 0.0011105390961962357
+      justification: from Δa_μ = 2.51 × 10⁻⁹ by the paper's eq. (6)
+    terms:
+    - fields:
+      - field: chi
+        conjugate: true
+      - field: chi
+      - field: Zp
+      lorentz: vector
+      coupling: g_prime
+    - fields:
+      - field: mu
+        conjugate: true
+      - field: mu
+      - field: Zp
+      lorentz: vector
+      coupling: g_prime
+    - fields:
+      - field: tau
+        conjugate: true
+      - field: tau
+      - field: Zp
+      lorentz: vector
+      coupling: -g_prime
+    - fields:
+      - field: nu_mu
+        conjugate: true
+      - field: nu_mu
+      - field: Zp
+      lorentz: vector
+      coupling: g_prime
+    - fields:
+      - field: nu_tau
+        conjugate: true
+      - field: nu_tau
+      - field: Zp
+      lorentz: vector
+      coupling: -g_prime
+    stability: the dark matter's L_μ − L_τ charge and a Z2
+  targets:
+  - quantity: omega_h2
+    value: 0.12
+    at:
+      m_chi: 0.05
+      m_Zp: 0.1343
+      delta_a_mu: 2.51e-09
+    source:
+      arxiv: '2107.09067'
+      page: 3
+      location: Fig. 2 right, green band central curve at m_chi = 50 MeV, m_Z'/m_chi = 2.686 (band 2.654-2.706 for ±2σ in
+        Delta a_mu); read from the vector-graphics path
+      quote: 'Right: mZ′/mχ ratios that yield the observed DM density for the couplings that resolve ∆aµ anomaly to within
+        ±2σ at each value of mZ′; the two bands represent the two solutions for each mχ as shown in the left panel.'
+    tool: own Boltzmann solver (eqs. (7)-(9), relativistic thermal average; FeynCalc and Astropy)
+    point:
+      m_chi: 0.05
+      m_med: 0.1343
+      g_chi: 0.0011105390961962357
+      g_q: 0.0011105390961962357
+  - quantity: omega_h2
+    value: 0.12
+    at:
+      m_chi: 0.05
+      m_Zp: 0.09935
+      delta_a_mu: 2.51e-09
+    source:
+      arxiv: '2107.09067'
+      page: 3
+      location: Fig. 2 right, blue band central curve at m_chi = 50 MeV, m_Z'/m_chi = 1.987 (band 1.977-1.996); read from
+        the vector-graphics path
+      quote: From these figures, we see that the measured density of DM can be obtained for either mZ′/mχ ≈1.9 −2.0 or mZ′/mχ
+        ≈2.6 −3.0, which are shown in blue and green in Fig. 3, respectively.
+    tool: own Boltzmann solver (eqs. (7)-(9))
+    overrides:
+      masses:
+        Zp: 0.09935
+      couplings:
+        g_prime: 0.0009430830937320407
+    point:
+      m_chi: 0.05
+      m_med: 0.09935
+      g_chi: 0.0009430830937320407
+      g_q: 0.0009430830937320407
+  notes: 'CURVE READINGS from vector graphics (Fig. 2 right, axis calibration from gridlines: 104.5 pt per decade in m_chi,
+    135.75 pt per unit of m_Z''/m_chi; precision ±0.005 in the ratio). Also at m_chi = 20 MeV: green 2.774 (band 2.741-2.794),
+    blue 1.983 (1.971-1.994). The text statement (p3) gives the overall ranges 1.9-2.0 and 2.6-3.0 over the viable m_chi ≈
+    10-100 MeV window.
+
+    g'' is not a free parameter: it is fixed so that the one-loop Z'' contribution (eq. 6) Δa_µ = (g''^2/4π^2) ∫_0^1 dx m_µ^2
+    x(1−x)^2/[m_µ^2(1−x)^2 + m_Z''^2 x] equals Δa_µ = (251 ± 59) × 10^−11 (eq. 1); the band width corresponds to ±2σ. The
+    implementer must compute g'' at m_Z'' = 134.3 MeV from eq. (6) (not tabulated in the paper).
+
+    Annihilation: s-channel chi chibar -> Z''* -> mu+mu-, nu nubar (and tau for heavier masses), eq. (9), with Z'' width summing
+    chi, mu, tau, nu_mu, nu_tau (k_f = 1/2 for neutrinos, eq. 5); thermal average eq. (8) (Gondolo-Gelmini). Boltzmann equation
+    eq. (7) is written for n = n_chi + n_chibar with a factor 1/2. At m_Z''/m_chi ≈ 2.7 the Z'' pole is reached only by the
+    thermal tail; the forbidden channel chi chibar -> Z''Z'' is stated to be subdominant near the resonance (footnote 4).
+
+    Omega h^2 ≃ 0.12 (Fig. 3 caption). Loop-induced kinetic mixing ε ∼ g''/70 is noted but not needed for the relic. DM carries
+    one unit of L_mu - L_tau charge. SM neutrinos are listed as left-handed members of the lepton doublet (Y = −1/2); mu,
+    tau are listed as Dirac fermions in the broken phase with vector couplings.
+
+    g′ = 0.001111 (m_Z′ = 134.3 MeV) and 0.0009431 (99.35 MeV) from eq. (6) at Δa_μ = 2.51 × 10⁻⁹.'
+- id: vector_higgs_portal_athron
+  title: Vector singlet dark matter with a Higgs-portal coupling (GAMBIT global fit)
+  category: higgs_portal
+  in_library: true
+  library: higgs_portal_vector
+  reference:
+    arxiv: '1808.10465'
+    title: Global analyses of Higgs portal singlet dark matter models using GAMBIT
+    first_author: Peter Athron
+    year: 2018
+  lagrangian:
+    latex: \mathcal{L}_V = \mathcal{L}_{SM} - \frac{1}{4}W_{\mu\nu}W^{\mu\nu} + \frac{1}{2}\mu_V^2 V_\mu V^\mu - \frac{1}{4!}\lambda_V
+      (V_\mu V^\mu)^2 + \frac{1}{2}\lambda_{hV} V_\mu V^\mu H^\dagger H
+    equation: (1)
+    page: 2
+  needs:
+  - perturbative_s_channel
+  - resonance
+  spec:
+    phase: unbroken
+    fields:
+    - name: Vd
+      role: dark_matter
+      spin: 1
+      self_conjugate: true
+      mass_gev: 62.35071109369662
+      mass_justification: μ_V = √(m_V² − λ_hV v₀²/2), the Lagrangian mass of m_V = 62.46 GeV
+      dark_parity: -1
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: lam_hV
+      value: 0.00045
+    terms:
+    - fields:
+      - field: Vd
+      - field: Vd
+      - field: H
+        conjugate: true
+      - field: H
+      lorentz: scalar
+      coupling: lam_hV/2
+      text: ½λ_hV V_μV^μ H†H
+    stability: 'Z2: V → −V'
+    dropped:
+    - the vector quartic λ_V (irrelevant to the relic density)
+  targets:
+  - quantity: omega_h2
+    value: 0.1128
+    at:
+      m_V: 62.46
+      lambda_hV: 0.00045
+    source:
+      arxiv: '1808.10465'
+      page: 13
+      location: Table 7, row Vector, relic condition Omega_V h^2 ~ Omega_DM h^2 (best fit)
+      quote: ΩV h2 ∼ΩDMh2 4.5 × 10−4 62.46 — 1.128 × 10−1 0.428
+    tool: GAMBIT (DarkBit) with the DarkSUSY Boltzmann solver
+    point:
+      m_chi: 62.46
+      m_med: 125.09
+      g_chi: 0.00045
+  - quantity: omega_h2
+    value: 0.09343
+    at:
+      m_V: 62.46
+      lambda_hV: 0.00049
+    source:
+      arxiv: '1808.10465'
+      page: 13
+      location: Table 7, row Vector, relic condition Omega_V h^2 <~ Omega_DM h^2 (best fit)
+      quote: Vector ΩV h2 ≲ΩDMh2 4.9 × 10−4 62.46 — 9.343 × 10−2 0.322
+    tool: GAMBIT (DarkBit) with the DarkSUSY Boltzmann solver
+    overrides:
+      couplings:
+        lam_hV: 0.00049
+      masses:
+        Vd: 62.340987252117685
+    point:
+      m_chi: 62.46
+      m_med: 125.09
+      g_chi: 0.00049
+  notes: 'Table 7 columns (verbatim): "Model Relic density condition λhX mX (GeV) ξ (rad) ΩXh2 ∆ln L"; caption: best fits
+    "both with and without the requirement that the predicted relic density is within 1σ of the Planck observed value".
+
+    Planck value used: "ΩDMh2 = 0.1188±0.0010" with "a 5% theoretical error on the computed values of the relic density" added
+    in quadrature (p5).
+
+    Both best fits sit on the Higgs resonance (2 m_V = 124.92 GeV, just below m_h), so the result is extremely sensitive to
+    m_h, the Higgs width and thermal averaging near the pole; GAMBIT varies m_h as a nuisance (124.1-127.3 GeV), and the table
+    omits the nuisance values ("they do not diﬀer signiﬁcantly from the central values"). Expect percent-level agreement only
+    with an exact Breit-Wigner thermal average.
+
+    The model is the non-renormalisable (Stueckelberg-like) vector Higgs portal: no dark gauge group, no dark Higgs. Sign
+    convention: +1/2 lambda_hV V.V H^dagger H in L, so lambda_hV > 0 raises m_V.
+
+    Relic density computed assuming local thermal equilibrium (no early kinetic decoupling), standard 2->2 Boltzmann equation.
+
+    Both best fits sit on the Higgs pole''s tail: sensitive to m_h, a nuisance parameter GAMBIT does not print.
+
+    G1 conventions (2026-10-13): V''s mass is the Lagrangian μ_V; λ_V is dropped.'
+- id: singlet_fermion_scalar_mediator_das
+  title: Dirac singlet fermion DM with a real singlet scalar mediator mixing with the Higgs
+  category: scalar_mediator
+  in_library: true
+  library: singlet_scalar_mixing
+  reference:
+    arxiv: '2601.13147'
+    title: 'Revisiting Singlet Fermion Dark Matter with a Scalar Portal: Connecting Higgs Phenomenology and Strong Electroweak
+      Phase Transition'
+    first_author: Jaydeb Das
+    year: 2026
+  lagrangian:
+    latex: \mathcal{L} \supset \frac{1}{2}(\partial_\mu s)^2 + \bar\chi(i\slashed{\partial} - m_\chi)\chi + \mathcal{L}_{\chi
+      s} - V(H,s),\quad \mathcal{L}_{\chi s} = g_\chi\, s\,\bar\chi\chi,\quad V(H,s) = \mu_h^2|H|^2 + \lambda_h|H|^4 + \frac{1}{2}\mu_s^2
+      s^2 + \frac{1}{4}\lambda_s s^4 + \frac{1}{2}\lambda_{hs}|H|^2 s^2 + \mu_{hs}|H|^2 s + \frac{1}{3}\mu_3 s^3 + a_1 s
+    equation: (2.1), (2.2), (2.4)
+    page: 4
+  needs:
+  - perturbative_s_channel
+  - t_channel_exchange
+  - annihilation_to_mediators
+  - p_wave
+  - mass_mixing
+  - resonance
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 242.0
+      mass_justification: bare = physical, since ⟨s⟩ = 0
+      dark_parity: -1
+    - name: s
+      role: mediator
+      spin: 0
+      self_conjugate: true
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: g_chi
+      value: 0.56
+    - name: mu_hs
+      value: 0.09899692332637526
+      mass_dimension: 1
+    - name: lam_hs
+      value: 2.4
+    - name: mu_s2
+      value: -32748.96363034699
+      mass_dimension: 2
+    - name: lam_s
+      value: 3.1
+    - name: mu_3
+      value: 100.0
+      mass_dimension: 1
+    - name: lam_H
+      value: 0.1288680593966316
+    terms:
+    - fields:
+      - field: s
+      - field: chi
+        conjugate: true
+      - field: chi
+      lorentz: scalar
+      coupling: g_chi
+      text: g_χ s χ̄χ
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: s
+      lorentz: scalar
+      coupling: -mu_hs
+      text: −μ_hs|H|²s
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: s
+      - field: s
+      lorentz: scalar
+      coupling: -lam_hs/2
+      text: −½λ_hs|H|²s²
+    - fields:
+      - field: s
+      - field: s
+      lorentz: scalar
+      coupling: -mu_s2/2
+      text: '−½μ_s²s²: μ_s² = M²_ss − λ_hs v²/2 (negative at BP2)'
+    - fields:
+      - field: s
+      - field: s
+      - field: s
+      lorentz: scalar
+      coupling: -mu_3/3
+      text: −⅓μ₃s³
+    - fields:
+      - field: s
+      - field: s
+      - field: s
+      - field: s
+      lorentz: scalar
+      coupling: -lam_s/4
+      text: −¼λ_s s⁴
+    - fields:
+      - field: H
+      - field: H
+        conjugate: true
+      - field: H
+      - field: H
+        conjugate: true
+      lorentz: scalar
+      coupling: -lam_H
+      text: −λ_H|H|⁴, λ_H = M²_hh/2v² from m_h₁, m_h₂, θ
+    stability: 'Z2: χ → −χ'
+    dropped:
+    - 'the tadpole a₁s: fixed by ⟨s⟩ = 0 (the generic route''s implicit linear term)'
+  targets:
+  - quantity: omega_h2
+    value: 0.119
+    at:
+      m_h1: 125
+      m_h2: 200.0
+      sin_theta: 0.001
+      lambda_hs: 2.4
+      lambda_s: 3.1
+      mu_3: 100.0
+      m_chi: 242.0
+      g_chi: 0.56
+    source:
+      arxiv: '2601.13147'
+      page: 17
+      location: 'Table 2, row BP2 (inputs: Table 1 row BP2, p15)'
+      quote: BP2 0.119 6.72 × 10−50 6.86 × 10−50 h2h2 (71%) h1h1 (29%)
+    tool: micrOMEGAs (refs. [83,84]; version not stated)
+    overrides:
+      masses:
+        chi: 242.0
+      couplings:
+        g_chi: 0.56
+        mu_hs: 0.09899692332637526
+        lam_hs: 2.4
+        mu_s2: -32748.96363034699
+        lam_s: 3.1
+        mu_3: 100.0
+        lam_H: 0.1288680593966316
+    point:
+      m_chi: 242.0
+      m_med: 200.0
+      g_chi: 0.56
+      g_q: 0.001
+  - quantity: sigma_si_cm2
+    value: 6.72e-50
+    at:
+      m_h1: 125
+      m_h2: 200.0
+      sin_theta: 0.001
+      lambda_hs: 2.4
+      lambda_s: 3.1
+      mu_3: 100.0
+      m_chi: 242.0
+      g_chi: 0.56
+    source:
+      arxiv: '2601.13147'
+      page: 17
+      location: Table 2, row BP2, column sigma_SI^(p) (proton)
+      quote: BP2 0.119 6.72 × 10−50 6.86 × 10−50 h2h2 (71%) h1h1 (29%)
+    tool: micrOMEGAs
+    overrides:
+      masses:
+        chi: 242.0
+      couplings:
+        g_chi: 0.56
+        mu_hs: 0.09899692332637526
+        lam_hs: 2.4
+        mu_s2: -32748.96363034699
+        lam_s: 3.1
+        mu_3: 100.0
+        lam_H: 0.1288680593966316
+    point:
+      m_chi: 242.0
+      m_med: 200.0
+      g_chi: 0.56
+      g_q: 0.001
+  - quantity: omega_h2
+    value: 0.12
+    at:
+      m_h1: 125
+      m_h2: 200.0
+      sin_theta: 0.13
+      lambda_hs: 2.02
+      lambda_s: 3.0
+      mu_3: 20.0
+      m_chi: 94.75
+      g_chi: 0.02
+    source:
+      arxiv: '2601.13147'
+      page: 17
+      location: 'Table 2, row BP8 (inputs: Table 1 row BP8, p15)'
+      quote: BP8 0.120 1.40 × 10−48 1.44 × 10−48 W +W −(74%) ZZ (26%)
+    tool: micrOMEGAs
+    overrides:
+      masses:
+        chi: 94.75
+      couplings:
+        g_chi: 0.02
+        mu_hs: 12.76039490760215
+        lam_hs: 2.02
+        mu_s2: -21642.29470658373
+        lam_s: 3.0
+        mu_3: 20.0
+        lam_H: 0.13226533058064865
+    point:
+      m_chi: 94.75
+      m_med: 200.0
+      g_chi: 0.02
+      g_q: 0.13
+  - quantity: omega_h2
+    value: 0.119
+    at:
+      m_h1: 125
+      m_h2: 70.0
+      sin_theta: 0.002
+      lambda_hs: 0.8
+      lambda_s: 0.73
+      mu_3: 20.0
+      m_chi: 78.0
+      g_chi: 0.34
+    source:
+      arxiv: '2601.13147'
+      page: 17
+      location: 'Table 2, row BP9 (inputs: Table 1 row BP9, p15)'
+      quote: BP9 0.119 1.26 × 10−48 1.28 × 10−48 h2h2 (100%)
+    tool: micrOMEGAs
+    overrides:
+      masses:
+        chi: 78.0
+      couplings:
+        g_chi: 0.34
+        mu_hs: -0.08711716185104276
+        lam_hs: 0.8
+        mu_s2: -19349.603518449003
+        lam_s: 0.73
+        mu_3: 20.0
+        lam_H: 0.1288675045431806
+    point:
+      m_chi: 78.0
+      m_med: 70.0
+      g_chi: 0.34
+      g_q: 0.002
+  notes: 'Input rows (Table 1, p15, verbatim from the rendered table; mh2 and sin θ cells are merged across BP1-BP3): "BP2
+    200.0 0.001 2.4 3.1 100.0 242.0 0.56"; "BP8 200.0 0.13 2.02 3.0 20.0 94.75 0.02"; "BP9 70.0 0.002 0.8 0.73 20.0 78.0 0.34"
+    with column header "BPs mh2[GeV] sin θ λhs λs µ3[GeV] mχ[GeV] gχ". Caption: "All the BPs satisfy the observed relic density
+    and bound from the upper limit of spin-independent DM-nucleon scattering cross section."
+
+    Relic window used by the authors: "0.1 ≤ΩDMh2 ≤0.121". Independent inputs: { v, mh1, mh2, sin θ, gχ, mχ, λhs, µ3, λs };
+    µhs and µs^2, λh follow from eqs. (2.13)-(2.14); a1 = -µhs v^2/2 fixes <s> = 0. Mixing (eq. 2.10): h = cos θ h1 + sin
+    θ h2, s = cos θ h2 - sin θ h1; "mh1 = 125 GeV".
+
+    Scalar coupling s chibar chi gives p-wave (velocity-suppressed) chi chibar -> SM via s-channel h1/h2, and chi chibar ->
+    h_i h_j via t/u-channel chi exchange and s-channel h_i (trilinears from λhs, µ3, µhs). BP2 and BP9 are dominated by annihilation
+    into the mediator h2 (secluded-like); BP8 (2 m_chi = 189.5 GeV vs m_h2 = 200 GeV) is near the h2 pole and goes to WW/ZZ
+    through the mixing. Direct detection is independent of λhs (mixing from µhs only).
+
+    Dirac DM. The paper is a 2026 preprint (arXiv v1 read); numbers may change in later versions.
+
+    G1 conventions (2026-10-13): s''s mass is the explicit −½μ_s²s² term (μ_s² = M²_ss − λ_hs v²/2, from m_h₂ and θ), and
+    λ_H is stated so that m_h₁ = 125 GeV with the mixing.'
+- id: two_hdm_pseudoscalar_singlet_mediator_ipek
+  title: Dirac DM with a singlet pseudoscalar mediator mixing with the 2HDM pseudoscalar (Type II)
+  category: extended_higgs
+  in_library: false
+  reference:
+    arxiv: '1404.3716'
+    title: A Renormalizable Model for the Galactic Center Gamma Ray Excess from Dark Matter Annihilation
+    first_author: Seyda Ipek
+    year: 2014
+  lagrangian:
+    latex: \mathcal{L}_{\rm dark} = y_\chi a_0\,\bar\chi i\gamma_5\chi,\qquad V = V_{\rm 2HDM} + \frac{1}{2}m_{a_0}^2 a_0^2
+      + \frac{\lambda_a}{4}a_0^4 + V_{\rm port},\qquad V_{\rm port} = iB\,a_0 H_1^\dagger H_2 + {\rm h.c.}
+    equation: (3), (4), (5)
+    page: 2
+  needs:
+  - perturbative_s_channel
+  - mass_mixing
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      mass_gev: 30.0
+      dark_parity: -1
+    - name: a0
+      role: mediator
+      spin: 0
+      self_conjugate: true
+      mass_justification: the singlet; its Lagrangian mass is an explicit term, so that the light CP-odd state is at
+        m_a after its mixing with A⁰
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    - name: H2
+      role: other
+      spin: 0
+      mass_justification: the second doublet in the Higgs basis (no vacuum value); its Lagrangian mass is an explicit
+        term
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    - name: qL
+      role: standard_model
+      spin: 0.5
+      chirality: L
+      generations: 3
+      charges:
+        su3: '3'
+        su2: 2
+        hypercharge: 0.16666666666666666
+    - name: dR
+      role: standard_model
+      spin: 0.5
+      chirality: R
+      generations: 3
+      charges:
+        su3: '3'
+        hypercharge: -0.3333333333333333
+    - name: uR
+      role: standard_model
+      spin: 0.5
+      chirality: R
+      generations: 3
+      charges:
+        su3: '3'
+        hypercharge: 0.6666666666666666
+    - name: lL
+      role: standard_model
+      spin: 0.5
+      chirality: L
+      generations: 3
+      charges:
+        su2: 2
+        hypercharge: -0.5
+    - name: eR
+      role: standard_model
+      spin: 0.5
+      chirality: R
+      generations: 3
+      charges:
+        hypercharge: -1.0
+    couplings:
+    - name: y_chi
+      value: 0.8
+      justification: 'the zoo''s choice: y_χ sin 2θ tan β = 2.4 with sin 2θ = 0.3, tan β = 10'
+    - name: sin2theta
+      value: 0.3
+      justification: the zoo's choice (the a–A⁰ mixing)
+    - name: tanb
+      value: 10.0
+      justification: 'the zoo''s choice (large, as the paper assumes: a''s coupling to up-type quarks is suppressed by
+        1/tan β)'
+    - name: m_a
+      value: 100.0
+      mass_dimension: 1
+      justification: the light CP-odd state, the paper's m_a
+    - name: m_A
+      value: 600.0
+      mass_dimension: 1
+      justification: 'the heavy doublet, the zoo''s choice (the paper''s m_a ≪ m_A)'
+    terms:
+    - fields:
+      - field: a0
+      - field: chi
+        conjugate: true
+      - field: chi
+      lorentz: pseudoscalar
+      coupling: y_chi
+      text: y_χ a₀ χ̄ iγ⁵ χ
+    - fields:
+      - field: a0
+      - field: a0
+      lorentz: scalar
+      coupling: -(m_a**2*cos(atan(sin2theta/sqrt(1 - sin2theta**2))/2)**2 + m_A**2*sin(atan(sin2theta/sqrt(1 - sin2theta**2))/2)**2)/2
+      text: −½ m²_a0 a₀² with m²_a0 = m_a² cos²θ + m_A² sin²θ
+    - fields:
+      - field: H2
+        conjugate: true
+      - field: H2
+      lorentz: scalar
+      coupling: -(m_a**2*sin(atan(sin2theta/sqrt(1 - sin2theta**2))/2)**2 + m_A**2*cos(atan(sin2theta/sqrt(1 - sin2theta**2))/2)**2)
+      text: −m²_A0 H₂†H₂ with m²_A0 = m_a² sin²θ + m_A² cos²θ
+    - fields:
+      - field: a0
+      - field: H
+        conjugate: true
+      - field: H2
+      lorentz: scalar
+      coupling: -I*(m_A**2 - m_a**2)*sin2theta/(2*v)
+      plus_hc: true
+      indices: a0 H*[i] H2[i]
+      text: −(i B a₀ H†H₂ + h.c.), the paper's V_port (eq. (5)) entering L as −V; Bv = (m_A² − m_a²) sin θ cos θ (eq. (16))
+    - fields:
+      - field: qL
+        conjugate: true
+      - field: H2
+      - field: dR
+      lorentz: scalar
+      coupling: sqrt(2)*m_q/v*tanb
+      plus_hc: true
+      indices: qL*[i,c] H2[i] dR[c]
+      text: Type II in the Higgs basis, (√2 m_d/v) tan β Q̄H₂d_R + h.c.
+    - fields:
+      - field: qL
+        conjugate: true
+      - field: H2
+        conjugate: true
+      - field: uR
+      lorentz: scalar
+      coupling: -sqrt(2)*m_q/v/tanb
+      plus_hc: true
+      indices: eps[i,j] qL*[i,c] H2*[j] uR[c]
+      text: Type II in the Higgs basis, −(√2 m_u/v) cot β Q̄H̃₂u_R + h.c.
+    - fields:
+      - field: lL
+        conjugate: true
+      - field: H2
+      - field: eR
+      lorentz: scalar
+      coupling: sqrt(2)*m_l/v*tanb
+      plus_hc: true
+      indices: lL*[i] H2[i] eR
+      text: Type II in the Higgs basis, (√2 m_e/v) tan β L̄H₂e_R + h.c.
+    stability: 'Z2: χ → −χ'
+    assumptions:
+    - 'the Higgs basis: H takes the whole vacuum value, H₂ none; the alignment limit, with no quartics of H₂, so its
+      CP-even and charged states sit at m_A0'
+    dropped:
+    - 'every quartic of V_2HDM that involves H₂ (λ₂–λ₇ in the Higgs basis): the alignment limit with H₂''s CP-even and
+      charged states at m_A0; H keeps the Standard Model''s potential alone'
+    - the singlet's quartic ¼λ_a a₀⁴ (unfixed; irrelevant to the annihilation)
+  targets:
+  - quantity: sigma_v_cm3_s
+    value: 3.0e-26
+    at:
+      m_chi: 30
+      m_a: 100
+      y_chi_sin2theta_tanbeta: 2.4
+      Gamma_a: 0
+      y_chi: 0.8
+      sin2theta: 0.3
+      tanb: 10.0
+      m_A: 600.0
+      chosen by the zoo: 'tan β = 10, sin 2θ = 0.3 and y_χ = 0.8 (the paper''s product y_χ sin 2θ tan β = 2.4, which alone
+        enters eq. (29)) and m_A = 600 GeV (the paper''s m_a ≪ m_A)'
+    source:
+      arxiv: '1404.3716'
+      page: 4
+      location: eq. (29) and the sentence before it (right column); quote transcribed from the rendered page because the typeset
+        equation is garbled by text extraction
+      quote: Evaluating this at the experimentally favored DM mass of 30 GeV, taking ma = 100 GeV (and ignoring Γa) gives
+        ⟨σvrel⟩ = 3 × 10−26 cm3/s (yχ sin 2θ tan β / 2.4)^2. (29)
+    tool: analytic tree-level s-wave formula, eq. (28)
+  notes: 'This is an analytic s-wave annihilation cross section (v -> 0), not a full relic computation: eq. (28) is "⟨σvrel⟩
+    = (y_χ^2/8π)(m_χ^2/m_a^4) s_2θ^2 tan^2β [(1 - 4m_χ^2/m_a^2)^2 + Γ_a^2/m_a^2]^-1 × Σ_{f=b,τ,...} N_C (m_f^2/v^2) sqrt(1
+    - m_f^2/m_a^2)" (p4, read from the rendered page), and the authors state: "The sum is over down-type quarks (NC = 3) and
+    charged leptons (NC = 1) since a’s coupling to up-type quarks is suppressed by 1/ tan β". The authors normalise on 3e-26
+    cm^3/s as the thermal-relic value; the b-quark mass convention is not stated, so expect O(10-30%) differences depending
+    on m_b (pole vs running).
+
+    Valid for m_a << m_A (A exchange neglected) and near the 2HDM decoupling limit (eq. 24, alpha ≈ beta - pi/2). At this
+    point the authors state that the b-bbar final state gives about 90% of the annihilation cross section, with tau+tau- nearly
+    all the rest (p4).
+
+    Mixing: tan 2θ = 2Bv/(m_A0^2 - m_a0^2) (eq. 16); mass eigenstates A = cos θ A0 + ..., a; DM couplings L_dark = y_χ (cos
+    θ a + sin θ A) χbar iγ5 χ (eq. 19); Type II Yukawas with ξ^a_d = ξ^a_e = -tan β sin θ (eq. 23). Only the product y_χ sin
+    2θ tan β enters (29).
+
+    Since the published number is a cross section rather than Omega h^2, test the code''s <σv>(v->0) at this point; a relic
+    computation would give Omega h^2 ≈ 0.1 only approximately.
+
+    Correction (2026-10-15, the owner''s decision D20): the entry did not build, and its spec had three faults: y_χ had
+    no value, the second doublet had no Yukawas (so a could not reach b quarks or τs), and the portal was written as
+    B a₀H₁†H₂ without its i (which mixes a₀ with the CP-even H⁰ instead of A⁰). It is now written in the Higgs basis with
+    Type-II Yukawas (G2 reads a second doublet''s stated Yukawas since 2026-10-15), the zoo choosing tan β = 10, sin 2θ =
+    0.3 and y_χ = 0.8 (the paper''s product 2.4) and m_A = 600 GeV; the target''s at states them. Found by G10''s intake
+    gate, which compares specs only; the G4 and G7 held-out runs refused the entry, so this entry is not blind at G12.
+
+    Correction (2026-10-16, the owner''s instruction to close G10): the portal had been written as V_port itself,
+    +i B a₀H†H₂ + h.c.; the paper puts V_port in the potential (eqs. (4)–(5)), which enters L as −V, so L carries
+    −i B. With it the portal is eq. (14)''s V_port = B v a₀A⁰ (A⁰ = −Im of H₂''s neutral component in the Higgs basis)
+    and the relative sign of y_χ and B is the paper''s. G10''s re-score found it: the intake agent had written −i B.
+    No target moves: the zoo compares a σv for this entry, which depends on (y_χ B)².'
+- id: real_scalar_dm_vectorlike_lepton_giacchino
+  title: Real scalar singlet DM with a t-channel vector-like charged lepton partner (coupled to e_R)
+  category: t_channel
+  in_library: false
+  reference:
+    arxiv: '1307.6480'
+    title: Scalar Dark Matter Models with Significant Internal Bremsstrahlung
+    first_author: Federica Giacchino
+    year: 2013
+  lagrangian:
+    latex: \mathcal{L} \supset y_l\, S\, \bar\Psi l_R + {\rm h.c.}\qquad \left(\mathcal{L} \supset \frac{\lambda_S}{2}S^2|H|^2,\
+      \lambda_S = 0\ \text{in the numerics}\right)
+    equation: (1), (2)
+    page: 3
+  needs:
+  - t_channel_exchange
+  - coannihilation
+  - leptophilic
+  spec:
+    phase: unbroken
+    fields:
+    - name: S
+      role: dark_matter
+      spin: 0
+      self_conjugate: true
+      mass_gev: 150.0
+      dark_parity: -1
+    - name: Psi
+      role: mediator
+      spin: 0.5
+      mass_gev: 174.0
+      mass_justification: M_Ψ = r M_S, r = 1.16
+      charges:
+        hypercharge: -1.0
+      dark_parity: -1
+    - name: eR
+      role: standard_model
+      spin: 0.5
+      chirality: R
+      charges:
+        hypercharge: -1.0
+    - name: H
+      role: standard_model
+      spin: 0
+      charges:
+        su2: 2
+        hypercharge: 0.5
+    couplings:
+    - name: y_l
+      value: 1.17
+    - name: lam_S
+      value: 0.0
+      justification: set to zero in the numerics
+    terms:
+    - fields:
+      - field: S
+      - field: Psi
+        conjugate: true
+      - field: eR
+      lorentz: chiral
+      coupling: y_l
+      plus_hc: true
+      text: y_l S Ψ̄ l_R + h.c. (l = e)
+    - fields:
+      - field: S
+      - field: S
+      - field: H
+        conjugate: true
+      - field: H
+      lorentz: scalar
+      coupling: lam_S/2
+      text: (λ_S/2) S²|H|²
+    stability: 'Z2: S, Ψ odd'
+  targets:
+  - quantity: omega_h2
+    value: 0.11
+    at:
+      M_S: 150
+      r: 1.16
+      y_l: 1.17
+      lambda_S: 0
+    source:
+      arxiv: '1307.6480'
+      page: 18
+      location: Table II, row Scalar
+      quote: Scalar yl = 1.17 1.16 5.4 10−27 1.3 10−28 0.11 0.06 0.28 0.41
+    tool: micrOMEGAs (model implemented with FeynRules; version not stated), including the 3-body S S -> l lbar gamma channel
+  notes: 'Table II header (verbatim): "Benchmarks yi r ⟨σv⟩γll ⟨σv⟩γγ Ωdmh2 R3bdy Rann Rco"; caption: "Benchmark models for
+    dark matter candidates with Mdm = 150 GeV which VIB signal could be associated to a gamma ray excess around 130 GeV. Cross
+    sections are given in units of cm3/s, yi refers to the Yukawa couplings yl and gl and R3bdy, Rann and Rco give the relative
+    contribution of 3-body, annihilation and coannihilation processes, respectively, eﬀectively contributing to the relic
+    abundance." The remaining 1 - 0.06 - 0.28 - 0.41 = 0.25 is Psi Psibar annihilation.
+
+    Lepton flavour: "we have assumed that the dark matter couples to one single lepton specie, the electron." Psi is an SU(2)
+    singlet vector-like lepton with "YΨ = YlR"; λS = 0.
+
+    S S -> l lbar is d-wave in the chiral limit (v^4 suppressed), so the relic density is set by coannihilation S Psi -> l
+    gamma (and l Z), Psi Psibar annihilation, and the 3-body S S -> l lbar gamma process (internal bremsstrahlung, 6% here).
+    The 2->3 contribution is outside a pure 2->2 code; the authors say bremsstrahlung "can modify the dark matter abundance
+    up to a 15% for the largest values of the Yukawa couplings".
+
+    Only two significant figures on Omega h^2 (0.11); the paper describes both candidates as having "a relic abundance Ωdmh2
+    ∼0.1". Present-day <σv>_γll = 5.4e-27 and <σv>_γγ = 1.3e-28 cm^3/s are additional (indirect-detection) numbers in the
+    same row.
+
+    The table''s Ωh² includes the 2 → 3 process SS → ℓℓ̄γ (6%).'
+- id: majorana_dm_charged_scalar_lepton_partner_giacchino
+  title: Majorana singlet DM with a t-channel charged scalar lepton partner (coupled to e_R)
+  category: t_channel
+  in_library: false
+  reference:
+    arxiv: '1307.6480'
+    title: Scalar Dark Matter Models with Significant Internal Bremsstrahlung
+    first_author: Federica Giacchino
+    year: 2013
+  lagrangian:
+    latex: \mathcal{L} \supset g_l\, \Phi^\dagger \bar\chi\, l_R + {\rm h.c.}
+    equation: (9)
+    page: 5
+  needs:
+  - t_channel_exchange
+  - coannihilation
+  - leptophilic
+  - p_wave
+  spec:
+    phase: unbroken
+    fields:
+    - name: chi
+      role: dark_matter
+      spin: 0.5
+      self_conjugate: true
+      mass_gev: 150.0
+      dark_parity: -1
+    - name: Phi
+      role: mediator
+      spin: 0
+      mass_gev: 175.5
+      mass_justification: M_Φ = r M_χ, r = 1.17
+      charges:
+        hypercharge: -1.0
+      dark_parity: -1
+    - name: eR
+      role: standard_model
+      spin: 0.5
+      chirality: R
+      charges:
+        hypercharge: -1.0
+    couplings:
+    - name: g_l
+      value: 0.9
+    terms:
+    - fields:
+      - field: Phi
+        conjugate: true
+      - field: chi
+        conjugate: true
+      - field: eR
+      lorentz: chiral
+      coupling: g_l
+      plus_hc: true
+      text: g_l Φ† χ̄ l_R + h.c. (l = e)
+    stability: 'Z2: χ, Φ odd'
+  targets:
+  - quantity: omega_h2
+    value: 0.1
+    at:
+      M_chi: 150
+      r: 1.17
+      g_l: 0.9
+    source:
+      arxiv: '1307.6480'
+      page: 18
+      location: Table II, row Majorana
+      quote: Majorana gl = 0.9 1.17 2.2 10−28 8.9 10−30 0.10 0.002 0.95 0.047
+    tool: micrOMEGAs (model implemented with FeynRules; version not stated)
+  notes: 'Same table/caption as the scalar benchmark of this paper (Table II, p18). Here Rann = 0.95 (chi chi -> e+ e- dominates),
+    Rco = 0.047, R3bdy = 0.002: essentially a clean 2->2 p-wave freeze-out with a small coannihilation admixture.
+
+    Reference two-body formula given by the authors (eq. 10, p5): σv(χχ → l l̄) = g_l^4 v^2 (1 + r^4) / [48π M_χ^2 (1 + r^2)^4],
+    "the usual p-wave suppression ∝v2 and r = MΦ/Mχ"; v is the relative velocity ("v denotes the relative velocity of the
+    annihilating S particles", p5).
+
+    Single flavour: l = e only ("we have assumed that the coupling of Eqs. (1) and (9) is made for l ≡e"). Phi is an SU(2)-singlet
+    charged scalar with the quantum numbers of e_R (selectron-like); the DM is a gauge singlet (bino-like).
+
+    Only two significant figures on Omega h^2 (0.10); "Both candidates have a relic abundance Ωdmh2 ∼0.1".'

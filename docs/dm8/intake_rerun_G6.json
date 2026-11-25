@@ -1,0 +1,96 @@
+{
+ "rows": [
+  {
+   "id": "G6",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not covered: not written as UFO (anapole ch\u012b \u03b3^\u03bc \u03b3^5 chi \u2202^\u03bd F_\u03bc\u03bd: a anapole coupling to a spin-1 boson is not written)",
+   "passed": true
+  }
+ ],
+ "specs": {
+  "G6": {
+   "name": "Majorana anapole dark matter",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Massless photon.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "anapole",
+     "value": 1e-05,
+     "mass_dimension": -2,
+     "justification": "Given by user: 1e-5 GeV^-2."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "anapole",
+     "coupling": "anapole",
+     "plus_hc": false,
+     "text": "anapole ch\u012b \u03b3^\u03bc \u03b3^5 chi \u2202^\u03bd F_\u03bc\u03bd"
+    }
+   ],
+   "assumptions": [
+    "No stabilizing symmetry stated; minimal Z2 with chi odd, photon even assumed.",
+    "Coefficient taken exactly as written, with no extra 1/2 Majorana normalization factor.",
+    "Model written below electroweak symmetry breaking (broken phase); chi electrically neutral."
+   ],
+   "dropped": [],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  }
+ },
+ "spent": 0.032979999999999995
+}

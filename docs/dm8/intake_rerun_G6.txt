@@ -1,0 +1,3 @@
+G6   PASS  terms as the reference  | MadDM: not covered: not written as UFO (anapole chī γ^μ γ^5 chi ∂^ν F_μν: a anapole coupling to a spin-1 boson is not written)
+
+1/1 pass; spent $0.03

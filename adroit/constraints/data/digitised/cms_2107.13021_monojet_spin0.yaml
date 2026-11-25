@@ -1,0 +1,56 @@
+source: 'CMS, arXiv:2107.13021 (JHEP 11 (2021) 153), HEPData ins1894408 v2 (CC0): observed 95% CL upper limits on
+  the signal strength of the DMsimp spin-0 mediator (gg → S through the top loop, S → χχ̄; g_q = g_χ = 1, m_DM =
+  1 GeV), monojet and mono-V, 137 fb⁻¹ combined'
+columns:
+- m_med_gev
+- mu_limit
+benchmark:
+  g_q: 1.0
+  g_chi: 1.0
+  m_dm_gev: 1.0
+scalar:
+- - 50.0
+  - 1.7372
+- - 100.0
+  - 1.5364
+- - 200.0
+  - 1.4527
+- - 300.0
+  - 1.4626
+- - 350.0
+  - 1.1239
+- - 400.0
+  - 1.1818
+- - 450.0
+  - 1.4782
+- - 500.0
+  - 1.8754
+- - 600.0
+  - 3.417
+- - 700.0
+  - 5.5856
+- - 800.0
+  - 8.6012
+pseudoscalar:
+- - 50.0
+  - 0.8142
+- - 100.0
+  - 0.75882
+- - 200.0
+  - 0.68716
+- - 300.0
+  - 0.51437
+- - 350.0
+  - 0.35954
+- - 400.0
+  - 0.55905
+- - 450.0
+  - 0.87013
+- - 500.0
+  - 1.207
+- - 600.0
+  - 2.4252
+- - 700.0
+  - 4.1463
+- - 800.0
+  - 6.6158

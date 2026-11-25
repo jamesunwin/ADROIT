@@ -1,0 +1,90 @@
+source: PICO Collaboration, arXiv:1902.04031 (Phys. Rev. D 100, 022001)
+figure: Fig. 7 (SD-proton limit) and Fig. 6 (best-fit integrated efficiencies)
+digitised_on: '2026-09-29'
+method: vector coordinates of the drawn paths (PyMuPDF), axes calibrated from tick-label centres; docs/dm3/digitise_figures.py
+note: "Log axes calibrated from the drawn major ticks. The limit matches the paper's quoted 2.5e-41 cm\xB2\
+  \ at 25 GeV."
+limit_sd_proton:
+  mass_gev:
+  - 3.02
+  - 3.311
+  - 3.631
+  - 3.981
+  - 4.365
+  - 4.786
+  - 5.248
+  - 5.754
+  - 6.31
+  - 6.918
+  - 7.586
+  - 8.318
+  - 9.12
+  - 10.0
+  - 10.96
+  - 12.02
+  - 13.18
+  - 14.45
+  - 15.85
+  - 17.38
+  - 19.06
+  - 20.89
+  - 22.91
+  - 25.12
+  - 31.62
+  - 39.81
+  - 50.12
+  - 63.1
+  - 79.43
+  - 100.0
+  - 125.9
+  - 158.5
+  - 199.5
+  - 251.2
+  - 316.2
+  - 1000.0
+  cross_section_cm2:
+  - 5.833e-38
+  - 1.348e-38
+  - 3.176e-39
+  - 1.292e-39
+  - 6.492e-40
+  - 3.612e-40
+  - 2.189e-40
+  - 1.559e-40
+  - 1.113e-40
+  - 8.526e-41
+  - 6.787e-41
+  - 5.598e-41
+  - 4.749e-41
+  - 4.194e-41
+  - 3.718e-41
+  - 3.362e-41
+  - 3.144e-41
+  - 2.974e-41
+  - 2.796e-41
+  - 2.706e-41
+  - 2.639e-41
+  - 2.592e-41
+  - 2.566e-41
+  - 2.554e-41
+  - 2.606e-41
+  - 2.75e-41
+  - 2.99e-41
+  - 3.342e-41
+  - 3.815e-41
+  - 4.443e-41
+  - 5.241e-41
+  - 6.208e-41
+  - 7.594e-41
+  - 9.235e-41
+  - 1.119e-40
+  - 3.348e-40
+fig6_best_fit_phi:
+  units: detected WIMPs per kg-day per pb
+  5 GeV SI:
+    phi_2.45_keV: 3592.8
+    phi_3.29_keV: 3316.0
+  19 GeV SD-proton:
+    phi_2.45_keV: 87.2
+    phi_3.29_keV: 86.3
+  note: calibrated from tick-label centres (about 1%)

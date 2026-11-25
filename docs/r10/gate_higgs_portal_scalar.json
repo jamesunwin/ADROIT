@@ -1,0 +1,22 @@
+{
+ "label": "higgs_portal_scalar",
+ "arguments": [
+  "--portal",
+  "higgs_portal_scalar",
+  "--x",
+  "m_chi:12:8000:log:4",
+  "--y",
+  "g_chi:1e-5:10:log:4"
+ ],
+ "points": 16,
+ "tabulated_s": 41,
+ "exact_s": 938,
+ "speedup": 22.86,
+ "level": "viable_pending",
+ "points_differing": [],
+ "crossings_identical": true,
+ "tables_note": [
+  "direct detection: the xenon searches' 95% limits come from precomputed tables where they cover the mass (11 current: CDMSlite Run 2 SI, CDMSlite Run 2 SD-proton, CDMSlite Run 2 SD-neutron, PICO-60 C3F8 (2019) SD-proton, LZ WS2022+WS2024 SI, XENONnT SR0+SR1 SI, XENONnT SR0+SR1 SD-proton, XENONnT SR0+SR1 SD-neutron, PandaX-4T Run0+Run1 SI, PandaX-4T Run0+Run1 SD-proton, PandaX-4T Run0+Run1 SD-neutron); a point whose verdict could change within a table's stated accuracy is recomputed directly, so every verdict is the direct one (--exact-limits: no tables)"
+ ],
+ "pass_identical": true
+}

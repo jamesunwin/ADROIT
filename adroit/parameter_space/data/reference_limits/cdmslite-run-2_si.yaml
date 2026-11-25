@@ -1,0 +1,76 @@
+module: CDMSlite Run 2
+kind: SI
+confidence_level: 0.95
+computed: '2026-11-13'
+generated_by: scripts/tabulate_reference_limits.py
+code_commit: 9e6b81c
+fingerprint: fa98bd29137b7eb7e09fdecc10e4511d4d02fa2ec46c0d3483d977ad097349cd
+method: the module's reference_limits (its own procedure and conventions) at CL 0.95
+  at every mass; a cubic spline in (log m, log sigma) between them; one run for the
+  grid and one for its midpoints
+masses_gev:
+- 1.313
+- 1.5045374
+- 1.7240158
+- 1.9755113
+- 2.2636943
+- 2.5939168
+- 2.9723114
+- 3.4059053
+- 3.9027509
+- 4.4720752
+- 5.1244512
+- 5.8719943
+- 6.7285872
+- 7.710138
+- 8.8348751
+- 10.123686
+- 11.600506
+- 13.292761
+- 15.231879
+- 17.45387
+- 20.0
+limits_cm2:
+- 1.3431555e-35
+- 2.9452732e-38
+- 2.2915241e-39
+- 3.8998434e-40
+- 1.2866136e-40
+- 5.9498239e-41
+- 3.4459758e-41
+- 2.3832753e-41
+- 1.8814053e-41
+- 1.6420887e-41
+- 1.5566189e-41
+- 1.3643712e-41
+- 1.0372721e-41
+- 8.3850451e-42
+- 7.0324351e-42
+- 6.1881754e-42
+- 5.6688618e-42
+- 5.3537982e-42
+- 5.2614909e-42
+- 5.3825369e-42
+- 5.6892181e-42
+interpolation_accuracy: 0.8976
+leave_one_out:
+- 0.8976
+- -0.318
+- 0.1199
+- -0.05021
+- 0.006614
+- -0.002073
+- 0.0006595
+- -0.006095
+- 0.01808
+- -0.005704
+- -0.03498
+- 0.03698
+- -0.01414
+- 0.005732
+- -0.0006799
+- -0.002166
+- 0.001392
+- 0.0005962
+- -0.0009971
+batch_vs_single_run: 0.0

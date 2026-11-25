@@ -1,0 +1,11 @@
+# DM6 gate, part 2: 500 injections of 20 events into LZ's extended window, ranked over 612 candidates.
+
+success (top = injected or indistinguishable at 20 events): 71.0%: FAIL (≥ 80% required)
+exactly the injected model on top: 10.2%
+median local significance of the top candidate: 20.5σ
+misses by injected family: {'L01s': 2, 'L01v': 2, 'L02s': 3, 'L02v': 1, 'L03s': 7, 'L03v': 1, 'L04s': 5, 'L04v': 4, 'L05v': 2, 'L06s': 1, 'L06v': 3, 'L07v': 2, 'L08s': 5, 'L08v': 2, 'L09s': 6, 'L09v': 4, 'L10s': 5, 'L10v': 1, 'L11s': 1, 'L11v': 5, 'L12s': 3, 'L12v': 4, 'L13s': 6, 'L13v': 1, 'L14s': 2, 'L14v': 7, 'L15s': 2, 'L15v': 2, 'L16s': 2, 'L16v': 6, 'L17s': 4, 'L17v': 2, 'L18s': 4, 'L18v': 3, 'L19s': 2, 'L19v': 6, 'L20s': 2, 'L20v': 5, 'O01s': 1, 'O01v': 4, 'O04s': 9, 'O04v': 6}
+
+For information, other readings of the gate (not the pre-declared one):
+   injected model within the top set (2Δln L ≤ 2.3 of the best): 73.4%; median top-set size 21
+   top candidate in the injected model's single-linkage class at 20 events: 91.6% (26 classes over 612 models)
+   one-sided: top indistinguishable given data from the injected model (4/(2 KL) > 20): 69.8%

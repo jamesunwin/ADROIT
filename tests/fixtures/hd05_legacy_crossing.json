@@ -1,0 +1,138 @@
+{
+ "producer": "6bc3565914771ee8658c59ebebc5050cd1789091",
+ "source": "audit/evidence_2026-11-12_hc_recheck/outputs/legacy_certificate.json (the auditor, HD-05): the crossing 6bc3565's public verdict writer returned for the auditor's saved point, its comparison read from density file A, its certificate bound to B",
+ "evaluated_A": {
+  "local densities": "b922637b643d4855ee0b50ecac369cc8a4c7049106daed13739d6ae5e4565153",
+  "count-ratio validation": "42f126a5af193e3f6c6698a6124c2948fbbc43c5c9cd5cfd126d37a31cce7905",
+  "count-ratio declaration": "73f2486a26e73397a7e80adf1b9339f199d5533cced8fb6846654fccd7f68a4b"
+ },
+ "bound_B": "cb540459c06579790f2521c42be01a30992ed0060ecf3ebf475df0a5c24e2d69",
+ "crossing": {
+  "point": {
+   "m_chi": 100.0,
+   "m_med": 1000.0,
+   "g_chi": 1.0,
+   "g_q": 0.25,
+   "g_l": 0.0
+  },
+  "status": "excluded",
+  "excluded_by": [
+   "the combined likelihood (r = 1.89)"
+  ],
+  "pending": [],
+  "flags": [],
+  "omega_h2": 0.12,
+  "target": 0.12,
+  "relative_residual": 0.0,
+  "converged": false,
+  "kind": "theory_band",
+  "native_constraints": {},
+  "statistical_limits": {},
+  "r_combined": 1.8906250000000002,
+  "evaluation": {
+   "point": {
+    "m_chi": 100.0,
+    "m_med": 1000.0,
+    "g_chi": 1.0,
+    "g_q": 0.25,
+    "g_l": 0.0
+   },
+   "photon_limit": null,
+   "omega_h2": 0.12,
+   "dd_kind": "SI",
+   "dd_sigma_cm2": 0.0,
+   "dd_limit_cm2": 1.0,
+   "excluded": {
+    "gamma-ray lines": true
+   },
+   "values": {},
+   "flags": [],
+   "pending": [],
+   "model_pending": [],
+   "dd_ratio": null,
+   "ratios": {
+    "gamma-ray lines": 1.890625
+   },
+   "chi2": {},
+   "statistical_limits": {},
+   "native_constraints": {},
+   "search_results": [],
+   "ratio_confidence_levels": {
+    "gamma-ray lines": 0.95
+   },
+   "ratio_sidedness": {
+    "gamma-ray lines": "one-sided"
+   },
+   "dd_channels": [],
+   "model_contract": {},
+   "vacuum_certificate": null,
+   "unitarity_certificate": null,
+   "running_certificate": null,
+   "chemical_certificate": null,
+   "halo": {
+    "region": "SHM++",
+    "treatment": "benchmark",
+    "samples": [],
+    "nominal_pending": [],
+    "unsupported": [],
+    "converged": null,
+    "full_calculations": []
+   }
+  },
+  "halo": "at the fixed benchmark halo",
+  "certificate": {
+   "claim_kind": "theory_band_membership",
+   "scope": "theory band membership at m_med = 1000, m_chi = 100, Ωh² = 0.12",
+   "checks": [
+    {
+     "name": "eos_band",
+     "state": "satisfied",
+     "reason": ""
+    },
+    {
+     "name": "thermal_history",
+     "state": "satisfied",
+     "reason": ""
+    },
+    {
+     "name": "finite_comparisons",
+     "state": "satisfied",
+     "reason": ""
+    },
+    {
+     "name": "records",
+     "state": "satisfied",
+     "reason": "verified records only"
+    },
+    {
+     "name": "discovery",
+     "state": "not_applicable",
+     "reason": "no discovery assessment in force"
+    },
+    {
+     "name": "halo",
+     "state": "not_applicable",
+     "reason": "one fixed benchmark halo; the halo's uncertainty is not propagated"
+    }
+   ],
+   "computed_status": "excluded",
+   "bound": {
+    "eos_tables": {
+     "central": "c2a8429a75319d3fffce393560b14dfcac96ae6975b5c4913414bf114ff6a138",
+     "upper": "9fc0c404be9512b2cfc4b6b8de898d73ab17837928cbdcb5936f9ca3cda9e121",
+     "lower": "14e83e7ba0c6ce00dd0502d6ee2f9a019cfb56e95b48a0efefb41b83070e7426"
+    },
+    "records": {
+     "planck-2018-omega": "8d7b9c8f8d6672af440c6ae8b63347c3cd9f4b5e84b85c4bc8b9cde41ca9b71d"
+    },
+    "halo": "SHM++",
+    "halo_data": {
+     "local densities": "cb540459c06579790f2521c42be01a30992ed0060ecf3ebf475df0a5c24e2d69",
+     "count-ratio validation": "42f126a5af193e3f6c6698a6124c2948fbbc43c5c9cd5cfd126d37a31cce7905",
+     "count-ratio declaration": "73f2486a26e73397a7e80adf1b9339f199d5533cced8fb6846654fccd7f68a4b"
+    }
+   },
+   "policy": "consistency-cv-2026-10-28"
+  }
+ }
+}

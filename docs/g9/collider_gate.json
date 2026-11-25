@@ -1,0 +1,212 @@
+{
+ "summary": {
+  "development_models": 12,
+  "decided": 1,
+  "undecided_or_refused_with_reason": 11,
+  "every_model_decided_or_named": true,
+  "families_agree": 4,
+  "families": 4,
+  "lo_is_below_the_tables": true,
+  "gate": true
+ },
+ "zoo": [
+  {
+   "id": "wino_majorana_triplet_bottaro",
+   "built": true,
+   "m_chi": 2860.0,
+   "sigma_pb": 1.573e-07,
+   "why": "",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "no SModelS result covers this spectrum"
+  },
+  {
+   "id": "complex_scalar_triplet_y1_bottaro",
+   "built": true,
+   "m_chi": 2100.0,
+   "sigma_pb": null,
+   "why": "chi++ has no open two-body decay and no decay through an off-shell W to a lighter partner (computed for fermions; a scalar's, and any through an off-shell Z, are not), so SModelS would take it as stable",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "chi++ has no open two-body decay and no decay through an off-shell W to a lighter partner (computed for fermions; a scalar's, and any through an off-shell Z, are not), so SModelS would take it as stable"
+  },
+  {
+   "id": "dirac_fermion_higgs_portal_eft_cpv_gambit",
+   "built": true,
+   "m_chi": 9895.0,
+   "sigma_pb": null,
+   "why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)"
+  },
+  {
+   "id": "singlet_doublet_dirac_yaguna",
+   "built": true,
+   "m_chi": 200.0,
+   "sigma_pb": 0.8463,
+   "why": "",
+   "higgs_mu": null,
+   "r_max": 0.004852203209142072,
+   "verdict": "undecided",
+   "outcome_why": "tested topologies do not exclude; missing/unchecked topology coverage remains"
+  },
+  {
+   "id": "singlet_triplet_fermion_choubey",
+   "built": true,
+   "m_chi": 88.004,
+   "sigma_pb": 10.35,
+   "why": "",
+   "higgs_mu": 0.9991,
+   "r_max": 0.683877447289475,
+   "verdict": "undecided",
+   "outcome_why": "tested topologies do not exclude; missing/unchecked topology coverage remains"
+  },
+  {
+   "id": "doublet_triplet_fermion_dedes",
+   "built": true,
+   "m_chi": 100.0,
+   "sigma_pb": 0.8152,
+   "why": "",
+   "higgs_mu": null,
+   "r_max": 4.440693117055092,
+   "verdict": "excluded",
+   "outcome_why": "ATLAS-SUSY-2019-09"
+  },
+  {
+   "id": "coloured_coannihilation_scalar_triplet_desimone",
+   "built": true,
+   "m_chi": 1000.0,
+   "sigma_pb": null,
+   "why": "the partner chi_prime has no two-body decay to the dark matter and an SM fermion in the model (or its mass is outside the table), so SModelS has no topology for it",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "the partner chi_prime has no two-body decay to the dark matter and an SM fermion in the model (or its mass is outside the table), so SModelS has no topology for it"
+  },
+  {
+   "id": "coloured_coannihilation_bsf_harz",
+   "built": true,
+   "m_chi": 1000.0,
+   "sigma_pb": null,
+   "why": "the partner X has no two-body decay to the dark matter and an SM fermion in the model (or its mass is outside the table), so SModelS has no topology for it",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "the partner X has no two-body decay to the dark matter and an SM fermion in the model (or its mass is outside the table), so SModelS has no topology for it"
+  },
+  {
+   "id": "dark_photon_complex_scalar_feng",
+   "built": true,
+   "m_chi": 0.03333,
+   "sigma_pb": null,
+   "why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)"
+  },
+  {
+   "id": "vector_higgs_portal_athron",
+   "built": true,
+   "m_chi": 62.35071109369662,
+   "sigma_pb": null,
+   "why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)"
+  },
+  {
+   "id": "singlet_fermion_scalar_mediator_das",
+   "built": true,
+   "m_chi": 242.0,
+   "sigma_pb": null,
+   "why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)",
+   "higgs_mu": null,
+   "r_max": null,
+   "verdict": "undecided",
+   "outcome_why": "only the dark matter is new and odd: its pair production leaves nothing to see (the monojet and mono-X searches are separate records)"
+  },
+  {
+   "id": "real_scalar_dm_vectorlike_lepton_giacchino",
+   "built": true,
+   "m_chi": 150.0,
+   "sigma_pb": 0.1191,
+   "why": "",
+   "higgs_mu": null,
+   "r_max": 0.7226284015411218,
+   "verdict": "undecided",
+   "outcome_why": "r = 0.72 with MadGraph's leading-order production: the production cross-section is MadGraph's leading order, taken as a lower bound (NLO corrections raise it): an exclusion stands, but 'allowed' is not shown"
+  }
+ ],
+ "families": [
+  {
+   "family": "wino",
+   "m_chi": 600.0,
+   "m_med": 1.0,
+   "library_sigma_pb": 0.030513999999999993,
+   "generic_sigma_pb": 0.030513999999999993,
+   "why": "",
+   "library_r": 1.2520609305405406,
+   "generic_r": 1.2164577762162163,
+   "agree": true
+  },
+  {
+   "family": "higgsino",
+   "m_chi": 600.0,
+   "m_med": 1.0,
+   "library_sigma_pb": 0.015809000000000004,
+   "generic_sigma_pb": 0.015809000000000004,
+   "why": "",
+   "library_r": 0.008875618269329238,
+   "generic_r": 0.008875618269329238,
+   "agree": true
+  },
+  {
+   "family": "t-channel uR",
+   "m_chi": 300.0,
+   "m_med": 1200.0,
+   "library_sigma_pb": 0.001876000000000001,
+   "generic_sigma_pb": 0.001876000000000001,
+   "why": "",
+   "library_r": 0.6628975265017667,
+   "generic_r": 0.6628975265017667,
+   "agree": true
+  },
+  {
+   "family": "t-channel eR",
+   "m_chi": 100.0,
+   "m_med": 300.0,
+   "library_sigma_pb": 0.0017460000000000006,
+   "generic_sigma_pb": 0.0017460000000000006,
+   "why": "",
+   "library_r": 0.4867974434482759,
+   "generic_r": 0.4867974434482759,
+   "agree": true
+  }
+ ],
+ "lo_against_tables": [
+  {
+   "family": "wino, m = 600 GeV (C\u2081C\u2081 + C\u2081N\u2082)",
+   "lo_pb": 0.02224,
+   "table_pb": 0.030513999999999993,
+   "k": 1.3720323741007192
+  },
+  {
+   "family": "slepton partner (eR), m_\u03c6 = 300 GeV",
+   "lo_pb": 0.001295,
+   "table_pb": 0.0017460000000000006,
+   "k": 1.3482625482625488
+  },
+  {
+   "family": "coloured partner (uR), m_\u03c6 = 1200 GeV",
+   "lo_pb": 0.001385,
+   "table_pb": 0.001876000000000001,
+   "k": 1.3545126353790622
+  }
+ ]
+}

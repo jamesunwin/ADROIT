@@ -1,0 +1,42 @@
+{
+ "1": [
+  "1. ADROIT's UFO files against DMsimp_s_spin1, vertex by vertex",
+  "  V1: 7 vertices compared, largest relative difference 0.0e+00; in one model only: none",
+  "  A1: 7 vertices compared, largest relative difference 0.0e+00; in one model only: none",
+  "  complex scalar: 7 vertices compared, largest relative difference 0.0e+00; in one model only: none"
+ ],
+ "2": [
+  "",
+  "2. Relic density: MadDM with ADROIT's UFO files against DM7's own code",
+  "  V1 m_\u03c7 = 100, M = 2000 GeV: MadDM \u03a9h\u00b2 = 2.03, DM7 1.98, ratio 1.026; \u0393(Z\u2032) = 112.7 GeV",
+  "  V1 m_\u03c7 = 500, M = 2000 GeV: MadDM \u03a9h\u00b2 = 0.047, DM7 0.0462, ratio 1.018; \u0393(Z\u2032) = 111.4 GeV",
+  "  V1 m_\u03c7 = 950, M = 2000 GeV: MadDM \u03a9h\u00b2 = 0.000188, DM7 0.000186, ratio 1.009; \u0393(Z\u2032) = 83.72 GeV",
+  "  V1 m_\u03c7 = 1500, M = 1000 GeV: MadDM \u03a9h\u00b2 = 0.0264, DM7 0.0259, ratio 1.019; \u0393(Z\u2032) = 29.81 GeV",
+  "  A1 m_\u03c7 = 100, M = 2000 GeV: MadDM \u03a9h\u00b2 = 54.8, DM7 54.7, ratio 1.002; \u0393(Z\u2032) = 111.5 GeV",
+  "  A1 m_\u03c7 = 500, M = 2000 GeV: MadDM \u03a9h\u00b2 = 1.43, DM7 1.44, ratio 0.995; \u0393(Z\u2032) = 93.7 GeV",
+  "  A1 m_\u03c7 = 950, M = 2000 GeV: MadDM \u03a9h\u00b2 = 0.00401, DM7 0.00404, ratio 0.993; \u0393(Z\u2032) = 60.86 GeV",
+  "  A1 m_\u03c7 = 1500, M = 1000 GeV: MadDM \u03a9h\u00b2 = 0.0354, DM7 0.0352, ratio 1.004; \u0393(Z\u2032) = 28.98 GeV"
+ ],
+ "3": [
+  "",
+  "3. MadDM's quark-level coefficients against the gate's derivations (both halves)",
+  "  G1 (claude-opus-5-5): largest relative difference 3.2e-03",
+  "  G1 (gpt-5.6-sol): largest relative difference 3.2e-03",
+  "  G2 (claude-opus-5-5): largest relative difference 3.1e-03",
+  "  G2 (gpt-5.6-sol): largest relative difference 3.1e-03",
+  "  G3 (claude-opus-5-5): largest relative difference 2.8e-03",
+  "  G3 (gpt-5.6-sol): largest relative difference 2.8e-03",
+  "  G4 (claude-opus-5-5): largest relative difference 4.0e-03 (overall sign reversed)",
+  "  G4 (gpt-5.6-sol): largest relative difference 4.0e-03 (overall sign reversed)",
+  "  G7 (claude-opus-5-5): largest relative difference 1.3e-03",
+  "  G7 (gpt-5.6-sol): largest relative difference 1.3e-03",
+  "  G8 (claude-opus-5-5): largest relative difference 1.3e-03",
+  "  G8 (gpt-5.6-sol): largest relative difference 1.3e-03",
+  "    MadDM reports coefficients for quarks the model does not couple: b, c, s, t (each the last computed quark's)",
+  "  G9 (claude-opus-5-5): MadDM's coefficients are all zero: no such operator in its basis",
+  "  G9 (gpt-5.6-sol): MadDM's coefficients are all zero: no such operator in its basis",
+  "  G5: not written as UFO (chi chi A: a dipole coupling to a spin-1 boson is not written)",
+  "  G6: not written as UFO (chi chi A: a other coupling to a spin-1 boson is not written)",
+  "  G10: not written as UFO (chi chi A: a dipole coupling to a spin-1 boson is not written)"
+ ]
+}

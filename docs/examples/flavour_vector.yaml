@@ -1,0 +1,106 @@
+name: flavour_vector_example
+phase: broken
+fields:
+- name: chi
+  role: dark_matter
+  spin: 0.5
+  mass_gev: 50
+  dark_parity: -1
+- name: V
+  role: mediator
+  spin: 1
+  self_conjugate: true
+  mass_gev: 300
+  dark_parity: 1
+- name: u
+  role: standard_model
+  spin: 0.5
+  dark_parity: 1
+  charges:
+    su3: '3'
+    electric_charge: 0.6666666666666666
+- name: d
+  role: standard_model
+  spin: 0.5
+  dark_parity: 1
+  charges:
+    su3: '3'
+    electric_charge: -0.3333333333333333
+- name: b
+  role: standard_model
+  spin: 0.5
+  dark_parity: 1
+  charges:
+    su3: '3'
+    electric_charge: -0.3333333333333333
+- name: mu
+  role: standard_model
+  spin: 0.5
+  dark_parity: 1
+  charges:
+    su3: '1'
+    electric_charge: -1
+couplings:
+- name: Cchi
+  value: -0.2
+- name: Cu
+  value: -0.2
+- name: Cd
+  value: 0.15
+- name: Cb
+  value: -0.1
+- name: Cmu
+  value: -0.05
+terms:
+- fields:
+  - field: V
+  - field: chi
+    conjugate: true
+  - field: chi
+  lorentz: vector
+  coupling: Cchi
+- fields:
+  - field: V
+  - field: u
+    conjugate: true
+  - field: u
+  lorentz: vector
+  coupling: Cu
+- fields:
+  - field: V
+  - field: d
+    conjugate: true
+  - field: d
+  lorentz: vector
+  coupling: Cd
+- fields:
+  - field: V
+  - field: b
+    conjugate: true
+  - field: b
+  lorentz: vector
+  coupling: Cb
+- fields:
+  - field: V
+  - field: mu
+    conjugate: true
+  - field: mu
+  lorentz: vector
+  coupling: Cmu
+stability: 'Z2: chi is odd'
+vector_currents:
+  flavours:
+    u: u
+    d: d
+    b: b
+    mu: mu
+  zero_flavours:
+  - s
+  - c
+  - t
+  - e
+  - tau
+  neutrinos: absent
+physical_fit:
+  low: 0
+  high: 1

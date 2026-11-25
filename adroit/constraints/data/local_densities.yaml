@@ -1,0 +1,20 @@
+# The local dark-matter density each Galactic-halo indirect-detection record's limits assume (the owner's rule of
+# 2026-10-19: over a halo region, such a limit on <sigma v> is rescaled from its stated rho_sun to the common rho0 by
+# (rho_record/rho0)^2; dwarf galaxies keep their own J-factors). A sidecar, so that records.yaml and its signatures are
+# untouched. Each value as the record or its digitised data states it, for the profile the verdict uses.
+records:
+  fermi-lat-1506.00013-lines:
+    rho_gev_cm3: 0.4
+    stated: "digitised data (constraints/data/digitised/fermi_1506.00013_lines.yaml): rho(8.5 kpc) = 0.4 GeV/cm3"
+  hess-1805.05741-lines:
+    rho_gev_cm3: 0.39
+    stated: "records.yaml: the verdict uses NFW (rho_sun = 0.39 GeV/cm3), the weaker of the paper's two profiles"
+  hess-2608.07234-lines:
+    rho_gev_cm3: 0.34
+    stated: "records.yaml: the verdict uses the contracted NFW with a 1 kpc core (rho_sun = 0.34 GeV/cm3)"
+  dampe-2112.08860-lines:
+    rho_gev_cm3: 0.4
+    stated: "records.yaml and its data file: rho(8.5 kpc) = 0.4 GeV/cm3, the same for the three profiles"
+  calore-2202.03076-pbar:
+    rho_gev_cm3: 0.385
+    stated: "records.yaml: NFW with rho_sun = 0.385 GeV/cm3; the limits scale as rho_sun^-2"

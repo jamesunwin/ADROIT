@@ -1,0 +1,148 @@
+experiment: PICO-60 C3F8 (2019)
+kind: SI
+range_gev:
+- 4.0
+- 80.0
+purpose: native counting likelihood only; existing DM3 limit envelopes unchanged
+fidelity: 'B: fixed best-fit efficiency curves; unavailable calibration covariance
+  omitted'
+curve_file: adroit/experiments/data/digitised/pico60_2019_fig8_native_si.yaml
+curve_sha256: dd600756782e7d915c05b53c78a47f36b14da3a38868e9996c9943ad4af5a30f
+response_hashes:
+  adroit/experiments/pico60.py: e2748a75e30e20456cab6710f382a0edbd5d8b02fccbda937766f4d317555291
+  adroit/experiments/base.py: 77c81c780a75f47d838ef43749b5b923446af42165f2b44ec2a0c2d241d2e927
+  adroit/experiments/data/digitised/pico60_2019_fig3.yaml: 36e1aa1f31b3dda800b6bf78bee57f4a02d9643daa41d229191db486e8a08122
+  # re-pinned 2026-11-23: cebce59 changed rates.py's docstrings only (its AST without docstrings is identical)
+  adroit/physics/rates.py: a51d72b9a9674d2e4b68c59cd77c41e8f5cbb4ebc3e84266a09fb08356f4b977
+  adroit/physics/halo.py: 3a8b8fee1568dae4b723abdd93c3a0119b5640b647e3743b5b717d4b17d2f949
+  adroit/physics/nuclear.py: 492107c93ad3e3130f0106d3805c6feda53dbb69c19346339d25542cd571da50
+  adroit/physics/targets.py: c01b7035f16e71c14cf9da4681d0f62a8126e2c8e2350dab8635ee827feb2024
+  adroit/physics/conventions.py: f8b3322d5d15a0ad6ef807c657d2168f6b266bde2c0e44d9e4feec8edc5a0d4b
+  adroit/statistics/poisson.py: 82f2b8f5831ba89642f9483656fe71fdf685d649648f92bc3f6ee7c0671e27dd
+  adroit/core/dm_state.py: 0c8abb7d7143779c20c0a36cba2aa48fe159c1c304b3ceb407d5b3e3a8269462
+  adroit/physics/data/LICENSE-WIMpy_NREFT: b84122bafe1db4faf284a084f70348f015085b6f5a34c1668dbc0646eeec1e76
+  adroit/physics/data/isotopes.yaml: b9282f4d964f4e8b8625b523041eb565bed1fef3b2a2cdbe878458de0e3a478c
+  adroit/physics/data/klos2013_structure_factors.yaml: 428118220a8442c928d20789588de910efef4068b72cb9a9b607b27022886b6e
+  adroit/physics/data/shell_model_responses.json: e387e4e5afd1f50d95d9f42a443b050a2f6823264d6d9a6f51ac6d5eaee43dab
+validation:
+  experiment: PICO-60 C3F8 (2019)
+  kind: SI
+  masses_gev:
+  - 4.0
+  - 4.646345398566169
+  - 5.0
+  - 5.397131390694254
+  - 6.269234150652318
+  - 7.28225681210432
+  - 8.458970107524513
+  - 8.6
+  - 9.825824208926322
+  - 10.0
+  - 11.413543275066225
+  - 13.257816069359947
+  - 15.4000981722268
+  - 17.888543819998322
+  - 20.0
+  - 20.77908831627461
+  - 24.136705346180655
+  - 28.036867455443485
+  - 30.0
+  - 32.56724252295235
+  - 37.82966436012705
+  - 43.942421732244696
+  - 50.0
+  - 51.04291725436732
+  - 59.29075592855579
+  - 68.87133274653878
+  - 80.0
+  published_cm2:
+  - 3.9586158380737864e-42
+  - 1.322637901947383e-42
+  - 8.763194558980662e-43
+  - 6.0641575396869335e-43
+  - 3.306027324332253e-43
+  - 2.18371640699445e-43
+  - 1.580137477417589e-43
+  - 1.5332465977604948e-43
+  - 1.247896134418187e-43
+  - 1.2191237914666349e-43
+  - 1.0404975986196336e-43
+  - 9.207979791200602e-44
+  - 8.356316382222943e-44
+  - 7.774642343276477e-44
+  - 7.588912514672796e-44
+  - 7.53879213692924e-44
+  - 7.442184693107975e-44
+  - 7.490489349508594e-44
+  - 7.528629233704439e-44
+  - 7.610337648470344e-44
+  - 7.880044597220739e-44
+  - 8.266184240610658e-44
+  - 8.66437781097453e-44
+  - 8.747491662311648e-44
+  - 9.392859242007088e-44
+  - 1.0169031719310274e-43
+  - 1.1079935293692849e-43
+  reproduced_cm2:
+  - 3.267441032543674e-42
+  - 1.2136032689637663e-42
+  - 8.278105689636444e-43
+  - 5.848733009106735e-43
+  - 3.3746782657570954e-43
+  - 2.2200700765225576e-43
+  - 1.6102200471654475e-43
+  - 1.5624343155235048e-43
+  - 1.2613057111008294e-43
+  - 1.2306900170387832e-43
+  - 1.0471886763940257e-43
+  - 9.116366463186298e-44
+  - 8.240500142814025e-44
+  - 7.681879899400625e-44
+  - 7.419986096466145e-44
+  - 7.35657814365671e-44
+  - 7.206679305514464e-44
+  - 7.203609166231529e-44
+  - 7.243509297078911e-44
+  - 7.32810121080464e-44
+  - 7.573064290950254e-44
+  - 7.929865161653871e-44
+  - 8.332876318429349e-44
+  - 8.405735440100451e-44
+  - 9.011700003770663e-44
+  - 9.755904195894207e-44
+  - 1.0654853070188661e-43
+  edge_passes:
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  tolerance: 1.3
+  method: profile likelihood over the two exposures, backgrounds free and non-negative;
+    Neyman construction with toy experiments
+  note: 'published: arXiv:1902.04031v1, Fig. 8, p. 8, thick maroon combined exposure'
+  model: ''
+  quantity: "cross-section (cm\xB2)"
+  variable: mass (GeV)

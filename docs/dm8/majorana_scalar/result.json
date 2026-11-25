@@ -1,0 +1,1276 @@
+{
+ "request": {
+  "description": "",
+  "spec": {
+   "name": "majorana_scalar",
+   "phase": "broken",
+   "source": "Majorana dark matter; a real scalar coupling to quarks in proportion to their masses.",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "a reference point; the limits are computed at masses_gev",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "S",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 500.0,
+     "mass_justification": "heavy compared with the momentum transfer, so a contact interaction",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "y_chi",
+     "value": 0.5,
+     "mass_dimension": 0,
+     "justification": "an illustrative value"
+    },
+    {
+     "name": "g_q",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Higgs-like alignment: each quark couples as its Yukawa coupling"
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "S",
+       "conjugate": false
+      },
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "y_chi/2",
+     "plus_hc": false,
+     "text": "(y_χ/2) S χ̄χ"
+    },
+    {
+     "fields": [
+      {
+       "field": "S",
+       "conjugate": false
+      },
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "g_q*m_q/v",
+     "plus_hc": false,
+     "text": "(g_q m_q/v) S q̄q"
+    }
+   ],
+   "assumptions": [
+    "one universal coupling g_q for every quark, times m_q/v"
+   ],
+   "dropped": [
+    "couplings of S to leptons and gauge bosons",
+    "mixing of S with the Higgs boson"
+   ],
+   "stability": "Z2: chi → −chi, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_χ/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "derivation": {
+   "model_name": "majorana_scalar",
+   "dm_type": "M",
+   "flavours": 5,
+   "terms": [
+    {
+     "name": "C75u",
+     "expression": "y_chi*g_q/(v*m_S**2)",
+     "note": ""
+    },
+    {
+     "name": "C75d",
+     "expression": "y_chi*g_q/(v*m_S**2)",
+     "note": ""
+    },
+    {
+     "name": "C75s",
+     "expression": "y_chi*g_q/(v*m_S**2)",
+     "note": ""
+    },
+    {
+     "name": "C75c",
+     "expression": "y_chi*g_q/(v*m_S**2)",
+     "note": ""
+    },
+    {
+     "name": "C75b",
+     "expression": "y_chi*g_q/(v*m_S**2)",
+     "note": ""
+    },
+    {
+     "name": "C71",
+     "expression": "-y_chi*g_q/(v*m_S**2)",
+     "note": "the top quark, integrated out"
+    }
+   ],
+   "library_card": "",
+   "library_values": {},
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "justifications": [
+    "C75q: tree-level S exchange; the 1/2 of y_χ/2 and of DirectDM's Majorana operator cancel",
+    "C71: the top's coupling through the heavy-quark relation m_t t̄t → −(α_s/12π) GG"
+   ],
+   "assumptions": [],
+   "derived_by": "user"
+  },
+  "masses_gev": [
+   10.0,
+   30.0,
+   100.0,
+   300.0,
+   1000.0
+  ],
+  "modules": [
+   "CRESST-III 2019",
+   "DEAP-3600 (2019)",
+   "PICO-60 C3F8 (2019)",
+   "XENONnT SR0+SR1"
+  ],
+  "use_language_models": false,
+  "second_derivation": true,
+  "deriver": "claude-opus-5-5",
+  "checker": "gpt-5.6-sol",
+  "run_exclusion": true,
+  "numerical_check": true
+ },
+ "status": "complete",
+ "spec": {
+  "name": "majorana_scalar",
+  "phase": "broken",
+  "source": "Majorana dark matter; a real scalar coupling to quarks in proportion to their masses.",
+  "fields": [
+   {
+    "name": "chi",
+    "role": "dark_matter",
+    "spin": 0.5,
+    "self_conjugate": true,
+    "chirality": "",
+    "generations": 1,
+    "mass_gev": 100.0,
+    "mass_justification": "a reference point; the limits are computed at masses_gev",
+    "charges": {
+     "su3": "1",
+     "su2": 1,
+     "hypercharge": 0.0,
+     "electric_charge": 0.0,
+     "extra": {}
+    },
+    "dark_parity": -1
+   },
+   {
+    "name": "S",
+    "role": "mediator",
+    "spin": 0.0,
+    "self_conjugate": true,
+    "chirality": "",
+    "generations": 1,
+    "mass_gev": 500.0,
+    "mass_justification": "heavy compared with the momentum transfer, so a contact interaction",
+    "charges": {
+     "su3": "1",
+     "su2": 1,
+     "hypercharge": 0.0,
+     "electric_charge": 0.0,
+     "extra": {}
+    },
+    "dark_parity": 1
+   },
+   {
+    "name": "q",
+    "role": "standard_model",
+    "spin": 0.5,
+    "self_conjugate": false,
+    "chirality": "",
+    "generations": 1,
+    "mass_gev": null,
+    "mass_justification": "",
+    "charges": {
+     "su3": "1",
+     "su2": 1,
+     "hypercharge": 0.0,
+     "electric_charge": 0.0,
+     "extra": {}
+    },
+    "dark_parity": null
+   }
+  ],
+  "couplings": [
+   {
+    "name": "y_chi",
+    "value": 0.5,
+    "mass_dimension": 0,
+    "justification": "an illustrative value"
+   },
+   {
+    "name": "g_q",
+    "value": 1.0,
+    "mass_dimension": 0,
+    "justification": "Higgs-like alignment: each quark couples as its Yukawa coupling"
+   }
+  ],
+  "terms": [
+   {
+    "fields": [
+     {
+      "field": "S",
+      "conjugate": false
+     },
+     {
+      "field": "chi",
+      "conjugate": true
+     },
+     {
+      "field": "chi",
+      "conjugate": false
+     }
+    ],
+    "lorentz": "scalar",
+    "coupling": "y_chi/2",
+    "plus_hc": false,
+    "text": "(y_χ/2) S χ̄χ"
+   },
+   {
+    "fields": [
+     {
+      "field": "S",
+      "conjugate": false
+     },
+     {
+      "field": "q",
+      "conjugate": true
+     },
+     {
+      "field": "q",
+      "conjugate": false
+     }
+    ],
+    "lorentz": "scalar",
+    "coupling": "g_q*m_q/v",
+    "plus_hc": false,
+    "text": "(g_q m_q/v) S q̄q"
+   }
+  ],
+  "assumptions": [
+   "one universal coupling g_q for every quark, times m_q/v"
+  ],
+  "dropped": [
+   "couplings of S to leptons and gauge bosons",
+   "mixing of S with the Higgs boson"
+  ],
+  "stability": "Z2: chi → −chi, every other field even",
+  "relic_fraction": 1.0,
+  "cosmology": "standard: radiation domination from a reheating temperature far above m_χ/20, Standard Model degrees of freedom, no late entropy release"
+ },
+ "checks": {
+  "gauge": [],
+  "hermiticity": [],
+  "anomalies": [],
+  "coefficients": [],
+  "stability": [],
+  "perturbativity": [],
+  "contact": [],
+  "unitarity": [],
+  "notes": []
+ },
+ "derivation": {
+  "model_name": "majorana_scalar",
+  "dm_type": "M",
+  "flavours": 5,
+  "terms": [
+   {
+    "name": "C75u",
+    "expression": "y_chi*g_q/(v*m_S**2)",
+    "note": ""
+   },
+   {
+    "name": "C75d",
+    "expression": "y_chi*g_q/(v*m_S**2)",
+    "note": ""
+   },
+   {
+    "name": "C75s",
+    "expression": "y_chi*g_q/(v*m_S**2)",
+    "note": ""
+   },
+   {
+    "name": "C75c",
+    "expression": "y_chi*g_q/(v*m_S**2)",
+    "note": ""
+   },
+   {
+    "name": "C75b",
+    "expression": "y_chi*g_q/(v*m_S**2)",
+    "note": ""
+   },
+   {
+    "name": "C71",
+    "expression": "-y_chi*g_q/(v*m_S**2)",
+    "note": "the top quark, integrated out"
+   }
+  ],
+  "library_card": "",
+  "library_values": {},
+  "dropped": [
+   "S propagation (contact limit; m_S ≫ q)"
+  ],
+  "justifications": [
+   "C75q: tree-level S exchange; the 1/2 of y_χ/2 and of DirectDM's Majorana operator cancel",
+   "C71: the top's coupling through the heavy-quark relation m_t t̄t → −(α_s/12π) GG"
+  ],
+  "assumptions": [],
+  "derived_by": "user"
+ },
+ "dimension_problems": [],
+ "second": null,
+ "comparison": null,
+ "numerical": {
+  "covered": true,
+  "reason": "",
+  "max_relative_difference": 0.000676731494069124,
+  "sign": 1,
+  "spurious": [],
+  "expected": {
+   "d": [
+    1.8966777678498902e-11,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "u": [
+    8.7726423523678e-12,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "s": [
+    3.79335553569978e-10,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "c": [
+    5.15798879051255e-9,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "b": [
+    1.90886199333929e-8,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "t": [
+    6.985622613922508e-7,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "interactions": {
+  "10": {
+   "id": "6ce62153-282c-4389-9129-f8e7b9d72038",
+   "name": "majorana_scalar",
+   "layer": "quark",
+   "card_id": "",
+   "coefficients": [
+    {
+     "operator": 1,
+     "proton": 2.353811592204204e-9,
+     "neutron": 2.370233530307002e-9,
+     "q_power": 0,
+     "q_scale_gev": 1.0,
+     "mediator_mass_gev": null
+    }
+   ],
+   "parameters": {
+    "C75u": 8.122816992933148e-9,
+    "C75d": 8.122816992933148e-9,
+    "C75s": 8.122816992933148e-9,
+    "C75c": 8.122816992933148e-9,
+    "C75b": 8.122816992933148e-9,
+    "C71": -8.122816992933148e-9
+   },
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "references": [
+    "arXiv:1708.02678 (DirectDM)"
+   ]
+  },
+  "30": {
+   "id": "c636b4b0-e98d-4607-9ef3-eaa42a7bbf58",
+   "name": "majorana_scalar",
+   "layer": "quark",
+   "card_id": "",
+   "coefficients": [
+    {
+     "operator": 1,
+     "proton": 2.353811592204204e-9,
+     "neutron": 2.370233530307002e-9,
+     "q_power": 0,
+     "q_scale_gev": 1.0,
+     "mediator_mass_gev": null
+    }
+   ],
+   "parameters": {
+    "C75u": 8.122816992933148e-9,
+    "C75d": 8.122816992933148e-9,
+    "C75s": 8.122816992933148e-9,
+    "C75c": 8.122816992933148e-9,
+    "C75b": 8.122816992933148e-9,
+    "C71": -8.122816992933148e-9
+   },
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "references": [
+    "arXiv:1708.02678 (DirectDM)"
+   ]
+  },
+  "100": {
+   "id": "ef28b4ae-ba6c-4189-b544-67a436d5e68d",
+   "name": "majorana_scalar",
+   "layer": "quark",
+   "card_id": "",
+   "coefficients": [
+    {
+     "operator": 1,
+     "proton": 2.353811592204204e-9,
+     "neutron": 2.370233530307002e-9,
+     "q_power": 0,
+     "q_scale_gev": 1.0,
+     "mediator_mass_gev": null
+    }
+   ],
+   "parameters": {
+    "C75u": 8.122816992933148e-9,
+    "C75d": 8.122816992933148e-9,
+    "C75s": 8.122816992933148e-9,
+    "C75c": 8.122816992933148e-9,
+    "C75b": 8.122816992933148e-9,
+    "C71": -8.122816992933148e-9
+   },
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "references": [
+    "arXiv:1708.02678 (DirectDM)"
+   ]
+  },
+  "300": {
+   "id": "3f307743-d8f3-4046-ad7c-8e51eb8fb7c9",
+   "name": "majorana_scalar",
+   "layer": "quark",
+   "card_id": "",
+   "coefficients": [
+    {
+     "operator": 1,
+     "proton": 2.353811592204204e-9,
+     "neutron": 2.370233530307002e-9,
+     "q_power": 0,
+     "q_scale_gev": 1.0,
+     "mediator_mass_gev": null
+    }
+   ],
+   "parameters": {
+    "C75u": 8.122816992933148e-9,
+    "C75d": 8.122816992933148e-9,
+    "C75s": 8.122816992933148e-9,
+    "C75c": 8.122816992933148e-9,
+    "C75b": 8.122816992933148e-9,
+    "C71": -8.122816992933148e-9
+   },
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "references": [
+    "arXiv:1708.02678 (DirectDM)"
+   ]
+  },
+  "1000": {
+   "id": "93b321ad-5222-46a0-baa6-b49459b952e3",
+   "name": "majorana_scalar",
+   "layer": "quark",
+   "card_id": "",
+   "coefficients": [
+    {
+     "operator": 1,
+     "proton": 2.353811592204204e-9,
+     "neutron": 2.370233530307002e-9,
+     "q_power": 0,
+     "q_scale_gev": 1.0,
+     "mediator_mass_gev": null
+    }
+   ],
+   "parameters": {
+    "C75u": 8.122816992933148e-9,
+    "C75d": 8.122816992933148e-9,
+    "C75s": 8.122816992933148e-9,
+    "C75c": 8.122816992933148e-9,
+    "C75b": 8.122816992933148e-9,
+    "C71": -8.122816992933148e-9
+   },
+   "dropped": [
+    "S propagation (contact limit; m_S ≫ q)"
+   ],
+   "references": [
+    "arXiv:1708.02678 (DirectDM)"
+   ]
+  }
+ },
+ "matches": [
+  {
+   "card_id": "L01",
+   "residual": 2.476273918593049e-16,
+   "values": {
+    "d_p": 2.353811592204204e-9,
+    "d_n": 2.370233530307003e-9
+   },
+   "reference": {
+    "m_M": 246.2
+   },
+   "remainder": {},
+   "undetermined": []
+  },
+  {
+   "card_id": "O1",
+   "residual": 2.476273918593049e-16,
+   "values": {
+    "c_p": 2.353811592204204e-9,
+    "c_n": 2.370233530307003e-9
+   },
+   "reference": {},
+   "remainder": {},
+   "undetermined": []
+  },
+  {
+   "card_id": "L05",
+   "residual": 4.464166292790691e-16,
+   "values": {
+    "d_p": 3.829196855790602e-6,
+    "d_n": 3.8559121774236065e-6
+   },
+   "reference": {
+    "m_M": 246.2
+   },
+   "remainder": {},
+   "undetermined": []
+  },
+  {
+   "card_id": "M_scalar",
+   "residual": 2.1082293332010957e-12,
+   "values": {
+    "gS_p": 23.53811592206461,
+    "gS_n": 23.70233530309276
+   },
+   "reference": {
+    "g_chi": 1.0,
+    "m_med": 100000.0,
+    "m_M": 246.2
+   },
+   "remainder": {},
+   "undetermined": []
+  }
+ ],
+ "exclusion": {
+  "request": {
+   "card_id": "",
+   "bespoke": {
+    "10": {
+     "id": "6ce62153-282c-4389-9129-f8e7b9d72038",
+     "name": "majorana_scalar",
+     "layer": "quark",
+     "card_id": "",
+     "coefficients": [
+      {
+       "operator": 1,
+       "proton": 2.353811592204204e-9,
+       "neutron": 2.370233530307002e-9,
+       "q_power": 0,
+       "q_scale_gev": 1.0,
+       "mediator_mass_gev": null
+      }
+     ],
+     "parameters": {
+      "C75u": 8.122816992933148e-9,
+      "C75d": 8.122816992933148e-9,
+      "C75s": 8.122816992933148e-9,
+      "C75c": 8.122816992933148e-9,
+      "C75b": 8.122816992933148e-9,
+      "C71": -8.122816992933148e-9
+     },
+     "dropped": [
+      "S propagation (contact limit; m_S ≫ q)"
+     ],
+     "references": [
+      "arXiv:1708.02678 (DirectDM)"
+     ]
+    },
+    "30": {
+     "id": "c636b4b0-e98d-4607-9ef3-eaa42a7bbf58",
+     "name": "majorana_scalar",
+     "layer": "quark",
+     "card_id": "",
+     "coefficients": [
+      {
+       "operator": 1,
+       "proton": 2.353811592204204e-9,
+       "neutron": 2.370233530307002e-9,
+       "q_power": 0,
+       "q_scale_gev": 1.0,
+       "mediator_mass_gev": null
+      }
+     ],
+     "parameters": {
+      "C75u": 8.122816992933148e-9,
+      "C75d": 8.122816992933148e-9,
+      "C75s": 8.122816992933148e-9,
+      "C75c": 8.122816992933148e-9,
+      "C75b": 8.122816992933148e-9,
+      "C71": -8.122816992933148e-9
+     },
+     "dropped": [
+      "S propagation (contact limit; m_S ≫ q)"
+     ],
+     "references": [
+      "arXiv:1708.02678 (DirectDM)"
+     ]
+    },
+    "100": {
+     "id": "ef28b4ae-ba6c-4189-b544-67a436d5e68d",
+     "name": "majorana_scalar",
+     "layer": "quark",
+     "card_id": "",
+     "coefficients": [
+      {
+       "operator": 1,
+       "proton": 2.353811592204204e-9,
+       "neutron": 2.370233530307002e-9,
+       "q_power": 0,
+       "q_scale_gev": 1.0,
+       "mediator_mass_gev": null
+      }
+     ],
+     "parameters": {
+      "C75u": 8.122816992933148e-9,
+      "C75d": 8.122816992933148e-9,
+      "C75s": 8.122816992933148e-9,
+      "C75c": 8.122816992933148e-9,
+      "C75b": 8.122816992933148e-9,
+      "C71": -8.122816992933148e-9
+     },
+     "dropped": [
+      "S propagation (contact limit; m_S ≫ q)"
+     ],
+     "references": [
+      "arXiv:1708.02678 (DirectDM)"
+     ]
+    },
+    "300": {
+     "id": "3f307743-d8f3-4046-ad7c-8e51eb8fb7c9",
+     "name": "majorana_scalar",
+     "layer": "quark",
+     "card_id": "",
+     "coefficients": [
+      {
+       "operator": 1,
+       "proton": 2.353811592204204e-9,
+       "neutron": 2.370233530307002e-9,
+       "q_power": 0,
+       "q_scale_gev": 1.0,
+       "mediator_mass_gev": null
+      }
+     ],
+     "parameters": {
+      "C75u": 8.122816992933148e-9,
+      "C75d": 8.122816992933148e-9,
+      "C75s": 8.122816992933148e-9,
+      "C75c": 8.122816992933148e-9,
+      "C75b": 8.122816992933148e-9,
+      "C71": -8.122816992933148e-9
+     },
+     "dropped": [
+      "S propagation (contact limit; m_S ≫ q)"
+     ],
+     "references": [
+      "arXiv:1708.02678 (DirectDM)"
+     ]
+    },
+    "1000": {
+     "id": "93b321ad-5222-46a0-baa6-b49459b952e3",
+     "name": "majorana_scalar",
+     "layer": "quark",
+     "card_id": "",
+     "coefficients": [
+      {
+       "operator": 1,
+       "proton": 2.353811592204204e-9,
+       "neutron": 2.370233530307002e-9,
+       "q_power": 0,
+       "q_scale_gev": 1.0,
+       "mediator_mass_gev": null
+      }
+     ],
+     "parameters": {
+      "C75u": 8.122816992933148e-9,
+      "C75d": 8.122816992933148e-9,
+      "C75s": 8.122816992933148e-9,
+      "C75c": 8.122816992933148e-9,
+      "C75b": 8.122816992933148e-9,
+      "C71": -8.122816992933148e-9
+     },
+     "dropped": [
+      "S propagation (contact limit; m_S ≫ q)"
+     ],
+     "references": [
+      "arXiv:1708.02678 (DirectDM)"
+     ]
+    }
+   },
+   "spin": 0.5,
+   "name": "majorana_scalar",
+   "values": {},
+   "masses_gev": [
+    10.0,
+    30.0,
+    100.0,
+    300.0,
+    1000.0
+   ],
+   "masses_by_module": {},
+   "splitting_kev": 0.0,
+   "modules": [
+    "CRESST-III 2019",
+    "DEAP-3600 (2019)",
+    "PICO-60 C3F8 (2019)",
+    "XENONnT SR0+SR1"
+   ],
+   "halo": null,
+   "nuclear_model": null,
+   "workers": 1,
+   "telescopes": true,
+   "unverified_records": false
+  },
+  "interaction_name": "majorana_scalar",
+  "per_module": [
+   {
+    "experiment": "CRESST-III 2019",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     84.75058259075527,
+     38.41452493655565,
+     51.47626991645568,
+     85.49138186395747,
+     154.60911929335774
+    ],
+    "validated": [
+     true,
+     true,
+     true,
+     false,
+     false
+    ],
+    "route": "direct",
+    "fidelity": "B",
+    "note": "validated: any kind's validated mass range"
+   },
+   {
+    "experiment": "DEAP-3600 (2019)",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     Infinity,
+     9.351869554070806,
+     2.4220642340302088,
+     2.9488372787101285,
+     4.853228133454319
+    ],
+    "validated": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ],
+    "route": "direct",
+    "fidelity": "B",
+    "note": "validated: any kind's validated mass range"
+   },
+   {
+    "experiment": "PICO-60 C3F8 (2019)",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     15.53990868282748,
+     11.239815795708036,
+     14.347710550460736,
+     22.155935180106255,
+     38.78562929660097
+    ],
+    "validated": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "route": "direct",
+    "fidelity": "B",
+    "note": "validated: any kind's validated mass range"
+   },
+   {
+    "experiment": "XENONnT SR0+SR1",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     0.8030733669296131,
+     0.18292186356848647,
+     0.2560838787692765,
+     0.4266688334105774,
+     0.7700494349661604
+    ],
+    "validated": [
+     false,
+     true,
+     true,
+     true,
+     true
+    ],
+    "route": "direct",
+    "fidelity": "A",
+    "note": "validated: any kind's validated mass range"
+   }
+  ],
+  "skipped": {},
+  "flags": [],
+  "telescopes": [
+   {
+    "record_id": "icecube-1612.05949-sd",
+    "channel": "bb",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     NaN,
+     NaN,
+     132.45250975238204,
+     90.00118589735142,
+     73.90823104695036
+    ],
+    "assumptions": [
+     "capture and annihilation in equilibrium in the Sun",
+     "annihilation entirely into the named channel",
+     "channel bb"
+    ],
+    "verified": true
+   },
+   {
+    "record_id": "icecube-1612.05949-sd",
+    "channel": "tautau",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     NaN,
+     53.82054563981076,
+     12.45720686483529,
+     8.187179722871454,
+     6.607698493966338
+    ],
+    "assumptions": [
+     "capture and annihilation in equilibrium in the Sun",
+     "annihilation entirely into the named channel",
+     "channel tautau"
+    ],
+    "verified": true
+   },
+   {
+    "record_id": "icecube-1612.05949-si",
+    "channel": "bb",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     NaN,
+     NaN,
+     124.16928608932112,
+     81.26569230098839,
+     63.06379491712625
+    ],
+    "assumptions": [
+     "capture and annihilation in equilibrium in the Sun",
+     "annihilation entirely into the named channel",
+     "channel bb"
+    ],
+    "verified": true
+   },
+   {
+    "record_id": "icecube-1612.05949-si",
+    "channel": "tautau",
+    "masses_gev": [
+     10.0,
+     30.0,
+     100.0,
+     300.0,
+     1000.0
+    ],
+    "mu_up": [
+     NaN,
+     51.09120030690393,
+     11.634130871589491,
+     7.391201736943142,
+     5.640317673431826
+    ],
+    "assumptions": [
+     "capture and annihilation in equilibrium in the Sun",
+     "annihilation entirely into the named channel",
+     "channel tautau"
+    ],
+    "verified": true
+   }
+  ],
+  "created": "2026-10-01"
+ },
+ "viability": [
+  {
+   "id": "relic_abundance",
+   "group": "thermal",
+   "title": "Relic abundance",
+   "status": "applies, not yet computed",
+   "detail": "intended: 1 of Ωh² = 0.12; needs every annihilation channel",
+   "planned": "Bespoke models: the project's own UFO model files to MadDM (DM8's numerical cross-check; MadDM's licence to read)."
+  },
+  {
+   "id": "initial_equilibrium",
+   "group": "thermal",
+   "title": "Initial chemical equilibrium",
+   "status": "applies, not yet computed",
+   "detail": "couples to the bath through quark: Γ against H to be computed",
+   "planned": "Next, with the relic code: Γ = n_eq⟨σv⟩ against H(T) from x ≈ 1 to freeze-out."
+  },
+  {
+   "id": "coannihilation_resonance_threshold",
+   "group": "thermal",
+   "title": "Coannihilation, resonances and thresholds",
+   "status": "does not apply",
+   "detail": "no odd state within 20% above m_χ, no mediator near 2m_χ, no channel opening within 10% of m_χ",
+   "planned": ""
+  },
+  {
+   "id": "sommerfeld_bound_states",
+   "group": "thermal",
+   "title": "Sommerfeld enhancement and bound states",
+   "status": "does not apply",
+   "detail": "every force carrier has α m_χ/M < 0.1: no long-range enhancement",
+   "planned": ""
+  },
+  {
+   "id": "kinetic_equilibrium",
+   "group": "thermal",
+   "title": "Kinetic equilibrium",
+   "status": "does not apply",
+   "detail": "no resonance or forbidden channel near m_χ = 100 GeV: scattering on the bath outlasts annihilation",
+   "planned": ""
+  },
+  {
+   "id": "cosmological_history",
+   "group": "thermal",
+   "title": "Cosmological history",
+   "status": "assumed",
+   "detail": "standard: radiation domination from a reheating temperature far above m_χ/20, Standard Model degrees of freedom, no late entropy release",
+   "planned": ""
+  },
+  {
+   "id": "secluded_sector",
+   "group": "thermal",
+   "title": "Secluded-sector evolution",
+   "status": "does not apply",
+   "detail": "no new state is lighter than the dark matter",
+   "planned": ""
+  },
+  {
+   "id": "direct_detection",
+   "group": "searches",
+   "title": "Direct detection",
+   "status": "checked",
+   "detail": "nuclear recoils: Path 1's limits in the chosen modules",
+   "planned": ""
+  },
+  {
+   "id": "indirect_detection",
+   "group": "searches",
+   "title": "Indirect detection",
+   "status": "applies, not yet computed",
+   "detail": "needs ⟨σv⟩ today by channel",
+   "planned": "Bespoke models through the UFO files and MadDM; antiprotons and positrons later."
+  },
+  {
+   "id": "colliders",
+   "group": "searches",
+   "title": "Colliders",
+   "status": "applies, not yet computed",
+   "detail": "couples to quark; mediators below 3 TeV (S) are produced on shell",
+   "planned": "Recasting (SModelS, CheckMATE, MadAnalysis 5), as the plan states."
+  },
+  {
+   "id": "beam_dumps",
+   "group": "searches",
+   "title": "Beam dumps and fixed-target experiments",
+   "status": "does not apply",
+   "detail": "no new state below 3 GeV that couples to the Standard Model",
+   "planned": ""
+  },
+  {
+   "id": "rare_meson_decays",
+   "group": "searches",
+   "title": "Rare meson decays",
+   "status": "does not apply",
+   "detail": "no new state below 4.79 GeV coupled to quarks",
+   "planned": ""
+  },
+  {
+   "id": "neutrino_fluxes",
+   "group": "searches",
+   "title": "Neutrino fluxes",
+   "status": "checked",
+   "detail": "capture in the Sun against IceCube (Path 1's telescope tier); Earth and halo not built",
+   "planned": ""
+  },
+  {
+   "id": "flavour",
+   "group": "searches",
+   "title": "Flavour",
+   "status": "does not apply",
+   "detail": "one coupling for every quark and lepton, or none",
+   "planned": ""
+  },
+  {
+   "id": "precision",
+   "group": "searches",
+   "title": "Precision measurements",
+   "status": "does not apply",
+   "detail": "no light invisible Higgs or Z decay, no electroweak multiplet",
+   "planned": ""
+  },
+  {
+   "id": "stellar_cooling",
+   "group": "searches",
+   "title": "Stellar and supernova cooling",
+   "status": "does not apply",
+   "detail": "no new state below 1 GeV",
+   "planned": ""
+  },
+  {
+   "id": "dm_decay",
+   "group": "cosmology",
+   "title": "Dark matter decay, if metastable",
+   "status": "does not apply",
+   "detail": "stable under the stated symmetry, if it is exact (symmetry-breaking operators not checked)",
+   "planned": ""
+  },
+  {
+   "id": "free_streaming",
+   "group": "cosmology",
+   "title": "Free streaming",
+   "status": "does not apply",
+   "detail": "a freeze-out relic of 100 GeV is cold",
+   "planned": ""
+  },
+  {
+   "id": "bbn_neff",
+   "group": "cosmology",
+   "title": "BBN and dark radiation",
+   "status": "does not apply",
+   "detail": "no new state below 0.02 GeV, so none is in equilibrium at BBN (mediator lifetimes not computed)",
+   "planned": ""
+  },
+  {
+   "id": "cmb_annihilation",
+   "group": "cosmology",
+   "title": "CMB energy injection",
+   "status": "applies, not yet computed",
+   "detail": "s-wave annihilation into visible states at recombination: Planck's p_ann",
+   "planned": "Next: Planck's limit on p_ann = f_eff⟨σv⟩/m_χ, for the spin-1 models first."
+  },
+  {
+   "id": "self_interactions",
+   "group": "cosmology",
+   "title": "Self-interactions",
+   "status": "does not apply",
+   "detail": "σ/m ≈ 1.7e-15 cm²/g (Born, contact), below 0.01 cm²/g",
+   "planned": ""
+  },
+  {
+   "id": "plasma_scattering",
+   "group": "cosmology",
+   "title": "Scattering with the cosmological plasma",
+   "status": "does not apply",
+   "detail": "the dark matter is above 1 GeV and no state is below 1 MeV",
+   "planned": ""
+  },
+  {
+   "id": "unitarity",
+   "group": "theory",
+   "title": "Unitarity",
+   "status": "checked",
+   "detail": "no axial coupling of a massive vector breaks eq. 2.8 of arXiv:1510.02110",
+   "planned": ""
+  },
+  {
+   "id": "anomaly_cancellation",
+   "group": "theory",
+   "title": "Anomaly cancellation",
+   "status": "checked",
+   "detail": "no anomalous U(1) and no unchecked axial coupling",
+   "planned": ""
+  },
+  {
+   "id": "perturbativity",
+   "group": "theory",
+   "title": "Perturbativity",
+   "status": "checked",
+   "detail": "every dimensionless coupling below √(4π)",
+   "planned": ""
+  },
+  {
+   "id": "vacuum_structure",
+   "group": "theory",
+   "title": "Vacuum structure",
+   "status": "applies, not yet computed",
+   "detail": "new scalars: the potential is not yet part of the model",
+   "planned": "Phase 2."
+  },
+  {
+   "id": "stability_mechanism",
+   "group": "theory",
+   "title": "Stability mechanism",
+   "status": "checked",
+   "detail": "the stated parity keeps the dark matter stable",
+   "planned": ""
+  },
+  {
+   "id": "eft_validity",
+   "group": "theory",
+   "title": "EFT validity",
+   "status": "checked",
+   "detail": "every mediator is heavy enough for the contact interaction",
+   "planned": ""
+  }
+ ],
+ "contract": {
+  "dropped": [
+   "couplings of S to leptons and gauge bosons",
+   "mixing of S with the Higgs boson",
+   "S propagation (contact limit; m_S ≫ q)"
+  ],
+  "assumptions": [
+   "one universal coupling g_q for every quark, times m_q/v"
+  ],
+  "masses": {
+   "chi": "100 GeV: a reference point; the limits are computed at masses_gev",
+   "S": "500 GeV: heavy compared with the momentum transfer, so a contact interaction"
+  },
+  "couplings": {
+   "y_chi": "0.5: an illustrative value",
+   "g_q": "1.0: Higgs-like alignment: each quark couples as its Yukawa coupling"
+  }
+ }
+}

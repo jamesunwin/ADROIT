@@ -1,0 +1,56 @@
+DM7 gate part 1: CMS's thermal-relic contours (arXiv:2405.13778, Figs. 11, 12)
+rule: Ωh² within ×1.3 of 0.12, or the system's contour within 3% in m_med or m_DM; ≥ 90% of 100 points per model
+
+V1 (gate): 78/100 pass (78 within ×1.3); Ωh²/0.12 median 0.971, range 0.072–0.985
+    fails at m_med = 249.1, m_DM = 8.4: Ωh² = 0.0865
+    fails at m_med = 234.2, m_DM = 7.4: Ωh² = 0.0888
+    fails at m_med = 220.2, m_DM = 6.5: Ωh² = 0.0912
+    fails at m_med = 183.1, m_DM = 5.0: Ωh² = 0.0843
+    fails at m_med = 172.1, m_DM = 4.9: Ωh² = 0.0676
+    fails at m_med = 161.8, m_DM = 4.9: Ωh² = 0.0542
+    fails at m_med = 152.1, m_DM = 4.9: Ωh² = 0.0435
+    fails at m_med = 143.0, m_DM = 4.9: Ωh² = 0.0349
+    fails at m_med = 134.5, m_DM = 4.8: Ωh² = 0.0280
+    fails at m_med = 126.4, m_DM = 4.7: Ωh² = 0.0236
+    fails at m_med = 118.9, m_DM = 4.7: Ωh² = 0.0193
+    fails at m_med = 111.8, m_DM = 4.6: Ωh² = 0.0172
+    fails at m_med = 105.1, m_DM = 4.5: Ωh² = 0.0137
+    fails at m_med = 98.8, m_DM = 4.5: Ωh² = 0.0109
+    fails at m_med = 92.9, m_DM = 4.0: Ωh² = 0.0123
+    fails at m_med = 87.3, m_DM = 4.0: Ωh² = 0.0100
+    fails at m_med = 82.1, m_DM = 3.4: Ωh² = 0.0133
+    fails at m_med = 77.2, m_DM = 3.4: Ωh² = 0.0107
+    fails at m_med = 72.6, m_DM = 3.4: Ωh² = 0.0086
+    fails at m_med = 68.3, m_DM = 2.6: Ωh² = 0.0129
+    fails at m_med = 64.2, m_DM = 1.7: Ωh² = 0.0247
+    fails at m_med = 60.3, m_DM = 0.9: Ωh² = 0.0872
+A1 (gate): 92/100 pass (88 within ×1.3); Ωh²/0.12 median 0.988, range 0.061–2.703
+    fails at m_med = 86.7, m_DM = 5.0: Ωh² = 0.0652
+    fails at m_med = 76.5, m_DM = 4.9: Ωh² = 0.0417
+    fails at m_med = 67.4, m_DM = 4.9: Ωh² = 0.0272
+    fails at m_med = 59.4, m_DM = 4.8: Ωh² = 0.0184
+    fails at m_med = 52.4, m_DM = 4.6: Ωh² = 0.0180
+    fails at m_med = 46.2, m_DM = 4.6: Ωh² = 0.0115
+    fails at m_med = 40.7, m_DM = 4.6: Ωh² = 0.0073
+    fails at m_med = 838.4, m_DM = 809.2: Ωh² = 0.1609
+A2 (gate): 94/100 pass (89 within ×1.3); Ωh²/0.12 median 0.998, range 0.183–8.825
+    fails at m_med = 57.1, m_DM = 5.0: Ωh² = 0.0623
+    fails at m_med = 49.6, m_DM = 4.9: Ωh² = 0.0371
+    fails at m_med = 43.0, m_DM = 4.9: Ωh² = 0.0220
+    fails at m_med = 607.8, m_DM = 589.3: Ωh² = 0.3154
+    fails at m_med = 554.6, m_DM = 532.6: Ωh² = 0.2337
+    fails at m_med = 504.7, m_DM = 477.0: Ωh² = 0.1703
+V2 (reported): 89/100 pass (89 within ×1.3); Ωh²/0.12 median 0.972, range 0.056–1.240
+    fails at m_med = 116.6, m_DM = 5.0: Ωh² = 0.0855
+    fails at m_med = 105.5, m_DM = 4.9: Ωh² = 0.0597
+    fails at m_med = 95.5, m_DM = 4.9: Ωh² = 0.0416
+    fails at m_med = 86.4, m_DM = 4.8: Ωh² = 0.0292
+    fails at m_med = 78.2, m_DM = 4.7: Ωh² = 0.0211
+    fails at m_med = 70.8, m_DM = 4.7: Ωh² = 0.0146
+    fails at m_med = 64.1, m_DM = 4.2: Ωh² = 0.0142
+    fails at m_med = 58.0, m_DM = 4.2: Ωh² = 0.0100
+    fails at m_med = 52.5, m_DM = 3.4: Ωh² = 0.0139
+    fails at m_med = 47.5, m_DM = 3.4: Ωh² = 0.0097
+    fails at m_med = 43.0, m_DM = 3.4: Ωh² = 0.0067
+
+gate part 1 NOT met: V1 fails, A1 passes, A2 passes

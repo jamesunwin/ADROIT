@@ -1,0 +1,36 @@
+DM8 gate, dry run: the reference answers stand in for both language models ($0)
+
+G1   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: M_pseudo_dirac_vector, M_vector, M_scalar, L01
+G2   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: L15, O4, M_axial
+G3   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: L01, L05, O1, M_scalar
+G4   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: L05, L01, O1, M_scalar
+G5   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: M_magnetic_dipole
+G6   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: M_axial_vector, M_anapole, L11, L14
+G7   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: M_pseudo_dirac_vector, M_vector, M_scalar, L01
+G8   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: none
+G9   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: none
+G10  PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: none
+
+10/10 pass
+
+Controls:
+  G1, both agents off by a factor 2 (must fail (c))
+  G1   FAIL  (a) y  (b) y  (c)  5.0e-01  (d) y  same/close: M_pseudo_dirac_vector, M_vector, M_scalar, L01
+  G1, the checker off by a factor 2 (must stop: fail (b))
+  G1   FAIL  (a) y  (b) n  (c)  0.0e+00  (d) n  same/close: none  [stopped for a person: the two derivations disagree]
+  G6, every sign reversed and the leptons left out by both (must fail (c): 2%)
+  G6   FAIL  (a) y  (b) y  (c)  1.9e-02  (d) y  same/close: M_axial_vector, M_anapole, L11, L14
+  G6, every sign reversed (must pass)
+  G6   PASS  (a) y  (b) y  (c)  0.0e+00  (d) y  same/close: M_axial_vector, M_anapole, L11, L14
+
+Normalisations of the references (proton, q → 0; ±1 is agreement, the sign being free):
+  G1: c1 / (3 g_χ g_q/M²) = -0.9975
+  G7: c1 / (3 g_χ g_q/M²) = -0.9975
+  G3: c1 / (g_χ g_q m_N f_N/(v M²)) = 1.0063
+  G4: c1 / (λ f_N m_N/(2 m_h² m_S)) = 1.0063  (σ = μ² c1²/π = λ² f_N² μ² m_N²/(4π m_h⁴ m_S²))
+  G5: M_magnetic_dipole's fitted mu_chi / the Lagrangian's = -0.9921
+  G6: M_anapole's fitted anapole / the Lagrangian's = 1.9017
+  G6: M_anapole's fitted anapole / the Lagrangian's = 1.9842 (without the running from m_Z)
+  (G6 is Majorana: its Lagrangian coupling is half the card's, which is a Feynman-rule coupling.)
+  G8: (operator, power of q, pole mass) = [(4, 0, None), (6, 0, 0.135)]
+  G10: (operator, power of q, pole mass) = [(11, -2, None)]

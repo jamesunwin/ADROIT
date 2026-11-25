@@ -1,0 +1,848 @@
+{
+ "O01v@1000,d=350": {
+  "mu_hat": 0.16280757781207814,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 1.15e+20/s against 6.5e+21/s allowed (\u03c3_lim = 3.1e-39 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 1.15e+20/s against 4.74e+21/s allowed (\u03c3_lim = 2.4e-42 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O01v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 1.1545199700820682e+20,
+    "allowed_s": 6.5048252420355e+21,
+    "ratio": 0.01774867005836415
+   },
+   "WW": {
+    "capture_s": 1.1545199700820682e+20,
+    "allowed_s": 1.7079656582132318e+20,
+    "ratio": 0.6759620514207855
+   },
+   "tautau": {
+    "capture_s": 1.1545199700820682e+20,
+    "allowed_s": 5.199366767325493e+19,
+    "ratio": 2.220501114361553
+   }
+  }
+ },
+ "O04v@1000,d=350": {
+  "mu_hat": 4.804907701160821,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O04v@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 0.0,
+    "allowed_s": 6.5048252420355e+21,
+    "ratio": 0.0
+   },
+   "WW": {
+    "capture_s": 0.0,
+    "allowed_s": 1.7079656582132318e+20,
+    "ratio": 0.0
+   },
+   "tautau": {
+    "capture_s": 0.0,
+    "allowed_s": 5.199366767325493e+19,
+    "ratio": 0.0
+   }
+  }
+ },
+ "O04v@4000,d=350": {
+  "mu_hat": 3.982958163020598,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O04v@4000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 0.0,
+    "allowed_s": 1.7299364484163017e+21,
+    "ratio": 0.0
+   },
+   "WW": {
+    "capture_s": 0.0,
+    "allowed_s": 1.4496324614545208e+20,
+    "ratio": 0.0
+   },
+   "tautau": {
+    "capture_s": 0.0,
+    "allowed_s": 3.3663944785936708e+19,
+    "ratio": 0.0
+   }
+  }
+ },
+ "O01v@400,d=300": {
+  "mu_hat": 0.07644707015131512,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 2.6e+20/s against 4.57e+22/s allowed (\u03c3_lim = 3.6e-39 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 2.6e+20/s against 3.63e+22/s allowed (\u03c3_lim = 3.7e-42 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O01v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 2.5967830799190802e+20,
+    "allowed_s": 4.573137961914655e+22,
+    "ratio": 0.005678339690482188
+   },
+   "WW": {
+    "capture_s": 2.5967830799190802e+20,
+    "allowed_s": 6.458091063733248e+20,
+    "ratio": 0.4020976251793436
+   },
+   "tautau": {
+    "capture_s": 2.5967830799190802e+20,
+    "allowed_s": 2.7753850395194242e+20,
+    "ratio": 0.9356478625281953
+   }
+  }
+ },
+ "L12s@4000": {
+  "mu_hat": 17.975198580016073,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L12s@4000",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 2.31e+16/s against 1.73e+21/s allowed (\u03c3_lim = 1.3e-38 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L12s@4000",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 2.31e+16/s against 1.21e+21/s allowed (\u03c3_lim = 8.9e-42 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L12s@4000",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 2.3083850359497532e+16,
+    "allowed_s": 1.7299364484163017e+21,
+    "ratio": 1.3343756286902918e-05
+   },
+   "WW": {
+    "capture_s": 2.3083850359497532e+16,
+    "allowed_s": 1.4496324614545208e+20,
+    "ratio": 0.00015923933116354086
+   },
+   "tautau": {
+    "capture_s": 2.3083850359497532e+16,
+    "allowed_s": 3.3663944785936708e+19,
+    "ratio": 0.0006857143601643778
+   }
+  }
+ },
+ "O01v@1000,d=300": {
+  "mu_hat": 0.03801690282998208,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 1.64e+19/s against 6.5e+21/s allowed (\u03c3_lim = 3.1e-39 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 1.64e+19/s against 4.74e+21/s allowed (\u03c3_lim = 2.4e-42 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O01v@1000,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 1.63783110533406e+19,
+    "allowed_s": 6.5048252420355e+21,
+    "ratio": 0.0025178710332601456
+   },
+   "WW": {
+    "capture_s": 1.63783110533406e+19,
+    "allowed_s": 1.7079656582132318e+20,
+    "ratio": 0.0958936789775655
+   },
+   "tautau": {
+    "capture_s": 1.63783110533406e+19,
+    "allowed_s": 5.199366767325493e+19,
+    "ratio": 0.31500588025963505
+   }
+  }
+ },
+ "O04v@400,d=300": {
+  "mu_hat": 1.6629680627539682,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "applies_with_assumptions",
+    "excluded": false,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "the Sun cannot capture it: no scattering leaves it bound"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O04v@400,d=300",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 0.0,
+    "allowed_s": 4.573137961914655e+22,
+    "ratio": 0.0
+   },
+   "WW": {
+    "capture_s": 0.0,
+    "allowed_s": 6.458091063733248e+20,
+    "ratio": 0.0
+   },
+   "tautau": {
+    "capture_s": 0.0,
+    "allowed_s": 2.7753850395194242e+20,
+    "ratio": 0.0
+   }
+  }
+ },
+ "O01s@1000,d=350": {
+  "mu_hat": 0.06462231698651401,
+  "verdicts": [
+   {
+    "constraint_id": "planck-2018-omega",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the annihilation cross-sections follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": ""
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": true,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 9.57e+21/s against 6.5e+21/s allowed (\u03c3_lim = 3.1e-39 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "applies_with_assumptions",
+    "excluded": true,
+    "assumptions": [
+     "annihilation into b b\u0304 (the softest published channel: the weakest limit)",
+     "capture and annihilation in equilibrium",
+     "captured particles settle in the core, although every later scattering must also excite the splitting",
+     "the Standard Halo Model seen from the Sun",
+     "the B16 AGSS09 solar model"
+    ],
+    "needed_calculation": "",
+    "note": "C = 9.57e+21/s against 4.74e+21/s allowed (\u03c3_lim = 2.4e-42 cm\u00b2, bb)"
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O01s@1000,d=350",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which \u27e8\u03c3v\u27e9 today and its final states follow",
+    "note": ""
+   }
+  ],
+  "icecube_by_channel": {
+   "bb": {
+    "capture_s": 9.567248246648238e+21,
+    "allowed_s": 6.5048252420355e+21,
+    "ratio": 1.4707925102772539
+   },
+   "WW": {
+    "capture_s": 9.567248246648238e+21,
+    "allowed_s": 1.7079656582132318e+20,
+    "ratio": 56.01546026784228
+   },
+   "tautau": {
+    "capture_s": 9.567248246648238e+21,
+    "allowed_s": 5.199366767325493e+19,
+    "ratio": 184.0079508676312
+   }
+  }
+ }
+}

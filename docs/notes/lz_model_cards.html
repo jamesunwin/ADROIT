@@ -1,0 +1,525 @@
+<title>LZ Lagrangian Conventions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column of research prose; figures and tables step out to a wider measure. */
+:root {
+  --bg: #f6f7f5; --surface: #ffffff; --fg: #1b2127; --muted: #5b6672; --rule: #d6dce1; --accent: #275a8a;
+  --accent-soft: #e3ecf5; --band: #dfeee4; --ok: #2c7a4b; --warn: #a8551a;
+  --s1: #275a8a; --s2: #b0462f; --s3: #7a4aa8; --s4: #2c7a4b; --s5: #a8551a; --s6: #00838f; --s7: #8a6d1f;
+  --other: #b9c2ca;
+  --display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --body: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --label: "IBM Plex Sans Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161a; --surface: #181d22; --fg: #e2e6e9; --muted: #9aa6b1; --rule: #2c343c; --accent: #86b6e6;
+    --accent-soft: #1d2a37; --band: #1b2c22; --ok: #6cc28f; --warn: #e39a5d;
+    --s1: #86b6e6; --s2: #ec8b74; --s3: #c39be3; --s4: #6cc28f; --s5: #e39a5d; --s6: #4fc6d1; --s7: #d8bb62;
+    --other: #46505a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161a; --surface: #181d22; --fg: #e2e6e9; --muted: #9aa6b1; --rule: #2c343c; --accent: #86b6e6;
+  --accent-soft: #1d2a37; --band: #1b2c22; --ok: #6cc28f; --warn: #e39a5d;
+  --s1: #86b6e6; --s2: #ec8b74; --s3: #c39be3; --s4: #6cc28f; --s5: #e39a5d; --s6: #4fc6d1; --s7: #d8bb62;
+  --other: #46505a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 18px; line-height: 1.55;
+  padding-inline: 16px; padding-block: 40px 72px; }
+main { max-width: 960px; margin: 0 auto; display: grid; gap: 0; }
+main > * { max-width: 68ch; width: 100%; justify-self: start; }
+main > .wide { max-width: 960px; }
+header.title { display: grid; gap: 10px; padding-bottom: 22px; border-bottom: 1px solid var(--rule); margin-bottom: 26px; }
+.kicker { font-family: var(--label); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.1; margin: 0; text-wrap: balance; }
+.byline { font-family: var(--label); font-size: 14px; color: var(--muted); }
+h2 { font-family: var(--display); font-weight: 600; font-size: 25px; line-height: 1.2; margin: 38px 0 10px; text-wrap: balance; }
+h3 { font-family: var(--label); font-weight: 600; font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--muted); margin: 26px 0 6px; }
+p { margin: 0 0 14px; }
+.abstract { background: var(--surface); border: 1px solid var(--rule); padding: 18px 20px; margin-bottom: 8px; }
+.abstract p:last-child { margin-bottom: 0; }
+.abstract .label { font-family: var(--label); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+.m { font-style: italic; white-space: nowrap; }
+.eq { font-family: var(--body); font-size: 19px; padding: 10px 0 10px 22px; border-left: 2px solid var(--accent); margin: 6px 0 16px; overflow-x: auto; }
+.eq .n { float: right; font-family: var(--label); font-size: 13px; color: var(--muted); }
+sub, sup { font-size: .72em; line-height: 0; }
+a { color: var(--accent); }
+.table-wrap { overflow-x: auto; margin: 8px 0 18px; border: 1px solid var(--rule); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+caption { caption-side: top; text-align: left; font-family: var(--label); font-size: 14px; color: var(--muted); padding: 10px 12px 6px; }
+th, td { padding: 6px 12px; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
+th { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: .03em; color: var(--muted); background: var(--bg); }
+td.num, th.num { font-family: var(--mono); font-size: 13.5px; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+td.muted { color: var(--muted); }
+tr.ref td { color: var(--muted); }
+figure { margin: 10px 0 22px; }
+figcaption { font-family: var(--label); font-size: 14px; color: var(--muted); line-height: 1.45; margin-top: 6px; max-width: 80ch; }
+.fig-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); padding: 8px; }
+svg.fig { width: 100%; min-width: 640px; height: auto; display: block; }
+svg .ptitle { font-family: var(--label); font-size: 13px; fill: var(--fg); font-weight: 600; }
+svg .tick { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
+svg .axis { font-family: var(--body); font-size: 14px; fill: var(--fg); font-style: italic; }
+svg .grid { stroke: var(--rule); stroke-width: 1; }
+svg .frame { fill: none; stroke: var(--muted); stroke-width: 1; }
+svg .band { fill: var(--band); stroke: none; }
+svg .line { fill: none; stroke-width: 2; }
+svg .line.other { stroke: var(--other); stroke-width: 1.2; }
+svg .lab { font-family: var(--label); font-size: 11px; font-weight: 600; }
+svg .s1 { stroke: var(--s1); } svg .s2 { stroke: var(--s2); } svg .s3 { stroke: var(--s3); } svg .s4 { stroke: var(--s4); }
+svg .s5 { stroke: var(--s5); } svg .s6 { stroke: var(--s6); } svg .s7 { stroke: var(--s7); }
+svg .s1t { fill: var(--s1); } svg .s2t { fill: var(--s2); } svg .s3t { fill: var(--s3); } svg .s4t { fill: var(--s4); }
+svg .s5t { fill: var(--s5); } svg .s6t { fill: var(--s6); } svg .s7t { fill: var(--s7); }
+.findings { display: grid; gap: 10px; margin: 6px 0 18px; padding: 0; list-style: none; }
+.findings li { display: grid; grid-template-columns: 7.5em 1fr; gap: 14px; align-items: baseline; padding-top: 10px; border-top: 1px solid var(--rule); }
+.findings li > :last-child { min-width: 0; }
+.tag { font-family: var(--label); font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.tag.conv { color: var(--accent); } .tag.open { color: var(--warn); } .tag.agree { color: var(--ok); }
+ol.refs { font-size: 15.5px; padding-left: 1.6em; }
+ol.refs li { margin-bottom: 6px; }
+code { font-family: var(--mono); font-size: .82em; background: var(--accent-soft); padding: 1px 4px; }
+footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--rule); font-family: var(--label); font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { body { font-size: 17px; } .findings li { grid-template-columns: 1fr; gap: 2px; } }
+</style>
+
+<main>
+<header class="title">
+  <span class="kicker">Research note · direct detection · 11 October 2026</span>
+  <h1>The conventions behind LZ's limits on the twenty covariant WIMP–nucleon interactions</h1>
+  <span class="byline">Prepared with ADROIT, an agentic dark-matter research system, which supplied the recomputations</span>
+</header>
+
+<section class="abstract">
+  <span class="label">Abstract</span>
+  <p>LZ's 2026 extended-window search reports 90% CL limits on a dimensionless coupling <span class="m">d</span> for the twenty
+  covariant interactions <span class="m">L</span><sub>1</sub>–<span class="m">L</span><sub>20</sub> of Anand, Fitzpatrick and Haxton.
+  An independent recomputation reproduces thirteen of them within the band set by experiment-side approximations, but
+  differs for seven by factors between 3 and 10<sup>4</sup>. Six of the seven are conventions, not physics. LZ normalises momenta by
+  <span class="m">m<sub>M</sub> = m<sub>N</sub></span>, and its limits for <span class="m">L</span><sub>5</sub>, <span class="m">L</span><sub>7</sub>,
+  <span class="m">L</span><sub>8</sub>, <span class="m">L</span><sub>13</sub> and <span class="m">L</span><sub>17</sub> correspond to the interactions written with the vector
+  currents <span class="m">χ̄γ<sup>μ</sup>χ</span> and <span class="m">N̄γ<sub>μ</sub>N</span> in place of
+  <span class="m">(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ</span> and <span class="m">(K<sub>μ</sub>/m<sub>M</sub>) N̄N</span>, the substitution LZ's 2024
+  paper made explicitly for <span class="m">L</span><sub>6</sub> and <span class="m">L</span><sub>9</sub>. The Gordon identity predicts the resulting
+  factors, <span class="m">m<sub>N</sub>/2m<sub>χ</sub></span> and ½, and for <span class="m">L</span><sub>7</sub> an extra
+  <span class="m">O</span><sub>9</sub> term that dominates below 50 GeV. A pair test that cancels every experiment-side effect confirms the
+  factors to 3–5%. <span class="m">L</span><sub>6</sub> differs by the relative sign of its <span class="m">O</span><sub>1</sub> and
+  <span class="m">O</span><sub>3</sub> terms. O<sub>3</sub> is its only term odd in the relative velocity <span class="m">v⃗<sup>⊥</sup></span>, so a
+  <span class="m">v⃗<sup>⊥</sup></span> taken the other way round reproduces LZ, while no convention for <span class="m">q</span> can. LZ's local
+  significances, which test the spectral shapes, confirm the L<sub>6</sub>, L<sub>7</sub> and L<sub>13</sub> forms. With these conventions every card
+  but one lands within 0.64–1.37 of LZ's limits, the spread of the cards that never had a convention difference. The exception, <span class="m">L</span><sub>12</sub>, rests on a near-exact cancellation
+  between its <span class="m">O</span><sub>12</sub> and <span class="m">O</span><sub>15</sub> terms in xenon. LZ's limits correspond to that
+  cancellation spoiled at the 5% level, which makes them 6–15 times stronger (isoscalar) than an exact calculation gives.</p>
+</section>
+
+<h2>Why this matters</h2>
+<p>An experiment's limit on <span class="m">d</span> is useful to a model builder only if the meaning of <span class="m">d</span> is known: which
+Lagrangian, which momentum scale, which sign conventions. The significances and look-elsewhere effect LZ reports are
+unaffected by any constant rescaling of <span class="m">d</span> at fixed mass. Absolute couplings are affected. For example, reading LZ's
+<span class="m">L</span><sub>5</sub> limit at <span class="m">m<sub>χ</sub></span> = 1 TeV as a limit on Anand et al.'s <span class="m">L</span><sub>5</sub> overstates the
+allowed coupling by a factor of about 4300 (with <span class="m">m<sub>M</sub> = m<sub>N</sub></span>). This note identifies the conventions LZ's numbers follow, states how to convert them, and
+flags the one case, <span class="m">L</span><sub>12</sub>, where the numbers depend on a delicate cancellation.</p>
+
+<h2>Conventions</h2>
+<p>Anand, Fitzpatrick and Haxton [3] build twenty covariant interactions <span class="m">L<sub>j</sub></span> from the bilinears
+<span class="m">χ̄χ</span>, <span class="m">χ̄γ<sup>5</sup>χ</span>, <span class="m">χ̄P<sup>μ</sup>χ</span>, <span class="m">χ̄P<sup>μ</sup>γ<sup>5</sup>χ</span>,
+<span class="m">χ̄iσ<sup>μν</sup>q<sub>ν</sub>χ</span> and <span class="m">χ̄γ<sup>μ</sup>γ<sup>5</sup>χ</span> and their nucleon counterparts, with
+<span class="m">P = p + p′</span>, <span class="m">K = k + k′</span> and <span class="m">q = p′ − p</span>. Every momentum appears as
+<span class="m">P/m<sub>M</sub></span>, <span class="m">K/m<sub>M</sub></span> or <span class="m">q/m<sub>M</sub></span>; their Table 1 gives the nonrelativistic
+coefficients <span class="m">c<sub>i</sub></span> of the operators <span class="m">O<sub>i</sub></span> for unit-normalised spinors, and their Eq. (68) puts the
+coupling in units of <span class="m">1/m<sub>M</sub><sup>2</sup></span>. Their script's default is <span class="m">m<sub>M</sub> = m<sub>v</sub></span> = 246.2 GeV.</p>
+<p>LZ's 2026 paper [1] cites that table and fixes the unit coupling to <span class="m">1/m<sub>v</sub><sup>2</sup></span>, with recoil spectra from
+WimPyDD [5]. Its 2024 covariant analysis [2] states two further choices that the 2026 numbers turn out to follow. It sets
+<span class="m">m<sub>M</sub> = m<sub>N</sub></span>, and its Table I writes <span class="m">L</span><sub>6</sub> and <span class="m">L</span><sub>9</sub> with a vector current
+<span class="m">γ<sup>μ</sup></span> where Anand et al. have <span class="m">P<sup>μ</sup>/m<sub>M</sub></span> or <span class="m">K<sup>μ</sup>/m<sub>M</sub></span>, and
+<span class="m">L</span><sub>12</sub> and <span class="m">L</span><sub>18</sub> as dipole–dipole interactions. Throughout, <span class="m">m<sub>M</sub> = m<sub>N</sub></span> and the
+coupling unit <span class="m">1/m<sub>v</sub><sup>2</sup></span> are used for both codes, so the comparisons below isolate the remaining conventions.</p>
+
+<h2>Method</h2>
+<h3>The recomputation</h3>
+<p>ADROIT's LZ module [7] recomputes each of LZ's 515 elastic table entries (20 interactions, isoscalar and isovector, 13 masses from
+10 GeV to 4 TeV) from the exposure (220 d × 4.71 t), the published efficiency, the recoil spectrum computed with the revised xenon responses
+of Haxton and McElvain [6] and the recommended halo [9], and a one-event likelihood around LZ's 248 keV event of interest. That
+likelihood is an approximation: it leaves out electron-recoil leakage below about 110 keV. Its accuracy is set by the cards whose conventions
+are not in question. For them <span class="m">d</span><sub>ADROIT</sub>/<span class="m">d</span><sub>LZ</sub> runs from about 1.3 at 10 GeV to 0.8–1.0 above 100 GeV,
+the same trend for every interaction. The agreement band used below is ADROIT's pre-registered validation tolerance, a factor 1.3 in rate, so
+0.877–1.140 in <span class="m">d</span>.</p>
+<h3>A test free of the experiment</h3>
+<p>LZ notes [1, supplement] that five pairs of interactions have identical recoil spectra up to a constant: <span class="m">L</span><sub>1</sub>/<span class="m">L</span><sub>5</sub>,
+<span class="m">L</span><sub>2</sub>/<span class="m">L</span><sub>8</sub>, <span class="m">L</span><sub>3</sub>/<span class="m">L</span><sub>17</sub>, <span class="m">L</span><sub>4</sub>/<span class="m">L</span><sub>20</sub> and
+<span class="m">L</span><sub>11</sub>/<span class="m">L</span><sub>14</sub>. Each pair reduces to a single operator. For such a pair the ratio of
+<span class="m">d</span><sub>ADROIT</sub>/<span class="m">d</span><sub>LZ</sub> between the two partners cancels the efficiency, the halo, the statistics and the nuclear
+response exactly, and leaves only the ratio of the two codes' coefficients. This measures LZ's relative normalisation directly.</p>
+<h3>Hypothesis tests</h3>
+<p>For the other cards, alternative coefficient sets are recomputed with the same module and compared with LZ mass by mass. A hypothesis is
+accepted when it brings a card into the same band, with the same mass trend, as the unaffected cards.</p>
+
+<h2>Results</h2>
+<ul class="findings">
+  <li><span class="tag agree">Agree</span><span><span class="m">L</span><sub>1</sub>–<span class="m">L</span><sub>4</sub>, <span class="m">L</span><sub>9</sub> (LZ's form),
+  <span class="m">L</span><sub>10</sub>, <span class="m">L</span><sub>11</sub>, <span class="m">L</span><sub>14</sub>–<span class="m">L</span><sub>16</sub>, <span class="m">L</span><sub>18</sub>–<span class="m">L</span><sub>20</sub>:
+  within the common band as transcribed.</span></li>
+  <li><span class="tag conv">Convention</span><span><span class="m">L</span><sub>5</sub>, <span class="m">L</span><sub>7</sub>, <span class="m">L</span><sub>8</sub>, <span class="m">L</span><sub>13</sub>,
+  <span class="m">L</span><sub>17</sub>: vector currents in place of <span class="m">P/m<sub>M</sub></span> and <span class="m">K/m<sub>M</sub></span>.
+  <span class="m">L</span><sub>6</sub>: the relative sign of O<sub>1</sub> and O<sub>3</sub> (the direction of <span class="m">v⃗<sup>⊥</sup></span>).
+  ADROIT now carries all six as LZ-convention cards.</span></li>
+  <li><span class="tag open">Open</span><span><span class="m">L</span><sub>12</sub>: LZ's limits correspond to a cancellation spoiled at the 5–6% level.
+  No discrete convention reproduces them (12 October 2026: eighty tried, the best matches 1 of 26 entries).</span></li>
+</ul>
+
+<figure class="wide">
+  <div class="fig-wrap"><svg viewBox="0 0 920 380" role="img" aria-label="Ratio of ADROIT to LZ limits against dark-matter mass, before and after applying LZ conventions" class="fig">
+<text x="62.0" y="18" class="ptitle">As transcribed from Anand et al., m_M = m_N</text>
+<rect x="62.0" y="108.3" width="392.0" height="6.3" class="band"/>
+<line x1="62.0" x2="454.0" y1="332.0" y2="332.0" class="grid"/>
+<text x="56.0" y="336.0" class="tick" text-anchor="end">10<tspan dy='-5' font-size='8'>-4</tspan></text>
+<line x1="62.0" x2="454.0" y1="276.9" y2="276.9" class="grid"/>
+<text x="56.0" y="280.9" class="tick" text-anchor="end">0.001</text>
+<line x1="62.0" x2="454.0" y1="221.7" y2="221.7" class="grid"/>
+<text x="56.0" y="225.7" class="tick" text-anchor="end">0.01</text>
+<line x1="62.0" x2="454.0" y1="166.6" y2="166.6" class="grid"/>
+<text x="56.0" y="170.6" class="tick" text-anchor="end">0.1</text>
+<line x1="62.0" x2="454.0" y1="111.4" y2="111.4" class="grid"/>
+<text x="56.0" y="115.4" class="tick" text-anchor="end">1</text>
+<line x1="62.0" x2="454.0" y1="56.3" y2="56.3" class="grid"/>
+<text x="56.0" y="60.3" class="tick" text-anchor="end">10</text>
+<line x1="75.6" x2="75.6" y1="30" y2="332" class="grid"/>
+<text x="75.6" y="348" class="tick" text-anchor="middle">10</text>
+<line x1="142.5" x2="142.5" y1="30" y2="332" class="grid"/>
+<text x="142.5" y="348" class="tick" text-anchor="middle">30</text>
+<line x1="215.8" x2="215.8" y1="30" y2="332" class="grid"/>
+<text x="215.8" y="348" class="tick" text-anchor="middle">100</text>
+<line x1="282.7" x2="282.7" y1="30" y2="332" class="grid"/>
+<text x="282.7" y="348" class="tick" text-anchor="middle">300</text>
+<line x1="356.0" x2="356.0" y1="30" y2="332" class="grid"/>
+<text x="356.0" y="348" class="tick" text-anchor="middle">1000</text>
+<line x1="422.9" x2="422.9" y1="30" y2="332" class="grid"/>
+<text x="422.9" y="348" class="tick" text-anchor="middle">3000</text>
+<rect x="62.0" y="30" width="392.0" height="302" class="frame"/>
+<text x="258.0" y="372" class="axis" text-anchor="middle">m<tspan dy="3" font-size="9">χ</tspan><tspan dy="-3"> (GeV)</tspan></text>
+<polyline points="75.6,104.2 86.7,108.4 96.1,110.9 107.9,112.9 120.8,113.5 142.5,114.9 160.0,113.8 173.6,116.7 215.8,116.5 258.0,114.3 300.2,115.4 356.0,110.5 440.4,109.5" class="line other"/>
+<polyline points="75.6,108.4 86.7,111.8 96.1,113.5 107.9,114.9 120.8,115.4 142.5,114.1 160.0,115.2 173.6,115.7 215.8,118.3 258.0,115.9 300.2,115.1 356.0,114.8 440.4,114.5" class="line other"/>
+<polyline points="75.6,107.8 86.7,112.0 96.1,113.6 107.9,115.0 120.8,115.7 142.5,113.7 160.0,114.3 173.6,115.1 215.8,116.3 258.0,119.1 300.2,119.3 356.0,119.0 440.4,120.2" class="line other"/>
+<polyline points="75.6,110.5 86.7,113.9 96.1,115.0 107.9,116.1 120.8,113.6 160.0,116.5 173.6,118.6 215.8,115.9 258.0,113.1 300.2,112.7 356.0,112.7 440.4,111.8" class="line other"/>
+<polyline points="75.6,194.9 86.7,202.8 96.1,209.0 107.9,215.7 120.8,221.3 142.5,231.2 160.0,237.1 173.6,242.1 215.8,257.6 258.0,276.0 300.2,293.8 356.0,312.6 440.4,332.0" class="line s1"/>
+<text x="444.4" y="335.0" class="lab s1t">L5</text>
+<polyline points="75.6,133.4 86.7,137.3 96.1,139.6 107.9,139.5 120.8,138.7 142.5,140.6 160.0,141.5 173.6,143.8 215.8,145.4 258.0,143.9 300.2,142.7 356.0,141.6 440.4,141.2" class="line s2"/>
+<text x="444.4" y="144.2" class="lab s2t">L6</text>
+<polyline points="75.6,155.3 86.7,166.5 96.1,174.2 107.9,183.2 120.8,191.3 142.5,203.3 160.0,211.8 173.6,219.3 215.8,244.1 258.0,260.9 300.2,279.0 356.0,300.5 440.4,332.0" class="line s3"/>
+<text x="444.4" y="335.0" class="lab s3t">L7</text>
+<polyline points="75.6,181.5 86.7,190.7 96.1,195.0 107.9,202.1 120.8,205.4 142.5,213.0 160.0,221.3 173.6,227.7 215.8,246.8 258.0,261.4 300.2,276.9 356.0,298.2 440.4,331.4" class="line s4"/>
+<text x="444.4" y="334.4" class="lab s4t">L8</text>
+<polyline points="75.6,109.4 86.7,113.2 96.1,115.5 107.9,115.7 120.8,114.9 142.5,113.6 160.0,115.9 173.6,116.5 215.8,119.8 258.0,117.6 300.2,117.3 356.0,116.4 440.4,116.2" class="line other"/>
+<polyline points="75.6,110.6 86.7,114.4 96.1,115.5 107.9,115.5 120.8,114.0 142.5,113.8 160.0,115.1 173.6,115.8 215.8,115.0 258.0,112.3 300.2,111.3 356.0,111.3 440.4,111.4" class="line other"/>
+<polyline points="75.6,107.8 86.7,111.0 96.1,113.2 107.9,114.9 120.8,115.2 142.5,113.8 160.0,113.8 173.6,114.4 215.8,117.9 258.0,115.9 300.2,114.3 356.0,114.4 440.4,113.2" class="line other"/>
+<polyline points="75.6,46.2 86.7,50.4 96.1,49.9 107.9,48.7 120.8,45.5 142.5,47.3 160.0,49.2 173.6,51.3 215.8,54.6 258.0,61.9 300.2,65.3 356.0,67.1 440.4,67.6" class="line s5"/>
+<text x="444.4" y="70.6" class="lab s5t">L12</text>
+<polyline points="75.6,120.5 86.7,124.9 96.1,127.4 107.9,128.8 120.8,129.9 142.5,132.0 160.0,130.7 173.6,130.1 215.8,135.4 258.0,134.4 300.2,134.1 356.0,133.2 440.4,133.0" class="line s6"/>
+<text x="444.4" y="136.0" class="lab s6t">L13</text>
+<polyline points="75.6,107.8 86.7,111.0 96.1,113.2 120.8,115.2 142.5,113.8 160.0,113.8 173.6,114.4 215.8,117.9 300.2,118.6 356.0,114.4 440.4,113.2" class="line other"/>
+<polyline points="75.6,104.8 86.7,108.5 96.1,110.8 107.9,112.8 120.8,113.6 142.5,114.4 160.0,113.5 173.6,113.7 215.8,116.6 258.0,117.4 300.2,117.0 356.0,117.0 440.4,117.1" class="line other"/>
+<polyline points="75.6,110.5 86.7,114.2 96.1,115.2 107.9,115.8 120.8,114.2 142.5,115.0 160.0,116.6 173.6,116.8 215.8,120.0 258.0,116.6 300.2,114.1 356.0,113.4 440.4,113.2" class="line other"/>
+<polyline points="75.6,124.0 86.7,128.4 96.1,130.1 107.9,131.3 120.8,131.6 142.5,130.8 160.0,130.5 173.6,131.9 215.8,132.5 258.0,136.0 300.2,136.4 356.0,136.5 440.4,136.1" class="line s7"/>
+<text x="444.4" y="139.1" class="lab s7t">L17</text>
+<polyline points="75.6,114.5 86.7,117.8 96.1,118.5 107.9,116.8 120.8,113.4 142.5,117.0 160.0,119.1 173.6,120.7 215.8,122.1 258.0,120.0 300.2,118.5 356.0,118.1 440.4,117.5" class="line other"/>
+<polyline points="75.6,106.6 86.7,110.8 96.1,112.6 107.9,114.2 120.8,115.3 142.5,114.2 160.0,113.9 173.6,114.5 215.8,117.9 258.0,116.1 300.2,115.3 356.0,114.2 440.4,113.7" class="line other"/>
+<polyline points="75.6,110.2 86.7,114.2 96.1,116.1 107.9,115.5 120.8,114.6 142.5,115.3 160.0,116.5 173.6,118.6 215.8,116.1 258.0,113.3 300.2,112.9 356.0,112.6 440.4,112.3" class="line other"/>
+<text x="510.0" y="18" class="ptitle">With LZ's vector-current forms</text>
+<rect x="510.0" y="244.4" width="392.0" height="17.2" class="band"/>
+<line x1="510.0" x2="902.0" y1="298.5" y2="298.5" class="grid"/>
+<text x="504.0" y="302.5" class="tick" text-anchor="end">0.5</text>
+<line x1="510.0" x2="902.0" y1="253.0" y2="253.0" class="grid"/>
+<text x="504.0" y="257.0" class="tick" text-anchor="end">1</text>
+<line x1="510.0" x2="902.0" y1="207.6" y2="207.6" class="grid"/>
+<text x="504.0" y="211.6" class="tick" text-anchor="end">2</text>
+<line x1="510.0" x2="902.0" y1="147.5" y2="147.5" class="grid"/>
+<text x="504.0" y="151.5" class="tick" text-anchor="end">5</text>
+<line x1="510.0" x2="902.0" y1="102.0" y2="102.0" class="grid"/>
+<text x="504.0" y="106.0" class="tick" text-anchor="end">10</text>
+<line x1="510.0" x2="902.0" y1="56.6" y2="56.6" class="grid"/>
+<text x="504.0" y="60.6" class="tick" text-anchor="end">20</text>
+<line x1="523.6" x2="523.6" y1="30" y2="332" class="grid"/>
+<text x="523.6" y="348" class="tick" text-anchor="middle">10</text>
+<line x1="590.5" x2="590.5" y1="30" y2="332" class="grid"/>
+<text x="590.5" y="348" class="tick" text-anchor="middle">30</text>
+<line x1="663.8" x2="663.8" y1="30" y2="332" class="grid"/>
+<text x="663.8" y="348" class="tick" text-anchor="middle">100</text>
+<line x1="730.7" x2="730.7" y1="30" y2="332" class="grid"/>
+<text x="730.7" y="348" class="tick" text-anchor="middle">300</text>
+<line x1="804.0" x2="804.0" y1="30" y2="332" class="grid"/>
+<text x="804.0" y="348" class="tick" text-anchor="middle">1000</text>
+<line x1="870.9" x2="870.9" y1="30" y2="332" class="grid"/>
+<text x="870.9" y="348" class="tick" text-anchor="middle">3000</text>
+<rect x="510.0" y="30" width="392.0" height="302" class="frame"/>
+<text x="706.0" y="372" class="axis" text-anchor="middle">m<tspan dy="3" font-size="9">χ</tspan><tspan dy="-3"> (GeV)</tspan></text>
+<polyline points="523.6,233.1 534.7,244.8 544.1,251.6 555.9,257.1 568.8,258.7 590.5,262.5 608.0,259.5 621.6,267.5 663.8,266.8 706.0,260.7 748.2,264.0 804.0,250.5 888.4,247.8" class="line other"/>
+<polyline points="523.6,244.8 534.7,254.1 544.1,258.8 555.9,262.5 568.8,263.9 590.5,260.4 608.0,263.4 621.6,264.7 663.8,271.7 706.0,265.1 748.2,263.1 804.0,262.2 888.4,261.4" class="line other"/>
+<polyline points="523.6,242.9 534.7,254.7 544.1,258.9 555.9,262.7 568.8,264.7 590.5,259.3 608.0,261.0 621.6,263.0 663.8,266.4 706.0,274.1 748.2,274.5 804.0,273.6 888.4,276.9" class="line other"/>
+<polyline points="523.6,250.5 534.7,259.7 544.1,262.8 555.9,265.8 568.8,259.1 608.0,266.8 621.6,272.6 663.8,265.2 706.0,257.6 748.2,256.4 804.0,256.6 888.4,254.0" class="line other"/>
+<polyline points="523.6,234.9 534.7,244.8 544.1,251.6 555.9,257.1 568.8,258.7 590.5,262.5 608.0,259.5 621.6,258.6 663.8,255.9 706.0,260.7 748.2,264.0 804.0,255.4 888.4,247.8" class="line s1"/>
+<text x="892.4" y="250.8" class="lab s1t">L5</text>
+<polyline points="523.6,250.9 534.7,261.1 544.1,267.0 555.9,265.7 568.8,262.5 590.5,264.5 608.0,263.9 621.6,267.5 663.8,269.3 706.0,268.8 748.2,267.8 804.0,265.9 888.4,265.4" class="line s2"/>
+<text x="892.4" y="268.4" class="lab s2t">L6</text>
+<polyline points="523.6,241.3 534.7,252.0 544.1,256.7 555.9,261.4 568.8,262.2 590.5,260.4 608.0,257.2 621.6,258.1 663.8,267.9 706.0,267.2 748.2,269.8 804.0,267.8 888.4,266.9" class="line s3"/>
+<text x="892.4" y="269.9" class="lab s3t">L7</text>
+<polyline points="523.6,243.9 534.7,257.0 544.1,258.8 555.9,265.3 568.8,260.7 590.5,258.0 608.0,262.0 621.6,264.7 663.8,271.7 706.0,266.2 748.2,263.1 804.0,261.5 888.4,261.4" class="line s4"/>
+<text x="892.4" y="264.4" class="lab s4t">L8</text>
+<polyline points="523.6,247.3 534.7,257.7 544.1,264.2 555.9,264.6 568.8,262.6 590.5,258.8 608.0,265.3 621.6,266.9 663.8,275.9 706.0,270.0 748.2,269.1 804.0,266.7 888.4,266.1" class="line other"/>
+<polyline points="523.6,250.7 534.7,261.0 544.1,264.0 555.9,264.3 568.8,260.1 590.5,259.6 608.0,263.1 621.6,265.1 663.8,262.8 706.0,255.3 748.2,252.7 804.0,252.7 888.4,252.9" class="line other"/>
+<polyline points="523.6,243.1 534.7,251.8 544.1,257.8 555.9,262.4 568.8,263.2 590.5,259.6 608.0,259.4 621.6,261.1 663.8,270.7 706.0,265.1 748.2,260.8 804.0,261.3 888.4,257.9" class="line other"/>
+<polyline points="523.6,74.4 534.7,85.9 544.1,84.6 555.9,81.3 568.8,72.3 590.5,77.3 608.0,82.5 621.6,88.3 663.8,97.3 706.0,117.5 748.2,126.7 804.0,131.7 888.4,132.9" class="line s5"/>
+<text x="892.4" y="135.9" class="lab s5t">L12</text>
+<polyline points="523.6,232.3 534.7,244.5 544.1,251.1 555.9,255.0 568.8,258.1 590.5,263.8 608.0,260.3 621.6,258.9 663.8,263.0 706.0,270.7 748.2,271.0 804.0,269.2 888.4,268.6" class="line s6"/>
+<text x="892.4" y="271.6" class="lab s6t">L13</text>
+<polyline points="523.6,243.1 534.7,251.8 544.1,257.8 568.8,263.2 590.5,259.6 608.0,259.4 621.6,261.1 663.8,270.7 748.2,272.6 804.0,261.3 888.4,257.9" class="line other"/>
+<polyline points="523.6,234.8 534.7,244.9 544.1,251.3 555.9,256.7 568.8,259.0 590.5,261.2 608.0,258.8 621.6,259.3 663.8,267.3 706.0,269.3 748.2,268.3 804.0,268.2 888.4,268.6" class="line other"/>
+<polyline points="523.6,250.4 534.7,260.7 544.1,263.2 555.9,264.9 568.8,260.6 590.5,262.7 608.0,267.2 621.6,267.6 663.8,276.5 706.0,267.3 748.2,260.4 804.0,258.5 888.4,257.9" class="line other"/>
+<polyline points="523.6,241.9 534.7,254.0 544.1,258.6 555.9,262.0 568.8,262.7 590.5,260.6 608.0,259.7 621.6,263.7 663.8,265.3 706.0,274.8 748.2,276.0 804.0,276.1 888.4,275.1" class="line s7"/>
+<text x="892.4" y="278.1" class="lab s7t">L17</text>
+<polyline points="523.6,261.4 534.7,270.5 544.1,272.3 555.9,267.6 568.8,258.4 590.5,268.2 608.0,274.1 621.6,278.4 663.8,282.2 706.0,276.6 748.2,272.5 804.0,271.3 888.4,269.6" class="line other"/>
+<polyline points="523.6,239.9 534.7,251.3 544.1,256.2 555.9,260.6 568.8,263.5 590.5,260.5 608.0,259.9 621.6,261.5 663.8,270.8 706.0,265.9 748.2,263.7 804.0,260.7 888.4,259.3" class="line other"/>
+<polyline points="523.6,249.7 534.7,260.6 544.1,265.7 555.9,264.0 568.8,261.7 590.5,263.6 608.0,266.8 621.6,272.7 663.8,265.8 706.0,258.1 748.2,257.0 804.0,256.3 888.4,255.3" class="line other"/>
+<text transform="translate(14 181.0) rotate(-90)" class="axis" text-anchor="middle">d<tspan dy="3" font-size="9">ADROIT</tspan><tspan dy="-3"> / d</tspan><tspan dy="3" font-size="9">LZ</tspan></text>
+</svg></div>
+  <figcaption>Ratio of ADROIT's 90% limit on <span class="m">d</span> to LZ's, for the isoscalar tables. Grey: the thirteen interactions without
+  a convention difference. Coloured: the seven that differ. The shaded band is the agreement tolerance (a factor 1.3 in rate). Left: the
+  cards as transcribed from Anand et al. with <span class="m">m<sub>M</sub> = m<sub>N</sub></span>. Right: with the vector-current forms of
+  <span class="m">L</span><sub>5,7,8,13,17</sub> and the reversed <span class="m">O</span><sub>1</sub>/<span class="m">O</span><sub>3</sub> sign of
+  <span class="m">L</span><sub>6</sub>. Only <span class="m">L</span><sub>12</sub> remains apart.</figcaption>
+</figure>
+
+<h3>The pair test</h3>
+<div class="table-wrap wide"><table>
+<caption>Relative normalisation of each pair. The last two columns give the measured ratio divided by the vector-current prediction, over both isospins and all masses.</caption>
+<thead><tr><th>Pair</th><th>Operator</th><th>Anand et al., c<sub>partner</sub>/c</th><th>Vector-current form</th><th class="num">Measured / predicted</th><th class="num">Entries</th></tr></thead>
+<tbody>
+<tr><td>L5/L1</td><td>O₁</td><td>4m<sub>χ</sub>/m<sub>N</sub></td><td>1</td><td class='num'>1.005 ± 0.051</td><td class='num'>26</td></tr>
+<tr><td>L8/L2</td><td>O₁₀</td><td>4m<sub>χ</sub>/m<sub>N</sub></td><td>2</td><td class='num'>1.004 ± 0.029</td><td class='num'>26</td></tr>
+<tr><td>L17/L3</td><td>O₁₁</td><td>4m<sub>χ</sub>/m<sub>N</sub></td><td>2m<sub>χ</sub>/m<sub>N</sub></td><td class='num'>0.999 ± 0.026</td><td class='num'>26</td></tr>
+<tr><td>L20/L4</td><td>O₆</td><td>4m<sub>χ</sub>/m<sub>N</sub></td><td>4m<sub>χ</sub>/m<sub>N</sub></td><td class='num'>1.002 ± 0.026</td><td class='num'>24</td></tr>
+<tr><td>L14/L11</td><td>O₉</td><td>1</td><td>1</td><td class='num'>0.995 ± 0.035</td><td class='num'>23</td></tr>
+</tbody></table></div>
+<p>The measured ratios agree with the vector-current prediction to 3–5% across 10 GeV–4 TeV and both isospins, with no trend in mass.
+Anand et al.'s table predicts the same ratio, <span class="m">4m<sub>χ</sub>/m<sub>N</sub></span>, for the first four pairs. LZ's numbers show
+three different ratios, <span class="m">1</span>, <span class="m">2</span> and <span class="m">2m<sub>χ</sub>/m<sub>N</sub></span>, and agree with Anand et al. only for
+<span class="m">L</span><sub>20</sub>/<span class="m">L</span><sub>4</sub> and <span class="m">L</span><sub>14</sub>/<span class="m">L</span><sub>11</sub>.</p>
+
+<h3>The Gordon identity explains the factors</h3>
+<p>For on-shell spinors the vector current splits into a convective and a magnetic part:</p>
+<div class="eq">ū(p′) γ<sup>μ</sup> u(p) = ū(p′) [ P<sup>μ</sup> + iσ<sup>μν</sup>q<sub>ν</sub> ] u(p) / 2m<span class="n">(1)</span></div>
+<p>So <span class="m">(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ ≈ (2m<sub>χ</sub>/m<sub>M</sub>) χ̄γ<sup>μ</sup>χ</span> and
+<span class="m">(K<sub>μ</sub>/m<sub>M</sub>) N̄N ≈ (2m<sub>N</sub>/m<sub>M</sub>) N̄γ<sub>μ</sub>N</span>, up to the magnetic terms. Writing an interaction with
+<span class="m">χ̄γ<sup>μ</sup>χ</span> in place of <span class="m">(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ</span> therefore multiplies its leading coefficient by
+<span class="m">m<sub>M</sub>/2m<sub>χ</sub> = m<sub>N</sub>/2m<sub>χ</sub></span>. Writing <span class="m">N̄γ<sub>μ</sub>N</span> in place of
+<span class="m">(K<sub>μ</sub>/m<sub>M</sub>) N̄N</span> multiplies it by <span class="m">m<sub>M</sub>/2m<sub>N</sub> = ½</span>. Next to the pseudoscalar bilinears
+<span class="m">χ̄γ<sup>5</sup>χ</span> and <span class="m">N̄γ<sup>5</sup>N</span> there is no such vector current to substitute, and indeed every card in which
+<span class="m">P</span> and <span class="m">K</span> appear only there (<span class="m">L</span><sub>16</sub>, <span class="m">L</span><sub>18</sub>–<span class="m">L</span><sub>20</sub>) agrees as transcribed.</p>
+
+<div class="table-wrap wide"><table>
+<caption>Nonrelativistic coefficients per unit d (m<sub>M</sub> = m<sub>N</sub>), as Anand et al. define the interaction and as LZ's limits imply.</caption>
+<thead><tr><th>Card</th><th>Anand et al.</th><th>LZ's form (inferred)</th><th>Anand et al. coefficients</th><th>LZ's coefficients</th></tr></thead>
+<tbody>
+<tr><td>L5</td><td>(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ (K<sub>μ</sub>/m<sub>M</sub>) N̄N</td><td>χ̄γ<sup>μ</sup>χ N̄γ<sub>μ</sub>N</td><td>c<sub>1</sub> = 4m<sub>χ</sub>/m<sub>N</sub></td><td>c<sub>1</sub> = 1</td></tr>
+<tr><td>L7</td><td>(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ N̄γ<sub>μ</sub>γ<sup>5</sup>N</td><td>χ̄γ<sup>μ</sup>χ N̄γ<sub>μ</sub>γ<sup>5</sup>N</td><td>c<sub>7</sub> = −4m<sub>χ</sub>/m<sub>N</sub></td><td>c<sub>7</sub> = −2, c<sub>9</sub> = 2m<sub>N</sub>/m<sub>χ</sub></td></tr>
+<tr><td>L8</td><td>i(P<sup>μ</sup>/m<sub>M</sub>) χ̄χ (K<sub>μ</sub>/m<sub>M</sub>) N̄γ<sup>5</sup>N</td><td>i χ̄γ<sup>μ</sup>χ (K<sub>μ</sub>/m<sub>M</sub>) N̄γ<sup>5</sup>N</td><td>c<sub>10</sub> = 4m<sub>χ</sub>/m<sub>N</sub></td><td>c<sub>10</sub> = 2</td></tr>
+<tr><td>L13</td><td>χ̄γ<sup>μ</sup>γ<sup>5</sup>χ (K<sub>μ</sub>/m<sub>M</sub>) N̄N</td><td>χ̄γ<sup>μ</sup>γ<sup>5</sup>χ N̄γ<sub>μ</sub>N</td><td>c<sub>8</sub> = 4</td><td>c<sub>8</sub> = 2 (and c<sub>9</sub> = 2)</td></tr>
+<tr><td>L17</td><td>i(P<sup>μ</sup>/m<sub>M</sub>) χ̄γ<sup>5</sup>χ (K<sub>μ</sub>/m<sub>M</sub>) N̄N</td><td>i(P<sup>μ</sup>/m<sub>M</sub>) χ̄γ<sup>5</sup>χ N̄γ<sub>μ</sub>N</td><td>c<sub>11</sub> = −4</td><td>c<sub>11</sub> = −2</td></tr>
+<tr><td>L6</td><td colspan="2">LZ's own χ̄γ<sup>μ</sup>χ N̄iσ<sub>μα</sub>(q<sup>α</sup>/m<sub>M</sub>)N, as printed in [2]</td><td>c<sub>1</sub> = q²/2m<sub>N</sub>², c<sub>3</sub> = −2, …</td><td>c<sub>1</sub> = q²/2m<sub>N</sub>², c<sub>3</sub> = +2, …</td></tr>
+</tbody></table></div>
+<p>The vector currents also carry the magnetic terms of Eq. (1). For <span class="m">L</span><sub>7</sub> the dark-matter current's magnetic part gives
+<span class="m">c<sub>9</sub> = 2m<sub>N</sub>/m<sub>χ</sub></span>, the standard vector–axial reduction [10]. <span class="m">O</span><sub>7</sub> is
+velocity-suppressed and <span class="m">O</span><sub>9</sub> is not, so this term dominates the rate for light dark matter. The data require it:</p>
+<div class="table-wrap wide"><table>
+<caption>L7 (isoscalar): d<sub>ADROIT</sub>/d<sub>LZ</sub> for three forms of the interaction.</caption>
+<thead><tr><th>Form</th><th class="num">10 GeV</th><th class="num">14 GeV</th><th class="num">30 GeV</th><th class="num">100 GeV</th><th class="num">1 TeV</th></tr></thead>
+<tbody>
+<tr><td>Anand et al. L7, m<sub>M</sub> = m<sub>N</sub>: −4(m<sub>χ</sub>/m<sub>N</sub>) O₇</td><td class='num'>0.161</td><td class='num'>0.0727</td><td class='num'>0.0216</td><td class='num'>0.00392</td><td class='num'>0.000373</td></tr><tr><td>Vector–axial, O₇ part only: −2 O₇</td><td class='num'>3.45</td><td class='num'>2.19</td><td class='num'>1.39</td><td class='num'>0.842</td><td class='num'>0.8</td></tr><tr><td>Vector–axial: −2 O₇ + 2(m<sub>N</sub>/m<sub>χ</sub>) O₉</td><td class='num'>1.2</td><td class='num'>0.945</td><td class='num'>0.894</td><td class='num'>0.798</td><td class='num'>0.798</td></tr><tr class='ref'><td>L1 at the same masses (the experiment-side baseline)</td><td class='num'>1.36</td><td class='num'>1.02</td><td class='num'>0.866</td><td class='num'>0.811</td><td class='num'>1.04</td></tr>
+</tbody></table></div>
+<p>Only the full vector–axial form follows the baseline at every mass. For <span class="m">L</span><sub>13</sub> the analogous <span class="m">O</span><sub>9</sub> term
+cannot be tested with xenon, since the coherent <span class="m">O</span><sub>8</sub> response dominates either way.</p>
+
+<h3><span class="m">L</span><sub>6</sub>: the direction of <span class="m">v⃗<sup>⊥</sup></span></h3>
+<p>LZ's 2024 Table I gives <span class="m">L</span><sub>6</sub> = <span class="m">χ̄γ<sup>μ</sup>χ N̄ iσ<sub>μα</sub>(q<sup>α</sup>/m<sub>M</sub>) N</span> four terms:
+<span class="m">O</span><sub>1</sub> and <span class="m">O</span><sub>4</sub> with <span class="m">q⃗</span><sup>2</sup>, and <span class="m">O</span><sub>3</sub> and
+<span class="m">O</span><sub>6</sub>. An explicit-spinor reduction of that Lagrangian gives the same four terms with the same signs. Computed that
+way, the limits are 2–8 times stronger than LZ's. Reversing the relative sign of the <span class="m">O</span><sub>1</sub> and
+<span class="m">O</span><sub>3</sub> terms brings both isospins into the band at every mass. Reversing <span class="m">O</span><sub>4</sub> and
+<span class="m">O</span><sub>6</sub> changes nothing.</p>
+<p>The sign convention for <span class="m">q</span> cannot do this. The Lagrangian is linear in <span class="m">q<sup>α</sup></span>, so taking the
+nucleon's momentum transfer in place of the dark matter's multiplies every term by −1, an overall sign that no rate sees. The direction of
+the relative velocity can. <span class="m">O</span><sub>3</sub> = i S⃗<sub>N</sub>·(q⃗/m<sub>N</sub> × v⃗<sup>⊥</sup>) is the only term here odd in
+<span class="m">v⃗<sup>⊥</sup></span>, and it interferes with <span class="m">O</span><sub>1</sub> through xenon's <span class="m">Φ″</span>–<span class="m">M</span>
+response. A code that takes <span class="m">v⃗<sup>⊥</sup></span> the other way round flips every operator linear in it (O<sub>3</sub>,
+O<sub>5</sub>, O<sub>7</sub>, O<sub>8</sub>, O<sub>12</sub>–O<sub>15</sub>). Among the twenty interactions only L<sub>6</sub> has such a term with a strong
+interference partner: L<sub>9</sub>'s O<sub>5</sub>, L<sub>7</sub>'s O<sub>7</sub> and L<sub>13</sub>'s O<sub>8</sub> have none or only weak ones, and in
+L<sub>12</sub> both O<sub>12</sub> and O<sub>15</sub> flip together. That makes the convention consistent with every other card agreeing. It is the
+simplest explanation found, not a confirmed one.</p>
+
+<h3>Significances test the shapes</h3>
+<p>LZ's local significances depend on the shape of each recoil spectrum, not its normalisation. They are therefore an independent test of the
+three forms that change a shape (L<sub>6</sub>'s sign and the O<sub>9</sub> terms of L<sub>7</sub> and L<sub>13</sub>), and a null test of the three that
+only rescale. Using only the development half of ADROIT's evaluation split for these tables (its held-out half is not rerun):</p>
+<div class="table-wrap wide"><table>
+<caption>Entries of LZ's Table S7 reproduced within 0.3σ, before and after the LZ forms, and the largest miss.</caption>
+<thead><tr><th>Card</th><th class="num">Entries</th><th class="num">Within 0.3σ</th><th class="num">Largest miss (σ)</th></tr></thead>
+<tbody>
+<tr><td>L5</td><td class='num'>15</td><td class='num'>15 → 15</td><td class='num'>0.20 → 0.20</td></tr>
+<tr><td>L6</td><td class='num'>15</td><td class='num'>11 → 15</td><td class='num'>1.81 → 0.20</td></tr>
+<tr><td>L7</td><td class='num'>16</td><td class='num'>15 → 16</td><td class='num'>0.88 → 0.17</td></tr>
+<tr><td>L8</td><td class='num'>19</td><td class='num'>19 → 19</td><td class='num'>0.13 → 0.13</td></tr>
+<tr><td>L13</td><td class='num'>12</td><td class='num'>8 → 12</td><td class='num'>0.69 → 0.21</td></tr>
+<tr><td>L17</td><td class='num'>14</td><td class='num'>14 → 14</td><td class='num'>0.27 → 0.27</td></tr>
+</tbody></table></div>
+
+<h3><span class="m">L</span><sub>12</sub>: a cancellation</h3>
+<p>The <span class="m">O</span><sub>12</sub> and <span class="m">O</span><sub>15</sub> terms of <span class="m">L</span><sub>12</sub> come from one structure. Using the vector identity, valid for <span class="m">v⃗<sup>⊥</sup>·q⃗ = 0</span>,</p>
+<div class="eq">[v⃗<sup>⊥</sup>·(q⃗ × S⃗<sub>χ</sub>)] (q⃗·S⃗<sub>N</sub>) = −q⃗<sup>2</sup> O<sub>12</sub> − m<sub>N</sub><sup>2</sup> O<sub>15</sub><span class="n">(2)</span></div>
+<p>the two enter in the fixed ratio <span class="m">c<sub>12</sub>/c<sub>15</sub> = q⃗<sup>2</sup>/m<sub>N</sub><sup>2</sup></span>. ADROIT's card and LZ's printed
+reduction agree on this, up to an overall sign that no rate can see. Their contributions to xenon's response nearly cancel at exactly that ratio.
+Detuning it by a fraction ε shows how delicate the cancellation is:</p>
+<div class="table-wrap wide"><table>
+<caption>L12: d<sub>ADROIT</sub>/d<sub>LZ</sub> when c<sub>12</sub>/c<sub>15</sub> departs from Eq. (2) by ε.</caption>
+<thead><tr><th class="num">ε</th><th class="num">s, 14 GeV</th><th class="num">s, 100 GeV</th><th class="num">s, 1 TeV</th><th class="num">v, 14 GeV</th><th class="num">v, 100 GeV</th><th class="num">v, 1 TeV</th></tr></thead>
+<tbody>
+<tr><td class='num'>+0%</td><td class='num'>13.1</td><td class='num'>10.7</td><td class='num'>6.36</td><td class='num'>2.4</td><td class='num'>1.75</td><td class='num'>2.01</td></tr>
+<tr><td class='num'>+1%</td><td class='num'>5.24</td><td class='num'>4.41</td><td class='num'>4.23</td><td class='num'>2.22</td><td class='num'>1.67</td><td class='num'>1.94</td></tr>
+<tr><td class='num'>-1%</td><td class='num'>5.26</td><td class='num'>4.42</td><td class='num'>4.27</td><td class='num'>2.26</td><td class='num'>1.7</td><td class='num'>1.98</td></tr>
+<tr><td class='num'>+3%</td><td class='num'>1.89</td><td class='num'>1.59</td><td class='num'>1.82</td><td class='num'>1.57</td><td class='num'>1.32</td><td class='num'>1.6</td></tr>
+<tr><td class='num'>+5%</td><td class='num'>1.14</td><td class='num'>0.961</td><td class='num'>1.12</td><td class='num'>1.11</td><td class='num'>1</td><td class='num'>1.26</td></tr>
+<tr><td class='num'>-5%</td><td class='num'>1.14</td><td class='num'>0.962</td><td class='num'>1.13</td><td class='num'>1.14</td><td class='num'>1.04</td><td class='num'>1.31</td></tr>
+<tr><td class='num'>+10%</td><td class='num'>0.573</td><td class='num'>0.482</td><td class='num'>0.568</td><td class='num'>0.61</td><td class='num'>0.582</td><td class='num'>0.762</td></tr>
+</tbody></table></div>
+<p>The response is symmetric in ε, so the exact calculation sits at the bottom of the cancellation. A 1% detuning moves the isoscalar limit by up to a
+factor 2.5. A 5% detuning brings both isospins to 0.96–1.26 of LZ's limits, inside the spread of the other cards. Several conventions could leave such a residue: the
+nucleon mass in the definition of <span class="m">O</span><sub>15</sub> against the one in <span class="m">m<sub>M</sub></span>, or an incomplete interference term
+between the <span class="m">Φ̃′</span> and <span class="m">Σ′</span> responses. With the operator identity exact, ADROIT's weaker limit is the consistent one,
+but the comparison cannot say which convention in LZ's chain is responsible.</p>
+
+<h3><span class="m">L</span><sub>12</sub>: searching for LZ's convention (12 October 2026)</h3>
+<p><b>What was done.</b> At the owner's request, we tried to recover LZ's <span class="m">L</span><sub>12</sub> numbers by changing the normalisation conventions until
+they matched (<code>docs/dm6/lz_l12_conventions.py</code>, results in <code>lz_l12_conventions.json</code>). One rule was fixed before the
+run: only discrete, physically motivated conventions count, and one is accepted only if it reproduces <em>all</em> thirteen
+published masses for <em>both</em> isospins at once, within the validation tolerance (a factor 1.3 in rate, so
+<span class="m">d</span><sub>ADROIT</sub>/<span class="m">d</span><sub>LZ</sub> between 0.877 and 1.140). With a continuously tuned parameter, any one number
+could be matched, and that would say nothing about LZ's convention. Eighty combinations were tried (sixty distinct: without the interference the sign does not matter):</p>
+<ul>
+  <li><b>the nucleon mass in <span class="m">O</span><sub>15</sub>'s definition</b> against the one in the reduction's coefficients: the atomic mass unit throughout
+  (ADROIT), or <span class="m">m<sub>p</sub></span>, <span class="m">m<sub>n</sub></span> or their mean in <span class="m">O</span><sub>15</sub>, which detunes Eq. (2) by 1.5–1.7%;</li>
+  <li><b><span class="m">O</span><sub>10</sub>'s coefficient</b> ×1, ×0, ×½, ×2, or with <span class="m">m<sub>M</sub></span> in place of <span class="m">m<sub>χ</sub></span>;</li>
+  <li><b>the <span class="m">O</span><sub>12</sub>–<span class="m">O</span><sub>15</sub> interference</b> kept or left out (their rates added);</li>
+  <li><b><span class="m">O</span><sub>15</sub>'s sign</b> as Anand et al., or reversed.</li>
+</ul>
+<div class="table-wrap wide"><table>
+<caption>L12: <span class="m">d</span><sub>ADROIT</sub>/<span class="m">d</span><sub>LZ</sub> over the thirteen masses, for representative conventions (the <span class="m">O</span><sub>10</sub> variants change nothing by more than 1%, except where shown).</caption>
+<thead><tr><th>convention</th><th class="num">isoscalar</th><th class="num">isovector</th><th class="num">entries matched</th></tr></thead>
+<tbody>
+<tr><td>Anand et al., atomic mass unit throughout (ADROIT's card)</td><td class='num'>6.24–15.7</td><td class='num'>1.75–2.97</td><td class='num'>0 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>15</sub> with <span class="m">m<sub>p</sub></span></td><td class='num'>3.21–4.51</td><td class='num'>1.63–2.60</td><td class='num'>0 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>15</sub> with <span class="m">(m<sub>p</sub> + m<sub>n</sub>)/2</span></td><td class='num'>2.95–4.15</td><td class='num'>1.60–2.55</td><td class='num'>0 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>15</sub> with <span class="m">m<sub>n</sub></span></td><td class='num'>2.73–3.85</td><td class='num'>1.58–2.49</td><td class='num'>0 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>15</sub> with <span class="m">m<sub>n</sub></span>, <span class="m">O</span><sub>10</sub> with <span class="m">m<sub>M</sub></span> for <span class="m">m<sub>χ</sub></span> (the best)</td><td class='num'>1.39–3.55</td><td class='num'>0.55–1.86</td><td class='num'>1 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>12</sub>–<span class="m">O</span><sub>15</sub> interference left out</td><td class='num'>0.034–0.048</td><td class='num'>0.044–0.061</td><td class='num'>0 / 26</td></tr>
+<tr><td><span class="m">O</span><sub>15</sub> reversed</td><td class='num'>0.024–0.034</td><td class='num'>0.031–0.043</td><td class='num'>0 / 26</td></tr>
+<tr><td class='muted'>for scale only: ε = ±5%, tuned</td><td class='num muted'>0.96–1.36</td><td class='num muted'>1.00–1.40</td><td class='num muted'>13 / 26</td></tr>
+<tr><td class='muted'>for scale only: ε = ±6%, tuned</td><td class='num muted'>—</td><td class='num muted'>—</td><td class='num muted'>21 / 26 (worst 0.80)</td></tr>
+</tbody></table></div>
+<p><b>Result.</b> No discrete convention reproduces LZ's <span class="m">L</span><sub>12</sub>. The nucleon-mass conventions move the limits most of the way: the
+isoscalar gap falls from 6–16 to 3–4.5. But none matches even half the entries. With the best one the isovector limits overshoot
+at high mass (0.55) while the isoscalar ones still fall short at low mass (3.5), which no single convention can fix. Even the
+tuned detuning, a free parameter, matches at most 21 of 26. <b>The card stays as Anand et al.'s, with the identity exact, and
+<span class="m">L</span><sub>12</sub> stays unvalidated.</b> ADROIT's <span class="m">L</span><sub>12</sub> limits are the weaker ones, so an exclusion that ADROIT draws from them is conservative.</p>
+<p><b>Why there is an ambiguity at all.</b> Anand et al.'s response functions (their Eq. 38) contain <span class="m">O</span><sub>12</sub> and <span class="m">O</span><sub>15</sub> only through
+the combination <span class="m">c<sub>12</sub> − (q<sup>2</sup>/m<sub>N</sub><sup>2</sup>) c<sub>15</sub></span> in xenon's two large responses,
+<span class="m">Φ″</span> (spin–orbit) and the velocity-dependent part of <span class="m">Σ′</span>. Eq. (2) sets that combination to zero identically. What is
+left are the small responses: <span class="m">Φ̃′</span> (proportional to <span class="m">c<sub>12</sub><sup>2</sup></span>), the velocity-suppressed part of
+<span class="m">Σ″</span>, and <span class="m">O</span><sub>10</sub>'s <span class="m">q<sup>4</sup></span> term. The rate is a residue, 10<sup>3</sup>–10<sup>5</sup> times smaller than the rate of the two terms added
+without their interference. The table shows this directly: dropping the interference, or reversing <span class="m">O</span><sub>15</sub>'s sign, makes the
+limits 16–42 times stronger than LZ's, and 33–510 times stronger than the exact calculation. Any choice that breaks Eq. (2) at the percent level then dominates the rate, and several choices that are invisible
+for every other interaction do so:</p>
+<ul>
+  <li>Eq. (2) relies on <span class="m">v⃗<sup>⊥</sup>·q⃗ = 0</span>. This holds for the dark matter–nucleus relative velocity, but not for each bound
+  nucleon's, which includes the nucleon's motion inside the nucleus. A calculation that applies the identity before the nuclear
+  matrix elements and one that applies it after differ by exactly such a residue.</li>
+  <li>The nucleon mass appears in three places: the spinor normalisation (through <span class="m">K<sub>μ</sub></span>), the definition of
+  <span class="m">O</span><sub>15</sub>, and the scale <span class="m">m<sub>M</sub> = m<sub>N</sub></span>. A code may use different values in each (proton, neutron, average,
+  atomic mass unit).</li>
+  <li>The small <span class="m">Φ̃′</span> response is the one most sensitive to the nuclear model: WIMpy_NREFT omits it entirely (DM2).</li>
+</ul>
+<p>LZ prints its reduction, but not the code-level choices that decide this residue, so the published limits alone cannot fix them.
+Settling it needs LZ's inputs (the WimPyDD or equivalent configuration for <span class="m">L</span><sub>12</sub>). We recommend asking LZ, and meanwhile reading
+LZ's <span class="m">L</span><sub>12</sub> limits as about 2–16 times stronger than the exact identity gives.</p>
+
+<h2>Converting LZ's limits</h2>
+<p>For an interaction that reduces to one operator, multiply LZ's limit on <span class="m">d</span> by <span class="m">κ</span> to obtain the limit in Anand et al.'s
+normalisation (with <span class="m">m<sub>M</sub> = m<sub>N</sub></span>; for <span class="m">m<sub>M</sub> = m<sub>v</sub></span> rescale by the card's powers of
+<span class="m">m<sub>M</sub></span> in the usual way):</p>
+<div class="eq">d<sup>AFH</sup><sub>up</sub> = κ d<sup>LZ</sup><sub>up</sub>,&nbsp;&nbsp; κ(L5) = m<sub>N</sub>/4m<sub>χ</sub>,&nbsp; κ(L8) = m<sub>N</sub>/2m<sub>χ</sub>,&nbsp; κ(L13) = κ(L17) = ½<span class="n">(3)</span></div>
+<p>For <span class="m">L</span><sub>7</sub> no single factor works below about 100 GeV, because of the <span class="m">O</span><sub>9</sub> term. There, and for any model,
+the safest course is to match the model's own nonrelativistic coefficients to LZ's coefficients in the table above, which state what LZ's
+<span class="m">d</span> multiplies. Significances and the look-elsewhere correction need no conversion.</p>
+
+<h2>Recommendations</h2>
+<p><b>For data releases.</b> State each interaction as used, with its nonrelativistic coefficients per unit coupling, the momentum scale
+<span class="m">m<sub>M</sub></span> and the directions of <span class="m">q</span> and <span class="m">v⃗<sup>⊥</sup></span>. Here that means stating that <span class="m">L</span><sub>5</sub>–<span class="m">L</span><sub>9</sub>,
+<span class="m">L</span><sub>13</sub> and <span class="m">L</span><sub>17</sub> use vector currents and <span class="m">m<sub>M</sub> = m<sub>N</sub></span>. The <span class="m">L</span><sub>12</sub>
+spectra should be checked against the operator identity of Eq. (2).</p>
+<p><b>For ADROIT (done, 11 October 2026).</b> Anand et al.'s cards stay for physics. The cards used for every comparison with LZ now
+carry LZ's forms: <span class="m">L</span><sub>5</sub>, <span class="m">L</span><sub>7</sub>, <span class="m">L</span><sub>8</sub>, <span class="m">L</span><sub>13</sub> and
+<span class="m">L</span><sub>17</sub> as new cards, and <span class="m">L</span><sub>6</sub> with its O<sub>3</sub> term reversed, beside L<sub>9</sub>. Each card's terms
+match an explicit-spinor reduction of its Lagrangian, and the six together give exactly the five proportional pairs LZ lists. Of the 515
+elastic entries, 165 passed the 1.3 tolerance before and 236 pass now, and ADROIT's validated structures rose from 40 to 52 of 61.
+<span class="m">L</span><sub>12</sub> stays unvalidated until the cancellation is understood.</p>
+
+<h2>Limitations</h2>
+<p>WimPyDD's source was not inspected, since its distribution blocks automated download. The conventions are inferred from LZ's published limits and LZ's
+2024 Table I, and each is the simplest one consistent with all the entries. The recomputation is an approximation good to about 30% in
+<span class="m">d</span>, but the pair test does not depend on it. Isovector couplings are taken as <span class="m">c<sup>n</sup> = −c<sup>p</sup></span>, and the
+<span class="m">O</span><sub>9</sub> term of <span class="m">L</span><sub>13</sub> is untested. The open cause of the <span class="m">L</span><sub>12</sub> residue is noted above.</p>
+
+<h2>Appendix: every table</h2>
+<div class="table-wrap wide"><table>
+<caption>Range of d<sub>ADROIT</sub>/d<sub>LZ</sub> over the 13 masses, with the cards as transcribed and with LZ's forms, and the entries within the 1.3 tolerance.</caption>
+<thead><tr><th>Card</th><th class="num">s: as transcribed</th><th class="num">s: LZ form</th><th class="num">s: passing</th><th class="num">v: as transcribed</th><th class="num">v: LZ form</th><th class="num">v: passing</th></tr></thead>
+<tbody>
+<tr><td>L1</td><td class='num'>0.802–1.36</td><td class='num muted'>same</td><td class='num'>8 / 13</td><td class='num'>0.81–1.32</td><td class='num muted'>same</td><td class='num'>9 / 13</td></tr>
+<tr><td>L2</td><td class='num'>0.752–1.13</td><td class='num muted'>same</td><td class='num'>5 / 13</td><td class='num'>0.767–1.15</td><td class='num muted'>same</td><td class='num'>4 / 13</td></tr>
+<tr><td>L3</td><td class='num'>0.695–1.17</td><td class='num muted'>same</td><td class='num'>4 / 13</td><td class='num'>0.767–1.17</td><td class='num muted'>same</td><td class='num'>5 / 13</td></tr>
+<tr><td>L4</td><td class='num'>0.742–1.04</td><td class='num muted'>same</td><td class='num'>7 / 12</td><td class='num'>0.701–1.06</td><td class='num muted'>same</td><td class='num'>7 / 12</td></tr>
+<tr><td>L5</td><td class='num'>6.31e-05–0.0307</td><td class='num'>0.846–1.32</td><td class='num'>0 → 10 / 13</td><td class='num'>4.78e-05–0.0307</td><td class='num'>0.81–1.32</td><td class='num'>0 → 8 / 13</td></tr>
+<tr><td>L6</td><td class='num'>0.243–0.4</td><td class='num'>0.78–1.03</td><td class='num'>0 → 2 / 13</td><td class='num'>0.121–0.459</td><td class='num'>0.736–1.07</td><td class='num'>0 → 7 / 13</td></tr>
+<tr><td>L7</td><td class='num'>9.43e-05–0.161</td><td class='num'>0.775–1.2</td><td class='num'>0 → 6 / 13</td><td class='num'>9.33e-05–0.161</td><td class='num'>0.791–1.2</td><td class='num'>0 → 6 / 13</td></tr>
+<tr><td>L8</td><td class='num'>0.000102–0.0536</td><td class='num'>0.752–1.15</td><td class='num'>0 → 6 / 13</td><td class='num'>0.000104–0.0541</td><td class='num'>0.756–1.16</td><td class='num'>0 → 5 / 13</td></tr>
+<tr><td>L9</td><td class='num'>0.705–1.09</td><td class='num muted'>same</td><td class='num'>3 / 13</td><td class='num'>0.773–1.06</td><td class='num muted'>same</td><td class='num'>7 / 13</td></tr>
+<tr><td>L10</td><td class='num'>0.832–1.04</td><td class='num muted'>same</td><td class='num'>8 / 13</td><td class='num'>0.827–1.05</td><td class='num muted'>same</td><td class='num'>7 / 13</td></tr>
+<tr><td>L11</td><td class='num'>0.764–1.16</td><td class='num muted'>same</td><td class='num'>8 / 13</td><td class='num'>0.768–1.17</td><td class='num muted'>same</td><td class='num'>8 / 13</td></tr>
+<tr><td>L12</td><td class='num'>6.24–15.7</td><td class='num muted'>same</td><td class='num'>0 / 13</td><td class='num'>1.75–2.97</td><td class='num muted'>same</td><td class='num'>0 / 13</td></tr>
+<tr><td>L13</td><td class='num'>0.367–0.686</td><td class='num'>0.761–1.37</td><td class='num'>0 → 6 / 13</td><td class='num'>0.383–0.641</td><td class='num'>0.724–1.3</td><td class='num'>0 → 6 / 13</td></tr>
+<tr><td>L14</td><td class='num'>0.742–1.16</td><td class='num muted'>same</td><td class='num'>7 / 11</td><td class='num'>0.768–1.17</td><td class='num muted'>same</td><td class='num'>9 / 12</td></tr>
+<tr><td>L15</td><td class='num'>0.781–1.32</td><td class='num muted'>same</td><td class='num'>7 / 13</td><td class='num'>0.777–1.31</td><td class='num muted'>same</td><td class='num'>6 / 13</td></tr>
+<tr><td>L16</td><td class='num'>0.699–1.04</td><td class='num muted'>same</td><td class='num'>6 / 13</td><td class='num'>0.676–1.06</td><td class='num muted'>same</td><td class='num'>3 / 13</td></tr>
+<tr><td>L17</td><td class='num'>0.352–0.593</td><td class='num'>0.704–1.19</td><td class='num'>0 → 4 / 13</td><td class='num'>0.382–0.586</td><td class='num'>0.763–1.17</td><td class='num'>0 → 5 / 13</td></tr>
+<tr><td>L18</td><td class='num'>0.641–0.922</td><td class='num muted'>same</td><td class='num'>2 / 13</td><td class='num'>0.731–0.943</td><td class='num muted'>same</td><td class='num'>5 / 13</td></tr>
+<tr><td>L19</td><td class='num'>0.763–1.22</td><td class='num muted'>same</td><td class='num'>8 / 13</td><td class='num'>0.791–1.21</td><td class='num muted'>same</td><td class='num'>8 / 13</td></tr>
+<tr><td>L20</td><td class='num'>0.741–1.05</td><td class='num muted'>same</td><td class='num'>6 / 13</td><td class='num'>0.732–1.08</td><td class='num muted'>same</td><td class='num'>8 / 13</td></tr>
+</tbody></table></div>
+
+<h2>References</h2>
+<ol class="refs">
+  <li>LZ Collaboration, Search for dark matter particle interactions in an extended nuclear recoil energy window with the LUX-ZEPLIN (LZ) experiment, arXiv:2609.02823 (2026); data release HEPData ins3199115.</li>
+  <li>LZ Collaboration, Constraints on covariant WIMP-nucleon effective field theory interactions from the first science run of the LUX-ZEPLIN experiment, arXiv:2404.17666 (2024), Table I.</li>
+  <li>N. Anand, A. L. Fitzpatrick and W. C. Haxton, Phys. Rev. C 89, 065501 (2014), arXiv:1308.6288, Table 1 and Eq. (68).</li>
+  <li>A. L. Fitzpatrick, W. Haxton, E. Katz, N. Lubbers and Y. Xu, JCAP 02 (2013) 004, arXiv:1203.3542.</li>
+  <li>I. Jeong, S. Kang, S. Scopel and G. Tomar, WimPyDD, Comput. Phys. Commun. 276, 108342 (2022).</li>
+  <li>W. C. Haxton and K. S. McElvain, revised one-body density matrices for xenon, arXiv:2312.02030.</li>
+  <li>ADROIT, an agentic dark-matter research system. Recomputations: <code>docs/dm6/validate_direct_route.py</code>; this analysis:
+  <code>docs/dm6/lz_conventions.py</code>, which writes <code>docs/dm6/lz_conventions.json</code>.</li>
+  <li>W. Gordon, Z. Phys. 50, 630 (1928).</li>
+  <li>D. Baxter et al., recommended conventions for reporting results from direct dark matter searches, Eur. Phys. J. C 81, 907 (2021), arXiv:2105.00599.</li>
+  <li>J. B. Dent, L. M. Krauss, J. L. Newstead and S. Sabharwal, Phys. Rev. D 92, 063515 (2015), arXiv:1505.03117.</li>
+</ol>
+<footer>Every number in this note is regenerated by <code>docs/dm6/lz_conventions.py</code> from LZ's public tables and ADROIT's LZ module.</footer>
+</main>

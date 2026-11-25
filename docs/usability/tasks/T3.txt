@@ -1,0 +1,8 @@
+Task T3: the most general Lagrangian of a field content
+
+Add to the Standard Model a Dirac fermion chi and a real scalar S, both singlets under the Standard Model gauge
+group. chi is odd and S even under a Z2 symmetry; every Standard Model field is even. No other symmetry is imposed.
+
+Write every renormalisable term these new fields add to the Lagrangian (kinetic terms excepted).
+
+Answer: the list of terms, with one coupling each, and any term you chose to remove by a field redefinition.

@@ -1,0 +1,43 @@
+schema_version: 1
+captured_on: '2026-10-08'
+interpretation: M21 migration baseline for the nine existing historical approvals.
+  Hashes bind current scientific content from this date forward; they do not claim
+  that these bytes were newly reviewed, or establish their identity on the original
+  approval date.
+bindings:
+- record_id: cms-2405.13778-V1
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: 840c835dac3d6b701b428b66c457a5d4e38d0df02ed7db40f77ab3c9ddec630d
+- record_id: cms-2405.13778-A1
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: fad489e47b8e58a9fa0c9e9f084a93a35cbfea706af5c8f519e680bb81a85e76
+- record_id: cms-2405.13778-V2
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: 3a4deebae0c78b0ecd1b6dcadb1e67ed17f7f49e3c3adabc8e192644b22d2d7b
+- record_id: cms-2405.13778-A2
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: faecf55c61e85682c15837fb0496d6b843395f903230b5c0675d56d9d0190a7f
+- record_id: icecube-1612.05949-sd
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: d0b87863e7f708ef2247eaf5fcb4eb369b17f814c0561d59a9f92361dd14d968
+- record_id: icecube-1612.05949-si
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: 16faf9ad8caf4e8ef1c99379303a478715ba1a6e79b8639b0f06cb9a8f7e28c9
+- record_id: fermi-1503.02641-dsph
+  'on': '2026-10-01'
+  by: James Unwin (owner)
+  payload_sha256: 2fc95dde1ffa04b6392a15ee1289876c2f4645a1fbe4a1a5328cafebe03a20aa
+- record_id: atlas-2301.10731-hinv
+  'on': '2026-10-03'
+  by: James Unwin (owner)
+  payload_sha256: dfa803b9069127932f6facdb3b8e8b1ffef5b7379d842c7839a8ddb62c0c852e
+- record_id: lep-hep-ex-0509008-zinv
+  'on': '2026-10-03'
+  by: James Unwin (owner)
+  payload_sha256: 203ae064fe7b7a37cc5bb4e7400cd54bb5033b1756c5ca65a38d40740f575849

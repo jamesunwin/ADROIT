@@ -1,0 +1,345 @@
+# DM8 gate: ten models with known answers, three of them not in the library.
+#
+# Each model has:
+# - description: all the agents are given (the intake agent reads it; the derivation
+#   agents read the intake's ModelSpec). It names the fields and couplings, so that
+#   the agents' formulas can be evaluated at the reference's parameter points.
+# - reference: the known answer, as a ModelSpec and a Derivation, derived in closed
+#   form below each model (sources in docs/dm8_lagrangians.md, section 9).
+# - expected: the library's verdict on the reference (cards: one of them "same" or
+#   "close"; none: no card "same" or "close").
+#
+# Conventions of the derivations: scalar exchange L ⊃ g1 S O1 + g2 S O2 gives
+# +(g1 g2/M²) O1 O2; vector exchange L ⊃ V(g1 J1 + g2 J2) gives −(g1 g2/M²) J1·J2.
+# DirectDM's Majorana and real-scalar operators carry a factor 1/2 (arXiv:1708.02678).
+# The heavy-quark relation m_t t̄t → −(α_s/12π) GG integrates out the top.
+# One overall sign of all coefficients is unobservable (rates are quadratic).
+
+models:
+
+# --- G1: the Working Group's V1 ------------------------------------------------------
+# L ⊃ g_χ Z′ χ̄γχ + g_q Z′ Σ q̄γq  →  −(g_χ g_q/M²)(χ̄γχ)(q̄γq): C61q = −g_χ g_q/M².
+# Known: σ_SI = 9 g_χ² g_q² μ²/(π M⁴) (arXiv:1603.04156).
+- id: G1
+  name: vector_mediator
+  in_library: true
+  expected: {cards: [M_vector, O1]}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) and a vector mediator Zp (mass 2000 GeV) that couples
+    vectorially to the dark matter and, with one universal coupling, to every quark:
+      L ⊃ g_chi Zp_μ chī γ^μ chi + g_q Σ_q Zp_μ q̄ γ^μ q,   g_chi = 1, g_q = 0.25.
+    Names: fields chi, Zp, q (all quarks); couplings g_chi, g_q.
+  reference:
+    spec:
+      name: vector_mediator
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: Zp, role: mediator, dark_parity: 1, spin: 1.0, self_conjugate: true, mass_gev: 2000.0}
+        - {name: q, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_q, value: 0.25}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: Zp}], lorentz: vector, coupling: g_chi}
+        - {fields: [{field: q, conjugate: true}, {field: q}, {field: Zp}], lorentz: vector, coupling: g_q}
+    derivation:
+      model_name: vector_mediator
+      terms:
+        - {name: C61u, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61d, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61s, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61c, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61b, expression: "-g_chi*g_q/m_Zp**2"}
+
+# --- G2: the Working Group's A1 ------------------------------------------------------
+# C64q = −g_χ g_q/M². Known: σ_SD = 3 g_χ² g_q² (Δu+Δd+Δs)² μ²/(π M⁴) (arXiv:1603.04156).
+- id: G2
+  name: axial_mediator
+  in_library: true
+  expected: {cards: [M_axial, O4]}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) and a vector mediator Zp (mass 2000 GeV) with axial-vector
+    couplings to the dark matter and, universally, to every quark:
+      L ⊃ g_chi Zp_μ chī γ^μ γ^5 chi + g_q Σ_q Zp_μ q̄ γ^μ γ^5 q,   g_chi = 1, g_q = 0.25.
+    Names: fields chi, Zp, q (all quarks); couplings g_chi, g_q.
+  reference:
+    spec:
+      name: axial_mediator
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: Zp, role: mediator, dark_parity: 1, spin: 1.0, self_conjugate: true, mass_gev: 2000.0}
+        - {name: q, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_q, value: 0.25}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: Zp}], lorentz: axial, coupling: g_chi}
+        - {fields: [{field: q, conjugate: true}, {field: q}, {field: Zp}], lorentz: axial, coupling: g_q}
+    derivation:
+      model_name: axial_mediator
+      terms:
+        - {name: C64u, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C64d, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C64s, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C64c, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C64b, expression: "-g_chi*g_q/m_Zp**2"}
+
+# --- G3: a scalar mediator with Yukawa-like couplings -------------------------------
+# L ⊃ g_χ φ χ̄χ + g_q φ Σ (m_q/v) q̄q → (g_χ g_q m_q/(v M²))(χ̄χ)(q̄q): C75q = g_χ g_q/(v M²);
+# the top: C75t m_t t̄t → −C75t (α_s/12π) GG, and Q71 = (α_s/12π)(χ̄χ)GG, so C71 = −C75t.
+# Known: σ_SI = (μ²/π)(g_χ g_q m_N f_N/(v M²))², f_N the Higgs-like nucleon coupling.
+- id: G3
+  name: scalar_mediator
+  in_library: true
+  expected: {cards: [M_scalar, O1]}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) and a real scalar mediator phi (mass 500 GeV) that couples
+    to every quark, including the top, in proportion to its mass:
+      L ⊃ g_chi phi chī chi + g_q phi Σ_q (m_q/v) q̄ q,   g_chi = 1, g_q = 1.
+    Names: fields chi, phi, q (all quarks); couplings g_chi, g_q.
+  reference:
+    spec:
+      name: scalar_mediator
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: phi, role: mediator, dark_parity: 1, spin: 0.0, self_conjugate: true, mass_gev: 500.0}
+        - {name: q, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_q, value: 1.0}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: phi}], lorentz: scalar, coupling: g_chi}
+        - {fields: [{field: q, conjugate: true}, {field: q}, {field: phi}], lorentz: scalar, coupling: g_q*m_q/v}
+    derivation:
+      model_name: scalar_mediator
+      terms:
+        - {name: C75u, expression: "g_chi*g_q/(v*m_phi**2)"}
+        - {name: C75d, expression: "g_chi*g_q/(v*m_phi**2)"}
+        - {name: C75s, expression: "g_chi*g_q/(v*m_phi**2)"}
+        - {name: C75c, expression: "g_chi*g_q/(v*m_phi**2)"}
+        - {name: C75b, expression: "g_chi*g_q/(v*m_phi**2)"}
+        - {name: C71, expression: "-g_chi*g_q/(v*m_phi**2)"}
+
+# --- G4: the real-scalar Higgs portal ------------------------------------------------
+# V ⊃ (λ/2) H†H S² → L ⊃ −(λ v/2) h S²; with −(m_q/v) h q̄q: L_eff = (λ m_q/(2 m_h²)) S² q̄q.
+# DirectDM's real scalar Q63q = (m_q/2) S² q̄q, so C63q = λ/m_h²; the top gives C65 = −λ/m_h².
+# Known: σ_SI = λ² f_N² μ² m_N²/(4π m_h⁴ m_S²), derived in the record.
+- id: G4
+  name: scalar_higgs_portal
+  in_library: true
+  expected: {cards: [O1]}
+  description: |
+    Real scalar dark matter S (mass 100 GeV), a singlet stabilised by S → −S, coupling to the Standard
+    Model only through the Higgs portal, V ⊃ (lam_hs/2) H†H S² with lam_hs = 0.1. Work after electroweak
+    symmetry breaking (H†H ⊃ v h), with the Higgs boson h (mass 125.25 GeV) coupling to the quarks as
+    −(m_q/v) h q̄ q.
+    Names: fields S, h, q (all quarks); coupling lam_hs.
+  reference:
+    spec:
+      name: scalar_higgs_portal
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: S, role: dark_matter, dark_parity: -1, spin: 0.0, self_conjugate: true, mass_gev: 100.0}
+        - {name: h, role: mediator, dark_parity: 1, spin: 0.0, self_conjugate: true, mass_gev: 125.25}
+        - {name: q, role: standard_model, spin: 0.5}
+      couplings: [{name: lam_hs, value: 0.1}]
+      terms:
+        - {fields: [{field: h}, {field: S}, {field: S}], lorentz: scalar, coupling: lam_hs*v/2}
+        - {fields: [{field: q, conjugate: true}, {field: q}, {field: h}], lorentz: scalar, coupling: m_q/v}
+    derivation:
+      model_name: scalar_higgs_portal
+      dm_type: R
+      terms:
+        - {name: C63u, expression: "lam_hs/m_h**2"}
+        - {name: C63d, expression: "lam_hs/m_h**2"}
+        - {name: C63s, expression: "lam_hs/m_h**2"}
+        - {name: C63c, expression: "lam_hs/m_h**2"}
+        - {name: C63b, expression: "lam_hs/m_h**2"}
+        - {name: C65, expression: "-lam_hs/m_h**2"}
+
+# --- G5: a magnetic dipole -----------------------------------------------------------
+# L = (μ_χ/2) χ̄σ^{μν}χ F_μν and Q51 = (e/8π²)(χ̄σ^{μν}χ)F_μν, so C51 = 4π² μ_χ/e.
+- id: G5
+  name: magnetic_dipole
+  in_library: true
+  expected: {cards: [M_magnetic_dipole]}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) with a magnetic dipole moment mu_chi = 1e-5 GeV^-1 and no
+    other interaction:
+      L = (mu_chi/2) chī σ^{μν} chi F_μν.
+    Names: field chi (and the photon, if needed, A); coupling mu_chi (mass dimension −1).
+  reference:
+    spec:
+      name: magnetic_dipole
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: A, role: standard_model, spin: 1.0, self_conjugate: true}
+      couplings: [{name: mu_chi, value: 1.0e-5, mass_dimension: -1}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: A}], lorentz: dipole, coupling: mu_chi/2}
+    derivation:
+      model_name: magnetic_dipole
+      terms:
+        - {name: C51, expression: "4*pi**2*mu_chi/e"}
+
+# --- G6: a Majorana anapole ----------------------------------------------------------
+# L = 𝒜 χ̄γ^μγ5χ ∂^νF_μν; with ∂^νF_μν = ±e J_μ^em, L_eff = ±𝒜 e Σ_f Q_f (χ̄γ^μγ5χ)(f̄γ_μf).
+# Majorana Q62f = ½(χ̄γ^μγ5χ)(f̄γ_μf), so C62f = 2𝒜 e Q_f, for every charged fermion.
+- id: G6
+  name: anapole
+  in_library: true
+  expected: {cards: [M_anapole]}
+  description: |
+    Majorana fermion dark matter chi (mass 100 GeV) whose only interaction is an anapole moment
+    anapole = 1e-5 GeV^-2:
+      L = anapole chī γ^μ γ^5 chi ∂^ν F_μν.
+    Names: field chi (and the photon, if needed, A); coupling anapole (mass dimension −2).
+  reference:
+    spec:
+      name: anapole
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, self_conjugate: true, mass_gev: 100.0}
+        - {name: A, role: standard_model, spin: 1.0, self_conjugate: true}
+      couplings: [{name: anapole, value: 1.0e-5, mass_dimension: -2}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: A}], lorentz: other, coupling: anapole}
+    derivation:
+      model_name: anapole
+      dm_type: M
+      terms:
+        - {name: C62u, expression: "2*anapole*e*2/3"}
+        - {name: C62d, expression: "-2*anapole*e/3"}
+        - {name: C62s, expression: "-2*anapole*e/3"}
+        - {name: C62c, expression: "2*anapole*e*2/3"}
+        - {name: C62b, expression: "-2*anapole*e/3"}
+        - {name: C62e, expression: "-2*anapole*e"}
+        - {name: C62mu, expression: "-2*anapole*e"}
+        - {name: C62tau, expression: "-2*anapole*e"}
+
+# --- G7: complex scalar dark matter and a vector mediator ----------------------------
+# L ⊃ g_χ Z′_μ (φ* i∂↔^μ φ) + g_q Z′_μ Σ q̄γ^μq → C61q = −g_χ g_q/M² (complex-scalar basis).
+# Known: σ_SI = 9 g_χ² g_q² μ²/(π M⁴), as for a Dirac fermion.
+- id: G7
+  name: scalar_dm_vector_mediator
+  in_library: true
+  expected: {cards: [O1]}
+  description: |
+    Complex scalar dark matter phi (mass 100 GeV), charged under a new U(1) whose gauge boson Zp
+    (mass 2000 GeV) couples to the dark matter current and, universally, to the quarks:
+      L ⊃ g_chi Zp_μ (phi* i∂^μ phi − i(∂^μ phi*) phi) + g_q Σ_q Zp_μ q̄ γ^μ q,   g_chi = 1, g_q = 0.25.
+    Names: fields phi, Zp, q (all quarks); couplings g_chi, g_q.
+  reference:
+    spec:
+      name: scalar_dm_vector_mediator
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: phi, role: dark_matter, dark_parity: -1, spin: 0.0, mass_gev: 100.0}
+        - {name: Zp, role: mediator, dark_parity: 1, spin: 1.0, self_conjugate: true, mass_gev: 2000.0}
+        - {name: q, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_q, value: 0.25}]
+      terms:
+        - {fields: [{field: phi, conjugate: true}, {field: phi}, {field: Zp}], lorentz: vector, coupling: g_chi}
+        - {fields: [{field: q, conjugate: true}, {field: q}, {field: Zp}], lorentz: vector, coupling: g_q}
+    derivation:
+      model_name: scalar_dm_vector_mediator
+      dm_type: C
+      terms:
+        - {name: C61u, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61d, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61s, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61c, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C61b, expression: "-g_chi*g_q/m_Zp**2"}
+
+# --- G8 (not in the library): an isovector axial-vector mediator ---------------------
+# C64u = −g_χ g_q/M², C64d = +g_χ g_q/M². The isovector axial current induces the pion pole,
+# c6 ∝ 1/(m_π² + q²) (arXiv:1611.00368), which no card carries.
+- id: G8
+  name: isovector_axial
+  in_library: false
+  expected: {cards: []}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) and a vector mediator Zp (mass 2000 GeV) with axial-vector
+    couplings to the dark matter and to the first-generation quarks, with opposite signs for up and down:
+      L ⊃ g_chi Zp_μ chī γ^μ γ^5 chi + g_q Zp_μ (ū γ^μ γ^5 u − d̄ γ^μ γ^5 d),   g_chi = 1, g_q = 0.25.
+    No other quark couples.
+    Names: fields chi, Zp, u, d; couplings g_chi, g_q.
+  reference:
+    spec:
+      name: isovector_axial
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: Zp, role: mediator, dark_parity: 1, spin: 1.0, self_conjugate: true, mass_gev: 2000.0}
+        - {name: u, role: standard_model, spin: 0.5}
+        - {name: d, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_q, value: 0.25}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: Zp}], lorentz: axial, coupling: g_chi}
+        - {fields: [{field: u, conjugate: true}, {field: u}, {field: Zp}], lorentz: axial, coupling: g_q}
+        - {fields: [{field: d, conjugate: true}, {field: d}, {field: Zp}], lorentz: axial, coupling: -g_q}
+    derivation:
+      model_name: isovector_axial
+      terms:
+        - {name: C64u, expression: "-g_chi*g_q/m_Zp**2"}
+        - {name: C64d, expression: "g_chi*g_q/m_Zp**2"}
+
+# --- G9 (not in the library): a pseudoscalar coupling to down-type quarks ------------
+# L ⊃ g_χ a χ̄iγ5χ + g_d a Σ_{d,s,b} (m_q/v) q̄iγ5q → C78q = g_χ g_d/(v M²). The η and pion poles
+# of the pseudoscalar quark densities (arXiv:1611.00368) are not in the nucleon-level card.
+- id: G9
+  name: down_type_pseudoscalar
+  in_library: false
+  expected: {cards: []}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) and a real pseudoscalar mediator a (mass 500 GeV) that
+    couples to the down-type quarks d, s and b only, in proportion to their masses:
+      L ⊃ g_chi a chī iγ^5 chi + g_d a Σ_{q=d,s,b} (m_q/v) q̄ iγ^5 q,   g_chi = 1, g_d = 1.
+    Names: fields chi, a, d, s, b; couplings g_chi, g_d.
+  reference:
+    spec:
+      name: down_type_pseudoscalar
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: a, role: mediator, dark_parity: 1, spin: 0.0, self_conjugate: true, mass_gev: 500.0}
+        - {name: d, role: standard_model, spin: 0.5}
+        - {name: s, role: standard_model, spin: 0.5}
+        - {name: b, role: standard_model, spin: 0.5}
+      couplings: [{name: g_chi, value: 1.0}, {name: g_d, value: 1.0}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: a}], lorentz: pseudoscalar, coupling: g_chi}
+        - {fields: [{field: d, conjugate: true}, {field: d}, {field: a}], lorentz: pseudoscalar, coupling: g_d*m_d/v}
+        - {fields: [{field: s, conjugate: true}, {field: s}, {field: a}], lorentz: pseudoscalar, coupling: g_d*m_s/v}
+        - {fields: [{field: b, conjugate: true}, {field: b}, {field: a}], lorentz: pseudoscalar, coupling: g_d*m_b/v}
+    derivation:
+      model_name: down_type_pseudoscalar
+      terms:
+        - {name: C78d, expression: "g_chi*g_d/(v*m_a**2)"}
+        - {name: C78s, expression: "g_chi*g_d/(v*m_a**2)"}
+        - {name: C78b, expression: "g_chi*g_d/(v*m_a**2)"}
+
+# --- G10 (not in the library): an electric dipole ------------------------------------
+# L = (d_χ/2) χ̄ iσ^{μν}γ5 χ F_μν and Q52 = (e/8π²)(χ̄σ^{μν}iγ5χ)F_μν, so C52 = 4π² d_χ/e.
+# The photon pole gives c11 ∝ 1/q², a long-range interaction no card carries.
+- id: G10
+  name: electric_dipole
+  in_library: false
+  expected: {cards: []}
+  description: |
+    Dirac fermion dark matter chi (mass 100 GeV) with an electric dipole moment d_chi = 1e-5 GeV^-1 and no
+    other interaction:
+      L = (d_chi/2) chī iσ^{μν} γ^5 chi F_μν.
+    Names: field chi (and the photon, if needed, A); coupling d_chi (mass dimension −1).
+  reference:
+    spec:
+      name: electric_dipole
+      stability: "Z2: the dark matter is odd, every other field even"
+      fields:
+        - {name: chi, role: dark_matter, dark_parity: -1, spin: 0.5, mass_gev: 100.0}
+        - {name: A, role: standard_model, spin: 1.0, self_conjugate: true}
+      couplings: [{name: d_chi, value: 1.0e-5, mass_dimension: -1}]
+      terms:
+        - {fields: [{field: chi, conjugate: true}, {field: chi}, {field: A}], lorentz: dipole, coupling: d_chi/2}
+    derivation:
+      model_name: electric_dipole
+      terms:
+        - {name: C52, expression: "4*pi**2*d_chi/e"}

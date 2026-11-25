@@ -1,0 +1,58 @@
+# A bespoke model for `adroit lagrangian` (DM8): Majorana dark matter and a real
+# scalar mediator that couples to quarks in proportion to their masses.
+#
+#   L ⊃ (y_χ/2) S χ̄χ + (g_q m_q/v) S q̄q,   q = u, d, s, c, b, t
+#
+# Integrating out S at zero momentum: L_eff = (y_χ g_q m_q / 2 v m_S²)(χ̄χ)(q̄q).
+# DirectDM's Majorana operators carry a factor 1/2, Q75q = (m_q/2)(χ̄χ)(q̄q), so
+# C75q = y_χ g_q /(v m_S²). The top is integrated out with the heavy-quark
+# relation m_t t̄t → −(α_s/12π) GG, and Q71 = (α_s/24π)(χ̄χ)GG for Majorana, so
+# C71 = −C75t = −y_χ g_q /(v m_S²).
+#
+#   uv run adroit lagrangian docs/dm8/majorana_scalar.yaml --out docs/dm8/majorana_scalar
+spec:
+  name: majorana_scalar
+  source: "Majorana dark matter; a real scalar coupling to quarks in proportion to their masses."
+  stability: "Z2: chi → −chi, every other field even"
+  fields:
+    - {name: chi, role: dark_matter, spin: 0.5, self_conjugate: true, mass_gev: 100.0, dark_parity: -1,
+       mass_justification: "a reference point; the limits are computed at masses_gev"}
+    - {name: S, role: mediator, spin: 0.0, self_conjugate: true, mass_gev: 500.0, dark_parity: 1,
+       mass_justification: "heavy compared with the momentum transfer, so a contact interaction"}
+    - {name: q, role: standard_model, spin: 0.5}
+  couplings:
+    - {name: y_chi, value: 0.5, justification: "an illustrative value"}
+    - {name: g_q, value: 1.0, justification: "Higgs-like alignment: each quark couples as its Yukawa coupling"}
+  terms:
+    - fields: [{field: S}, {field: chi, conjugate: true}, {field: chi}]
+      lorentz: scalar
+      coupling: y_chi/2
+      text: "(y_χ/2) S χ̄χ"
+    - fields: [{field: S}, {field: q, conjugate: true}, {field: q}]
+      lorentz: scalar
+      coupling: g_q*m_q/v
+      text: "(g_q m_q/v) S q̄q"
+  assumptions:
+    - "one universal coupling g_q for every quark, times m_q/v"
+  dropped:
+    - "couplings of S to leptons and gauge bosons"
+    - "mixing of S with the Higgs boson"
+derivation:
+  model_name: majorana_scalar
+  dm_type: M
+  flavours: 5
+  derived_by: user
+  terms:
+    - {name: C75u, expression: "y_chi*g_q/(v*m_S**2)"}
+    - {name: C75d, expression: "y_chi*g_q/(v*m_S**2)"}
+    - {name: C75s, expression: "y_chi*g_q/(v*m_S**2)"}
+    - {name: C75c, expression: "y_chi*g_q/(v*m_S**2)"}
+    - {name: C75b, expression: "y_chi*g_q/(v*m_S**2)"}
+    - {name: C71, expression: "-y_chi*g_q/(v*m_S**2)", note: "the top quark, integrated out"}
+  justifications:
+    - "C75q: tree-level S exchange; the 1/2 of y_χ/2 and of DirectDM's Majorana operator cancel"
+    - "C71: the top's coupling through the heavy-quark relation m_t t̄t → −(α_s/12π) GG"
+  dropped:
+    - "S propagation (contact limit; m_S ≫ q)"
+masses_gev: [10.0, 30.0, 100.0, 300.0, 1000.0]
+modules: ["CRESST-III 2019", "DEAP-3600 (2019)", "PICO-60 C3F8 (2019)", "XENONnT SR0+SR1"]

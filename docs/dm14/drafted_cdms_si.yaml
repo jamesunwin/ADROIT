@@ -1,0 +1,86 @@
+# A DRAFT anomaly record, written by the anomaly drafter (a language model) from the paper's text.
+# A person must check every number against the paper, do what needs_person lists, and then set
+# verified_by. Until then Path 2 refuses it. Check it with: adroit anomaly check THIS.yaml
+# The efficiency: digitise Fig. 1, bottom curve (solid blue): overall nuclear-recoil efficiency vs recoil energy into efficiency.csv (two columns: keV, efficiency) beside this file.
+name: CDMS II Si (final exposure, 2007-2008)
+target: Si
+references:
+- arXiv:1304.4279
+exposure_kg_day: 140.2
+window_kev:
+- 7.0
+- 100.0
+events_kev:
+- 8.2
+- 9.5
+- 12.3
+background_events: 0.41
+background_uncertainty:
+  plus:
+  - 0.2
+  - 0.28
+  minus:
+  - 0.08
+  - 0.24
+efficiency:
+  csv: efficiency.csv
+halo:
+  v0_km_s: 220.0
+  v_earth_km_s: 232.0
+  v_esc_km_s: 544.0
+  rho_gev_cm3: 0.3
+collaboration_result: Profile likelihood favours WIMP+background over background-only
+  (p = 0.19%), best fit 8.6 GeV/c2 and 1.9×10−41 cm2, but "we do not believe this
+  result rises to the level of a discovery."
+sources:
+  target: 'the silicon
+
+    detectors of the CDMS II experiment'
+  exposure_kg_day: 'represent a total exposure of 140.2 kg-days prior
+
+    to the application of the WIMP candidate selection cri-
+
+    teria'
+  window_kev: recoil energy range of 7–100 keV
+  events_kev: recoil energies of 8.2, 9.5, and 12.3 keV
+  background_events: '0.41+0.20
+
+    −0.08(stat.)+0.28
+
+    −0.24(syst.)'
+  background_plus: '0.41+0.20
+
+    −0.08(stat.)+0.28
+
+    −0.24(syst.)'
+  background_minus: '0.41+0.20
+
+    −0.08(stat.)+0.28
+
+    −0.24(syst.)'
+  efficiency_figure: 'The bottom curve (solid blue) adds both the phonon tim-
+
+    ing criteria and the recoil-energy thresholds, and hence shows
+
+    the overall eﬃciency of this analysis'
+  halo: 'a WIMP mass
+
+    density of 0.3 GeV/c2/cm3, a most probable WIMP ve-
+
+    locity with respect to the galaxy of 220 km/s, a mean cir-
+
+    cular velocity of Earth with respect to the galactic center
+
+    of 232 km/s, a galactic escape velocity of 544 km/s'
+  collaboration_result: 'we do not believe this result
+
+    rises to the level of a discovery'
+needs_person:
+- 'efficiency: digitise Fig. 1, bottom (solid blue) overall-efficiency curve'
+- 'resolution_kev: not stated; decide on detector energy resolution'
+- 'background: 0.41 counts only surface events; neutrons (<0.13) and 206Pb (<0.08)
+  are given only as 90% CL upper limits, so decide how to include them'
+- 'window_kev: thresholds are detector-dependent (7 to 30 keV); confirm whether 7
+  keV is the appropriate lower edge'
+- 'resolution_kev: not stated in the text; give it, or declare a value in a note'
+verified_by: ''

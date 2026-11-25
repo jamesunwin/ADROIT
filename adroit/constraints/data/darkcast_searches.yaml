@@ -1,0 +1,422 @@
+source: each search's paper, read 2026-10-13 (verbatim quotes, 1-based PDF pages). For a visual comparison only, the Fabbrichesi,
+  Gabrielli & Lanfranchi review arXiv:2005.01515 shows these searches in Fig. 3.3 (p. 36, visible) and Fig. 3.5 (p. 39, invisible);
+  it says (p. 49) that some of its limits came from DarkCast and others were digitised
+rules:
+  resolution: the smallest a paper quotes, at every mass (conservative), unless it gives a formula; A1's FWHM as σ = FWHM/2.355;
+    a missing-mass search's σ(M²) as σ_m = σ(M²)/(2m), at most 10% of m
+  unknown_resolution: a search with no resolution at all would be applied only to the minimal dark photon (A′ → χχ̄ closed);
+    since 2026-10-13 every bump hunt here has one
+  cl: each search's own; an unknown CL is treated as 90% (its exclusions do not carry to 95%)
+  resolution_from_other_papers: a search whose paper states no number takes the resolution the same collaboration states for
+    the same data (another search, a performance paper or its own calibration), or derives from it, recorded with its source
+    and derivation; always the smaller value (a smaller σ leaves more points undecided, never more classified) (the owner,
+    2026-10-13)
+searches:
+  BaBar_Lees2014xha:
+    name: BaBar 2014
+    reference: arXiv:1406.2980
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'FIG. 4: Upper limit (90% CL) on the mixing strength ϵ as a function of the dark photon mass.'
+    cl_page: 7
+    cl_source: arXiv:1406.2980 (BaBar, PRL 113 (2014) 201801)
+    resolution_gev: 0.0015
+    resolution_quote: For the purposes of determining the mass steps, the signal resolution is estimated by Gaussian fits
+      to several simulated A′ samples, and interpolated to all other masses. It varies between 1.5 and 8 MeV.
+    resolution_page: 4
+    notes: Bayesian 90% CL with a flat prior on the e+e-→γA′ cross-section (p6). The limit is on ε, not ε², for 0.02–10.2
+      GeV, with the e+e- and μ+μ- channels combined. The paper does not give the mass dependence of the resolution, only its
+      1.5–8 MeV range. Regions within ±30 MeV of ω, φ and within ±50 MeV of J/ψ, ψ(2S), Υ(1S,2S) are excluded from the search,
+      which is about ±5σR (p5).
+  LHCb_Aaij2019bvg_prompt:
+    name: LHCb 2019 prompt
+    reference: arXiv:1910.06926
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'Figure 2: Regions of the [m(A′), ε2] parameter space excluded at 90% CL by the prompt-like A′ search compared
+      to the best published [35,38,83] and preliminary [102] limits.'
+    cl_page: 6
+    cl_source: arXiv:1910.06926
+    resolution_quote: 'σ[m(µ+µ−)] denotes the dimuon invariant-mass resolution which varies from 0.6 MeV near threshold to
+      0.6 GeV at m(µ+µ−) = 60 GeV. [arXiv:2007.03923 p. 6; p. 3: ''This analysis uses the same data sample as the LHCb minimal
+      dark-photon search''] This search (arXiv:1910.06926 p. 4): ''This improves the resolution, σ[m(µ+µ−)], by about a factor
+      of 2 for small m(A′).'''
+    resolution_page: 6
+    notes: 'The paper and its supplement (PDF pages 17–22) use σ[m(µμ)] only symbolically: scan steps of σ/2, fit windows
+      of ±12.5σ, and bins of σ/20. No number is given. The signal shapes come from simulation together with the widths of
+      resonances in the data (p17). The limit is on ε². DarkCast used ''prompt-excluded.txt'' from the supplementary zip,
+      covering 0.214–69.6 GeV. At high mass the limits are adjusted for Z kinetic mixing (p6). The 90% CL uses profile likelihood
+      with the bounded-likelihood convention (p17). Resolution (2026-10-13): no LHCb document states the vertex-constrained
+      value of this search as a number; the threshold value combines two ''about'' statements. The supplement zip on CDS was
+      not read.'
+    resolution_formula_gev:
+      constant: 0.0
+      per_mass: 0.0012
+    resolution_source: 'LHCb, arXiv:2007.03923 (JHEP 10 (2020) 156), p. 6: the same 2016–2018 prompt-like (Turbo) data and
+      muon cuts; the vertex constraint''s factor 2 from arXiv:1910.06926 p. 4. Corroborated by arXiv:1710.02867 p. 4 (''about
+      0.7 MeV near threshold'', 2016 data, no vertex constraint).'
+    resolution_derivation: 'DERIVED: about 0.6 MeV / 2 = 0.3 MeV at threshold, 0.14% of m at 0.214 GeV. σ = 0.12% × m is below
+      every stated value from 0.214 to 70 GeV (by a factor 3–8 above 0.3 GeV, so conservative there).'
+  CMS_CMS2019kiy:
+    name: CMS 2019
+    reference: none (CMS-PAS-EXO-19-018); superseded by arXiv:1912.04776
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: Expected and observed 90% CL upper limits on $\epsilon ^{2}$ as a function of the $\mathrm {Z}_{\mathrm {D}}$
+      mass.
+    cl_source: 'CMS public-results page for CMS-PAS-EXO-19-018, Figure 3 caption: https://cms-results.web.cern.ch/cms-results/public-results/superseded/EXO-19-018/index.html.
+      The PAS PDF (https://cds.cern.ch/record/2684861/files/EXO-19-018-pas.pdf) was NOT obtained because CDS returned a bot-check
+      page. Cross-check in the published paper arXiv:1912.04776, p8: ''We set upper limits at 90% CL on ϵ2 as a function of
+      the ZD mass, as shown in Fig. 3.'''
+    resolution_quote: 'The signal resolution, estimated with the σCB parameter of the Gaussian core of the CB function, is
+      found to be ≈1.3% and roughly independent of year, mass hypothesis, or detector region. [arXiv:2403.16134 p. 33, the
+      2017–2018 dimuon scouting stream] This search (arXiv:1912.04776 p. 6): ''the fit is performed in a range of ±5σ around
+      the probed resonance mass''; ''The inset is restricted to events in the barrel category in the mass range 23.9–26.1
+      GeV'' (a 25 GeV signal). CMS muon performance (arXiv:1804.04528 p. 22): ''The resolution for muons with momenta up to
+      approximately 100 GeV is 1% in the barrel''.'
+    resolution_page: 33
+    notes: 'The resolution quote is from arXiv:1912.04776 (the published version), not the PAS. It gives muon pT resolution
+      only, never dimuon mass resolution. The signal is a double-sided Crystal Ball whose σ is not tabulated, with a 10% uncertainty
+      on σ (p6). Events are split into barrel and forward categories by resolution. Fig. 2 of the same analysis is a 95% CL
+      limit on σ×B×A, which DarkCast did not use. CLs is asymptotic. Mass ranges are 11.5–45 GeV (scouting) and 45–75 and
+      110–200 GeV (standard triggers). The DarkCast .lmt covers 11.485–199.9 GeV. The limit is on ε². Resolution (2026-10-13):
+      the 1.3% was measured with a different muon ID and below this search''s 11.5 GeV; the 0.88% assumes the barrel inset''s
+      ±5σ window uses the barrel σ. HEPData was not readable (403).'
+    resolution_formula_gev:
+      constant: 0.0
+      per_mass: 0.007
+    resolution_source: 'CMS, arXiv:2403.16134 (Phys. Rept., scouting and parking), p. 33 and Fig. 13: measured on the same
+      2017–2018 scouting stream, on resonances below 11 GeV; arXiv:2309.16003 p. 8 (same stream): ''roughly 1.3% across the
+      entire mass range''.'
+    resolution_derivation: 'DERIVED: the barrel window gives σ = 2.2 GeV / 10 = 0.22 GeV at 25 GeV (0.88%); a 1% single-muon
+      resolution gives σ_m/m ≥ 1%/√2 = 0.71%. σ = 0.7% × m is below all of these.'
+  KLOE_Anastasi2018azp_combined:
+    name: KLOE 2018 combined
+    reference: arXiv:1807.02691
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'Figure 9: 90% CL exclusion plot for ε2 as a function of the U-boson mass for the e+e−→Uγ process.'
+    cl_page: 6
+    cl_source: arXiv:1807.02691 (KLOE-2)
+    resolution_gev: 0.0014
+    resolution_quote: 'μμ (1807.02691 p3): "The fit to side bands in the whole mass range has been performed considering sub
+      ranges ±12σ wide, where σ is the dimuon invariant mass resolution of about 2 MeV [11]." ππ (arXiv:1603.06086 p3): "The
+      generation process used properly smeared distributions in order to account for the dipion invariant mass resolution
+      (1.4–1.8 MeV)."'
+    resolution_page: 3
+    notes: 'The combination uses CLs (p6): "we use the CLS technique to estimate a 90% CL limit for the e+e−→UγISR, U→µ+µ−,
+      π+π− process". The limit is on ε², for 519–987 MeV. Figure numbering does not match: DarkCast cites Fig. 8, a "blue
+      filled curve labeled KLOE(mumu + pipi)", but in the arXiv PDF Fig. 8 is the global efficiency. The exclusion plot is
+      Fig. 9, where the combination is a "solid line". The journal version presumably numbers and styles the figures differently;
+      that version was not checked.'
+  KLOE_Anastasi2015qla:
+    name: KLOE 2015
+    reference: arXiv:1509.00740
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: We found no evidence for a U boson resonant peak and set a 90% CL upper limit on the kinetic mixing parameter,
+      ε2, at 10−6–10−4 in the U-boson mass range 5–520 MeV/c2.
+    cl_page: 5
+    cl_source: arXiv:1509.00740 (KLOE-2, PLB 750 (2015) 633)
+    resolution_gev: 0.0014
+    resolution_quote: The invariant-mass resolution, σmee, is in the range 1.4 < σmee < 1.7 MeV/c2.
+    resolution_page: 4
+    notes: DarkCast digitised this curve as KLOE(3) in Fig. 9 of a different paper, Anastasi:2016ktq = arXiv:1603.06086. 1509.00740
+      itself has only 7 figures. The caption of 1603.06086 Fig. 9 (p5) reads "90% CL exclusion plot for ε2 as a function of
+      the U-boson mass (KLOE(4))", so its CL label belongs to KLOE(4). KLOE(3) is 90% by its own paper. The limit uses CLs
+      and is on ε², for 5–520 MeV.
+  A1_Merkel2014avp:
+    name: A1 2014
+    reference: arXiv:1404.5502
+    signal: bump hunt
+    cl: 0.95
+    cl_quote: Fig. 3 shows the resulting 2σ exclusion limits.
+    cl_page: 4
+    cl_source: arXiv:1404.5502 (A1/MAMI, PRL 112 (2014) 221802)
+    resolution_gev: 8.92e-05
+    resolution_quote: The resulting resolution varies between 210 keV/c2 FWHM in the lowest mass range up to 920 keV/c2 FWHM
+      for the settings of the last experiment.
+    resolution_page: 3
+    notes: 'The resolution is FWHM, not σ. For a Gaussian, σ = FWHM/2.355 ≈ 0.089–0.39 MeV (derived). Intervals use Feldman–Cousins
+      (p3): "The confidence interval was determined using the Feldman-Cousins algorithm [18]". A 2σ interval corresponds to
+      about 95.4% CL. The 0.95 entry is that conversion, not a figure stated in the paper. The limit is on ε, not ε², over
+      a probed range of 40–300 MeV. The DarkCast .lmt covers 36–307 MeV.'
+  APEX_Abrahamyan2011gv:
+    name: APEX 2011
+    reference: arXiv:1108.2750
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: FIG. 5. The 90% confidence upper limit on α′/α versus A′ mass for the APEX test run (solid blue).
+    cl_page: 4
+    cl_source: arXiv:1108.2750 (APEX, PRL 107 (2011) 191804)
+    resolution_gev: 0.00085
+    resolution_quote: '...we determine the combined mass resolution (rms) to be between 0.85 and 1.11 MeV, depending on the
+      invariant mass.'
+    resolution_page: 3
+    notes: DarkCast digitised the gray APEX curve from Fig. 5 of Blumlein:2013cua = arXiv:1311.3870 (p10). Its caption gives
+      no CL for the gray curves, so the CL is taken from the APEX paper. The limit is on α′/α = ε², 50% power-constrained
+      (p4), for 175–250 MeV.
+  NA48_Batley2015lha:
+    name: NA48 2015
+    reference: arXiv:1504.00607
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'Figure 4: Obtained upper limits at 90% CL on the mixing parameter ε2 versus the DP mass mA′, compared to other
+      published exclusion limits from meson decay, beam dump and e+e− collider experiments [16–22].'
+    cl_page: 12
+    cl_source: arXiv:1504.00607 (NA48/2, PLB 746 (2015) 178)
+    resolution_formula_gev:
+      constant: 6.7e-05
+      per_mass: 0.0105
+    resolution_quote: The resolution on mee as a function of mee evaluated with MC simulation is parameterized as σm(mee)
+      = 0.067 MeV/c2 + 0.0105 · mee, and varies from 0.16 MeV/c2 to 1.33 MeV/c2 over the mass range of the scan.
+    resolution_page: 9
+    notes: Frequentist Rolke–López intervals at 90% CL (p9). The limit is on ε², for about 9–120 MeV, from π0→γA′, A′→e+e−.
+  BESIII_Ablikim2017aab:
+    name: BESIII 2017
+    reference: arXiv:1705.04265
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'Figure 3: Exclusion limit at the 90% confidence level on the mixing parameter ε as a function of the dark photon
+      mass.'
+    cl_page: 8
+    cl_source: arXiv:1705.04265 (BESIII, PLB 774 (2017) 252)
+    resolution_gev: 0.005
+    resolution_quote: The mass resolution of the lepton pairs determined with MC for e+e−and µ+µ−is between 5 and 12 MeV/c2.
+    resolution_page: 6
+    notes: Profile likelihood (p5). The limit is on ε, not ε², for 1.5–3.4 GeV, with ee and μμ combined. The region 2.95–3.2
+      GeV around the J/ψ is excluded. The analysis uses 10 MeV bins, comparable to σ, and corrects for efficiency loss from
+      signal spilling out of the bin (p6).
+  LHCb_Aaij2019bvg_displaced:
+    name: LHCb 2019 displaced
+    reference: arXiv:1910.06926
+    signal: beam dump
+    cl: 0.9
+    cl_quote: 'Figure 4: Ratio of the observed upper limit on nA′ob[m(A′), ε2] at 90% CL to the expected dark-photon yield,
+      nA′ex[m(A′), ε2], where regions less than unity are excluded.'
+    cl_page: 8
+    cl_source: arXiv:1910.06926 (LHCb)
+    resolution_quote: The long-lived m(A′) spectrum is also scanned in discrete steps of σ[m(µ+µ−)]/2 looking for A′ →µ+µ−contributions
+      [97]; however, discrete steps in τ(A′) are also considered here.
+    resolution_page: 7
+    notes: This is a displaced-vertex search that is also a dimuon mass scan, so it is effectively a bump hunt among displaced
+      vertices. No numeric σ[m(μμ)] is given. It covers 214–350 MeV. DarkCast stores the ratio (observed 90% UL)/(expected
+      yield) per (m, ε²) from 'long-lived-ratio.txt'.
+  HPS_Adrian2018scb:
+    name: HPS 2018
+    reference: arXiv:1807.11530
+    signal: bump hunt
+    cl: 0.95
+    cl_quote: FIG. 3. The 95% C.L. power-constrained [32] upper limits on ϵ2 versus A′ mass obtained in this analysis.
+    cl_page: 5
+    cl_source: arXiv:1807.11530 (HPS)
+    resolution_quote: The Møller mass resolution predicted by Monte Carlo is 1.30 ± 0.02 MeV, in contrast with the observed
+      value of 1.61 ± 0.04 MeV. ... Consequently, we scale up the simulated A′ mass resolution by a factor of 1.19.
+    resolution_page: 3
+    notes: 'The 2015 engineering run is a prompt bump hunt over 19–81 MeV in 0.5 MeV steps, so it is not a displaced-vertex
+      limit. The 95% CL is power-constrained to the expected limit. The limit is on ε². The mass-resolution systematic is
+      3% (p4). This CL differs from most other entries, which are 90%. Resolution (2026-10-13): one mass point only; the 3%
+      in the paper is the resolution''s uncertainty, not the resolution. A minimal dark photon here has Γ ≈ 10⁻⁹ GeV, so the
+      gate matters only with a large invisible width.'
+    resolution_gev: 0.00085
+    resolution_source: 'this search''s own paper, arXiv:1807.11530 p. 3: one calibration point, the Møller peak at 33.9 MeV
+      in the same 2015 run (σ is the Crystal Ball core width, Fig. 1); its σ(m) over 19–81 MeV is not printed.'
+    resolution_derivation: 'DERIVED: σ(34 MeV) = 1.19 × 1.30 = 1.55 MeV; at the search''s lowest mass, 19 MeV, at constant
+      σ/m: 0.87 MeV, taken as 0.85 MeV at every mass. Below σ everywhere in 19–81 MeV if σ grows with m and σ/m does not (multiple
+      scattering; the 2016 run''s curve, arXiv:2212.10629 Fig. 25, has this shape).'
+  E137_Andreas2012mt:
+    name: E137 2012
+    reference: arXiv:1209.6083 (reanalysis of SLAC E137, Bjorken et al. PRD 38 (1988) 3375)
+    signal: beam dump
+    cl: 0.95
+    cl_quote: As the SLAC E137 experiment reported in Ref. [48] that no candidate events were observed in their search for
+      axionlike particles, the 95% C.L. upper limit is given by N95%up = 3 events.
+    cl_page: 4
+    cl_source: arXiv:1209.6083 (Andreas, Niebuhr, Ringwald, PRD 86 (2012) 095019)
+    notes: 'Fig. 2 caption (p4): "E137 (red dashed line)". The limit is on χ ≡ ε. Table I (p4) gives Nobs and N95%up for every
+      experiment. The alternative DarkCast curve E137_Bjorken2009mm (arXiv:0906.0580) states no CL. It uses an "expected signal
+      of 10 events" contour (p5).'
+  E141_Riordan1987aw:
+    name: E141 1987
+    reference: none (PRL 59 (1987) 755); curve from arXiv:1209.6083
+    signal: beam dump
+    cl: 0.95
+    cl_quote: For the SLAC E141 experiment [47], we extract from Fig. 1c for x ≥0.7 a total of 1126±1312 events, which corresponds
+      to a 95% C.L. upper limit of N95%up = 3419 events.
+    cl_page: 4
+    cl_source: arXiv:1209.6083 (Andreas et al. reanalysis); original paper not read
+    notes: The CL belongs to the Andreas et al. reanalysis, Fig. 2 (magenta dotted). It is not the original experiment's CL.
+      Andreas et al. note that their Nobs and 95% values differ slightly from Bjorken et al. 2009 (Table I caption, p4).
+  E774_Bross1989mp:
+    name: E774 1989
+    reference: none (PRL 67 (1991) 2942); curve from arXiv:1209.6083
+    signal: beam dump
+    cl: 0.95
+    cl_quote: The acceptance corrected 95% C.L. upper limit of N95%up = 18 events leads to the exclusion contour in Fig. 2.
+    cl_page: 4
+    cl_source: arXiv:1209.6083 (Andreas et al. reanalysis); original paper not read
+    notes: Fig. 2 orange long-dashed curve. Bjorken et al. 2009 instead used an 'expected signal of 17 events' (0906.0580
+      p6).
+  KEK_Konaka1986cb:
+    name: KEK 1986
+    reference: none (PRL 57 (1986) 659); curve from arXiv:1209.6083
+    signal: beam dump
+    cl: 0.95
+    cl_quote: The corresponding 95% C.L. upper limit N95%up of 3 events together with the acceptance leads for hidden photons
+      to the exclusion contour presented in Fig. 2.
+    cl_page: 4
+    cl_source: arXiv:1209.6083 (Andreas et al. reanalysis); original paper not read
+    notes: Fig. 2 green dash-dotted curve. Zero observed events.
+  Orsay_Davier1989wz:
+    name: Orsay 1989
+    reference: none (PLB 229 (1989) 150); curve from arXiv:1209.6083
+    signal: beam dump
+    cl: 0.95
+    cl_quote: This translates to a 95% C.L. upper limit N95%up of 3 events on hidden photons.
+    cl_page: 4
+    cl_source: arXiv:1209.6083 (Andreas et al. reanalysis); original paper not read
+    notes: Fig. 2 blue solid curve. Zero observed events.
+  NuCAL_Blumlein1991xh:
+    name: NuCAL 1991
+    reference: none (IJMPA 7 (1992) 3835); curve from arXiv:1311.3870
+    signal: beam dump
+    cl: 0.95
+    cl_quote: This relation is used to calculate the corresponding event numbers for both muon and electron signatures at
+      the 95% C.L. for the mass range where both channels contribute.
+    cl_page: 11
+    cl_source: arXiv:1311.3870 (Blümlein & Brunner, PLB 731 (2014) 320); original paper not read
+    notes: 'DarkCast took the red "ν-Cal I (p-Bremsstrahlung)" curve of 1311.3870 Fig. 5. That curve is this reanalysis, which
+      uses CLs and 95% C.L. (p11): "For N = 1 observed events and a background of b = 0.3 (e+e−channel) a signal of 4.5 events
+      can be excluded at 95% C.L. (c = 0.95)." Above 2mμ it combines the e and μ channels, but DarkCast sets decay = e_e only.
+      The production is proton bremsstrahlung.'
+  NuCAL_Tsai2019mtm:
+    name: NuCAL 2019
+    reference: arXiv:1908.07525
+    signal: beam dump
+    cl: 0.9
+    cl_quote: For a 90 percent confidence level exclusion we require nevent=3.64 events from dark photon decays (see [117]).
+    cl_page: 6
+    cl_source: arXiv:1908.07525 (Tsai, deNiverville, Liu)
+    notes: Fig. 3a caption (p12). This curve is 90% CL, whereas the other NuCal curve (NuCAL_Blumlein1991xh) is 95% CL. The
+      data are 1 observed event over an expected background of 0.3, with E > 10 GeV. The production is π0 and η meson decays.
+      The authors call their CHARM and NuCal limits "conservative".
+  CHARM_Tsai2019mtm:
+    name: CHARM 2019
+    reference: arXiv:1908.07525
+    signal: beam dump
+    cl: null
+    cl_quote: No events were found satisfying the selection criteria listed in the experimental data.
+    cl_page: 6
+    cl_source: arXiv:1908.07525 (Tsai, deNiverville, Liu)
+    notes: The CHARM section (p5–6) gives neither a CL nor an excluded event number. 90% is likely, with 2.3 events for zero
+      observed and zero background, because the same paper uses 90% for NuCal (p6) and NA62 (p7). It is not stated for CHARM.
+      Gninenko's earlier CHARM reanalysis (arXiv:1204.3583) was not read.
+  PS191_Bernardi1985ny:
+    name: PS191 1985
+    reference: none (PLB 166B (1986) 479); curve from arXiv:1112.5438 via arXiv:1311.3870
+    signal: beam dump
+    cl: 0.9
+    cl_quote: Using Eqs.(5,6) we can determine the 90% C.L. exclusion regions in the (MV; χ) plane from the results of the
+      NOMAD [22] and PS191 [20] experiments, which are shown in Fig. 4 together with the area excluded by the electron beam
+      dump experiment E137 at SLAC [28], see Ref.[29]
+    cl_page: 3
+    cl_source: arXiv:1112.5438 (Gninenko, PRD 85 (2012) 055027); original PS191 paper not read
+    notes: DarkCast digitised the tip of the gray "NOMAD & PS191" curve in 1311.3870 Fig. 5. Ref. [29] there is Gninenko 1112.5438.
+      The production is π0→γA′.
+  NOMAD_Astier2001ck:
+    name: NOMAD 2001
+    reference: arXiv:hep-ex/0101041; curve from arXiv:1112.5438 via arXiv:1311.3870
+    signal: beam dump
+    cl: 0.9
+    cl_quote: Using Eqs.(5,6) we can determine the 90% C.L. exclusion regions in the (MV; χ) plane from the results of the
+      NOMAD [22] and PS191 [20] experiments, which are shown in Fig. 4 together with the area excluded by the electron beam
+      dump experiment E137 at SLAC [28], see Ref.[29]
+    cl_page: 3
+    cl_source: arXiv:1112.5438 (Gninenko reanalysis)
+    notes: 'The original NOMAD paper is a heavy-neutrino search, also at 90% CL (hep-ex/0101041 p11): "The final 90% CL upper
+      limit curve in the (mν4; |Uτ4|2) plane is shown in Figure 7". The dark-photon curve is Gninenko''s reanalysis.'
+  NA64_Banerjee2019hmi:
+    name: NA64 2019 visible
+    reference: arXiv:1912.11389
+    signal: beam dump
+    cl: 0.9
+    cl_quote: 'FIG. 5: The 90% C.L. exclusion areas in the (mX; ϵ) plane from the NA64 experiment (blue area).'
+    cl_page: 6
+    cl_source: arXiv:1912.11389 (NA64)
+    notes: Modified frequentist CLs (p5). The limit is on ε, with zero events observed in the signal box.
+  BaBar_Lees2017lec:
+    name: BaBar 2017
+    reference: arXiv:1702.03327
+    signal: missing mass
+    cl: 0.9
+    cl_quote: 'FIG. 4: Upper limits at 90% CL on A′ mixing strength squared ε2 as a function of mA′.'
+    cl_page: 6
+    cl_source: arXiv:1702.03327 (BaBar, PRL 119 (2017) 131804)
+    resolution_m2_gev2: 0.7
+    resolution_quote: The resolution for signal events decreases monotonically from σ(M 2 X) = 1.5 GeV2 for mA′ ≈0 to σ(M
+      2 X) = 0.7 GeV2 for mA′ = 8 GeV.
+    resolution_page: 5
+    notes: DarkCast's Fig. 5 (p7) has no CL in its caption. p6 says "At each value of mA′ we compute a limit on ε as a square
+      root of the Bayesian limit on ε2 from Fig. 4", so the curve is the 90% Bayesian limit with a uniform prior on ε² > 0.
+      A profile-likelihood limit is shown only in Fig. 4. The limit runs to mA′ ≤ 8 GeV. Converting to mass gives σ_m ≈ σ(M²)/(2m)
+      (derived), about 44 MeV at 8 GeV. That linearisation fails below about 1.2 GeV, where σ(M²) ≳ m².
+  NA64_NA642019imj:
+    name: NA64 2019 invisible
+    reference: arXiv:1906.00176
+    signal: missing energy
+    cl: 0.9
+    cl_quote: 'FIG. 3: The NA64 90% C.L. exclusion region in the (mA′, ϵ) plane.'
+    cl_page: 4
+    cl_source: arXiv:1906.00176 (NA64, PRL 123 (2019) 121801)
+    notes: Modified frequentist CLs with profile likelihood, asymptotic (p4). The limit is on ε.
+  NA62_CortinaGil2019nuo:
+    name: NA62 2019
+    reference: arXiv:1903.08767
+    signal: missing mass
+    cl: 0.9
+    cl_quote: 'Figure 7: Upper limit at 90% CL from NA62 (red region) in the ϵ2 vs MA′ plane with A′ decaying into invisible
+      final states.'
+    cl_page: 15
+    cl_source: arXiv:1903.08767 (NA62)
+    resolution_m2_gev2: 0.00057
+    resolution_quote: '...for each A′ mass value the signal region optimizing the upper limit in a background-only hypothesis
+      is defined as a ±1 σM2miss window around the expected M2miss peak value, where σM2miss is the resolution. The resolution
+      slowly degrades with increasing MA′ (Fig. 4).'
+    resolution_page: 11
+    notes: The text gives no numeric value. The GeV² values were read by eye from the rendered Fig. 4 and should be treated
+      as approximate. Mass is in the M²miss variable. Note σ(M²) ≈ 0.6 m² at 30 MeV, so a linear σ_m ≈ σ(M²)/(2m) is poor
+      at the low end. It is about 3.5 MeV at 130 MeV (derived). The search window is ±1σ. CLs is frequentist at 90% (p13),
+      the limit is on ε², and the range is 30–130 MeV.
+  LEP_Fox2011fx:
+    name: LEP 2011
+    reference: arXiv:1103.0240 (recast in arXiv:1801.04847 App. C.7)
+    signal: missing energy
+    cl: 0.9
+    cl_quote: 90% C.L.
+    cl_page: 13
+    cl_source: arXiv:1103.0240 (Fox, Harnik, Kopp, Tsai, PRD 84 (2011) 014028). The quote is the in-plot label printed on
+      every panel of Fig. 7 (light-mediator limits for M = 10, 50, 100, 200 GeV), whose caption on p13 has no CL. The captions
+      of Figs. 3 and 5 (p7, p9) say 'All limits are computed at the 90% confidence level'.
+    notes: 'This is NOT an electroweak-precision bound. It is a recast of the DELPHI mono-photon search (e+e−→γ+invisible)
+      for a mediator decaying invisibly. 1801.04847 App. C.7 (p27): "Mono-photon searches from LEP [116, 117] were used to
+      set limits on dark photons that decay invisibly in Ref. [52]. Here, we assume on-shell A′ production, and rescale the
+      results of Ref. [52] assuming gχ ≫ge and mχ ≪mA′. Since Ref. [52] only reports results for mX = 10, 50 and 100 GeV,
+      we simply interpolate to obtain results for other masses." The DarkCast .lmt covers 10–90 GeV. Fox et al. derive limits
+      with χ² (p5). For an on-shell mediator the signal is a photon line, and the bound depends on the mediator width as Λ
+      ∝ 1/Γ^(1/4) (p14), so it is not width-independent. The stated HPC photon resolution (p5) is σE/E = 0.043 ⊕ 0.32/√E plus
+      Lorentzian smearing of width 0.052E. The recoil-mass resolution would be σ(M_X²) = 2√s·σE (derived), at √s ≈ 200 GeV.'
+  BaBar_TheBABAR2016rlg:
+    name: BaBar 2016
+    reference: arXiv:1606.03501
+    signal: bump hunt
+    cl: 0.9
+    cl_quote: 'FIG. 5: The 90% CL upper limits on the new gauge coupling g′ as a function of the Z′ mass, together with the
+      constraints derived from the production of a µ+µ−pair in νµ scattering (“Trident” production) [29, 30].'
+    cl_page: 6
+    cl_source: arXiv:1606.03501 (BaBar, PRD 94 (2016) 011102)
+    resolution_gev: 0.001
+    resolution_quote: The resolution varies between 1−9 MeV, dominated by experimental effects.
+    resolution_page: 4
+    notes: Bayesian 90% CL with a uniform prior on the cross-section (p5). The limit is on g′, not ε. The resolution is in
+      the reduced mass mR = sqrt(m²μμ − 4m²μ) (p3), not mμμ. The two differ near threshold. Scan steps equal the resolution
+      (p4).

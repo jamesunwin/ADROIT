@@ -1,0 +1,42 @@
+# DM8 gate model G1 (docs/dm8/gate_models.yaml), as a typed model for Track 1.
+# m_χ = 100 GeV is G1's benchmark point. The single-idea example in the README
+# (--experiment "CDMS II Si (2013)" --masses 5:40:12) scans m_χ itself and does not
+# use this value; a Track 1 scan over m_χ does not use it either (R11, the live
+# check's L8a).
+name: vector_mediator
+stability: 'Z2: the dark matter is odd, every other field even'
+fields:
+- name: chi
+  role: dark_matter
+  dark_parity: -1
+  spin: 0.5
+  mass_gev: 100.0
+- name: Zp
+  role: mediator
+  dark_parity: 1
+  spin: 1.0
+  self_conjugate: true
+  mass_gev: 2000.0
+- name: q
+  role: standard_model
+  spin: 0.5
+couplings:
+- name: g_chi
+  value: 1.0
+- name: g_q
+  value: 0.25
+terms:
+- fields:
+  - field: chi
+    conjugate: true
+  - field: chi
+  - field: Zp
+  lorentz: vector
+  coupling: g_chi
+- fields:
+  - field: q
+    conjugate: true
+  - field: q
+  - field: Zp
+  lorentz: vector
+  coupling: g_q

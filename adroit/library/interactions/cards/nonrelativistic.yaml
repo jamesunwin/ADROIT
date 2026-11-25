@@ -1,0 +1,516 @@
+# Layer 1: the nonrelativistic operators O1, O3–O15 (arXiv:1308.6288, Eq. 15 and after).
+# O2 has no leading-order nuclear response and is omitted, as there. The responses are
+# those the rate code gives each operator (tests/library/test_interactions.py).
+- id: O1
+  name: 'O1: the spin-independent contact interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O1 = 1_χ 1_N of the nonrelativistic effective theory, with separate
+    proton and neutron coefficients.
+  interaction: 1_χ 1_N
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O1
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - M
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O3
+  name: 'O3: the nucleon spin-orbit interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O3 = i S_N · (q/m_N × v⊥) of the nonrelativistic effective theory,
+    with separate proton and neutron coefficients.
+  interaction: i S_N · (q/m_N × v⊥)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O3
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma'
+  - Phi''
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O4
+  name: 'O4: the spin-dependent contact interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O4 = S_χ · S_N of the nonrelativistic effective theory, with
+    separate proton and neutron coefficients.
+  interaction: S_χ · S_N
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O4
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma''
+  - Sigma'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O5
+  name: 'O5: the dark matter spin-orbit interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O5 = i S_χ · (q/m_N × v⊥) of the nonrelativistic effective theory,
+    with separate proton and neutron coefficients.
+  interaction: i S_χ · (q/m_N × v⊥)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O5
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - M
+  - Delta
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O6
+  name: 'O6: the tensor (pseudoscalar-pseudoscalar) interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O6 = (S_χ · q/m_N)(S_N · q/m_N) of the nonrelativistic effective
+    theory, with separate proton and neutron coefficients.
+  interaction: (S_χ · q/m_N)(S_N · q/m_N)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O6
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma''
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O7
+  name: 'O7: the nucleon spin along the relative velocity'
+  layer: nonrelativistic
+  description: The nucleon-level operator O7 = S_N · v⊥ of the nonrelativistic effective theory, with
+    separate proton and neutron coefficients.
+  interaction: S_N · v⊥
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O7
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O8
+  name: 'O8: the dark matter spin along the relative velocity'
+  layer: nonrelativistic
+  description: The nucleon-level operator O8 = S_χ · v⊥ of the nonrelativistic effective theory, with
+    separate proton and neutron coefficients.
+  interaction: S_χ · v⊥
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O8
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - M
+  - Delta
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O9
+  name: 'O9: the spin-spin interaction transverse to q'
+  layer: nonrelativistic
+  description: The nucleon-level operator O9 = i S_χ · (S_N × q/m_N) of the nonrelativistic effective
+    theory, with separate proton and neutron coefficients.
+  interaction: i S_χ · (S_N × q/m_N)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O9
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O10
+  name: 'O10: the nucleon spin along q (a pseudoscalar nucleon coupling)'
+  layer: nonrelativistic
+  description: The nucleon-level operator O10 = i S_N · q/m_N of the nonrelativistic effective theory,
+    with separate proton and neutron coefficients.
+  interaction: i S_N · q/m_N
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O10
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma''
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O11
+  name: 'O11: the dark matter spin along q (a pseudoscalar dark matter coupling)'
+  layer: nonrelativistic
+  description: The nucleon-level operator O11 = i S_χ · q/m_N of the nonrelativistic effective theory,
+    with separate proton and neutron coefficients.
+  interaction: i S_χ · q/m_N
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O11
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - M
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O12
+  name: 'O12: a velocity-dependent spin-spin interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O12 = S_χ · (S_N × v⊥) of the nonrelativistic effective theory,
+    with separate proton and neutron coefficients.
+  interaction: S_χ · (S_N × v⊥)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O12
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma''
+  - Sigma'
+  - Phi''
+  - PhiTilde'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O13
+  name: 'O13: a velocity- and momentum-dependent spin-spin interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O13 = i (S_χ · v⊥)(S_N · q/m_N) of the nonrelativistic effective
+    theory, with separate proton and neutron coefficients.
+  interaction: i (S_χ · v⊥)(S_N · q/m_N)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O13
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma''
+  - PhiTilde'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O14
+  name: 'O14: a velocity- and momentum-dependent spin-spin interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O14 = i (S_χ · q/m_N)(S_N · v⊥) of the nonrelativistic effective
+    theory, with separate proton and neutron coefficients.
+  interaction: i (S_χ · q/m_N)(S_N · v⊥)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O14
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma'
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288
+- id: O15
+  name: 'O15: a third-order spin-spin interaction'
+  layer: nonrelativistic
+  description: The nucleon-level operator O15 = −(S_χ · q/m_N)((S_N × v⊥) · q/m_N) of the nonrelativistic
+    effective theory, with separate proton and neutron coefficients.
+  interaction: −(S_χ · q/m_N)((S_N × v⊥) · q/m_N)
+  parameters:
+  - name: c_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coefficient (1/m_v^2 is weak strength)
+  - name: c_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coefficient
+  terms:
+  - target: O15
+    factor: 1.0
+    couplings:
+    - c_{N}
+  responses:
+  - Sigma'
+  - Phi''
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact operator: the mediator must be much heavier than the momentum transfer, about 0.25
+      GeV for a 250 keV recoil on xenon'
+  constraint_tiers:
+  - 1
+  references:
+  - arXiv:1203.3542
+  - arXiv:1308.6288

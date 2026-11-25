@@ -1,0 +1,70 @@
+module: LZ WS2022+WS2024
+kind: SI
+confidence_level: 0.95
+computed: '2026-11-13'
+generated_by: scripts/tabulate_reference_limits.py
+code_commit: a11799c
+fingerprint: 05457ea5b2d1402ce2b56c1a20f279f352ce4338f5bde342f2bc3faec2b772c0
+method: the module's reference_limits (its own procedure and conventions) at CL 0.95
+  at every mass; a cubic spline in (log m, log sigma) between them; one run for the
+  grid and one for its midpoints
+masses_gev:
+- 8.8716
+- 10.103084
+- 11.505513
+- 13.102617
+- 14.921417
+- 16.992688
+- 19.351477
+- 22.037693
+- 25.096789
+- 28.580524
+- 32.547843
+- 37.065874
+- 42.211061
+- 48.070462
+- 54.743218
+- 62.342232
+- 70.996081
+- 80.851187
+- 92.0743
+limits_cm2:
+- 1.4064719e-46
+- 5.791221e-47
+- 2.9053869e-47
+- 1.6770459e-47
+- 1.0882874e-47
+- 7.6102306e-48
+- 5.7460087e-48
+- 4.5883167e-48
+- 3.910155e-48
+- 3.4967014e-48
+- 3.2921845e-48
+- 3.2385531e-48
+- 3.2927683e-48
+- 3.4461128e-48
+- 3.7064608e-48
+- 4.016868e-48
+- 4.4334848e-48
+- 4.895259e-48
+- 5.4840063e-48
+interpolation_accuracy: 0.01016
+leave_one_out:
+- 0.01016
+- -0.00602
+- 0.005174
+- -0.007294
+- 0.005668
+- -0.005794
+- 0.00516
+- -0.003927
+- 0.002156
+- -0.0001028
+- -0.0004163
+- -0.001035
+- 0.003516
+- -0.005426
+- 0.005661
+- -0.00588
+- 0.00992
+batch_vs_single_run: 0.0

@@ -1,0 +1,3324 @@
+{
+ "request": {
+  "experiment": "CDMS II Si (2013)",
+  "candidates": [
+   {
+    "label": "O1s@5",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "s",
+    "mass_gev": 5.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "O1s@10",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "s",
+    "mass_gev": 10.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "O1s@20",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "s",
+    "mass_gev": 20.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "O1v@5",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "v",
+    "mass_gev": 5.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "O1v@10",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "v",
+    "mass_gev": 10.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "O1v@20",
+    "display_label": "",
+    "card_id": "O1",
+    "isospin": "v",
+    "mass_gev": 20.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01s@5",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "s",
+    "mass_gev": 5.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01s@10",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "s",
+    "mass_gev": 10.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01s@20",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "s",
+    "mass_gev": 20.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01v@5",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "v",
+    "mass_gev": 5.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01v@10",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "v",
+    "mass_gev": 10.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   },
+   {
+    "label": "L01v@20",
+    "display_label": "",
+    "card_id": "L01",
+    "isospin": "v",
+    "mass_gev": 20.0,
+    "splitting_kev": 0.0,
+    "values": {},
+    "interaction": null,
+    "spin": 0.5,
+    "model": "",
+    "style_declarations": []
+   }
+  ],
+  "user_models": [],
+  "with_library": false,
+  "null_modules": [],
+  "splittings_kev": [
+   0.0
+  ],
+  "leaders": 3,
+  "class_events": 20.0,
+  "toys": 5000,
+  "workers": 1,
+  "complementary": true,
+  "unverified_records": false,
+  "model_preferences": [],
+  "experimental_profile": "",
+  "eligibility_settings": {
+   "enabled": true,
+   "max_candidates": 32,
+   "fit_settings": {
+    "grid": 33,
+    "max_evaluations": 512,
+    "coordinate_tolerance": 1e-8,
+    "log_l_tolerance": 0.00001
+   }
+  },
+  "track1_results": []
+ },
+ "fits": [
+  {
+   "label": "O1s@5",
+   "s_hat": 1.0629039770294428,
+   "delta_log_l": 1.3025429942552105,
+   "z_local": 1.6140278772407932,
+   "interval_68": [
+    0.2370868352126973,
+    2.617432244643706
+   ],
+   "interval_90": [
+    0.0,
+    4.078494611555062
+   ],
+   "theta_hat": 1.576815200055936
+  },
+  {
+   "label": "O1s@10",
+   "s_hat": 2.8123208953219394,
+   "delta_log_l": 4.481276988104834,
+   "z_local": 2.993752490806424,
+   "interval_68": [
+    1.396574762974663,
+    4.8818495279168355
+   ],
+   "interval_90": [
+    0.7679710410010115,
+    6.629969540819166
+   ],
+   "theta_hat": 0.9216077753313368
+  },
+  {
+   "label": "O1s@20",
+   "s_hat": 2.613925445272328,
+   "delta_log_l": 2.5354665889877745,
+   "z_local": 2.2518732597496576,
+   "interval_68": [
+    1.1608439912979336,
+    4.692341767819756
+   ],
+   "interval_90": [
+    0.48545039695479686,
+    6.443770564188731
+   ],
+   "theta_hat": 0.9922170853038234
+  },
+  {
+   "label": "O1v@5",
+   "s_hat": 0.9232167012986936,
+   "delta_log_l": 1.0699201561456224,
+   "z_local": 1.4628193026793312,
+   "interval_68": [
+    0.17533500331093307,
+    2.359688765785862
+   ],
+   "interval_90": [
+    0.0,
+    3.7364012399778432
+   ],
+   "theta_hat": 1.6164599223563336
+  },
+  {
+   "label": "O1v@10",
+   "s_hat": 2.8131003606701,
+   "delta_log_l": 4.510112321831154,
+   "z_local": 3.0033688823823006,
+   "interval_68": [
+    1.3974971869113582,
+    4.882568778202775
+   ],
+   "interval_90": [
+    0.7692127378546249,
+    6.630667337583883
+   ],
+   "theta_hat": 0.921310669001645
+  },
+  {
+   "label": "O1v@20",
+   "s_hat": 2.618860409267088,
+   "delta_log_l": 2.564889916127406,
+   "z_local": 2.264901726842649,
+   "interval_68": [
+    1.1672404945095158,
+    4.697016991533132
+   ],
+   "interval_90": [
+    0.4930338877760027,
+    6.448348580632891
+   ],
+   "theta_hat": 0.9905670864087319
+  },
+  {
+   "label": "L01s@5",
+   "s_hat": 1.0629039770294428,
+   "delta_log_l": 1.3025429942552105,
+   "z_local": 1.6140278772407932,
+   "interval_68": [
+    0.2370868352126973,
+    2.617432244643706
+   ],
+   "interval_90": [
+    0.0,
+    4.078494611555062
+   ],
+   "theta_hat": 1.576815200055936
+  },
+  {
+   "label": "L01s@10",
+   "s_hat": 2.8123208953219394,
+   "delta_log_l": 4.481276988104834,
+   "z_local": 2.993752490806424,
+   "interval_68": [
+    1.396574762974663,
+    4.8818495279168355
+   ],
+   "interval_90": [
+    0.7679710410010115,
+    6.629969540819166
+   ],
+   "theta_hat": 0.9216077753313368
+  },
+  {
+   "label": "L01s@20",
+   "s_hat": 2.613925445272328,
+   "delta_log_l": 2.5354665889877745,
+   "z_local": 2.2518732597496576,
+   "interval_68": [
+    1.1608439912979336,
+    4.692341767819756
+   ],
+   "interval_90": [
+    0.48545039695479686,
+    6.443770564188731
+   ],
+   "theta_hat": 0.9922170853038234
+  },
+  {
+   "label": "L01v@5",
+   "s_hat": 0.9232167012986936,
+   "delta_log_l": 1.0699201561456224,
+   "z_local": 1.4628193026793312,
+   "interval_68": [
+    0.17533500331093307,
+    2.359688765785862
+   ],
+   "interval_90": [
+    0.0,
+    3.7364012399778432
+   ],
+   "theta_hat": 1.6164599223563336
+  },
+  {
+   "label": "L01v@10",
+   "s_hat": 2.8131003606701,
+   "delta_log_l": 4.510112321831154,
+   "z_local": 3.0033688823823006,
+   "interval_68": [
+    1.3974971869113582,
+    4.882568778202775
+   ],
+   "interval_90": [
+    0.7692127378546249,
+    6.630667337583883
+   ],
+   "theta_hat": 0.921310669001645
+  },
+  {
+   "label": "L01v@20",
+   "s_hat": 2.618860409267088,
+   "delta_log_l": 2.564889916127406,
+   "z_local": 2.264901726842649,
+   "interval_68": [
+    1.1672404945095158,
+    4.697016991533132
+   ],
+   "interval_90": [
+    0.4930338877760027,
+    6.448348580632891
+   ],
+   "theta_hat": 0.9905670864087319
+  }
+ ],
+ "classes": {
+  "O1s@5": 0,
+  "O1v@5": 0,
+  "L01s@5": 0,
+  "L01v@5": 0,
+  "O1s@10": 1,
+  "O1v@10": 1,
+  "L01s@10": 1,
+  "L01v@10": 1,
+  "O1s@20": 2,
+  "O1v@20": 2,
+  "L01s@20": 2,
+  "L01v@20": 2
+ },
+ "n_classes": 3,
+ "max_local_z": 3.0033688823823006,
+ "global_p_toys": 0.0028,
+ "global_p_closed_form": null,
+ "global_z": 2.7703272333521762,
+ "global_method": "5,000 background-only toys, the background's rate profiled (expected 0.41 events, −62% +84%; background-only fit θ̂₀ = 1.85); p = 0.0028 (95% interval 0.00153–0.00469, 14 of 5,000 toys), Z 2.60–2.96",
+ "combinations": [
+  {
+   "label": "L01v@10",
+   "mu_hat_signal": 1.3219625937183406,
+   "mu_hat_joint": 1.3219625930503667,
+   "z_signal": 3.0033688823823006,
+   "z_joint": 3.0033688823823006,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@10",
+   "mu_hat_signal": 1.3219625937183406,
+   "mu_hat_joint": 1.3219625930503667,
+   "z_signal": 3.0033688823823006,
+   "z_joint": 3.0033688823823006,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@10",
+   "mu_hat_signal": 0.019045928107283564,
+   "mu_hat_joint": 0.01904592809775365,
+   "z_signal": 2.993752490806424,
+   "z_joint": 2.993752490806424,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@10",
+   "mu_hat_signal": 0.019045928107283564,
+   "mu_hat_joint": 0.01904592809775365,
+   "z_signal": 2.993752490806424,
+   "z_joint": 2.993752490806424,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01v@20",
+   "mu_hat_signal": 0.5169258352619485,
+   "mu_hat_joint": 0.5169258341095992,
+   "z_signal": 2.264901726842649,
+   "z_joint": 2.264901726842649,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@20",
+   "mu_hat_signal": 0.5169258352619485,
+   "mu_hat_joint": 0.5169258341095992,
+   "z_signal": 2.264901726842649,
+   "z_joint": 2.264901726842649,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@20",
+   "mu_hat_signal": 0.007707009048037042,
+   "mu_hat_joint": 0.0077070090368111304,
+   "z_signal": 2.2518732597496576,
+   "z_joint": 2.251873259749657,
+   "chi2_pg": 1.7763568394002505e-15,
+   "p_pg": 0.9999999663716803,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@20",
+   "mu_hat_signal": 0.007707009048037042,
+   "mu_hat_joint": 0.0077070090368111304,
+   "z_signal": 2.2518732597496576,
+   "z_joint": 2.251873259749657,
+   "chi2_pg": 1.7763568394002505e-15,
+   "p_pg": 0.9999999663716803,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@5",
+   "mu_hat_signal": 0.286174969303932,
+   "mu_hat_joint": 0.28617497108612666,
+   "z_signal": 1.6140278772407932,
+   "z_joint": 1.6140278772407932,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@5",
+   "mu_hat_signal": 0.286174969303932,
+   "mu_hat_joint": 0.28617497108612666,
+   "z_signal": 1.6140278772407932,
+   "z_joint": 1.6140278772407932,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01v@5",
+   "mu_hat_signal": 23.747116191854577,
+   "mu_hat_joint": 23.74711547724771,
+   "z_signal": 1.4628193026793312,
+   "z_joint": 1.4628193026793312,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@5",
+   "mu_hat_signal": 23.747116191854577,
+   "mu_hat_joint": 23.74711547724771,
+   "z_signal": 1.4628193026793312,
+   "z_joint": 1.4628193026793312,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  }
+ ],
+ "tournament": {
+  "ranking": [
+   {
+    "label": "L01v@10",
+    "z_signal": 3.0033688823823006,
+    "z_joint": 3.0033688823823006,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -7.02022464366231,
+    "delta_aic": 0.0,
+    "class_id": 1,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@10",
+    "z_signal": 3.0033688823823006,
+    "z_joint": 3.0033688823823006,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -7.02022464366231,
+    "delta_aic": 0.0,
+    "class_id": 1,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@10",
+    "z_signal": 2.993752490806424,
+    "z_joint": 2.993752490806424,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -6.962553976209669,
+    "delta_aic": 0.0576706674526406,
+    "class_id": 1,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@10",
+    "z_signal": 2.993752490806424,
+    "z_joint": 2.993752490806424,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -6.962553976209669,
+    "delta_aic": 0.0576706674526406,
+    "class_id": 1,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01v@20",
+    "z_signal": 2.264901726842649,
+    "z_joint": 2.264901726842649,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -3.1297798322548127,
+    "delta_aic": 3.890444811407497,
+    "class_id": 2,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@20",
+    "z_signal": 2.264901726842649,
+    "z_joint": 2.264901726842649,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -3.1297798322548127,
+    "delta_aic": 3.890444811407497,
+    "class_id": 2,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@20",
+    "z_signal": 2.2518732597496576,
+    "z_joint": 2.251873259749657,
+    "chi2_pg": 1.7763568394002505e-15,
+    "p_pg": 0.9999999663716803,
+    "aic": -3.0709331779755464,
+    "delta_aic": 3.9492914656867635,
+    "class_id": 2,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@20",
+    "z_signal": 2.2518732597496576,
+    "z_joint": 2.251873259749657,
+    "chi2_pg": 1.7763568394002505e-15,
+    "p_pg": 0.9999999663716803,
+    "aic": -3.0709331779755464,
+    "delta_aic": 3.9492914656867635,
+    "class_id": 2,
+    "complementary": "9 need a further calculation",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@5",
+    "z_signal": 1.6140278772407932,
+    "z_joint": 1.6140278772407932,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.605085988510421,
+    "delta_aic": 6.415138655151889,
+    "class_id": 0,
+    "complementary": "9 need a further calculation",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.31, best-fit coupling ×0.48",
+     "halo (v_esc = 600 km/s): Z +0.74, best-fit coupling ×0.49"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@5",
+    "z_signal": 1.6140278772407932,
+    "z_joint": 1.6140278772407932,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.605085988510421,
+    "delta_aic": 6.415138655151889,
+    "class_id": 0,
+    "complementary": "9 need a further calculation",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.31, best-fit coupling ×0.48",
+     "halo (v_esc = 600 km/s): Z +0.74, best-fit coupling ×0.49"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01v@5",
+    "z_signal": 1.4628193026793312,
+    "z_joint": 1.4628193026793312,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.13984031229124483,
+    "delta_aic": 6.880384331371065,
+    "class_id": 0,
+    "complementary": "9 need a further calculation",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.26, best-fit coupling ×0.44",
+     "halo (v_esc = 600 km/s): Z +0.80, best-fit coupling ×0.47",
+     "coupling: the best fit needs 23.7 times the unit coupling of CDMS II Si (2013)'s convention, above 4π"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@5",
+    "z_signal": 1.4628193026793312,
+    "z_joint": 1.4628193026793312,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.13984031229124483,
+    "delta_aic": 6.880384331371065,
+    "class_id": 0,
+    "complementary": "9 need a further calculation",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.26, best-fit coupling ×0.44",
+     "halo (v_esc = 600 km/s): Z +0.80, best-fit coupling ×0.47",
+     "coupling: the best fit needs 23.7 times the unit coupling of CDMS II Si (2013)'s convention, above 4π"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "background only",
+    "z_signal": 0.0,
+    "z_joint": 0.0,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": 0.0,
+    "delta_aic": 7.02022464366231,
+    "class_id": null,
+    "complementary": "—",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   }
+  ],
+  "indistinguishable": [
+   "L01v@10",
+   "O1v@10",
+   "L01s@10",
+   "O1s@10"
+  ],
+  "classes_in_top_set": [
+   1
+  ],
+  "contested": "O1v@10 fits the signal best, but L01v@10 is best once the null experiments and the information criterion are included",
+  "signal_fit_leader": "O1v@10",
+  "null_rank": 13,
+  "parameters_per_candidate": 1
+ },
+ "separations": [
+  {
+   "a": "L01v@10",
+   "b": "O1v@10",
+   "best_target": "CaWO4",
+   "route": "spectrum",
+   "events_needed": 1.8014398509481984e+16,
+   "by_target": {
+    "Xe": [
+     Infinity,
+     Infinity
+    ],
+    "Ar": [
+     Infinity,
+     Infinity
+    ],
+    "Ge": [
+     Infinity,
+     Infinity
+    ],
+    "CaWO4": [
+     1.8014398509481984e+16,
+     Infinity
+    ],
+    "C3F8": [
+     Infinity,
+     Infinity
+    ],
+    "NaI": [
+     Infinity,
+     Infinity
+    ]
+   }
+  },
+  {
+   "a": "L01v@10",
+   "b": "L01s@10",
+   "best_target": "CaWO4",
+   "route": "rate",
+   "events_needed": 4.051015021515803,
+   "by_target": {
+    "Xe": [
+     7319.311498207923,
+     4.05763457818855
+    ],
+    "Ar": [
+     74448.65885685523,
+     4.1840598358862815
+    ],
+    "Ge": [
+     9852.664559348526,
+     4.122826658504088
+    ],
+    "CaWO4": [
+     33.831629780328115,
+     4.051015021515803
+    ],
+    "C3F8": [
+     20375.88470596258,
+     4.806868024215821
+    ],
+    "NaI": [
+     284.3958477371221,
+     4.069225158752071
+    ]
+   }
+  },
+  {
+   "a": "L01v@10",
+   "b": "O1s@10",
+   "best_target": "CaWO4",
+   "route": "rate",
+   "events_needed": 4.051015021515803,
+   "by_target": {
+    "Xe": [
+     7319.311498207923,
+     4.05763457818855
+    ],
+    "Ar": [
+     74448.65885685523,
+     4.1840598358862815
+    ],
+    "Ge": [
+     9852.664559348526,
+     4.122826658504088
+    ],
+    "CaWO4": [
+     33.831629780328115,
+     4.051015021515803
+    ],
+    "C3F8": [
+     20375.88470596258,
+     4.806868024215821
+    ],
+    "NaI": [
+     284.3958477371221,
+     4.069225158752071
+    ]
+   }
+  },
+  {
+   "a": "O1v@10",
+   "b": "L01s@10",
+   "best_target": "CaWO4",
+   "route": "rate",
+   "events_needed": 4.051015021515803,
+   "by_target": {
+    "Xe": [
+     7319.311498207923,
+     4.05763457818855
+    ],
+    "Ar": [
+     74448.65885685523,
+     4.1840598358862815
+    ],
+    "Ge": [
+     9852.664559348526,
+     4.122826658504088
+    ],
+    "CaWO4": [
+     33.831629780328115,
+     4.051015021515803
+    ],
+    "C3F8": [
+     20375.88470596258,
+     4.806868024215821
+    ],
+    "NaI": [
+     284.3958477371221,
+     4.069225158752071
+    ]
+   }
+  },
+  {
+   "a": "O1v@10",
+   "b": "O1s@10",
+   "best_target": "CaWO4",
+   "route": "rate",
+   "events_needed": 4.051015021515803,
+   "by_target": {
+    "Xe": [
+     7319.311498207923,
+     4.05763457818855
+    ],
+    "Ar": [
+     74448.65885685523,
+     4.1840598358862815
+    ],
+    "Ge": [
+     9852.664559348526,
+     4.122826658504088
+    ],
+    "CaWO4": [
+     33.831629780328115,
+     4.051015021515803
+    ],
+    "C3F8": [
+     20375.88470596258,
+     4.806868024215821
+    ],
+    "NaI": [
+     284.3958477371221,
+     4.069225158752071
+    ]
+   }
+  },
+  {
+   "a": "L01s@10",
+   "b": "O1s@10",
+   "best_target": "Ar",
+   "route": "spectrum",
+   "events_needed": 1125899906842624.0,
+   "by_target": {
+    "Xe": [
+     Infinity,
+     Infinity
+    ],
+    "Ar": [
+     1125899906842624.0,
+     Infinity
+    ],
+    "Ge": [
+     Infinity,
+     Infinity
+    ],
+    "CaWO4": [
+     9007199254740992.0,
+     Infinity
+    ],
+    "C3F8": [
+     Infinity,
+     Infinity
+    ],
+    "NaI": [
+     3002399751580330.5,
+     Infinity
+    ]
+   }
+  }
+ ],
+ "verdicts": {
+  "L01v@10": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1v@10": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1v@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "L01s@10": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1s@10": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 10 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1s@10",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "L01v@20": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1v@20": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1v@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "L01s@20": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1s@20": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 20 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1s@20",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "L01s@5": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1s@5": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1s@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "L01v@5": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "L01v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ],
+  "O1v@5": [
+   {
+    "constraint_id": "cms-2405.13778-V1",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A1",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-V2",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "cms-2405.13778-A2",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-sd",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "icecube-1612.05949-si",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a telescope limit at 5 GeV; IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton) starts at 35 GeV for bb",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "fermi-1503.02641-dsph",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which ⟨σv⟩ today and its final states follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "atlas-2301.10731-hinv",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   },
+   {
+    "constraint_id": "lep-hep-ex-0509008-zinv",
+    "interaction_id": "O1v@5",
+    "applicability": "needs_calculation",
+    "excluded": null,
+    "assumptions": [],
+    "needed_calculation": "a relativistic completion (a mediator model with couplings to Standard Model particles), from which the mediator's production and decays follow",
+    "note": "",
+    "confidence_level": null,
+    "native_excluded": null
+   }
+  ]
+ },
+ "created": "2026-10-11",
+ "candidate_failures": {},
+ "engine_candidates": [
+  {
+   "label": "O1s@5",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "s",
+   "mass_gev": 5.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "a2293e65-b416-4686-a161-d014ae257bc2",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": 0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "O1s@10",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "s",
+   "mass_gev": 10.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "7f67652e-1cdc-41d1-9b8d-58a17492888a",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": 0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "O1s@20",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "s",
+   "mass_gev": 20.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "5dfd30eb-2242-4d58-a9f2-20bb82cf9c25",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": 0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "O1v@5",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "v",
+   "mass_gev": 5.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "9000939a-dc11-4fa9-a8a9-5ede3f35e58b",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": -0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "O1v@10",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "v",
+   "mass_gev": 10.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "3476bb08-ac56-4bdd-9f7c-01343c1e4924",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": -0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "O1v@20",
+   "display_label": "",
+   "card_id": "O1",
+   "isospin": "v",
+   "mass_gev": 20.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "267d8f5a-b805-4310-b3b1-4e764c689c60",
+    "name": "O1: the spin-independent contact interaction",
+    "layer": "nonrelativistic",
+    "card_id": "O1",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "c_p": 0.000016497719025367554,
+     "c_n": -0.000016497719025367554
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1203.3542",
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01s@5",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "s",
+   "mass_gev": 5.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "ae8855e0-3d6a-4e41-891e-7a03cb69b883",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": 0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01s@10",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "s",
+   "mass_gev": 10.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "9fd8ca53-6822-47e8-ab34-5fe103c89a19",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": 0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01s@20",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "s",
+   "mass_gev": 20.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "827dcc69-b7bf-4075-bfb3-d7cc2ad750aa",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": 0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": 0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01v@5",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "v",
+   "mass_gev": 5.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "980e039d-1a7f-499b-9650-a316a1735b3f",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": -0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01v@10",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "v",
+   "mass_gev": 10.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "88d1b57d-10bc-4954-a98a-c3693194b83c",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": -0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  },
+  {
+   "label": "L01v@20",
+   "display_label": "",
+   "card_id": "L01",
+   "isospin": "v",
+   "mass_gev": 20.0,
+   "splitting_kev": 0.0,
+   "values": {},
+   "interaction": {
+    "id": "44f29f39-9027-47c3-b4df-ef8e03921b00",
+    "name": "L1: χ̄χ N̄N",
+    "layer": "relativistic",
+    "card_id": "L01",
+    "coefficients": [
+     {
+      "operator": 1,
+      "proton": 0.000016497719025367554,
+      "neutron": -0.000016497719025367554,
+      "q_power": 0,
+      "q_scale_gev": 1.0,
+      "mediator_mass_gev": null
+     }
+    ],
+    "parameters": {
+     "d_p": 0.000016497719025367554,
+     "d_n": -0.000016497719025367554,
+     "m_M": 246.2
+    },
+    "dropped": [],
+    "references": [
+     "arXiv:1308.6288"
+    ]
+   },
+   "spin": 0.5,
+   "model": "",
+   "style_declarations": []
+  }
+ ],
+ "style_excluded": {},
+ "style_matches": {},
+ "eligibility": {
+  "O1s@5": {
+   "label": "O1s@5",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "O1s@10": {
+   "label": "O1s@10",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "O1s@20": {
+   "label": "O1s@20",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "O1v@5": {
+   "label": "O1v@5",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "O1v@10": {
+   "label": "O1v@10",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "O1v@20": {
+   "label": "O1v@20",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01s@5": {
+   "label": "L01s@5",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01s@10": {
+   "label": "L01s@10",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01s@20": {
+   "label": "L01s@20",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01v@5": {
+   "label": "L01v@5",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01v@10": {
+   "label": "L01v@10",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  },
+  "L01v@20": {
+   "label": "L01v@20",
+   "status": "pending",
+   "model_sha256": "",
+   "catalog_reference": "",
+   "model_class": {},
+   "point": null,
+   "evaluation": null,
+   "physical_fit": null,
+   "excluded_by": [],
+   "reasons": [
+    "an exact unique supplied physical model is required; NR cards/completions are not interchangeable"
+   ],
+   "assumptions": [],
+   "source_identity": "",
+   "source_sha256": "",
+   "constraints_origin": "not_computed",
+   "reused_result": "",
+   "reuse_notes": [],
+   "spectrum_relative_error": null,
+   "delta_log_l_error": null,
+   "thermal_status": "not_checked",
+   "thermal_target": null,
+   "scope": "This exact fitted physical point only; untested parameter branches and other UV completions remain unresolved. Scores/significance retain their original NR reference meaning."
+  }
+ },
+ "eligible_tournament": {
+  "ranking": [
+   {
+    "label": "background only",
+    "z_signal": 0.0,
+    "z_joint": 0.0,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": 0.0,
+    "delta_aic": 0.0,
+    "class_id": null,
+    "complementary": "—",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   }
+  ],
+  "indistinguishable": [
+   "background only"
+  ],
+  "classes_in_top_set": [],
+  "contested": "",
+  "signal_fit_leader": "background only",
+  "null_rank": 1,
+  "parameters_per_candidate": 1
+ },
+ "unresolved_tournament": {
+  "ranking": [
+   {
+    "label": "L01v@10",
+    "z_signal": 3.0033688823823006,
+    "z_joint": 3.0033688823823006,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -7.02022464366231,
+    "delta_aic": 0.0,
+    "class_id": 1,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@10",
+    "z_signal": 3.0033688823823006,
+    "z_joint": 3.0033688823823006,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -7.02022464366231,
+    "delta_aic": 0.0,
+    "class_id": 1,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@10",
+    "z_signal": 2.993752490806424,
+    "z_joint": 2.993752490806424,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -6.962553976209669,
+    "delta_aic": 0.0576706674526406,
+    "class_id": 1,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@10",
+    "z_signal": 2.993752490806424,
+    "z_joint": 2.993752490806424,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -6.962553976209669,
+    "delta_aic": 0.0576706674526406,
+    "class_id": 1,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01v@20",
+    "z_signal": 2.264901726842649,
+    "z_joint": 2.264901726842649,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -3.1297798322548127,
+    "delta_aic": 3.890444811407497,
+    "class_id": 2,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@20",
+    "z_signal": 2.264901726842649,
+    "z_joint": 2.264901726842649,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -3.1297798322548127,
+    "delta_aic": 3.890444811407497,
+    "class_id": 2,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@20",
+    "z_signal": 2.2518732597496576,
+    "z_joint": 2.251873259749657,
+    "chi2_pg": 1.7763568394002505e-15,
+    "p_pg": 0.9999999663716803,
+    "aic": -3.0709331779755464,
+    "delta_aic": 3.9492914656867635,
+    "class_id": 2,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@20",
+    "z_signal": 2.2518732597496576,
+    "z_joint": 2.251873259749657,
+    "chi2_pg": 1.7763568394002505e-15,
+    "p_pg": 0.9999999663716803,
+    "aic": -3.0709331779755464,
+    "delta_aic": 3.9492914656867635,
+    "class_id": 2,
+    "complementary": "not applied",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01s@5",
+    "z_signal": 1.6140278772407932,
+    "z_joint": 1.6140278772407932,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.605085988510421,
+    "delta_aic": 6.415138655151889,
+    "class_id": 0,
+    "complementary": "not applied",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.31, best-fit coupling ×0.48",
+     "halo (v_esc = 600 km/s): Z +0.74, best-fit coupling ×0.49"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1s@5",
+    "z_signal": 1.6140278772407932,
+    "z_joint": 1.6140278772407932,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.605085988510421,
+    "delta_aic": 6.415138655151889,
+    "class_id": 0,
+    "complementary": "not applied",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.31, best-fit coupling ×0.48",
+     "halo (v_esc = 600 km/s): Z +0.74, best-fit coupling ×0.49"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "L01v@5",
+    "z_signal": 1.4628193026793312,
+    "z_joint": 1.4628193026793312,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.13984031229124483,
+    "delta_aic": 6.880384331371065,
+    "class_id": 0,
+    "complementary": "not applied",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.26, best-fit coupling ×0.44",
+     "halo (v_esc = 600 km/s): Z +0.80, best-fit coupling ×0.47",
+     "coupling: the best fit needs 23.7 times the unit coupling of CDMS II Si (2013)'s convention, above 4π"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "O1v@5",
+    "z_signal": 1.4628193026793312,
+    "z_joint": 1.4628193026793312,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": -0.13984031229124483,
+    "delta_aic": 6.880384331371065,
+    "class_id": 0,
+    "complementary": "not applied",
+    "flags": [
+     "halo (v0 = 260 km/s): Z +0.26, best-fit coupling ×0.44",
+     "halo (v_esc = 600 km/s): Z +0.80, best-fit coupling ×0.47",
+     "coupling: the best fit needs 23.7 times the unit coupling of CDMS II Si (2013)'s convention, above 4π"
+    ],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   },
+   {
+    "label": "background only",
+    "z_signal": 0.0,
+    "z_joint": 0.0,
+    "chi2_pg": 0.0,
+    "p_pg": 1.0,
+    "aic": 0.0,
+    "delta_aic": 7.02022464366231,
+    "class_id": null,
+    "complementary": "—",
+    "flags": [],
+    "omitted_nulls": {},
+    "null_coverage": "not_requested"
+   }
+  ],
+  "indistinguishable": [
+   "L01v@10",
+   "O1v@10",
+   "L01s@10",
+   "O1s@10"
+  ],
+  "classes_in_top_set": [
+   1
+  ],
+  "contested": "O1v@10 fits the signal best, but L01v@10 is best once the null experiments and the information criterion are included",
+  "signal_fit_leader": "O1v@10",
+  "null_rank": 13,
+  "parameters_per_candidate": 1
+ },
+ "eligibility_combinations": [
+  {
+   "label": "L01v@10",
+   "mu_hat_signal": 1.3219625937183406,
+   "mu_hat_joint": 1.3219625930503667,
+   "z_signal": 3.0033688823823006,
+   "z_joint": 3.0033688823823006,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@10",
+   "mu_hat_signal": 1.3219625937183406,
+   "mu_hat_joint": 1.3219625930503667,
+   "z_signal": 3.0033688823823006,
+   "z_joint": 3.0033688823823006,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@10",
+   "mu_hat_signal": 0.019045928107283564,
+   "mu_hat_joint": 0.01904592809775365,
+   "z_signal": 2.993752490806424,
+   "z_joint": 2.993752490806424,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@10",
+   "mu_hat_signal": 0.019045928107283564,
+   "mu_hat_joint": 0.01904592809775365,
+   "z_signal": 2.993752490806424,
+   "z_joint": 2.993752490806424,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01v@20",
+   "mu_hat_signal": 0.5169258352619485,
+   "mu_hat_joint": 0.5169258341095992,
+   "z_signal": 2.264901726842649,
+   "z_joint": 2.264901726842649,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@20",
+   "mu_hat_signal": 0.5169258352619485,
+   "mu_hat_joint": 0.5169258341095992,
+   "z_signal": 2.264901726842649,
+   "z_joint": 2.264901726842649,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@20",
+   "mu_hat_signal": 0.007707009048037042,
+   "mu_hat_joint": 0.0077070090368111304,
+   "z_signal": 2.2518732597496576,
+   "z_joint": 2.251873259749657,
+   "chi2_pg": 1.7763568394002505e-15,
+   "p_pg": 0.9999999663716803,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@20",
+   "mu_hat_signal": 0.007707009048037042,
+   "mu_hat_joint": 0.0077070090368111304,
+   "z_signal": 2.2518732597496576,
+   "z_joint": 2.251873259749657,
+   "chi2_pg": 1.7763568394002505e-15,
+   "p_pg": 0.9999999663716803,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01s@5",
+   "mu_hat_signal": 0.286174969303932,
+   "mu_hat_joint": 0.28617497108612666,
+   "z_signal": 1.6140278772407932,
+   "z_joint": 1.6140278772407932,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1s@5",
+   "mu_hat_signal": 0.286174969303932,
+   "mu_hat_joint": 0.28617497108612666,
+   "z_signal": 1.6140278772407932,
+   "z_joint": 1.6140278772407932,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "L01v@5",
+   "mu_hat_signal": 23.747116191854577,
+   "mu_hat_joint": 23.74711547724771,
+   "z_signal": 1.4628193026793312,
+   "z_joint": 1.4628193026793312,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  },
+  {
+   "label": "O1v@5",
+   "mu_hat_signal": 23.747116191854577,
+   "mu_hat_joint": 23.74711547724771,
+   "z_signal": 1.4628193026793312,
+   "z_joint": 1.4628193026793312,
+   "chi2_pg": 0.0,
+   "p_pg": 1.0,
+   "null_limits": {},
+   "note": "null experiments by limit-equivalent likelihoods",
+   "omitted_nulls": {},
+   "null_coverage": "not_requested"
+  }
+ ]
+}

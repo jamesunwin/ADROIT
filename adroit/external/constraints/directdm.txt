@@ -1,0 +1,4 @@
+# The package versions of the working <tools>/.venv-directdm (2026-10-12), installed by adroit setup --fetch
+numpy==2.5.3
+scipy==1.18.1
+setuptools==80.10.2

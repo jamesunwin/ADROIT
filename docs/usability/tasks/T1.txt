@@ -1,0 +1,7 @@
+Task T1: a limit for a non-standard coupling
+
+Dark matter of mass 40 GeV scatters on nuclei through the spin-independent operator, coupling to protons only
+(f_n = 0). Using LZ's combined search (WS2022 + WS2024, arXiv:2410.17036) and the standard halo LZ assumes, what is
+the 90% CL upper limit on the dark matter-proton cross-section sigma_p?
+
+Answer: one number in cm^2, and one sentence on how you obtained it.

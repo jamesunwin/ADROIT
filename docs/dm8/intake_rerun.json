@@ -1,0 +1,1376 @@
+{
+ "rows": [
+  {
+   "id": "G1",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "3.2e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G2",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "3.1e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G3",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "2.8e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G4",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "4.0e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G5",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not covered: not written as UFO ((mu_chi/2) ch\u012b \u03c3^{\u03bc\u03bd} chi F_\u03bc\u03bd: a dipole coupling to a spin-1 boson is not written)",
+   "passed": true
+  },
+  {
+   "id": "G6",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not covered: not written as UFO (anapole ch\u012b \u03b3^\u03bc \u03b3^5 chi \u2202^\u03bd F_\u03bc\u03bd: the photon couples to a new neutral field only through its field strength, which is not written)",
+   "passed": true
+  },
+  {
+   "id": "G7",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "1.3e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G8",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "1.3e-03",
+   "maddm_agree": true,
+   "passed": true
+  },
+  {
+   "id": "G9",
+   "coefficients": [],
+   "terms": [
+    "'g_d*m_d/v' is 1.909e-05 where the reference's 'g_d*m_d/v' is 1.897e-05",
+    "'g_d*m_s/v' is 0.0003777 where the reference's 'g_d*m_s/v' is 0.0003793"
+   ],
+   "maddm": "not covered: MadDM's coefficients are all zero: no such operator in its basis",
+   "maddm_agree": true,
+   "passed": false
+  },
+  {
+   "id": "G10",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not covered: not written as UFO ((d_chi/2) ch\u012b i\u03c3^{\u03bc\u03bd} \u03b3^5 chi F_\u03bc\u03bd: a dipole coupling to a spin-1 boson is not written)",
+   "passed": true
+  }
+ ],
+ "specs": {
+  "G1": {
+   "name": "Dirac DM with vector Z' mediator coupling to quarks",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "Given by user: 2000 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 3,
+     "mass_gev": null,
+     "mass_justification": "Standard Model quarks; each flavour keeps its own mass m_q.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_chi = 1."
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_q = 0.25, universal for all quarks."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi Zp_\u03bc ch\u012b \u03b3^\u03bc chi"
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": "g_q \u03a3_q Zp_\u03bc q\u0304 \u03b3^\u03bc q"
+    }
+   ],
+   "assumptions": [
+    "q represents all six quark flavours with one universal coupling g_q; its electric_charge entry is a placeholder since up- and down-type charges differ.",
+    "No stabilising symmetry stated; minimal Z2 assumed: chi \u2192 \u2212chi, all other fields even.",
+    "Zp treated as a real massive vector; origin of its mass (e.g. dark Higgs) unspecified.",
+    "Standard thermal freeze-out cosmology; chi supplies the full relic abundance."
+   ],
+   "dropped": [
+    "Zp couplings to leptons (not specified, assumed absent).",
+    "Kinetic mixing of Zp with the photon/Z.",
+    "Any dark Higgs or UV completion generating the Zp mass and anomaly cancellation.",
+    "Loop-induced interactions."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G2": {
+   "name": "Dirac DM with axial-vector Z' mediator",
+   "phase": "broken",
+   "source": "user-specified simplified model",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "Given by user: 2000 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 3,
+     "mass_gev": null,
+     "mass_justification": "Standard Model quark masses.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user."
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": "Given by user; universal over all quarks."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi Zp_\u03bc ch\u012b \u03b3^\u03bc \u03b3^5 chi"
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": "g_q Zp_\u03bc q\u0304 \u03b3^\u03bc \u03b3^5 q"
+    }
+   ],
+   "assumptions": [
+    "q represents all six quark flavours with one universal coupling g_q.",
+    "Model written in broken phase; q's electric charge left at 0 because the field lumps up-type (+2/3) and down-type (\u22121/3) quarks.",
+    "No stabilizing symmetry stated; minimal Z2 (chi odd, all else even) assumed.",
+    "Zp is a real vector field."
+   ],
+   "dropped": [
+    "Zp couplings to leptons, Higgs, or other SM fields (not specified).",
+    "Zp mass-generation mechanism and any dark Higgs.",
+    "Gauge anomaly-cancelling states.",
+    "Kinetic mixing of Zp with SM hypercharge."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G3": {
+   "name": "Dirac fermion DM with scalar mediator coupled to quarks (Yukawa-like)",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "phi",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 500.0,
+     "mass_justification": "Given by user: 500 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 3,
+     "mass_gev": null,
+     "mass_justification": "Standard Model quarks; each uses its own mass m_q in the coupling.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_chi = 1."
+    },
+    {
+     "name": "g_q",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_q = 1."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "phi",
+       "conjugate": false
+      },
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi phi ch\u012b chi"
+    },
+    {
+     "fields": [
+      {
+       "field": "phi",
+       "conjugate": false
+      },
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "g_q*m_q/v",
+     "plus_hc": false,
+     "text": "g_q phi \u03a3_q (m_q/v) q\u0304 q"
+    }
+   ],
+   "assumptions": [
+    "q represents all six quark flavours (u, d, s, c, b, t) with one universal coupling g_q scaled by each quark's mass m_q/v.",
+    "Quark electric charge listed as 0 placeholder; up-type are +2/3 and down-type \u22121/3, irrelevant to the phi coupling.",
+    "No stabilizing symmetry stated; minimal Z2 chi \u2192 \u2212chi assumed, with phi and SM fields even.",
+    "DM supplies the full relic abundance (relic_fraction = 1); standard cosmology."
+   ],
+   "dropped": [
+    "Mediator couplings to leptons, gauge bosons or the Higgs (none stated).",
+    "phi self-interactions and possible phi\u2013Higgs mixing.",
+    "Loop-induced couplings (e.g. phi\u2013gluon via quark loops) not listed as separate terms."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G4": {
+   "name": "Real singlet scalar Higgs-portal dark matter",
+   "phase": "broken",
+   "source": "User-specified: V \u2283 (lam_hs/2) H\u2020H S\u00b2, lam_hs = 0.1, m_S = 100 GeV, broken phase",
+   "fields": [
+    {
+     "name": "S",
+     "role": "dark_matter",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user; taken as physical mass including the lam_hs v\u00b2/2 contribution.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "h",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 125.25,
+     "mass_justification": "Given by user (SM Higgs boson).",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 3,
+     "mass_gev": null,
+     "mass_justification": "SM quark masses; each flavour enters via its own m_q.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "lam_hs",
+     "value": 0.1,
+     "mass_dimension": 0,
+     "justification": "Given by user."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "h",
+       "conjugate": false
+      },
+      {
+       "field": "S",
+       "conjugate": false
+      },
+      {
+       "field": "S",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "-lam_hs*v/2",
+     "plus_hc": false,
+     "text": "-(lam_hs v/2) h S S"
+    },
+    {
+     "fields": [
+      {
+       "field": "h",
+       "conjugate": false
+      },
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "-m_q/v",
+     "plus_hc": false,
+     "text": "-(m_q/v) h q\u0304 q"
+    }
+   ],
+   "assumptions": [
+    "L = \u2212V; H\u2020H \u2283 v h gives the trilinear term \u2212(lam_hs v/2) h S\u00b2.",
+    "q represents all six quarks with Yukawa-proportional coupling m_q/v; electric charges vary by flavour and are left at default.",
+    "m_S = 100 GeV is the physical mass after EWSB."
+   ],
+   "dropped": [
+    "Quartic \u2212(lam_hs/4) h h S S from H\u2020H \u2283 h\u00b2/2 (SS\u2192hh kinematically closed at m_S = 100 GeV).",
+    "Higgs couplings to W, Z, charged leptons and gluons/photons (user specified only quarks); SS\u2192WW, ZZ channels open at 100 GeV are omitted.",
+    "S self-coupling and S mass term.",
+    "Higgs self-interactions and loop effects."
+   ],
+   "stability": "Z2: S \u2192 \u2212S",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G5": {
+   "name": "Magnetic dipole Dirac fermion dark matter",
+   "phase": "broken",
+   "source": "user-specified Lagrangian L = (mu_chi/2) ch\u012b \u03c3^{\u03bc\u03bd} chi F_\u03bc\u03bd",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Massless photon.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "mu_chi",
+     "value": 1e-05,
+     "mass_dimension": -1,
+     "justification": "Given by user: magnetic dipole moment 1e-5 GeV^-1."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "dipole",
+     "coupling": "mu_chi/2",
+     "plus_hc": false,
+     "text": "(mu_chi/2) ch\u012b \u03c3^{\u03bc\u03bd} chi F_\u03bc\u03bd"
+    }
+   ],
+   "assumptions": [
+    "Model written below electroweak symmetry breaking (broken phase); chi is electrically neutral.",
+    "No stabilizing symmetry stated; adopted minimal Z2 with chi odd, photon even.",
+    "Dipole coupling treated as an effective operator with no specified UV completion.",
+    "Dark matter is a thermal freeze-out relic supplying the full \u03a9h\u00b2 = 0.12."
+   ],
+   "dropped": [
+    "Electric dipole, anapole and charge-radius operators (user states no other interaction).",
+    "UV completion and loop-generated operators."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G6": {
+   "name": "Majorana anapole dark matter",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Massless photon.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "anapole",
+     "value": 1e-05,
+     "mass_dimension": -2,
+     "justification": "Given by user: 1e-5 GeV^-2, dimension \u22122."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "anapole",
+     "plus_hc": false,
+     "text": "anapole ch\u012b \u03b3^\u03bc \u03b3^5 chi \u2202^\u03bd F_\u03bc\u03bd"
+    }
+   ],
+   "assumptions": [
+    "Coefficient taken exactly as written (no extra 1/2 Majorana normalisation).",
+    "Lorentz label 'axial' refers to the ch\u012b \u03b3^\u03bc \u03b3^5 chi bilinear contracted with \u2202^\u03bd F_\u03bc\u03bd (anapole operator).",
+    "Stability: minimal Z2 with chi odd, photon and SM even; not stated by user.",
+    "Model written below electroweak symmetry breaking (photon field)."
+   ],
+   "dropped": [],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G7": {
+   "name": "Complex scalar DM with vector Z' mediator to quarks",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "phi",
+     "role": "dark_matter",
+     "spin": 0.0,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {
+       "U1p": 1.0
+      }
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "Given by user: 2000 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 3,
+     "mass_gev": null,
+     "mass_justification": "SM quarks; physical masses m_q used per flavour.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_chi = 1."
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_q = 0.25, universal over quarks."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "phi",
+       "conjugate": true
+      },
+      {
+       "field": "phi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi Zp_\u03bc (phi* i\u2202^\u03bc phi \u2212 i(\u2202^\u03bc phi*) phi)"
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": "g_q \u03a3_q Zp_\u03bc q\u0304 \u03b3^\u03bc q"
+    }
+   ],
+   "assumptions": [
+    "q represents all six quark flavours with one universal vector coupling g_q.",
+    "Model written in broken phase; q electric charge left 0 as placeholder since up/down charges differ and are irrelevant to the Z' couplings.",
+    "phi assigned U(1)' charge 1, with g_chi as its gauge coupling.",
+    "No stabilizing symmetry stated; minimal Z2 phi \u2192 \u2212phi assumed, all terms even.",
+    "Relic fraction 1 and standard cosmology assumed."
+   ],
+   "dropped": [
+    "Seagull term g_chi^2 Zp_\u03bc Zp^\u03bc phi* phi implied by gauge invariance.",
+    "Z' mass-generation sector (dark Higgs/Stueckelberg).",
+    "Kinetic mixing of Zp with hypercharge/photon.",
+    "Higgs portal |phi|^2|H|^2 and phi self-interactions.",
+    "Z' couplings to leptons and gauge-anomaly-cancelling states.",
+    "Loop-induced interactions."
+   ],
+   "stability": "Z2: phi \u2192 \u2212phi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G8": {
+   "name": "Dirac fermion DM with axial-vector Zp mediator, isovector first-generation quark couplings",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "Given by user: 2000 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "u",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Standard Model up quark.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.6666666666666666,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "d",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Standard Model down quark.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": -0.3333333333333333,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_chi = 1."
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_q = 0.25; enters with + for u, \u2212 for d."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "Zp",
+       "conjugate": false
+      },
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi Zp_\u03bc ch\u012b \u03b3^\u03bc \u03b3^5 chi"
+    },
+    {
+     "fields": [
+      {
+       "field": "Zp",
+       "conjugate": false
+      },
+      {
+       "field": "u",
+       "conjugate": true
+      },
+      {
+       "field": "u",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": "g_q Zp_\u03bc \u016b \u03b3^\u03bc \u03b3^5 u"
+    },
+    {
+     "fields": [
+      {
+       "field": "Zp",
+       "conjugate": false
+      },
+      {
+       "field": "d",
+       "conjugate": true
+      },
+      {
+       "field": "d",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "-g_q",
+     "plus_hc": false,
+     "text": "\u2212g_q Zp_\u03bc d\u0304 \u03b3^\u03bc \u03b3^5 d"
+    }
+   ],
+   "assumptions": [
+    "No stabilizing symmetry stated; minimal Z2 assumed with chi odd, Zp and SM fields even.",
+    "Model written in broken electroweak phase; electric charges used.",
+    "Zp treated as a real massive vector; its mass origin unspecified.",
+    "Relic fraction 1 and standard cosmology assumed."
+   ],
+   "dropped": [
+    "Zp couplings to s, c, b, t quarks (user: none), leptons and neutrinos.",
+    "Zp\u2013photon/Z kinetic or mass mixing.",
+    "Anomaly-cancelling fermions and UV completion (dark Higgs giving Zp mass).",
+    "Loop-induced couplings."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G9": {
+   "name": "Dirac fermion DM with pseudoscalar mediator coupled to down-type quarks",
+   "phase": "broken",
+   "source": "user-specified Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "a",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 500.0,
+     "mass_justification": "Given by user: 500 GeV real pseudoscalar.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "d",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 0.0047,
+     "mass_justification": "PDG MSbar mass; enters the m_q/v coupling.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": -0.3333333333333333,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "s",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 0.093,
+     "mass_justification": "PDG MSbar mass; enters the m_q/v coupling.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": -0.3333333333333333,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "b",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 4.18,
+     "mass_justification": "PDG MSbar mass; enters the m_q/v coupling.",
+     "charges": {
+      "su3": "3",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": -0.3333333333333333,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_chi = 1."
+    },
+    {
+     "name": "g_d",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": "Given by user: g_d = 1; universal over d, s, b with m_q/v scaling."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": "g_chi a ch\u012b i\u03b35 chi"
+    },
+    {
+     "fields": [
+      {
+       "field": "d",
+       "conjugate": true
+      },
+      {
+       "field": "d",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_d/v",
+     "plus_hc": false,
+     "text": "g_d (m_d/v) a d\u0304 i\u03b35 d"
+    },
+    {
+     "fields": [
+      {
+       "field": "s",
+       "conjugate": true
+      },
+      {
+       "field": "s",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_s/v",
+     "plus_hc": false,
+     "text": "g_d (m_s/v) a s\u0304 i\u03b35 s"
+    },
+    {
+     "fields": [
+      {
+       "field": "b",
+       "conjugate": true
+      },
+      {
+       "field": "b",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_b/v",
+     "plus_hc": false,
+     "text": "g_d (m_b/v) a b\u0304 i\u03b35 b"
+    }
+   ],
+   "assumptions": [
+    "No stabilizing symmetry stated; minimal Z2 with chi odd, a and SM even assumed.",
+    "Quark masses set to PDG MSbar values (m_d=4.7 MeV, m_s=93 MeV, m_b=4.18 GeV).",
+    "d, s, b kept as separate fields per user naming; v = 246 GeV."
+   ],
+   "dropped": [
+    "Mediator couplings to up-type quarks, leptons, gauge bosons (absent by user statement).",
+    "Loop-induced a\u2013gluon and a\u2013photon couplings via quark loops.",
+    "Mediator self-interactions and any a\u2013Higgs portal/mixing.",
+    "Flavour-changing a couplings."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G10": {
+   "name": "Dirac fermion dark matter with electric dipole moment",
+   "phase": "broken",
+   "source": "user-provided Lagrangian",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "Given by user: 100 GeV.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "Massless photon.",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    }
+   ],
+   "couplings": [
+    {
+     "name": "d_chi",
+     "value": 1e-05,
+     "mass_dimension": -1,
+     "justification": "Electric dipole moment given by user: 1e-5 GeV^-1."
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "dipole",
+     "coupling": "d_chi/2",
+     "plus_hc": false,
+     "text": "(d_chi/2) ch\u012b i\u03c3^{\u03bc\u03bd} \u03b3^5 chi F_\u03bc\u03bd"
+    }
+   ],
+   "assumptions": [
+    "No stabilizing symmetry stated; minimal Z2 with chi odd, photon even assumed.",
+    "Model written below electroweak symmetry breaking (broken phase); dipole couples to photon only.",
+    "Dipole term is CP-odd electric dipole (i\u03c3\u03b35 structure), as written."
+   ],
+   "dropped": [
+    "Any Z-boson dipole coupling from an SU(2)\u00d7U(1)-invariant UV completion (not given by user).",
+    "Magnetic dipole, anapole or other operators not stated by user.",
+    "UV completion states generating the dipole."
+   ],
+   "stability": "Z2: chi \u2192 \u2212chi",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  }
+ },
+ "spent": 0.272062
+}

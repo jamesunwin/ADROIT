@@ -1,0 +1,1199 @@
+# The curated constraint database (DM7). Each record: its source, the data it
+# rests on, the assumptions under which it holds, and who verified it when.
+# A record is used only once a person has verified it (verified_on and
+# verified_by); until then the verdict engine uses it only when asked to, and
+# says so. Agents may propose additions; a person verifies each. The first
+# eight records were verified by the owner on 2026-10-01.
+#
+# Transcriptions from figures are read from the vector paths of the arXiv PDFs
+# by docs/dm7/digitise_*.py; `checks` lists how each was checked.
+records:
+  - id: planck-2018-omega
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 8d7b9c8f8d6672af440c6ae8b63347c3cd9f4b5e84b85c4bc8b9cde41ca9b71d
+    name: "Planck 2018: the dark matter density"
+    constraint_class: relic_density
+    figure: {arxiv: "1807.06209", page: 16, label: "Table 2"}
+    source: "arXiv:1807.06209 (Planck 2018 VI, Table 2, TT,TE,EE+lowE+lensing)"
+    quantity: omega_h2
+    data: {value: 0.1200, sigma: 0.0012}
+    assumptions:
+      - standard thermal history after freeze-out
+      - the candidate is all of the dark matter
+    checks: ["Table 2: Ω_c h² = 0.1200 ± 0.0012; corrected 2026-10-05; the previous 2026-10-01 owner verification of the rounded abstract value is invalidated pending human review"]
+    notes: ""
+
+  - id: cms-2405.13778-V1
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: cace1e3e1bcffd545dd7e971862a8c4fe92fe2740adf2582a0a48f4e3546afcd
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "840c835dac3d6b701b428b66c457a5d4e38d0df02ed7db40f77ab3c9ddec630d"}]
+    confidence_level: 0.95
+    name: "CMS summary: vector mediator V1 (g_q = 0.25, g_ℓ = 0, g_DM = 1)"
+    constraint_class: collider
+    figure: {arxiv: "2405.13778", page: 31, label: "Fig. 11"}
+    source: "arXiv:2405.13778 (Phys. Rept. 1115 (2025) 448), Fig. 11 upper"
+    data_file: adroit/constraints/data/digitised/cms_2405.13778_spin1.yaml
+    quantity: "excluded region in (m_med, m_DM) at 95% CL, observed"
+    benchmark: V1
+    assumptions: &cms_spin1
+      - Dirac dark matter and an s-channel spin-1 mediator
+      - the benchmark couplings exactly, universal across flavours
+      - "the minimal width (decays to quarks, leptons and dark matter only): implied by the LHC Dark Matter Working Group recommendation the CMS report cites, not stated in the report itself"
+    checks: ["monojet reach 1957 GeV at small m_DM, CMS Table 2 quotes 1.95 TeV"]
+    notes: ""
+
+  - id: cms-2405.13778-A1
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 83005845dcd26e391008013836fe5e1d4898c6c0625d4542752bdab087f584e3
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "fad489e47b8e58a9fa0c9e9f084a93a35cbfea706af5c8f519e680bb81a85e76"}]
+    confidence_level: 0.95
+    name: "CMS summary: axial-vector mediator A1 (g_q = 0.25, g_ℓ = 0, g_DM = 1)"
+    constraint_class: collider
+    figure: {arxiv: "2405.13778", page: 31, label: "Fig. 11"}
+    source: "arXiv:2405.13778 (Phys. Rept. 1115 (2025) 448), Fig. 11 lower"
+    data_file: adroit/constraints/data/digitised/cms_2405.13778_spin1.yaml
+    quantity: "excluded region in (m_med, m_DM) at 95% CL, observed"
+    benchmark: A1
+    assumptions: *cms_spin1
+    checks: ["monojet reach 1950 GeV at small m_DM, CMS Table 2 quotes 1.95 TeV"]
+    notes: ""
+
+  - id: cms-2405.13778-V2
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: fa03c4ab599ff74a3c262409974b4978677e6b2671a9aaeae41251fca4ad320b
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "3a4deebae0c78b0ecd1b6dcadb1e67ed17f7f49e3c3adabc8e192644b22d2d7b"}]
+    confidence_level: 0.95
+    name: "CMS summary: vector mediator V2 (g_q = 0.1, g_ℓ = 0.01, g_DM = 1)"
+    constraint_class: collider
+    figure: {arxiv: "2405.13778", page: 32, label: "Fig. 12"}
+    source: "arXiv:2405.13778 (Phys. Rept. 1115 (2025) 448), Fig. 12 upper"
+    data_file: adroit/constraints/data/digitised/cms_2405.13778_spin1.yaml
+    quantity: "excluded region in (m_med, m_DM) at 95% CL, observed"
+    benchmark: V2
+    assumptions: *cms_spin1
+    notes: ""
+
+  - id: cms-2405.13778-A2
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 639e009c9c180e5a73619c3bfe4cbd815f945296fef1e34782b5e90a229d0963
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "faecf55c61e85682c15837fb0496d6b843395f903230b5c0675d56d9d0190a7f"}]
+    confidence_level: 0.95
+    name: "CMS summary: axial-vector mediator A2 (g_q = g_ℓ = 0.1, g_DM = 1)"
+    constraint_class: collider
+    figure: {arxiv: "2405.13778", page: 32, label: "Fig. 12"}
+    source: "arXiv:2405.13778 (Phys. Rept. 1115 (2025) 448), Fig. 12 lower"
+    data_file: adroit/constraints/data/digitised/cms_2405.13778_spin1.yaml
+    quantity: "excluded region in (m_med, m_DM) at 95% CL, observed"
+    benchmark: A2
+    assumptions: *cms_spin1
+    notes: ""
+
+  - id: icecube-1612.05949-sd
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 7314e96cf6d4895c64686478a61aaa2862a3767c6faffa947fae1ba3fbef76ef
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "d0b87863e7f708ef2247eaf5fcb4eb369b17f814c0561d59a9f92361dd14d968"}]
+    confidence_level: 0.9
+    name: "IceCube 2011–2014: dark matter annihilating in the Sun (SD, proton)"
+    constraint_class: solar_capture
+    figure: {arxiv: "1612.05949", page: 12, label: "Fig. 7"}
+    source: "arXiv:1612.05949 (EPJC 77 (2017) 146), Fig. 7"
+    data_file: adroit/constraints/data/digitised/icecube_1612.05949.yaml
+    quantity: "sigma_sd_proton_cm2 by channel (bb, WW, tautau), 90% CL"
+    assumptions: &icecube
+      - "capture and annihilation in equilibrium in the Sun; the 90% CL curves include the inflation for systematic uncertainties (conservative); erratum: Eur. Phys. J. C 79 (2019) 214, doi:10.1140/epjc/s10052-019-6702-y"
+      - annihilation entirely into the named channel
+      - the capture rate is compared through the system's own capture calculation
+    checks: ["every curve's masses fall on round values (20, 35, 100, 500, 1000, 10000 GeV) to 0.01%"]
+    notes: ""
+
+  - id: icecube-1612.05949-si
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 5649a5a544c0ea8d19793ebf8b043db5e1b99463aa8837f1b32bffd3d158c7ad
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "16faf9ad8caf4e8ef1c99379303a478715ba1a6e79b8639b0f06cb9a8f7e28c9"}]
+    confidence_level: 0.9
+    name: "IceCube 2011–2014: dark matter annihilating in the Sun (SI, proton)"
+    constraint_class: solar_capture
+    figure: {arxiv: "1612.05949", page: 12, label: "Fig. 8"}
+    source: "arXiv:1612.05949 (EPJC 77 (2017) 146), Fig. 8"
+    data_file: adroit/constraints/data/digitised/icecube_1612.05949.yaml
+    quantity: "sigma_si_proton_cm2 by channel (bb, WW, tautau), 90% CL"
+    assumptions: *icecube
+    checks: ["every curve's masses fall on round values to 0.01%"]
+    notes: ""
+
+  - id: fermi-1503.02641-dsph
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: b3cee1db0ffcad8bdbf83446caec7d4c7b0d69f4956305eb9307797bbda2862a
+    verification_history: [{"on": "2026-10-01", "by": "James Unwin (owner)", "payload_sha256": "2fc95dde1ffa04b6392a15ee1289876c2f4645a1fbe4a1a5328cafebe03a20aa"}]
+    confidence_level: 0.95
+    name: "Fermi-LAT 6-year: 15 dwarf spheroidal galaxies"
+    constraint_class: indirect_detection
+    figure: {arxiv: "1503.02641", page: 18, label: "Fig. 8"}
+    source: "arXiv:1503.02641 (PRL 115 (2015) 231301), Fig. 8"
+    data_file: adroit/constraints/data/digitised/fermi_1503.02641.yaml
+    quantity: "sigma_v_cm3_s by channel (ee, mumu, tautau, uu, bb, WW), 95% CL"
+    assumptions:
+      - annihilation entirely into the named channel (Track 1 uses this record for a pure channel only, and a mixture goes to the spectral dwarf likelihood, fermi-2311.04982-spectral)
+      - the paper's J-factors (NFW)
+      - self-conjugate dark matter; for Dirac dark matter the limit applies to ⟨σv⟩/2
+      - the candidate is all of the dark matter (else the signal scales as (Ω/Ω_obs)²)
+    checks: ["b b̄ limit 2.21e-26 cm³/s at 100 GeV: the paper excludes the thermal value 2.2e-26 below 100 GeV"]
+    notes: ""
+
+  # Added 2026-10-03 for the portal library (proposed by the agent; verified by the owner the same day).
+  - id: atlas-2301.10731-hinv
+    confidence_level: 0.95
+    verified_on: 2026-10-03
+    verified_by: James Unwin (owner)
+    name: "ATLAS: invisible decays of the Higgs boson (139 fb⁻¹ at 13 TeV, combined with Run 1)"
+    constraint_class: collider
+    figure: {arxiv: "2301.10731", page: 1, label: "abstract"}
+    source: "arXiv:2301.10731 (Phys. Lett. B 842 (2023) 137963)"
+    quantity: "BR(h → invisible) upper limit, 95% CL"
+    data: {br_limit: 0.107, br_limit_expected: 0.077}
+    assumptions:
+      - Standard Model production of the 125 GeV Higgs boson
+      - BR = Γ_inv/(Γ_SM + Γ_inv), with Γ_SM = 4.100 MeV (CERN YR4)
+    checks: ["abstract: 'an upper limit on the H → invisible branching ratio of 0.107 (0.077) at the 95%
+              confidence level is observed (expected)' (read 2026-10-03)"]
+    notes: ""
+
+  - id: lep-hep-ex-0509008-zinv
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: b63754272a3a9a6bd04564b40e536fd0ebf9f336eacf89004da7f110e474e5d8
+    verification_history: [{"on": "2026-10-03", "by": "James Unwin (owner)", "payload_sha256": "203ae064fe7b7a37cc5bb4e7400cd54bb5033b1756c5ca65a38d40740f575849"}]
+    confidence_level: 0.95
+    name: "LEP: a new contribution to the invisible width of the Z boson"
+    constraint_class: collider
+    figure: {arxiv: "hep-ex/0509008", page: 173, label: "section 7.2.2 (the limit is on page 173; the section starts on page 172)"}
+    source: "arXiv:hep-ex/0509008 (Phys. Rept. 427 (2006) 257), section 7.2.2"
+    quantity: "ΔΓ_inv upper limit, 95% CL (MeV)"
+    data: {width_limit_mev: 2.0}
+    assumptions:
+      - the measured invisible width (499.0 ± 1.5 MeV) against the Standard Model's three neutrinos
+    checks: ["section 7.2.2 as read by the literature survey: 'ΔΓ_inv < 2.0 MeV at 95% CL'; the abstract gives
+              N_ν = 2.9840 ± 0.0082 (read 2026-10-03); not yet checked by the owner against the PDF"]
+    notes: ""
+
+  # --- the portal library, part 2 (2026-10-03): searches and the CMB; unverified until the owner verifies them ---
+  - id: planck-2018-pann
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 5a273d0da256adaad2d97a7f881d936c09a55618e871caca314f0465ed202482
+    confidence_level: 0.95
+    name: "Planck 2018: energy injection by s-wave annihilation during recombination"
+    constraint_class: cosmology
+    figure: {arxiv: "1807.06209", page: 60, label: "section 7.9, eq. (89c) and Fig. 46"}
+    source: "arXiv:1807.06209 (Planck 2018 VI, A&A 641, A6), section 7.9, eq. (89c); f_eff from arXiv:1506.03811"
+    quantity: "p_ann = f_eff ⟨σv⟩/m upper limit, 95% CL (cm³ s⁻¹ GeV⁻¹)"
+    data: {p_ann_cm3_s_gev: 3.2e-28}
+    assumptions:
+      - TT,TE,EE+lowE+lensing+BAO; ⟨σv⟩ is the s-wave rate (velocity-independent at recombination)
+      - "f_eff(m) by channel from Slatyer's tables (5 GeV – 100 TeV), fetched into the tools folder, not bundled;
+         interpolated in log m between a channel's tabulated masses only: the tables' zeros below a threshold mean
+         not computed, so below a channel's first tabulated mass (b b̄ 6, W⁺W⁻ 90, ZZ 100, hh 130, t t̄ 180 GeV) it
+         has no f_eff and is bracketed as below (corrected 2026-10-13)"
+      - "half the rate for a particle–antiparticle pair; a channel without a tabulated f_eff is bracketed by the rigorous
+         0 ≤ f_eff ≤ 1; beyond the tables' masses a point is allowed only if it is allowed with f_eff = 1 (corrected 2026-10-10)"
+      - "below 5 GeV (part 4): e⁺e⁻ and γγ from Slatyer's f_eff of injected e± and photons at E = m; μ⁺μ⁻ from the
+         Michel spectrum boosted to the lab (0.182 against Slatyer's 0.185 at 5 GeV); other channels (hadrons)
+         bracketed between these"
+    checks: ["the excerpt of section 7.9 read by the records survey: 3.5, 3.3, 3.2 × 10⁻²⁸ (eqs. 89a–c), and the Fig. 46
+              caption's 3.2 × 10⁻²⁸ (2026-10-03)", "f_eff spot checks: e⁺e⁻ 0.4056 at 200 GeV; b b̄ 0.2059, W⁺W⁻ 0.1779 at
+              1 TeV, as in the paper's Fig. 4"]
+    notes: ""
+
+  - id: darkcast-dark-photon
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 4302b15b23c0d155b8dd32eee863ce89d8dca48d33ffe7d7729ccdb92087f399
+    name: "Dark-photon searches compiled by DarkCast: visible (prompt, displaced, beam dumps) and invisible decays"
+    constraint_class: beam_dump
+    figure: {arxiv: "2005.01515", page: 36, label: "Fig. 3.3, the visible searches (Fig. 3.5, p. 39: invisible); a
+             visual comparison only: the review took some limits from DarkCast and digitised others (p. 49)"}
+    source: "DarkCast v2.1 (Ilten, Soreq, Williams & Xue, arXiv:1801.04847), commit 5a2a53a; each search's own paper,
+             confidence level and mass resolution, with quotes and pages: data_file. BaBar arXiv:1406.2980 and
+             1702.03327, LHCb arXiv:1910.06926, CMS arXiv:1912.04776, KLOE, A1, APEX, NA48/2, BESIII, HPS, E137, E141,
+             E774, KEK, Orsay, NuCal, CHARM, PS191, NOMAD, NA64 (arXiv:1906.00176), NA62, LEP"
+    data_file: adroit/constraints/data/darkcast_searches.yaml
+    quantity: "ε limits against m_A′, each at its own paper's CL (90% or 95%; CHARM states none and is taken as 90%)"
+    assumptions:
+      - "the minimal dark photon (coupling εeQ); visible limits on ε √BR(visible), invisible on ε √BR(χχ̄)"
+      - displaced and beam-dump limits only where A′ → χχ̄ is closed (they assume the visible lifetime)
+      - "each file read in the format DarkCast defines, checked on load: LHCb's displaced search is a map of r =
+         observed limit / predicted yield on an (m, ε) grid, excluded where r < 1 (interpolated in log m, log ε,
+         log r); every other file is a lower, or lower and upper, ε limit (corrected 2026-10-13)"
+      - "each search at its own CL: a 95% exclusion stands at 95%; a 90% one (or CHARM's) is a native exclusion,
+         undecided at 95%; a point allowed by every search that covers its mass is allowed at 95% (corrected
+         2026-10-13)"
+      - "each search only within its narrow-peak assumption (replacing one Γ/m ≤ 10% for all, 2026-10-13): a bump
+         hunt for Γ below its paper's mass resolution (the smallest it quotes, or NA48/2's σ = 0.067 MeV + 0.0105
+         m); a missing-mass search for Γ below σ(M²)/(2m), at most 10% of m; a missing-energy search (NA64
+         invisible, LEP) for Γ/m ≤ 10%. Outside it, the search is not used to exclude or to allow: a point it covers
+         is undecided unless a search that applies excludes it (the owner's review, 2026-10-13)"
+      - "LHCb prompt, CMS and HPS state no resolution for their own search; each takes the smaller of what the same
+         collaboration states for the same data, or derives from it (data_file, with quotes; 2026-10-13): LHCb σ =
+         0.12% × m (arXiv:2007.03923 p. 6, same 2016–2018 data, 0.6 MeV at threshold, halved by this search's vertex
+         constraint); CMS σ = 0.7% × m (≈1.3% measured on the same scouting stream, arXiv:2403.16134 p. 33; 0.88%
+         from this search's barrel window; 1%/√2 from the single-muon resolution); HPS σ = 0.85 MeV (its Møller
+         calibration, 1.55 MeV at 34 MeV, scaled to 19 MeV)"
+      - "HPS 2018 (arXiv:1807.11530) is a prompt bump hunt, not a displaced search; LEP is DarkCast's recast of the
+         DELPHI mono-photon search (arXiv:1103.0240), not electroweak precision"
+      - DarkCast is GPL-2.0-or-later, fetched into the tools folder and never copied into this repository
+    checks: ["records survey spot checks: BaBar 2014 minimum 3.46 × 10⁻⁴ near 0.21 GeV (Fig. 4: ≈3.5 × 10⁻⁴); LHCb
+              prompt ε² minimum 1.35 × 10⁻⁸ near 0.3 GeV (Fig. 2: ≈1.5 × 10⁻⁸); E137 tip 0.316 GeV; BaBar 2017 ε²
+              5.0 × 10⁻⁷ at 2.4 GeV (2026-10-03)", "LHCb displaced map, the owner's two points: r = 0.4914 at
+              250.1 MeV, ε = 3.575 × 10⁻⁵ and r = 0.5209 at 299.6 MeV, ε = 2.830 × 10⁻⁵, both excluded; its excluded
+              island spans 0.218–0.313 GeV and ε = 1.16–6.56 × 10⁻⁵ (2026-10-13)"]
+    notes: |
+      The owner's review (2026-10-13) found:
+      - LHCb's displaced file is an (m, ε, r) map, which ADROIT had read as ε bounds. It missed exclusions, and the plot
+        showed r as if it were ε (the blue block and the turquoise rectangle). Now each search is drawn as its excluded
+        region; for LHCb displaced that is the r = 1 contour.
+      - The figure pointed to page 7 of arXiv:2005.01515, which explains kinetic mixing and cannot validate this
+        compilation.
+      - One Γ/m ≤ 10% gate for every search still allowed widths above an experiment's mass resolution.
+      - A search outside its width gate had still been allowed to say "allowed" (a narrow peak as the most favourable
+        signal). That is not established: a broader signal samples other masses, backgrounds and efficiencies,
+        least of all for missing energy. At m_A′ = 5 GeV, m_χ = 1 GeV, g_D = 3, ε = 10⁻⁶ (Γ = 1.182 GeV, 23.6%)
+        ADROIT returned allowed; it is now undecided.
+
+      Caveats from reading each search's paper (details in data_file):
+      - BaBar 2014 quotes its resolution only as 1.5–8 MeV, so ADROIT uses 1.5 MeV at every mass.
+      - NA62's σ(M²) was read by eye from its Fig. 4, so it is approximate.
+      - CHARM (Tsai et al. 2019) states no CL.
+      - A1's 95% is its 2σ Feldman–Cousins interval.
+      - LHCb prompt, CMS and HPS give no numerical mass resolution for their own search. ADROIT takes each from the
+        same collaboration's other papers on the same data, or from HPS's one calibration point, always the smaller
+        value (2026-10-13). The LHCb threshold value combines two "about" statements; CMS's 1.3% was measured below
+        11 GeV with another muon ID; HPS has a single mass point.
+
+  - id: flavour-b-to-k-invisible
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: ad9571fcdbf20d1447afbf2e83102d5c215d3abe34f19a310332923f12097734
+    confidence_level: 0.9
+    name: "B⁺ → K⁺ a, a → invisible, for a pseudoscalar with Yukawa-like couplings"
+    constraint_class: flavour
+    figure: {arxiv: "1303.7465", page: 10, label: "Table V"}
+    source: "BaBar arXiv:1303.7465 (PRD 87, 112005), Table V: BR(B⁺ → K⁺νν̄) < 3.7 × 10⁻⁵ (90% CL); rate from
+             Dolan, Kahlhoefer, McCabe & Schmidt-Hoberg arXiv:1412.5174 eqs. (2.11), (A.3)–(A.4)"
+    quantity: "BR(B⁺ → K⁺ a) × BR(a → invisible) upper limit"
+    data: {br_limit: 3.7e-5, h_s_per_g_y: 2.3e-5, f0: 0.33, f0_pole_gev2: 38.0, mb_minus_ms_gev: 4.687,
+           visible_floor: 1.0e-10, s_b_max: 0.3}
+    assumptions:
+      - "|h^S_sb| = 2.3 × 10⁻⁵ g_Y with the loop cut off at Λ = 1 TeV (Dolan et al. eq. (2.11)); g_Y = g_q/√2"
+      - "m_b − m_s = 4.78 − 0.093 GeV (pole m_b; m_b(m_b) = 4.18 would raise the rate by 30%)"
+      - "BaBar's 3.7 × 10⁻⁵ is its result for 0 < s_B < 0.3 (m_a < 2.89 GeV) and is applied only there; above, BaBar's
+        s_B-binned partial branching fractions are needed and are not yet in the record, so the point is undecided
+        (corrected 2026-10-10, R4)"
+      - a visible a (BR(B → K a) × BR(visible) above 10⁻¹⁰) is undecided
+    checks: ["Dolan et al. quote BR(B → K a) ≈ 20 g_Y²; this record gives 18.5 g_Y² at m_a → 0 (records survey,
+              2026-10-03)"]
+    notes: ""
+
+  - id: atlas-1903.06248-dilepton
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 4f14cc6721ed3e1ea5d92dde58802915f2e8ede0fe5af22246f9565270d46fee
+    confidence_level: 0.95
+    name: "ATLAS: high-mass dilepton resonances (139 fb⁻¹), recast to a B − L Z′"
+    constraint_class: collider
+    figure: {arxiv: "1903.06248", page: 10, label: "Fig. 3"}
+    source: "arXiv:1903.06248 (PLB 796 (2019) 68), HEPData ins1725190 v3 (CC0)"
+    data_file: adroit/constraints/data/digitised/atlas_1903.06248_dilepton.yaml
+    quantity: "fiducial σ × BR(Z′ → ℓℓ, one flavour) upper limit, 95% CL, for relative widths 0–10% (fb)"
+    assumptions:
+      - "σ(pp → Z′) at leading order (PDF4LHC21_40), times ATLAS's Z′_SSM fiducial σB over our leading-order SSM σB
+         (the K-factor and acceptance), from scripts/derive_records.py"
+      - "the limit interpolated linearly in the relative width; wider than 10%: undecided"
+      - narrow-width production; interference with Drell–Yan neglected
+    checks: ["ATLAS's text: 3.6 (13.1) fb at 250 GeV for 0% (10%) width; HEPData 3.573 and 13.08 (records survey)",
+             "our leading-order SSM σB within 4–11% of ATLAS's implied fiducial σB from 250 GeV to 5 TeV (2026-10-03)"]
+    notes: ""
+
+  - id: lep-contact-bl
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: af8c9c2983f6887169be8bac7c6dbb0f22a485f9967ff7ff403ed7e71a651abe
+    confidence_level: 0.95
+    name: "LEP-II: four-fermion contact interactions bounding a heavy B − L Z′"
+    constraint_class: collider
+    figure: {arxiv: "1408.6845", page: 5, label: "eq. (16)"}
+    source: "Heeck, arXiv:1408.6845 (PLB 739, 256), eq. (16), from LEP EWWG arXiv:1302.3415 Table 3.15"
+    quantity: "M_Z′/g_BL lower limit, 95% CL (GeV); valid for M_Z′ ≫ √s ≈ 209 GeV, applied from 300 GeV (corrected 2026-10-10)"
+    data: {m_over_g_gev: 6900.0}
+    assumptions: ["a heavy Z′ (contact interaction) coupling to electrons with charge −1"]
+    checks: ["records survey: Heeck eq. (16) M_Z′/g′ > 6.9 TeV; Carena et al. hep-ph/0408098 give 6 TeV from the
+              preliminary LEP result (2026-10-03)"]
+    notes: ""
+
+  - id: atlas-2010.14293-squark
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 3569c59dd19017402dbb829eed149857ac39c5de48f13a68f4143370a1951fc4
+    verification_history: [{"on": "2026-10-12", "by": "JU", "payload_sha256": "e0fd3a3622720d28173a279bebe63f6eab9abf8af7cbaac090f25245874ec764"}]
+    confidence_level: 0.95
+    name: "ATLAS: one non-degenerate light-flavour squark, jets and missing momentum (139 fb⁻¹)"
+    constraint_class: collider
+    figure: {arxiv: "2010.14293", page: 33, label: "Fig. 13"}
+    source: "arXiv:2010.14293 (JHEP 02 (2021) 143), HEPData ins1827025 v2 (CC0), 'Obs.Contour 2'"
+    data_file: adroit/constraints/data/digitised/atlas_2010.14293_squark.yaml
+    quantity: "excluded region in (m_q̃, m_χ̃⁰), 95% CL"
+    assumptions:
+      - "applied to a scalar partner of u_R or d_R with φ → qχ (BR = 1), pair-produced through QCD; χ exchange adds
+         production (∝ y⁴, and same-sign φφ for a Majorana χ), and its interference with QCD in q q̄ → φφ* is not
+         computed, so the exclusion takes the QCD σ as a lower bound, assuming that interference is not destructive;
+         outside the contour the point is undecided, not allowed (2026-10-12; docs/benchmark_limits.md)"
+      - "below the contour's lowest m_φ (400 GeV) the point is undecided"
+    checks: ["records survey: (1220, 0) and the 440 GeV plateau at m_q̃ ≈ 800–900 GeV agree with Fig. 13"]
+    notes: ""
+
+  - id: muon-g2-2025
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 2af44fbeb50151af42ed29d10b8030b31355486f4795f96fb7d663a83c2f8022
+    name: "The muon's anomalous magnetic moment: experiment against the Standard Model (2025)"
+    constraint_class: flavour
+    figure: {arxiv: "2505.21476", page: 1, label: "abstract"}
+    source: "arXiv:2506.03069 (Muon g−2, PRL 135, 101802) and arXiv:2505.21476 (Theory Initiative, Phys. Rept. 1143)"
+    quantity: "Δa_μ = a_μ(exp) − a_μ(SM) (units 10⁻¹¹)"
+    data: {delta_a_mu: 38.0e-11, sigma: 63.0e-11}
+    assumptions: ["a new contribution outside Δa_μ ± 1.96σ is excluded"]
+    checks: ["the abstracts: 116 592 0715(145) × 10⁻¹² and 116 592 033(62) × 10⁻¹¹; v3 abstract 38(63) × 10⁻¹¹"]
+    notes: ""
+
+  - id: lmu-ltau-babar-belle2
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 193ddf41a1ef83a3bbed2f399211ae2cb8be8c15152fbb89b1afbc3a63d8d8d2
+    confidence_level: 0.9
+    name: "L_μ − L_τ Z′: BaBar's e⁺e⁻ → μ⁺μ⁻Z′(→ μ⁺μ⁻) and Belle II's invisible Z′"
+    constraint_class: collider
+    figure: {arxiv: "2212.03066", page: 6, label: "Fig. 3, lower left of the page (Fig. 2 above it, Fig. 4 top right)"}
+    source: "BaBar arXiv:1606.03501 (PRD 94, 011102), via DarkCast (raw g′); Belle II arXiv:2212.03066 (PRL 130,
+             231801), HEPData ins2611344 (CC0 on HEPData; corrected 2026-10-10), Fig. 3 (the fully invisible model)"
+    data_file: adroit/constraints/data/digitised/belle2_2212.03066_invisible_zprime.yaml
+    quantity: "g′ upper limits against m_Z′ (BaBar 90% CL, 0.214–7.68 GeV; Belle II 90% CL, 0.01–8.5 GeV)"
+    assumptions:
+      - BaBar on g′ √(BR(μμ)/BR(μμ) without dark matter); Belle II on g′ √BR(invisible)
+      - "BaBar's 4μ bump hunt only for a Z′ narrower than its mass resolution, which 'varies between 1−9 MeV'
+         (arXiv:1606.03501, p. 4): ADROIT takes the smallest, Γ < 1 MeV, at every mass (conservative, as for Belle II);
+         broader: undecided, pending a width-dependent reinterpretation (corrected 2026-10-13: before, Γ/m ≤ 10%)"
+      - "Belle II's limit is for a Z′ width negligible against its recoil-mass resolution; ADROIT applies it for Γ below
+         the smallest resolution it quotes, 0.06 GeV² in M²_recoil (Γ < 0.03 GeV²/M); broader: undecided (2026-10-12)"
+      - "neutrino trident production is evaluated separately through ccfr-1406.2332-trident, with its own confidence level and verification policy"
+    checks: ["records survey: BaBar minimum 6.74 × 10⁻⁴ at 0.227 GeV (abstract: 7 × 10⁻⁴); Belle II 2.63 × 10⁻³ at low
+              mass (abstract: 3 × 10⁻³)"]
+    notes: |
+      The owner's review (2026-10-13):
+
+      - The upper curve is Belle II's fully invisible Z′ limit on g′, from Fig. 3, at the lower left of PDF page 6
+        (the figure label said "top left", where Fig. 2 is). 492 of the 582 stored coupling points reproduce
+        directly from the PDF within 0.02%; the rest of the table could not be checked, as HEPData refused access.
+        (2026-10-17, the external audit's item 19: compared with HEPData ins2611344's "Fig. 3 (top left)" observed
+        column row by row, all 582 masses and couplings are identical.)
+      - The lower curve is BaBar's raw L_μ − L_τ coupling limit on g′ (BaBar's Fig. 5), not a dark photon's ε (the
+        plot's axis said ε). Its minimum is 6.7362 × 10⁻⁴ at 0.22662 GeV, consistent with BaBar's quoted 7 × 10⁻⁴.
+      - The branching-fraction rescalings are right: BaBar compares g′ √(BR_μμ / BR_μμ,vanilla), Belle II
+        g′ √BR_invisible; both keep their native 90% CL.
+      - BaBar's width gate needed revision: its narrow-signal templates have a 1–9 MeV resolution, but ADROIT allowed
+        Γ/M ≤ 10%. At M = 5 GeV, m_χ = 1 GeV, g′ = 0.11, g_χ = 1 it returned a native exclusion with a 136 MeV width.
+        Now Γ < 1 MeV; a broader Z′ is undecided pending a width-dependent reinterpretation.
+
+  - id: cms-1808.03684-4mu
+    verified_on: 2026-11-06
+    verified_by: James Unwin
+    verification_sha256: b60cf9c0cff852c6dc6ed8d0806e0acc79167f1120022d0a602bdb806eef9bf2
+    confidence_level: 0.95
+    name: "L_μ − L_τ Z′: CMS's Z → 4μ (pp → Z → μμZ′, Z′ → μμ)"
+    constraint_class: collider
+    figure: {arxiv: "1808.03684", page: 12, label: "Fig. 6 (top): the observed upper limit on g′"}
+    source: "CMS arXiv:1808.03684 (PLB 792 (2019) 345), Fig. 6 (top), digitised from the PDF's vector path"
+    data_file: adroit/constraints/data/digitised/cms_1808.03684_4mu.yaml
+    quantity: "g′ upper limits against m_Z′ (95% CL, 5–70 GeV)"
+    assumptions:
+      - "the L_μ − L_τ Z′ with B(Z′ → μμ) = 1/3 (no decay to dark matter, no quark coupling): ADROIT applies it to
+         g′ √(BR(μμ)/BR(μμ) without the dark matter), as BaBar's"
+      - "a narrow Z′, g′²/4π < 0.01 (Γ/m < 1%), within CMS's 2% mass window; broader: undecided"
+      - "prompt decays; K = 1.29; interference with the SM 4μ at most 5% (the paper, pp. 8–9)"
+    checks: ["records survey (2026-10-19): minimum 3.4 × 10⁻³ at 6.1 GeV, 1.17 × 10⁻² at 30 GeV, 0.27 at 70 GeV;
+              the stored curve: 3.38 × 10⁻³ at 6.13 GeV, 1.17 × 10⁻² at 29.96 GeV, 0.272 at 69.95 GeV"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified. A figure digitised from the paper's own vector path (no
+      HEPData record): 1319 vertices converted with the axis ticks named in the data file, points within 1 MeV
+      merged to the weaker limit. Its figure-anchor review (2026-10-19 rules) is the owner's. The owner's decision
+      (2026-10-19): CMS's and ATLAS's records each stand, and the stronger decides.
+  - id: atlas-2301.09342-4mu
+    verified_on: 2026-11-06
+    verified_by: James Unwin
+    verification_sha256: dcf8f8a3b12644881f6b597c74e4b984cb169b921d49b9728bb566d56c164a0a
+    confidence_level: 0.95
+    name: "L_μ − L_τ Z′: ATLAS's pp → Z′μμ → 4μ"
+    constraint_class: collider
+    figure: {arxiv: "2301.09342", page: 17, label: "Fig. 6(b): the observed upper limit on g"}
+    source: "ATLAS arXiv:2301.09342 (JHEP 07 (2023) 090), HEPData ins2625676 v2, Table 13"
+    data_file: adroit/constraints/data/digitised/atlas_2301.09342_4mu.yaml
+    quantity: "g′ upper limits against m_Z′ (95% CL, 5–81 GeV)"
+    assumptions:
+      - "the L_μ − L_τ Z′ with B(Z′ → μμ) = 1/3 and B(Z′ → ν_μν_μ) = 1/6 (no electron, quark or dark matter
+         coupling): ADROIT applies it to g′ √(BR(μμ)/BR(μμ) without the dark matter)"
+      - "Γ/m below ATLAS's 2% dimuon mass resolution (the dashed line of Fig. 6(b)); broader: undecided"
+      - "K = 1.3 (NNLO/LO); prompt decays"
+    checks: ["HEPData Table 13, column 'Observed': 155 masses, 3.23 × 10⁻³ at 5 GeV, minimum 2.99 × 10⁻³, 0.226 at
+              81 GeV (the paper: 0.003 at 5 GeV to 0.2 at 81 GeV)"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified; from HEPData (ins2625676 v2), so no figure transcription.
+      The owner's decision (2026-10-19): CMS's and ATLAS's records each stand, and the stronger decides; ATLAS's is
+      about 1.6 times stronger near 30 GeV.
+  - id: lep-inert-doublet
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: c680d3d3fa2aa3dc20b79a6e05f65562c1b8e98ad9ab5f9c1d83005175cd831e
+    confidence_level: 0.95
+    name: "LEP: the inert doublet's scalars (neutralino recast, chargino recast, Z and W widths)"
+    constraint_class: collider
+    figure: {arxiv: "0810.3924", page: 8, label: "Fig. 7"}
+    source: "Lundström, Gustafsson & Edsjö arXiv:0810.3924 (PRD 79, 035013) section IV and eq. (8); Pierce & Thaler
+             hep-ph/0703056 eq. (15); Kalinowski et al. arXiv:1809.07712 eqs. (7)–(10)"
+    quantity: "excluded masses (GeV)"
+    data: {h0_below: 80.0, a0_below: 100.0, split_above: 8.0, charged_below: 70.0, m_z: 91.1876, m_w: 80.377}
+    assumptions: ["the region is the paper's 'roughly speaking' intersection; the edge at Δm = 8 GeV is not sharp"]
+    checks: ["records survey: adopted as Belyaev et al. eq. (23) and Kalinowski et al. eq. (10)"]
+    notes: ""
+
+  - id: atlas-2306.00641-2hdma
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 3dd907351b7b6981dccfa19cb24d4d702c69fa895640a1affb5ee50191def06b
+    confidence_level: 0.95
+    name: "ATLAS: combined searches for the 2HDM+a (scenario 1a)"
+    constraint_class: collider
+    figure: {arxiv: "2306.00641", page: 26, label: "Fig. 4(a)"}
+    source: "arXiv:2306.00641 (Sci. Bull. 69 (2024) 3005), HEPData ins2664553 v1 (CC0), 'Figure 4a (Observed)'"
+    data_file: adroit/constraints/data/digitised/atlas_2306.00641_2hdma.yaml
+    quantity: "excluded (m_a, m_A) inside the observed contour closed along the plane's lower edge (m_A = 250 GeV), 95% CL; the contour folds back at m_a ≈ 470–558 GeV, leaving an allowed island (corrected 2026-10-10)"
+    assumptions:
+      - "sin θ = 0.35, tan β = 1, y_χ = 1, m_A = m_H = m_H±, λ₃ = λ_P1 = λ_P2 = 3, m_χ = 10 GeV, cos(β−α)=0; only scenario 1a, with a → χχ̄ open. Off-benchmark points require a separate recast"
+    checks: ["records survey: at m_a = 150 GeV, m_A from 250 GeV to 1.55 TeV excluded (paper's text)"]
+    notes: ""
+
+
+  # --- the portal library, part 3 (2026-10-04): unverified until the owner verifies them ---
+  - id: lhcb-1612.07818-b-to-k-mumu
+    verified_on: 2026-11-07
+    verified_by: JU
+    verification_sha256: eb2c1b80f98941270eeb9e09ba677f16ab038ce59a6e020d4baae0685c0f1cec
+    confidence_level: 0.95
+    name: "LHCb: B⁺ → K⁺χ(→ μ⁺μ⁻) for a long-lived light scalar, against its mass and lifetime"
+    constraint_class: flavour
+    figure: {arxiv: "1612.07818", page: 7, label: "Fig. 4: the colour map"}
+    source: "LHCb, arXiv:1612.07818 (PRD 95 (2017) 071101), Fig. 4, from the PDF's coloured cells and colour bar"
+    data_file: adroit/constraints/data/digitised/lhcb_1612.07818_b_to_k_mumu.yaml
+    quantity: "95% CL upper limit on BR(B⁺ → K⁺χ) × BR(χ → μ⁺μ⁻), a two-dimensional mass–lifetime limit grid: at
+               LHCb's 41 lifetimes, τ_χ = 0.1–1000 ps a tenth of a decade apart, and its mass cells, m_χ = 250–4700 MeV"
+    assumptions:
+      - "a spin-0 χ, narrow, decaying within LHCb's acceptance as its lifetime sets (the map's own); vetoed masses
+         (K_S⁰, J/ψ, ψ(2S), ψ(3770), part of φ and ψ(4160)) have no limit"
+      - "ADROIT reads the map for a pseudoscalar a, not LHCb's scalar χ: the limit is on BR(B → Kχ) × BR(χ → μμ) at a
+         mass and lifetime, for a spin-0 particle whatever its parity (Döbrich, Ertas, Kahlhoefer & Spadaro,
+         arXiv:1810.11336, apply LHCb's searches so to any spin-0 boson); what depends on the model, the a's
+         production rate, lifetime and BR(μμ), ADROIT computes for its own model, as below"
+      - "ADROIT's own choice, not the paper's: applied between 250 MeV and 3m_π ≈ 410 MeV, where a pseudoscalar decays
+         only to leptons and photons (a → ππ is CP-forbidden, a → πππ opens at 3m_π: Dolan et al., arXiv:1412.5174,
+         §2.2); above, its hadronic decays are not computed (the batch's stated default)"
+      - "the a's lifetime and BR(μμ) from its widths to e⁺e⁻, μ⁺μ⁻ and the dark matter at tree level and to γγ at one
+         loop (Dolan et al. eqs. (B.2)–(B.3): each charged fermion's loop at its kinematic mass, u and d at m_π and s
+         at m_K, as their Appendix B); Γ(γγ)/Γ(μμ) is about 6 × 10⁻⁴ for equal quark and lepton couplings, 3–4% for
+         g_q = 10 g_ℓ and above 2 for g_q = 100 g_ℓ"
+      - "BR(B⁺ → K⁺a) from the BaBar record's inputs (flavour-b-to-k-invisible), Dolan et al. eqs. (A.3)–(A.4): Γ =
+         λ^½(m_B², m_K², m_a²) f₀(m_a²)² ((m_B² − m_K²)/(m_b − m_s))² |h^S_sb|²/(16π m_B³), f₀(q²) = 0.33/(1 −
+         q²/38 GeV²) (accurate within 10%, they say), |h^S_sb| = 2.3 × 10⁻⁵ g_Y (their eq. (2.11): the top loop of
+         Yukawa-like couplings, cut off at Λ = 1 TeV), g_Y = g_q/√2, m_b − m_s = 4.687 GeV, m_B = 5.27934 GeV,
+         m_K = 0.493677 GeV, τ_B = 1.638 ps"
+      - "between two of LHCb's lifetimes, the weaker of their two limits at the a's mass (the limit between them is not
+         shown); outside 0.1–1000 ps, undecided"
+    checks: ["all 45131 plot cells match one of the colour bar's 255 colours exactly; the bar is logarithmic, 10⁻¹⁰ to
+              10⁻⁶·⁸², each band 0.0125 decades (~3%), and each stored limit is its band's centre to 10⁻⁴ decades
+              (rechecked 2026-11-06); the axes from the tick marks: 250.0–4700.0 MeV, 41 rows at 10⁻¹, 10⁻⁰·⁹, …, 10³ ps",
+             "the paper: 'lifetime 0.1 < τ(χ) < 1000 ps' (its abstract) and 'the upper limits vary between 2 × 10⁻¹⁰ and
+              10⁻⁷' (p. 5); the stored grid's least is 1.7 × 10⁻¹⁰ and its greatest 1.5 × 10⁻⁷, in the bar's top band,
+              near 1 GeV and 4.1 GeV at 0.16 ps; between 250 and 410 MeV the greatest is 1.4 × 10⁻⁷, below that band",
+             "BR(B → K a) ≈ 18.5 g_Y² at m_a → 0 (Dolan et al.: ≈ 20 g_Y², the BaBar record's check)"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified. Repaired 2026-11-06 (the owner's review): the rows had been
+      read as lifetime bands to the frame's top, 10³·¹ ≈ 1260 ps, a cell edge (each of LHCb's 41 lifetimes is drawn
+      from its value up one row); the record page now shows the grid as a map; the pseudoscalar reading, the window's
+      being ADROIT's choice, the a's photon width (now computed) and the B → K a formula are stated. Its figure-anchor
+      review is the owner's.
+  - id: pdg-2024-electroweak-st
+    verified_on: 2026-11-06
+    verified_by: JU
+    verification_sha256: df0329b505510fd36028efde4e93f4137a9b52b0913a0e118de1fd16a85b7630
+    confidence_level: 0.95
+    name: "Electroweak precision: the oblique parameters S and T (PDG 2024, U = 0)"
+    constraint_class: collider
+    figure: {arxiv: "pdg-2024-ew", page: 37, label: "eqs. (10.99) and (10.107), Fig. 10.6"}
+    source: "Particle Data Group 2024, Review 10 (Erler & Freitas), Electroweak Model and Constraints on New Physics,
+             eqs. (10.99) and (10.107)"
+    quantity: "the fit's S and T with U = 0 (Gaussian, correlated)"
+    data: {s: -0.05, sigma_s: 0.07, t: 0.00, sigma_t: 0.06, rho: 0.93, cdf_s: -0.00, cdf_sigma_s: 0.07, cdf_t: 0.07,
+           cdf_sigma_t: 0.05, chi2_95: 5.99}
+    assumptions:
+      - "new physics in the gauge bosons' self-energies only (oblique), U = 0 (suppressed by M_Z²/M_new²); ADROIT's S
+         and T are exact at one loop for scalar doublets and neutral singlets (Grimus et al., arXiv:0802.4353)"
+      - "the S–T correlation 0.93: the review states it after both of its fits (STU and U = 0); Gfitter's U = 0 fit has
+         0.92 (arXiv:1803.01853); the CDF-m_W fit's correlation is not stated and is taken the same"
+      - "excluded where χ² > 5.99 (two degrees of freedom, 95%); the fit with CDF's m_W only flags (the owner,
+         2026-10-19)"
+    checks: ["the review, eq. (10.99): S = −0.05 ± 0.07, T = 0.00 ± 0.06; eq. (10.107): S = −0.00 ± 0.07,
+              T = 0.07 ± 0.05; 'a strong correlation (93%) between the S and T parameters'"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified. Not a figure: the numbers are printed. The constraint class
+      is collider, as the classes have no electroweak-precision one.
+  - id: lep-charginos
+    verified_on: 2026-11-06
+    verified_by: James Unwin
+    verification_sha256: e5abd093987e527bb7b0d452e729c5f8848e7272b98f12977620ed352f6c59c3
+    confidence_level: 0.95
+    name: "LEP: charginos (a charged member of a fermion doublet or triplet) against their mass and splitting"
+    constraint_class: collider
+    figure: {arxiv: "hep-ex/0311019", page: 44, label: "DELPHI Table 16; ALEPH hep-ex/0203020's any-splitting bound"}
+    source: "DELPHI, hep-ex/0311019 (EPJ C34 (2004) 145), Table 16 and p. 46; ALEPH, hep-ex/0203020 (PLB 533 (2002)
+             223)"
+    quantity: "the chargino's 95% CL lower mass bound by its splitting from the lightest neutral state"
+    data: {any_split_gev: 88.0, from_3_gev: 97.1, from_5_gev: 101.7, from_10_gev: 102.7, wino_from_10_gev: 103.4}
+    assumptions:
+      - "pair production through γ and Z as the state's quantum numbers fix it (heavy sfermions: no t-channel
+         sneutrino), decays to the dark matter and an off-shell W"
+      - "ALEPH excludes below 88 GeV at any splitting; DELPHI below 97.1, 101.7 and 102.7 GeV (103.4 for a wino-like
+         triplet) from splittings of 3, 5 and 10 GeV, taken as steps (the bound at the largest splitting reached)"
+    checks: ["the survey (2026-10-19): DELPHI Table 16 (p. 44) 102.7 (ΔM > 10; 103.4 wino), 101.7 (ΔM = 5), 97.1
+              (ΔM = 3); ALEPH 88 GeV at any ΔM with heavy sfermions"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified; printed numbers, not a figure.
+  - id: opal-hep-ex-0309014-sleptons
+    verified_on: 2026-11-06
+    verified_by: JU
+    verification_sha256: 8189116ce9c926120814b6af9cc148b603a2eb7bfb7f6a1f224594923836dfd8
+    confidence_level: 0.95
+    name: "LEP (OPAL): right-handed smuons and staus decaying to their lepton and the lightest neutral state"
+    constraint_class: collider
+    figure: {arxiv: "hep-ex/0309014", page: 18, label: "the text's lower mass bounds"}
+    source: "OPAL, hep-ex/0309014 (EPJ C32 (2004) 453), p. 18"
+    quantity: "95% CL lower mass bounds on μ̃_R and τ̃_R"
+    data: {mu_r_gev: 94.0, mu_r_split_gev: 4.0, tau_r_gev: 89.8, tau_r_split_gev: 8.0}
+    assumptions:
+      - "a right-handed scalar partner (SU(2) singlet, |Y| = 1) pair produced through γ and Z and decaying to its lepton
+         and the dark matter, 100%: μ̃_R above 94.0 GeV for a splitting from 4 GeV, τ̃_R above 89.8 GeV from 8 GeV;
+         smaller splittings undecided (OPAL's σ·BR² tables are not stored)"
+    checks: ["the survey (2026-10-19): OPAL p. 18 μ̃_R > 94.0 GeV (Δm > 4), τ̃_R > 89.8 GeV (Δm > 8)"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified; printed numbers. The selectron's bound is not stored: a
+      right-handed electron partner stays pending.
+  - id: li-2412.04572-bsgamma
+    verified_on: 2026-11-07
+    verified_by: JU
+    verification_sha256: d47aff420146c2bcc46ed8b06cd00cf341e2c3dc57120073aa89f2c14bf8af70
+    confidence_level: 0.95
+    name: "Type-II 2HDM: the charged Higgs's lower mass bound from B → X_s γ"
+    constraint_class: flavour
+    figure: {arxiv: "2412.04572", page: 7, label: "Fig. 1 (upper right, Type-II) and the text after it"}
+    source: "Li, Song, Su & Su, arXiv:2412.04572, 'Charged Higgs Search in 2HDM', §3 (p. 6, PDF p. 7), Fig. 1 and its
+             text, with the NNLO method of Misiak, Rehman & Steinhauser, arXiv:2002.01548 (JHEP 06 (2020) 175)"
+    quantity: "M_H± lower bound (95% CL), type-II Yukawas, from R_γ"
+    data: {m_charged_min_gev: 800.0, tan_beta_min: 0.4}
+    assumptions:
+      - "a type-II two-Higgs-doublet model: the charged Higgs's loop with the top, nothing else beyond the Standard
+         Model in b → sγ (in the 2HDM+a, the light pseudoscalar a does not enter at this order)"
+      - "the paper's 'around 800 GeV', taken as 800 GeV: its R_γ region's edge is at 803–805 GeV for tan β ≥ 5, so 800
+         GeV is never stronger than its figure; the paper computes R_γ with Misiak, Rehman & Steinhauser's method (its
+         ref. [72]), whose own text gives 800 GeV"
+      - "the bound is practically independent of tan β above about 2 and stronger below (the cot β terms); applied for
+         tan β ≥ 0.4 (the owner, 2026-10-19), undecided below, where R_b and the cot β terms dominate"
+    checks: ["the text, p. 6: 'the measurements of R_γ = B_(s+d)γ/B_clν̄ impose a very strong constraint on the Type-II
+              2HDM, leading to a lower limit on the mass of the charged Higgs particle to be around 800 GeV'; its
+              inputs (Table 4): R_γ = (3.22 ± 0.15) × 10⁻³ measured, (3.35 ± 0.16) × 10⁻³ in the Standard Model;
+              BR(B → X_s γ) = (3.32 ± 0.15) × 10⁻⁴ measured at E₀ = 1.6 GeV, (3.40 ± 0.17) × 10⁻⁴ in the Standard Model",
+             "Fig. 1 (upper right), from the PDF's paths (m_H± from its tick marks, tan β from its labels): the R_γ
+              region's right edge at 803 GeV for tan β = 20–40, 805 at 5, 817 at 2, 858 at 1, 911 at 0.7 and the
+              frame's 1000 GeV at 0.5; BR(B → X_s γ) alone (the black line) is weaker, 746 GeV for tan β ≥ 10, 760 at 2:
+              the record uses R_γ, as the text does",
+             "Misiak, Rehman & Steinhauser (arXiv:2002.01548, p. 11): 'The resulting 95% C.L. lower bound from Rγ on the
+              charged Higgs boson mass in Model-II ... yields 800 GeV' (the earlier analysis: 580 GeV): the same number"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6) as misiak-2002.01548-bsgamma, unverified. Re-sourced 2026-11-06 at the
+      owner's request to arXiv:2412.04572, which confirms the 800 GeV with its 2024 inputs. The owner's decision
+      (2026-10-19): it excludes, as does B_s → μμ (dmwg-1810.09420-bsmumu); the Working Group calls these bounds
+      indicative, since heavier states could weaken them, and ADROIT states that.
+  - id: dmwg-1810.09420-bsmumu
+    verified_on: 2026-11-06
+    verified_by: JU
+    verification_sha256: a13302ff160496893a04ad2dd94a360a9a3c5f1a770d99c3ed971f4a26119e5e
+    confidence_level: 0.95
+    name: "Type-II 2HDM: B_s → μμ in the M_H± – tan β plane (the LHC DM Working Group's 2HDM+a white paper)"
+    constraint_class: flavour
+    figure: {arxiv: "1810.09420", page: 13, label: "Fig. 3 (right), the blue regions"}
+    source: "LHC DM Working Group, arXiv:1810.09420 (Phys. Dark Univ. 27 (2020) 100351), Fig. 3 (right), from the
+             PDF's stroked boundaries"
+    data_file: adroit/constraints/data/digitised/dmwg_1810.09420_bsmumu.yaml
+    quantity: "the disfavoured tan β below and above two boundaries against M_H± (200–1500 GeV), 95% CL"
+    assumptions:
+      - "a type-II two-Higgs-doublet model at alignment: the 2HDM's own contributions only; the light pseudoscalar a
+         of the 2HDM+a is not included (the owner, 2026-10-19: stated, not computed)"
+      - "the Working Group calls the flavour bounds indicative (heavier states could weaken them); the owner
+         decided that they exclude"
+    checks: ["the text, p. 9: 'excluding for instance values of tan β < 1.3 and tan β > 20 for M_H± = 1 TeV'; the
+              stored boundaries at 1 TeV: 1.29 and 20.3"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified. Two stroked paths of the figure (the boundaries of the two
+      blue regions), converted with the axis ticks named in the data file; its figure-anchor review is the owner's.
+      The library's 2HDM+a benchmark (tan β = 1, M_H± = 1 TeV) lies in the lower region: it becomes excluded once the
+      record is signed.
+  - id: sabti-1910.01649-bbn
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 304b455590d36c9c72275b0df1f9b8a2e9f29a3bd67b05651925e0ee425ddb85
+    confidence_level: 0.954
+    name: "BBN and the CMB (N_eff): light mediators in equilibrium with electrons or neutrinos"
+    constraint_class: cosmology
+    figure: {arxiv: "1910.01649", page: 10, label: "Table II"}
+    source: "Sabti, Alvey, Escudero, Fairbairn & Blas arXiv:1910.01649 (JCAP 01 (2020) 004), Table II (BBN+Planck,
+             95.4% CL) and eq. (18); Escudero, Hooper, Krnjaic & Pierre arXiv:1901.02010 eq. (3.15); Ibe et al.
+             arXiv:1912.12152 (dark photon thermalisation)"
+    quantity: "lower bounds on the mass of a light vector in equilibrium (MeV); couplings above which it thermalises"
+    data: {electrophilic_vector_mev: 9.8, neutrinophilic_vector_mev: 8.3, dark_photon_thermal_epsilon: 1.0e-8,
+           lmu_ltau_thermal_g: 4.0e-9, b_minus_l_mev: 10.0,
+           b_minus_l_g_at_10_mev: 5.0e-7, applies_below_mev: 20.0}
+    assumptions:
+      - "a vector of 3 polarisations in equilibrium with electrons (the dark photon) or neutrinos (the L_μ − L_τ Z′)
+         at neutrino decoupling; BBN+Planck column of Table II (95.4% CL)"
+      - "the dark photon thermalises for ε ≳ 10⁻⁸ (Ibe et al., Fig. 2); below, the freeze-in dark photon is judged by
+         Ibe et al.'s Fig. 4(a) (record ibe-1912.12152-dark-photon-neff; corrected 2026-10-13: before, undecided
+         between 10⁻¹⁰ and 10⁻⁸ and not applied below 10⁻¹⁰)"
+      - "B − L (eq. (18)): m_Z′ ≲ 10 MeV with g ≳ 5 × 10⁻⁷ √(10 MeV/m_Z′) excluded"
+    checks: ["records survey (2026-10-04): Table II read from the paper; the L_μ − L_τ threshold 4 × 10⁻⁹ from eq. (3.15)"]
+    notes: |
+      Where each stored value is in its source:
+
+      | stored value | where to find it |
+      |---|---|
+      | 9.8 MeV, electrophilic vector | Sabti et al., Table II, page 10: the lower Vector block, 3-B row, BBN+Planck column |
+      | 8.3 MeV, neutrinophilic vector | The same table: the upper Vector block, 3-B row, BBN+Planck column. Both mass bounds are at 95.4% CL |
+      | 10 MeV and 5 × 10⁻⁷, B − L | Sabti et al., page 13, the paragraph immediately before Section VI, which gives the exclusion explicitly; eq. (18), page 11, supplies its derivation |
+      | 4 × 10⁻⁹, L_μ − L_τ | Escudero et al., eq. (3.15), PDF page 11: the coupling needed for early thermalisation through muon interactions |
+      | ε ∼ 10⁻⁸, dark-photon thermalisation | Ibe et al., Section 4, PDF pages 8–9 and Fig. 2: their 5 MeV example thermalises at this mixing; larger mixing approaches the fully thermalised result |
+      | ε ∼ 10⁻¹⁰, partial production | The same section and figure: this example undergoes out-of-equilibrium production and decay. It is a representative regime value, not a universal boundary |
+      | 20 MeV, applicability cutoff | Sabti et al., introductory eqs. (2)–(3), page 3, state an approximate m ≲ 20 MeV range; ADROIT adopts it as its implementation cutoff |
+
+      Both ε ∼ 10⁻⁸ and the 20 MeV cutoff are approximate (the owner, 2026-10-17; the external audit's item 18). Near
+      ε = 10⁻⁸ the result is good up to an O(1) factor in ε: across it the mass bound moves from 8.5 MeV (Ibe et al.'s
+      freeze-in region) to 9.8 MeV, and a verdict that changes within a factor 3 of 10⁻⁸ is flagged. The cutoff
+      decides no verdict: every bound applied lies below 10 MeV.
+
+      The B − L exclusion is explicitly m_Z′ ≲ 10 MeV with g_B−L ≳ 5 × 10⁻⁷ √(10 MeV / m_Z′).
+
+      (2026-10-13: ε ∼ 10⁻¹⁰ is no longer stored. Below ε = 10⁻⁸ the dark photon is judged by Ibe et al.'s Fig. 4(a),
+      the (m, ε) region Planck's N_eff excludes: record ibe-1912.12152-dark-photon-neff.)
+
+  - id: ibe-1912.12152-dark-photon-neff
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 07562c0c08711e70491fea588197fb8f26a552478f69f178526c8fe0567c488f
+    confidence_level: 0.95
+    name: "Ibe, Kobayashi, Nakayama & Shirai 2020: N_eff from a freeze-in MeV dark photon"
+    constraint_class: cosmology
+    figure: {arxiv: "1912.12152", page: 11, label: "Fig. 4(a), the red (Planck) region"}
+    source: "Ibe, Kobayashi, Nakayama & Shirai, arXiv:1912.12152, Fig. 4(a) (freeze-in): the region excluded by Planck's
+             N_eff = 2.99 +0.34 −0.33 (95% CL)"
+    data_file: adroit/constraints/data/digitised/ibe_1912.12152_fig4a.yaml
+    quantity: "the region of (m_γ′, ε) excluded by N_eff for a dark photon produced by freeze-in"
+    assumptions:
+      - "the minimal dark photon: produced by freeze-in from the Standard Model plasma (no initial abundance; the paper
+         solves the Boltzmann equations from T = 300 MeV) and decaying to e⁺e⁻; applied only where the A′ cannot
+         decay to dark matter (2m_χ ≥ m_A′), otherwise undecided"
+      - "above the e⁺e⁻ threshold (m_A′ ≥ 1.022 MeV), the paper's own domain; below it the A′ decays to three photons,
+         and the figure's CMB-distortion and reionisation bound (yellow) is not recorded: undecided"
+      - "below ε = 10⁻⁸, where the dark photon is not thermalised (above, Sabti et al.'s equilibrium bound applies:
+         record sabti-1910.01649-bbn); within the figure (ε from 10⁻¹¹ to 10⁻², m_A′ up to 100 MeV) excluded inside
+         the red region and allowed outside it; below ε = 10⁻¹¹ allowed, since the figure's outermost N_eff contour
+         (3.0) closes above ε ≈ 2 × 10⁻¹¹ at every mass"
+    checks: ["digitised from the PDF's vector path (scripts/digitise_ibe_dark_photon_neff.py): 118 vertices; the region's
+              right edge at 8.47 MeV for large ε matches the text's 'm_γ′ < 8.5 MeV has been excluded' (PDF page 9);
+              its lowest ε is 4.05 × 10⁻¹⁰, at 4 MeV"]
+    notes: ""
+
+  - id: escudero-1901.02010-neff
+    verified_on: 2026-11-07
+    verified_by: JU
+    verification_sha256: 52b59041fc48210154a7480d5173c60cbb82554503397baa019a0e145a81b7e0
+    confidence_level: 0.95
+    name: "L_μ − L_τ Z′: ΔN_eff from its thermalisation with neutrinos (Planck 2018)"
+    constraint_class: cosmology
+    figure: {arxiv: "1901.02010", page: 6, label: "Fig. 2: top (no kinetic mixing) and bottom (ε = g/70)"}
+    source: "Escudero, Hooper, Krnjaic & Pierre, arXiv:1901.02010 (JHEP 03 (2019) 071), Fig. 2, from the PDF's
+             stroked contours of constant ΔN_eff, each clipped to its frame"
+    data_file: adroit/constraints/data/digitised/escudero_1901.02010_neff.yaml
+    quantity: "ΔN_eff = 0.5, 0.2 and 0.1 contours in the plane of log₁₀(m_Z′/MeV), −6.155 to 2.602, and log₁₀ g_μ−τ,
+               −13.097 to −2.398 (the figure's frames)"
+    assumptions:
+      - "the owner (2026-10-19): Planck 2018 decides, excluding inside the ΔN_eff = 0.5 contour; between 0.2 and 0.5
+         undecided (Planck's ΔN_eff ≲ 0.3 crosses the band); ACT DR6 (N_eff = 2.86 ± 0.13, arXiv:2503.14454) only
+         flags, inside the 0.1 contour"
+      - "the paper's Z′ has L_μ − L_τ's couplings only, and in the bottom frame the photon's through ε = g/70: below
+         2m_μ it decays to neutrinos and, with the mixing, to e⁺e⁻; it has no decay to dark matter. ADROIT's own
+         threshold, not the paper's: a Z′ with more than 1% of its width into dark matter is undecided"
+      - "the bottom frame (natural kinetic mixing, ε = g/70) for the library's L_μ − L_τ, which has that loop; the top
+         frame for a generic vector with exactly L_μ − L_τ's charges and no kinetic mixing"
+      - "applied where the paper's text says a light Z′ equilibrates with the neutrinos through inverse decays,
+         g ≳ 1.3 × 10⁻¹⁰ (m/MeV)^½ (§3.2); below that line a Z′ that never equilibrates can decay late and raise N_eff
+         a lot (the paper's Fig. 4, with oscillations and ε = g/70: N_eff = 4.39 at 5 MeV, g = 10⁻¹⁰), which Fig. 2
+         does not show, so no outcome there (BBN's is undecided)"
+      - "applied only inside the figure's frames, no outcome outside them; and, ADROIT's own limit, not the paper's,
+         below 40 MeV: above it every contour lies to its left in the figure, at every coupling the figure shows"
+    checks: ["the text: early equilibrium for g ≳ 4 × 10⁻⁹ (eq. (3.15)), the ΔN_eff ≃ 0.21 plateau below it (§3.2);
+              the stored 0.5 contour is horizontal at log₁₀ g = −8.57 (both frames) and, in the top frame, vertical at
+              log₁₀(m/MeV) = 1.00",
+             "the contours are the PDF's own path vertices (to 6 × 10⁻⁵), each clipped to its frame's lines, the
+              crossings interpolated (re-extracted 2026-11-06: the earlier rows ran on under the frame's clip, to
+              log₁₀(m/MeV) = −14.24 and log₁₀ g = −0.35); drawn back over the page, each lies on the paper's line;
+              the ticks give the calibration in both frames",
+             "the paper's Fig. 4 (ε = g/70, with oscillations): N_eff = 3.4 at (5 MeV, 5 × 10⁻⁸) and at (13 MeV,
+              5 × 10⁻⁴), ΔN_eff 0.36, both between the stored bottom frame's 0.2 and 0.5 contours; N_eff = 3.32 at
+              (13 MeV, 10⁻⁹), ΔN_eff 0.28, lies just outside Fig. 2's 0.2 contour (between 0.1 and 0.2): the paper's two
+              figures differ by about 0.1 in log m at the contours' corner (the stored contour follows Fig. 2, whose
+              0.5 contour sits on the figure's own 10 MeV tick); harmless for a decision, as 0.28 is below Planck's
+              0.3"]
+    notes: |
+      Added 2026-10-20 (the batch plan's §6), unverified. The paper excludes nothing itself: the exclusion is the
+      owner's reading through Planck 2018. Both frames' contours are stored; their figure-anchor review is the
+      owner's. Repaired 2026-11-06 (the owner's review): the contours clipped to the frames, the frames' ranges
+      stated and applied, the axes named as the source names them, and the 40 MeV and 1% limits marked as ADROIT's.
+  - id: ccfr-1406.2332-trident
+    verified_on: 2026-10-17
+    verified_by: JU
+    verification_sha256: 274476f18b1367d9d0e321a8c81d140f3fc740cec3d63e548908c45a36783c7a
+    verification_history: [{"on": "2026-10-12", "by": "JU", "payload_sha256": "fabf766a3d15a207b24c03260d2fbbbe589bb1bd3557b95693be616a7ed9ff46"}]
+    confidence_level: 0.95
+    name: "CCFR: neutrino trident production bounding an L_μ − L_τ Z′"
+    constraint_class: beam_dump
+    figure: {arxiv: "1406.2332", page: 3, label: "Fig. 2"}
+    source: "Altmannshofer, Gori, Pospelov & Yavin arXiv:1406.2332 (PRL 113, 091801), Fig. 2 (95% CL); the curve as
+             digitised by Bernal et al. (arXiv:2507.02048), fetched into the tools folder (no licence: not copied)"
+    quantity: "g′ upper limit against m_Z′ (GeV), 2.6 MeV – 646 GeV; above, m_Z′/g′ > the heavy limit"
+    data: {heavy_m_over_g_gev: 567.0, highest_mass_gev: 646.0}
+    assumptions:
+      - "the third party's digitisation of Fig. 2; its last point (747 GeV, at the plot's edge) is dropped"
+      - "above 646 GeV the heavy-Z′ limit m_Z′/g′ > 567 GeV, the figure's heavy line as read in the release audit of
+         2026-10-10 (corrected 2026-10-17, the external audit's item 18: before, 580 GeV, the digitisation's constant
+         ratio from 114 to 646 GeV, about 2% stronger)"
+      - "from 114 to 646 GeV the digitisation runs at m_Z′/g′ = 578–581 GeV, up to about 2% above the figure's heavy
+         line: the limit there is good to about 2%"
+    checks: ["records survey (2026-10-04): the heavy-Z′ formula, eq. (11) of the paper, with CCFR's 0.82 ± 0.28 gives
+              m_Z′/g′ > 545 GeV (two-sided 95%) to 618 GeV (one-sided); the digitisation's 578–581 GeV lies between",
+             "the low-mass plateau 8.1 × 10⁻⁴ matches the figure's ≈ 8 × 10⁻⁴"]
+    notes: ""
+
+  - id: smodels-3.2.1
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 689c08fa607a1b5cee27b0df64aae635af8eec38ae0639b55675a0231345ce09
+    confidence_level: 0.95
+    name: "LHC searches recast by SModelS 3.2.1 (its official database: 131 ATLAS and CMS analyses)"
+    constraint_class: collider
+    figure: {arxiv: "2306.17676", page: 1, label: "SModelS v2.3 (the method); the database's validation plots online"}
+    source: "SModelS 3.2.1 (arXiv:2306.17676, GPL-3), database 3.2.1 (doi:10.5281/zenodo.23067688, CC BY 4.0), run
+             in its own environment in the tools folder; cross-sections from the LHC SUSY Cross Section Working
+             Group's 13 TeV tables (NNLL-fast 2.0, Resummino)"
+    quantity: "r = σ × BR / (95% CL upper limit) of the most sensitive result; excluded at r ≥ 1"
+    assumptions:
+      - "a coloured partner: QCD pair production of one colour-triplet scalar (the stop table), φ → qχ; t-channel χ
+         exchange (∝ y⁴) and its interference with QCD are left out: the QCD σ is taken as a lower bound (assuming
+         the interference is not destructive), so r ≥ 1 excludes and r < 1 leaves the point undecided, not allowed
+         (2026-10-12; docs/benchmark_limits.md)"
+      - "a lepton partner: a right-handed slepton's pair production; SModelS's slepton maps (e and μ inclusive)
+         applied to one flavour"
+      - "the wino and higgsino: pure electroweakino production; the chargino's lifetime from its splitting
+         (cτ ≈ 6 cm for a 164 MeV wino), so disappearing tracks are recast"
+      - "a point is allowed only when every tested topology is covered and r < 1; incomplete topology coverage, no
+         result, a σ table without the mass, or a mediator broader than Γ/m = 10% is undecided (corrected 2026-10-10;
+         SModelS's maps assume narrow intermediate states and state no threshold: 10% is ADROIT's choice, after CMS's
+         narrow dijets, kept by the owner 2026-10-12)"
+    checks: ["install survey (2026-10-04): φ(u_R) 900/100 GeV r = 2.32 (ATLAS-SUSY-2018-22); 1500/100 r = 0.46;
+              μ̃_R-like 400/100 r = 1.67 (CMS-SUS-20-001); wino 500 GeV, cτ = 6 cm: r = 3.16 (ATLAS-SUSY-2018-19)",
+             "stop-pair σ at 1 TeV 7.395 fb (2024 NNLL-fast update; the 2016 value was 6.83 fb)"]
+    notes: ""
+
+  # --- the portal library, part 4 (2026-10-04): unverified until the owner verifies them ---
+  - id: atlas-2207.00092-higgs-mu
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 95fb2f9da5e988f17b1470e28377dff40a52d802505a4a786b69d353047f58bf
+    name: "ATLAS: the Higgs boson's global signal strength (139 fb⁻¹, all production and decay modes)"
+    constraint_class: collider
+    figure: {arxiv: "2207.00092", page: 6, label: "main text (the global signal strength)"}
+    source: "ATLAS, arXiv:2207.00092 (Nature 607, 52 (2022)); CMS's arXiv:2207.00043 gives 1.002 ± 0.057"
+    quantity: "μ = σ × BR / (σ × BR)_SM"
+    data: {mu: 1.05, sigma: 0.06}
+    assumptions:
+      - "a scalar mixing with the Higgs (angle θ) gives μ = cos⁴θ Γ_SM / (cos²θ Γ_SM + Γ_new) for the 125 GeV state"
+      - "μ outside 1.05 ± 1.96 × 0.06 is excluded; in the combined likelihood, Δχ² against μ = 1"
+    checks: ["the abstract: 'μ = 1.05 ± 0.06'; CMS's abstract: 1.002 ± 0.057"]
+    notes: ""
+
+  - id: fermi-lat-1506.00013-lines
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: bec98441f091fc96fadd23ae518a1652cfe01a5a2d1760e7f7c91e39f32fa6b3
+    confidence_level: 0.95
+    name: "Fermi-LAT: γ-ray lines from the Galactic halo (Pass 8, 5.8 years), 0.2–500 GeV"
+    constraint_class: indirect_detection
+    figure: {arxiv: "1506.00013", page: 20, label: "Tables II–IV"}
+    source: "Fermi-LAT, arXiv:1506.00013 (PRD 91, 122002), Appendix B, parsed from the arXiv LaTeX source (121 line energies
+             × 5 regions); the indirect-detection survey (2026-10-04)"
+    data_file: adroit/constraints/data/digitised/fermi_1506.00013_lines.yaml
+    quantity: "95% CL upper limit on ⟨σv⟩_γγ (two photons at E = m) against E (GeV)"
+    assumptions:
+      - "the verdict uses the isothermal halo (r_s = 5 kpc, region R90), the most conservative profile at 115 of the 121
+         energies (not at 6; the release audit of 2026-10-10); the NFW
+         and Einasto limits (R41, R16), 3–10× stronger, are stored beside it"
+      - "a Zγ line at E = m − m_Z²/4m is compared with 2(m/E)² times the limit at E (one photon per annihilation).
+         Two positive lines separated by at most 20% are left pending: a conservative applicability guard based on
+         Fig. 1, not a calibrated joint two-line likelihood. For resolved lines use individual cuts, never a sum of ratios"
+      - "a Dirac particle–antiparticle pair annihilates at half the rate (the limits assume self-conjugate dark matter)"
+    checks: ["survey: the PDF's text parsed independently gives no mismatch with the LaTeX parse",
+             "H.E.S.S. 2026's Fig. 2 replot of R16 equals Table IV to < 0.1%"]
+    notes: ""
+
+  - id: hess-1805.05741-lines
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: b1b0bda272992ebe4b3260220c0c86d67f551200f659f61253735e21ecf5b55c
+    confidence_level: 0.95
+    name: "H.E.S.S.: γ-ray lines from the inner Galactic halo (ten years), 0.3–63 TeV"
+    constraint_class: indirect_detection
+    figure: {arxiv: "1805.05741", page: 7, label: "Fig. 3"}
+    source: "H.E.S.S., arXiv:1805.05741 (PRL 120, 201101), Fig. 3, digitised from the arXiv source's vector figure (the
+             indirect-detection survey, 2026-10-04)"
+    data_file: adroit/constraints/data/digitised/hess_1805.05741_lines.yaml
+    quantity: "95% CL upper limit on ⟨σv⟩_γγ against m (GeV); with 10% energy resolution, compared with ⟨σv⟩_γγ + ½⟨σv⟩_Zγ"
+    assumptions:
+      - "the verdict uses NFW (ρ⊙ = 0.39 GeV/cm³), the weaker of the paper's two profiles; Einasto is stored beside it"
+      - "a kpc-sized core weakens the limit by 2–3 orders of magnitude (the paper's footnote 3): not covered"
+      - "a Dirac pair annihilates at half the rate"
+    checks: ["the text's ≈ 4 × 10⁻²⁸ at 1 TeV (Einasto): 4.8 × 10⁻²⁸ at 0.97 TeV and 4.3 × 10⁻²⁸ at 1.06 TeV",
+             "H.E.S.S. 2026's Fig. 2 replot agrees to 0.3% (median), 1.4% (maximum)"]
+    notes: ""
+
+  - id: hess-2608.07234-lines
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: 112e68ba23133fdc47f0bfac341b21a26712d5106349ac0e912722fd7ec54960
+    confidence_level: 0.95
+    name: "H.E.S.S.: γ-ray lines from the Inner Galaxy Survey (546 h), 0.3–63 TeV"
+    constraint_class: indirect_detection
+    figure: {arxiv: "2608.07234", page: 5, label: "Fig. 1"}
+    source: "H.E.S.S., arXiv:2608.07234 (PRL 137, 091002), Fig. 1, digitised from the arXiv source's vector figures (the
+             indirect-detection survey, 2026-10-04)"
+    data_file: adroit/constraints/data/digitised/hess_2608.07234_lines.yaml
+    quantity: "95% CL upper limit on ⟨σv⟩_line = ⟨σv⟩_γγ + ½⟨σv⟩_γZ against m (GeV)"
+    assumptions:
+      - "the verdict uses the contracted NFW with a 1 kpc core (ρ⊙ = 0.34 GeV/cm³), the paper's most conservative
+         profile, which ends at 58 TeV (so the verdict covers 0.306–58 TeV); NFW (3.9–5.9× stronger, median 5.0) and the
+         baseline Einasto are stored beside it (corrected 2026-10-10)"
+      - "limits are not rescaled to other profiles: the background comes from OFF regions, so only the paper's profiles
+         are used"
+      - "a Dirac pair annihilates at half the rate"
+    checks: ["the text's 9.8 × 10⁻²⁹ at ≈ 440 GeV, 2.3 × 10⁻²⁸ at 1 TeV, 2.4 × 10⁻²⁷ at 10 TeV (Einasto): digitised
+              9.79 × 10⁻²⁹, 2.27 × 10⁻²⁸, 2.39 × 10⁻²⁷",
+             "the paper: the thermal wino is excluded for every adopted profile (ADROIT: ×8 for the cored profile)"]
+    notes: ""
+
+  - id: dampe-2112.08860-lines
+    verified_on: 2026-11-06
+    verified_by: JU
+    verification_sha256: df96b69fbe45ce688daed59e12f25e94d6cb7f4d47f7be99941e7b2d82ec7d59
+    confidence_level: 0.95
+    name: "DAMPE: γ-ray lines from the inner Galaxy (5 years), 10–300 GeV"
+    constraint_class: indirect_detection
+    figure: {arxiv: "2112.08860", page: 14, label: "Tables S1 and S2 (Fig. 3a–c's red curves)"}
+    source: "DAMPE, arXiv:2112.08860v2 (Science Bulletin 67 (2022) 679), supplementary Tables S1 and S2, read from the
+             PDF's printed text (72 line energies × 3 profiles); the records survey (2026-10-19)"
+    data_file: adroit/constraints/data/digitised/dampe_2112.08860_lines.yaml
+    quantity: "95% CL upper limit on ⟨σv⟩_γγ (two photons at E = m) against E (GeV), with systematic uncertainties"
+    assumptions:
+      - "the verdict uses, at each line energy, the weakest of the paper's three profiles (Einasto R16, NFW R40,
+         isothermal R86; ρ⊙ = 0.4 GeV/cm³, R⊙ = 8.5 kpc); each profile's own limits are stored beside it. Einasto's
+         end at 206 GeV leaves NFW and isothermal above it"
+      - "a Zγ line at E = m − m_Z²/4m is compared with 2(m/E)² times the limit at E (one photon per annihilation).
+         Two positive lines whose separation is at most 50% (the half-width of the paper's sliding energy window,
+         0.5–1.5 E_line, in which the background is fitted; 0.7–1.3 E_line is only its systematic check of the
+         window's width) are left pending: every m above m_Z/√2 ≈ 64.5 GeV with both lines. An applicability guard,
+         not a joint two-line likelihood. A line outside 10–300 GeV (a Zγ line below 10 GeV, for m just above
+         m_Z/2) is not DAMPE's: Fermi-LAT's curve covers it"
+      - "a Dirac particle–antiparticle pair annihilates at half the rate (the limits assume self-conjugate dark matter)"
+      - "the limits use ΔlnL = 1.35 with the systematic uncertainties of the paper's eq. (5); no extragalactic
+         contribution (conservative, as the paper states)"
+    checks: ["the printed tables against an independent vector digitisation of Fig. 3a–c's red curves: median 1.4%
+              (Einasto), 1.0% (NFW), 1.3% (isothermal); 90% within 4.2%, 2.3%, 4.6% (two printed digits); larger
+              only on the curves' spikes and at Einasto's end (206 GeV)",
+             "the tables' first and hundred-GeV rows: isothermal 7.9 × 10⁻²⁹ at 10 GeV and 7.2 × 10⁻²⁸ at 100 GeV;
+              NFW 2.0 × 10⁻²⁹ and 5.0 × 10⁻²⁸"]
+    notes: "staged for review (branch dampe-record): unsigned, it leaves every line verdict it covers pending"
+
+  - id: calore-2202.03076-pbar
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 078cad32471899c473e03e26670c8773290ce241b1dad9e6efa66b6a8599f4f4
+    confidence_level: 0.95
+    name: "AMS-02 antiprotons: robust bounds on annihilating dark matter (Calore et al.)"
+    constraint_class: indirect_detection
+    figure: {arxiv: "2202.03076", page: 12, label: "Fig. 2"}
+    source: "Calore et al., arXiv:2202.03076 (SciPost Phys. 12, 163), Fig. 2, digitised from the paper's vector figure (the
+             indirect-detection survey, 2026-10-04)"
+    data_file: adroit/constraints/data/digitised/calore_2202.03076_pbar.yaml
+    quantity: "95% CL upper limits on ⟨σv⟩ for bb̄, qq̄, W⁺W⁻, hh and μ⁺μ⁻ against m (GeV)"
+    assumptions:
+      - "the curves are the paper's central bound: BIG transport with the halo height and solar modulation profiled,
+         NFW with ρ⊙ = 0.385 GeV/cm³; the limits scale as ρ⊙⁻²"
+      - "propagation: three declared models (constraints.propagation; data/propagation/calore-2202.03076-pbar.yaml from
+         the paper's Fig. 4): central as tabulated; conservative and aggressive the weakest and strongest bound over its
+         transport schemes (BIG, SLIM, QUAINT) and halo profiles (NFW, cored, contracted), mass by mass (×1.1–3.4 weaker,
+         ×1.4–5 stronger). The verdict uses the chosen model (default conservative); an exclusion by a stronger model
+         is flagged, never counted (2026-10-11)"
+      - "channel mixtures by the conservative mixture rules (constraints.mixtures): own curves for b b̄, light quarks,
+         W⁺W⁻, hh and μ⁺μ⁻, declared proxies with their reasons for the rest (data/mixture_rules.yaml); no outcome
+         below the curves' 10 GeV (2026-10-11)"
+      - "a Dirac pair annihilates at half the rate"
+      - "analyses differ by 3–10× at some masses (propagation, the ≈ 100 GeV 'hint'); Calore et al. is the survey's choice
+         of a robust bound"
+    checks: ["the survey: Calore's bb̄ curve digitised from six panels agrees to < 0.5%; the 7-year update (Stefanuto et
+              al. arXiv:2605.08338) differs by ≤ 2.2×"]
+    notes: ""
+
+  - id: atlas-2009.14791-zz
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 769f4c324f0b4666d0d9a8cb595f07ba322c42789ef96d29cb19e12e988b7f00
+    verification_history: [{"on": "2026-10-12", "by": "JU", "payload_sha256": "968161b91e963f1d2d3e0f2f22ecdb6ffcd5707d7fcb0b2f40e3f51bcaabbc7f"}]
+    confidence_level: 0.95
+    name: "ATLAS: a heavy scalar decaying to ZZ (4ℓ, 2ℓ2ν; 139 fb⁻¹), gluon fusion"
+    constraint_class: collider
+    figure: {arxiv: "2009.14791", page: 26, label: "Fig. 4(a), HEPData Table 10; the broad widths, Tables 12–15, are Fig. 5 (p. 27)"}
+    source: "ATLAS, arXiv:2009.14791 (EPJC 81 (2021) 332), HEPData ins1820316 v1 Table 10 (CC0), fetched by the MadGraph
+             survey (2026-10-04)"
+    data_file: adroit/constraints/data/digitised/atlas_2009.14791_zz.yaml
+    quantity: "observed 95% CL upper limit on σ(gg → H) × BR(H → ZZ) (pb) for a narrow scalar, 210 GeV – 2 TeV"
+    assumptions:
+      - "applied to the singlet mixing's h₂: σ = sin²θ × the Higgs Cross Section Working Group's heavy-Higgs σ(gg → H)
+         (NNLO+NNLL), BR from h₂'s own widths; vector-boson fusion (≈ 10%) is left out (conservative)"
+      - "the width (corrected 2026-10-12): the narrow table for Γ/m < 0.5%, the validity ATLAS states (§9.1.1).
+         Tables 12–15 (Γ/m = 1, 5, 10, 15%, from 400 GeV) include the heavy scalar's interference with the SM Higgs
+         boson, modelled for H and h with the same production and decay amplitudes, and with the gg → ZZ continuum (§5);
+         they are applied, interpolated linearly in the width with the narrow table as 0%, only to a model that matches
+         this. The singlet's h₂ does not (its H–h interference relative to the signal is cot²θ times ATLAS's), so
+         Γ/m ≥ 0.5% is undecided"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  - id: atlas-2004.14636-ww
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: bd078005b200fde5d8d7869f229e175949956bde002ff7d50b87aeeeb496ef1d
+    verification_history: [{"on": "2026-10-12", "by": "JU", "payload_sha256": "616d9057dc8013acb312d47a50fc55e05bbdfddb2ab02a668ae51aa49f498946"}]
+    confidence_level: 0.95
+    name: "ATLAS: a heavy spin-0 resonance decaying to WW (ℓνqq; 139 fb⁻¹), gluon fusion"
+    constraint_class: collider
+    figure: {arxiv: "2004.14636", page: 30, label: "auxiliary Fig. 21(a), HEPData Table 16 (not in the paper; its WW+ZZ radion limit is Fig. 12(a))"}
+    source: "ATLAS, arXiv:2004.14636 (EPJC 80 (2020) 1165), HEPData ins1793572 v1 Table 16 (CC0), fetched by the MadGraph
+             survey (2026-10-04)"
+    data_file: adroit/constraints/data/digitised/atlas_2004.14636_ww.yaml
+    quantity: "observed 95% CL upper limit on σ(gg → X) × BR(X → WW) (pb) for a narrow spin-0 resonance, 0.3–5 TeV"
+    assumptions:
+      - "the paper's spin-0 benchmark is a radion; its acceptance is that of any narrow gluon-fused scalar"
+      - "applied to the singlet mixing's h₂ as the ZZ record is; narrow (corrected 2026-10-12): Γ/m below 0.6 of the
+         ℓνqq mass resolution (7% at 1 TeV to 4% at 5 TeV; §5.6: 'narrow resonances, whose intrinsic widths are smaller
+         than the detector mass resolution'), the largest ratio ATLAS applies its limits to: its radion, Γ/m = 3.2% at
+         3 TeV, where the resolution is 5.5% (Table 1)"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  - id: cms-2107.13021-monojet-spin0
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: f1823f70937324a6ac43d41b2221ef4411ba6959eefa2cd08b396ccfb5786f99
+    confidence_level: 0.95
+    name: "CMS: monojet and mono-V limits on a spin-0 mediator to dark matter (137 fb⁻¹ combined)"
+    constraint_class: collider
+    figure: {arxiv: "2107.13021", page: 21, label: "Fig. 9, HEPData 'Signal strength limits, scalar/pseudoscalar mediator' (HEPData: Fig. 8)"}
+    source: "CMS, arXiv:2107.13021 (JHEP 11 (2021) 153), HEPData ins1894408 v2 (CC0), fetched by the MadGraph survey
+             (2026-10-04)"
+    data_file: adroit/constraints/data/digitised/cms_2107.13021_monojet_spin0.yaml
+    quantity: "observed 95% CL upper limit on the signal strength μ of the DMsimp scalar and pseudoscalar mediators
+               (g_q = g_χ = 1, m_DM = 1 GeV), 50–800 GeV"
+    assumptions:
+      - "a point's μ = g_q² × BR(S → χχ̄)/BR_benchmark(S → χχ̄): the same gluon fusion through the top loop, so only the
+         coupling and the invisible branching fraction change"
+      - "used where m_med > 2m_χ; the missing-momentum spectrum is the benchmark's (m_DM = 1 GeV), a fair approximation
+         away from the threshold"
+      - "the scalar table for a CP-even coupling to quarks, the pseudoscalar table for a CP-odd one"
+      - "NWA rescaling is restricted to Γ/M no larger than the g_q=g_χ=1, m_DM=1 GeV benchmark at the same mediator mass;
+         this is a conservative benchmark-width domain, not a universal width threshold. Broader points need templates.
+         See arXiv:1603.04156 sections 3.1–3.2 on shape preservation and the benchmark's narrow width."
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  # --- the portal library, part 5 (2026-10-04): unverified until the owner verifies them ---
+  - id: cms-1806.00843-dijet
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: a75423a9d807224a37c23222fd21ed39289d2aa1116c432cab0305b3beb50ef6
+    confidence_level: 0.95
+    name: "CMS: narrow dijet resonances from 0.6 TeV (data scouting), a leptophobic Z′'s quark coupling"
+    constraint_class: collider
+    figure: {arxiv: "1806.00843", page: 22, label: "Fig. 13, HEPData 'Coupling limits (Quark only)'"}
+    source: "CMS, arXiv:1806.00843 (JHEP 08 (2018) 130), HEPData ins1676214 (CC0)"
+    data_file: adroit/constraints/data/digitised/cms_1806.00843_dijet.yaml
+    quantity: "observed 95% CL upper limit on the universal quark coupling g_q′ of a Z′ coupling only to quarks, 0.6–3.7 TeV"
+    assumptions:
+      - "a Z′ with σ and BR(jj) acts as g_eff² = σ BR(jj)/(σ₁ BR_ref(jj)): σ₁ the unit-coupling LO σ, BR_ref(jj) the
+         quark-only Z′'s (the five light flavours over all quarks); r = (g_eff/g_lim)²"
+      - "used for Γ/m ≤ 10% (the narrow-resonance analysis); 27 fb⁻¹ (data scouting, low mass) and 36 fb⁻¹ (corrected 2026-10-10)"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  - id: atlas-1910.08447-dijet-gaussian
+    verified_on: 2026-10-17
+    verified_by: JU
+    verification_sha256: 469bf0acf879794c19c62cd5d61c8cb5773b9d24c6a8d602cc0d574f2460cd51
+    verification_history: [{"on": "2026-10-12", "by": "JU", "payload_sha256": "cdb28192f841ab2e9f06056e7aa01a94a9f4a85f2dae2eddda28f017ae36704e"}, {"on": "2026-10-12", "by": "JU", "payload_sha256": "cd1b83919384b08605423efa22168d8338e84209afc55c7bb21006001fe706eb"}]
+    confidence_level: 0.95
+    name: "ATLAS: dijet resonances of Gaussian width up to 15% (139 fb⁻¹), for broad Z′"
+    constraint_class: collider
+    figure: {arxiv: "1910.08447", page: 16, label: "Fig. 8(a), HEPData Table 15; the acceptance, Table 20, is auxiliary Fig. 8"}
+    source: "ATLAS, arXiv:1910.08447 (JHEP 03 (2020) 145), HEPData ins1759712 (CC0)"
+    data_file: adroit/constraints/data/digitised/atlas_1910.08447_dijet_gaussian.yaml
+    quantity: "observed 95% CL upper limits on σ × A × BR(jj) for Gaussian signals of σ_G/m = 0–15%, 1.2–7 TeV; the DM Z′'s acceptance A"
+    assumptions:
+      - "applied to a Z′ with 10% < Γ/m ≤ 12% (corrected 2026-10-12; ATLAS's widest DM Z′, g_q = 0.5, 'nearly the maximum
+         width to which this search is sensitive')"
+      - "decided by ATLAS's recipe for its Gaussian limits (arXiv:1407.1376 App. A.1, to which arXiv:1703.09127 refers;
+         corrected 2026-10-17, the external audit's item 18): the Breit–Wigner × q q̄ luminosity (ADROIT's narrow-width
+         Z′ table; leading order, parton level) kept within 0.8–1.2 M of the dijets above m_jj = 1.1 TeV, against the
+         10% Gaussian. Where only the Breit–Wigner matched at its full width at half maximum, σ_G = Γ/2.355 (before,
+         the decision), excludes, the point is flagged, not excluded"
+      - "validated against ATLAS's own Breit–Wigner limits (scripts/validate_dijet_breit_wigner.py): its DM Z′ with
+         g_q = 0.5 is excluded below 4.6 TeV (Table 2), by the recipe below 4.2 TeV and by the matching below 4.9 TeV
+         (ratios 0.45 and 1.58 at 4.6 TeV); at 5 TeV with g_q = 0.716 (Table 10, Γ/m = 24%) 0.28 and 1.71. The decision
+         is good up to an O(1) factor, on the conservative side"
+      - "A from ATLAS's DM Z′ of the same width (Γ/m = 3g_q²/(2π)), interpolated between the columns at the mass, from
+         1.5 TeV; where no column of that width exists (10–12% only from 4 TeV), undecided"
+      - "SModelS holds the same paper's narrow maps (ATLAS-EXOT-2019-03); these Gaussian limits are used only for Γ/m >
+         10%, where ADROIT does not apply SModelS's narrow maps (since 2026-10-10), so the data are not counted twice"
+    checks: ["HEPData table, machine-readable: no digitisation",
+             "Tables 15 and 20 compared with HEPData ins1759712 value by value (2026-10-17, the external audit's item 19):
+              371 of 371 identical"]
+    notes: ""
+
+  - id: cms-1908.01115-ttbar
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: b8000d011749a9900483e351a57299dd4c1f32962971ddb6f8363859cb45863c
+    confidence_level: 0.95
+    name: "CMS: heavy scalar and pseudoscalar resonances in tt̄ (35.9 fb⁻¹), interference included"
+    constraint_class: collider
+    figure: {arxiv: "1908.01115", page: 19, label: "Figs. 5 (p. 19) and 6 (p. 20), HEPData Figures 5 and 6"}
+    source: "CMS, arXiv:1908.01115 (JHEP 04 (2020) 171), HEPData ins1747886 (CC0), fetched by the MadGraph survey (2026-10-04)"
+    data_file: adroit/constraints/data/digitised/cms_1908.01115_ttbar.yaml
+    quantity: "observed 95% CL excluded bands of the top-coupling modifier g_Φtt, 400–750 GeV, Γ/m = 0.5–25%"
+    assumptions:
+      - "g_Φtt is the top coupling in units of the Standard Model's m_t/v: g_q for the DMsimp spin-0 mediator, sin θ for
+         the singlet's h₂, s_θ/t_β, c_θ/t_β and 1/t_β for the 2HDM+a's a, A and H"
+      - "between two tabulated widths a point is excluded only if both exclude it, allowed only if both allow it; Γ/m
+         below 0.5% uses the 0.5% table; above 25% undecided; a cut only (no ratio in the combined likelihood)"
+      - "CMS's signal is one state produced through the top-quark loop, whose interference with QCD tt̄ 'depends on the
+         specific signal model' (Section 1): a state whose b-quark loop changes gg → Φ by more than 10%, or that another
+         state of the same CP overlaps within their widths, is undecided (2026-10-12)"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  - id: atlas-2108.13391-monoh
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 270d4fa473fe4e1f120727fc90fc6d9ff4bb7c087f9ffacd6789312e75171052
+    confidence_level: 0.95
+    name: "ATLAS: mono-Higgs (h → b b̄) and the 2HDM+a (139 fb⁻¹)"
+    constraint_class: collider
+    figure: {arxiv: "2108.13391", page: 22, label: "auxiliary Figs. 2(a) and 3(a), HEPData 'Limits_2HDMa_tb1_sp0p35' (the paper's contour is Fig. 8(a))"}
+    source: "ATLAS, arXiv:2108.13391 (JHEP 11 (2021) 209), HEPData ins1913723 (CC0)"
+    data_file: adroit/constraints/data/digitised/atlas_2108.13391_monoh.yaml
+    quantity: "observed 95% CL upper limit on σ(pp → h + χχ̄) of the 2HDM+a's gluon-fused signal at 94 (m_A, m_a) points (fb)"
+    assumptions:
+      - "the limit depends on the masses only (narrow states, a → χχ̄); a point's resonant σ(gg → A) BR(A → a h)
+         BR(a → χχ̄) at leading order, at any (sin θ, tan β); interpolated linearly over ATLAS's grid in (m_A, m_a) and
+         log σ₉₅; outside the grid undecided"
+      - "ATLAS's benchmark σ is not purely resonant (736 fb at (m_A, m_a) = (2200, 150) GeV): over its 50 narrow-A nodes
+         our resonant σ is 0.419–1.240 of ATLAS's, so a point is excluded only for r > 1.240, allowed only for r < 0.419,
+         and undecided between (corrected 2026-10-10, audit M2)"
+      - "b b̄ → A (important at large tan β) is left out: conservative"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  - id: atlas-2111.08372-monoz
+    verified_on: 2026-10-12
+    verified_by: JU
+    verification_sha256: 3fa585d5760efc887840dfe5b618686a41744021a70c8d2b0c6e45647071bd1a
+    confidence_level: 0.95
+    name: "ATLAS: mono-Z (Z → ℓℓ) and the 2HDM+a (139 fb⁻¹)"
+    constraint_class: collider
+    figure: {arxiv: "2111.08372", page: 16, label: "Fig. 5(e) and (f), HEPData Tables 14 and 16"}
+    source: "ATLAS, arXiv:2111.08372 (PLB 829 (2022) 137066), HEPData ins1969392 (CC0)"
+    data_file: adroit/constraints/data/digitised/atlas_2111.08372_monoz.yaml
+    quantity: "observed 95% CL exclusion contours of the 2HDM+a in (m_a, m_H) at tan β = 1, sin θ = 0.35 and 0.7"
+    assumptions:
+      - "only contours are published, so the rule is monotone: at the point's (m_a, m_H), σ(gg → H) BR(H → a Z) BR(a →
+         χχ̄) is compared with each contour's reference model (tan β = 1, λ = 3, m_χ = 10 GeV, y_χ = 1); inside with at
+         least its rate: excluded; outside with at most its rate: allowed; otherwise undecided"
+      - "exact at the benchmark couplings of a contour (sin θ = 0.35 or 0.7, tan β = 1, λ₃ = λ_P1 = λ_P2 = 3, m_H = m_A
+         = m_H±; any m_χ and y_χ, which enter every diagram through BR(a → χχ̄)). Beyond them, inside sin θ 0.2–0.7,
+         tan β 1–5, λ's = 3, m_H = m_A = m_H± 500–800 GeV and m_a 150–300 GeV, the thresholds become the range of the
+         shift s of the resonant-to-full ratio from the contour's benchmark, from MadGraph's full gg → Z a times
+         BR(a → χχ̄): inside with at least max s times the reference's rate, excluded; outside with at most min s times
+         it, allowed (s within 0.959–1.021; docs/monoz/README.md). Elsewhere undecided (2026-10-12)"
+      - "m_a below 100 GeV (the plane's edge): not applied"
+    checks: ["HEPData table, machine-readable: no digitisation"]
+    notes: ""
+
+  # Mixed/cascade spectral recast, proposed 2026-10-07. Requires human review.
+  - id: fermi-2311.04982-spectral
+    verified_on: 2026-10-13
+    verified_by: JU
+    verification_sha256: f1a57c01b2064fad0e2d73078f42849b93a7fea890c259d40802cd68b28aa63d
+    confidence_level: 0.95
+    name: "McDaniel et al. 2024: Fermi-LAT 14.3-year, 42-dwarf spectral recast"
+    constraint_class: indirect_detection
+    figure: {arxiv: "2311.04982", page: 13, label: "Fig. 6 (benchmark limits; corrected 2026-10-10; its caption is on PDF page 13, corrected 2026-10-12); Table I and public SED likelihoods"}
+    source: "McDaniel et al., Phys. Rev. D 109, 063024 (2024), arXiv:2311.04982; Figshare 24058650 (CC BY 4.0)"
+    quantity: "sigma_v_cm3_s, one-sided profiled 95% upper limit, fixed mass and photon spectrum"
+    data: {benchmark_dwarfs: 42, threshold: 2.71}
+    assumptions:
+      - the authors' 42-dwarf benchmark and standard point-source SEDs; 0.5 GeV to 1 TeV
+      - index-two bin templates evaluated at reference energies, following the released author example
+      - independent Gaussian priors in log10 J, profiled within eight sigma; no trial-J Jacobian
+      - PPPC4DMID unpolarized photon showers including electroweak corrections; prompt on-shell spin-zero decays within the emitting source
+      - the candidate is all dark matter by default; Dirac flux is half the self-conjugate flux
+      - observed upper limit only; no blank-field discovery significance
+      - overlaps the 2015 dwarf data; used only when the existing pure-channel comparison is unavailable
+    checks:
+      - "Pinned Figshare archive MD5 53ece3239910abec1934432c621c54b0 and CSV MD5 1627630e27c73cded88370a9344c66a2; every benchmark SED required"
+      - "Unverified proposal: numerical validation is documented in docs/mixed_cascade_spectra.md and the dated audit report; a person must review this new recast"
+    notes: ""

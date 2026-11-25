@@ -1,0 +1,33 @@
+{
+ "kind": "single_idea",
+ "title": "scalar_mediator_for_O1 for CDMS II Si (2013)",
+ "folder": ".",
+ "created": "2026-10-11T06:10:02+00:00",
+ "inputs": {
+  "experiment": "CDMS II Si (2013)",
+  "model": "scalar_mediator_for_O1",
+  "promoted_from": "O1s@10",
+  "origin": "simplified completion"
+ },
+ "steps": [
+  "fit at each mass",
+  "global significance",
+  "combination with the null experiments",
+  "best-fit band",
+  "Track 1 around the band"
+ ],
+ "cost_usd": 0.0,
+ "outputs": [
+  ".track1.lock",
+  "parameter_plane.png",
+  "progress.json",
+  "report.md",
+  "result.evidence.json",
+  "result.json"
+ ],
+ "parent": "../..",
+ "children": [],
+ "calculation_started_at": "",
+ "calculation_completed_at": "",
+ "model_references": []
+}

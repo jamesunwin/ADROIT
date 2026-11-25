@@ -1,0 +1,117 @@
+# Conservative mixture rules (adroit.constraints.mixtures): how a channel mixture is compared with a search
+# that publishes limits for annihilation entirely into one channel.
+#
+# own:      channels with their own published curve (channel -> curve).
+# none:     channels that give the search no signal, with the reason (optionally only below a mass).
+# bounded:  channels without a curve, bounded by a proxy curve times a factor:
+#             by: strongest  -> the strongest of `among` (default: every curve) at this mass;
+#             by: <curve>    -> that curve;
+#             by: {curve: w} -> a weighted sum of curves (the bound adds w x each curve's ratio);
+#             by: dominance  -> computed: the largest bin-by-bin ratio of PPPC yields (photons only).
+# default:  how any other channel is bounded (same keys as a bounded entry, without `channels`).
+# A channel in none of these lists, with no default, leaves the mixture's upper bound undefined (the search stays
+# undecided unless a channel with its own curve already excludes the point).
+
+icecube-1612.05949-sd:
+  messenger: neutrinos from the Sun
+  own: {b: bb, W: WW, tau: tautau}
+  none:
+    channels: [u, d, s, g, gg, e, mu, gamma, aa_photons, photons]
+    reason: >-
+      their products stop or are absorbed in the Sun before decaying, so their neutrinos lie below IceCube's
+      threshold (light hadrons and muons decay at rest)
+  bounded:
+    - channels: [c, t, Z, hh, Zh, Zgamma]
+      by: strongest
+      factor: 1.0
+      reason: >-
+        a neutrino spectrum no harder than the hardest published channel: tau+tau- is 2-4.5x stronger than
+        W+W- at every mass of the record, and Z, h and t decays give neutrinos no harder than W's
+    - channels: [nu, nu_e, nu_mu, nu_tau]
+      by: strongest
+      factor: 100.0
+      reason: >-
+        a neutrino line at m_chi carries the most detectable energy per annihilation; with a muon rate
+        growing as E_nu^2 it is about 9x W+W-'s, so 100x the hardest channel bounds it before solar
+        absorption, which only lowers it
+  default:
+    by: strongest
+    factor: 100.0
+    reason: >-
+      no final state is more detectable per annihilation than a neutrino line at m_chi (each neutrino carries at
+      most m_chi and the detector's response grows faster than linearly with energy), so the line's bound holds
+      for any channel
+
+# γ-ray lines (the owner, 2026-10-14, D16): γγ and Zγ are bounded here by their binned PPPC photons, the line's photons
+# counted in their bin (spectra.binned). The separate 2024 recast refuses them: its released likelihoods read dΦ/dE at
+# each bin's reference energy, which a line does not have. So these mixtures are decided here or stay undecided.
+fermi-1503.02641-dsph:
+  messenger: photons from dwarf galaxies
+  own: {e: ee, mu: mumu, tau: tautau, u: uu, d: uu, s: uu, b: bb, W: WW}
+  bounded:
+    - channels: [c, t, Z, g, gg, hh, nu, nu_e, nu_mu, nu_tau, gamma, aa_photons, photons, Zh, Zgamma]
+      by: dominance
+      bins: {low_gev: 0.5, high_gev: 500.0, count: 24}
+      reason: >-
+        PPPC photon yields (with electroweak corrections) integrated over the analysis's 24 logarithmic bins
+        from 500 MeV to 500 GeV; the factor is the largest ratio of the channel's yield to the proxy's over
+        those bins, and the proxy giving the smallest bound is used
+  default:
+    by: dominance
+    bins: {low_gev: 0.5, high_gev: 500.0, count: 24}
+    reason: >-
+      a channel without a PPPC spectrum (a cascade or another state) is bounded by the energy budget: an
+      annihilation puts at most 2 m_chi into photons, so a bin starting at E holds at most 2 m_chi / E of them
+
+# Cascades through new states (the owner, 2026-10-14, D17): no rule. The published limits are for pure channels, and a
+# cascade's antiproton spectrum (boosted decays) is none of them, with no proxy that bounds it in every bin; the
+# search stays undecided rather than take a guessed bound.
+calore-2202.03076-pbar:
+  messenger: antiprotons (AMS-02)
+  own: {b: bb, u: qq, d: qq, s: qq, W: WW, hh: hh, mu: mumu}
+  none:
+    channels: [e, mu, tau, nu, nu_e, nu_mu, nu_tau, gamma, aa_photons, photons]
+    below_gev: 40.19
+    reason: >-
+      no antiprotons: tau decays cannot make a proton pair (m_tau < 2 m_p), and when 2 m_chi < m_W no W or Z
+      can be radiated
+  bounded:
+    - channels: [e, tau, nu, nu_e, nu_mu, nu_tau, gamma, aa_photons, photons]
+      by: mumu
+      factor: 2.0
+      reason: >-
+        antiprotons only from radiated W and Z bosons, alike for every lepton; the factor 2 covers purely
+        left-handed neutrinos, which radiate more than unpolarised charged leptons
+    - channels: [Z]
+      by: WW
+      factor: 1.25
+      reason: >-
+        Z and W decay to hadrons alike (69.9% and 67.4%) into jets of the same energy; LEP measured about 10-15%
+        more protons per hadronic Z decay than per hadronic W decay, inside the factor 1.25
+    - channels: [Zh]
+      by: {WW: 0.625, hh: 0.5}
+      reason: >-
+        one Z and one h, each with E close to m_chi: half of ZZ (bounded by 1.25 x W+W-) plus half of hh
+    - channels: [Zgamma]
+      by: {WW: 0.625, mumu: 1.0}
+      reason: >-
+        one Z (half of ZZ, bounded by 1.25 x W+W-) and one photon, which gives antiprotons only through
+        electroweak radiation (bounded as for leptons)
+    - channels: [t]
+      by: {bb: 1.0, WW: 1.0}
+      reason: >-
+        each top decays to a b and a W of lower energy than those of the b-bbar and W+W- channels at the same
+        mass, and a lower-energy jet gives no more antiprotons at a given energy (the multiplicity at fixed
+        energy grows with the jet's energy)
+    - channels: [c]
+      by: qq
+      factor: 1.0
+      reason: >-
+        a charm jet's leading charmed hadron takes energy that a light-quark jet gives to light hadrons and
+        baryons
+    - channels: [g, gg]
+      by: qq
+      factor: 2.25
+      reason: >-
+        a gluon jet's multiplicity exceeds a quark jet's by at most the colour-charge ratio C_A/C_F = 9/4 (about
+        1.5 measured at LEP energies)

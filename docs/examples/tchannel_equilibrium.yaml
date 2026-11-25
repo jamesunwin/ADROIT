@@ -1,0 +1,34 @@
+name: eR Majorana conversion diagnostic
+phase: unbroken
+stability: 'Z2: chi and phi odd'
+fields:
+  - {name: chi, role: dark_matter, spin: 0.5, self_conjugate: true, mass_gev: 10000, dark_parity: -1}
+  - name: phi
+    role: mediator
+    spin: 0
+    mass_gev: 10500
+    dark_parity: -1
+    charges: {hypercharge: -1}
+  - name: eR
+    role: standard_model
+    spin: 0.5
+    chirality: R
+    dark_parity: 1
+    charges: {hypercharge: -1}
+couplings:
+  - {name: y, value: 0.00003}
+terms:
+  - fields: [{field: phi, conjugate: true}, {field: chi, conjugate: true}, {field: eR}]
+    lorentz: chiral
+    coupling: y
+    plus_hc: true
+chemical_equilibrium:
+  x_low: 10
+  x_high: 50
+  samples: 9
+  rate_relative_uncertainty: 0.5
+  include_odd_sector: true
+  source_born:
+    scheme: garny_1705_appendix_A_full_angle_vacuum_mass_MB
+    scope: retained_abelian_component_only
+  approximation: unbroken_hypercharge_vacuum_Born_MB

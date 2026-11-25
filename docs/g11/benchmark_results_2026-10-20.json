@@ -1,0 +1,576 @@
+{
+ "model": "claude-opus-5-5",
+ "dry_run": false,
+ "summary": {
+  "development_targets": 26,
+  "recovered": 13,
+  "quotes_failing": 0,
+  "gate": true,
+  "spent": 1.7676119999999997,
+  "budget_stopped": true
+ },
+ "results": [
+  {
+   "id": "wino_majorana_triplet_bottaro",
+   "papers": [
+    "1601.04718",
+    "2107.09688"
+   ],
+   "targets": 2,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 2.88,
+     "unit": "TeV",
+     "at": {},
+     "page": 2,
+     "location": "Introduction, text (pure-wino limit: M1 = 3M2, \u00b5 = 2M2, Msf = 20 TeV)",
+     "quote": "we find that the observed relic density is attained at significantly larger mass m\u03c7 = 2.88 TeV when the Sommerfeld effect is accounted for",
+     "paper": "1601.04718"
+    },
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 2.86,
+     "unit": "TeV",
+     "at": {},
+     "page": 3,
+     "location": "Table I, Majorana fermion, EW n-plet 3, M\u03c7 (TeV) column (uncertainty \u00b1 0.01)",
+     "quote": "2.86 \u00b1 0.01",
+     "paper": "2107.09688"
+    }
+   ],
+   "dropped": [],
+   "recovered": 2,
+   "spent": 0.3827752
+  },
+  {
+   "id": "complex_scalar_triplet_y1_bottaro",
+   "papers": [
+    "2205.04486"
+   ],
+   "targets": 1,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 2.1,
+     "unit": "TeV",
+     "at": {},
+     "page": 2,
+     "location": "Table I, complex scalar block, row 3_1, column MDM (TeV)",
+     "quote": "2.1 \u00b1 0.1",
+     "paper": "2205.04486"
+    }
+   ],
+   "dropped": [],
+   "recovered": 1,
+   "spent": 0.5802144
+  },
+  {
+   "id": "dirac_fermion_higgs_portal_eft_cpv_gambit",
+   "papers": [
+    "1808.10465"
+   ],
+   "targets": 2,
+   "kept": [
+    {
+     "quantity": "omega_h2",
+     "value": 0.03813,
+     "unit": "",
+     "at": {
+      "lambda_hpsi/Lambda_psi [GeV^-1]": 0.00063,
+      "m_psi [GeV]": 9950.0,
+      "xi [rad]": 2.06
+     },
+     "page": 13,
+     "location": "Table 7, Dirac row, \u03a9\u03c8h\u00b2 \u2272 \u03a9DMh\u00b2 (best fit without relic saturation)",
+     "quote": "3.813 \u00d7 10\u22122",
+     "paper": "1808.10465"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1155,
+     "unit": "",
+     "at": {
+      "lambda_hpsi/Lambda_psi [GeV^-1]": 0.00036,
+      "m_psi [GeV]": 9895.0,
+      "xi [rad]": 2.07
+     },
+     "page": 13,
+     "location": "Table 7, Dirac row, \u03a9\u03c8h\u00b2 \u223c \u03a9DMh\u00b2 (best fit with relic saturation)",
+     "quote": "1.155 \u00d7 10\u22121",
+     "paper": "1808.10465"
+    }
+   ],
+   "dropped": [],
+   "recovered": 2,
+   "spent": 0.7843576
+  },
+  {
+   "id": "singlet_doublet_dirac_yaguna",
+   "papers": [
+    "1510.06151"
+   ],
+   "targets": 2,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 733.0,
+     "unit": "GeV",
+     "at": {},
+     "page": 6,
+     "location": "Section 3, analytic estimate below Eq. (11): largest M_chi1 in the degenerate coannihilation limit",
+     "quote": "we find that M\u03c71 . 733 GeV",
+     "paper": "1510.06151"
+    },
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 750.0,
+     "unit": "GeV",
+     "at": {},
+     "page": 7,
+     "location": "Section 4, text on Fig. 2 left panel: upper bound on M_D, M_S from the scan",
+     "quote": "the upper bound on MD , MS is of order 750 GeV",
+     "paper": "1510.06151"
+    },
+    {
+     "quantity": "thermal_splitting",
+     "value": 6.0,
+     "unit": "%",
+     "at": {
+      "M_chi1": "200 GeV"
+     },
+     "page": 7,
+     "location": "Section 4, text on Fig. 2 right panel",
+     "quote": "M\u03c72 /M\u03c71 is respectively of order 6%, 2%, 1%",
+     "paper": "1510.06151"
+    },
+    {
+     "quantity": "thermal_splitting",
+     "value": 2.0,
+     "unit": "%",
+     "at": {
+      "M_chi1": "500 GeV"
+     },
+     "page": 7,
+     "location": "Section 4, text on Fig. 2 right panel",
+     "quote": "M\u03c72 /M\u03c71 is respectively of order 6%, 2%, 1%",
+     "paper": "1510.06151"
+    },
+    {
+     "quantity": "thermal_splitting",
+     "value": 1.0,
+     "unit": "%",
+     "at": {
+      "M_chi1": "600 GeV"
+     },
+     "page": 7,
+     "location": "Section 4, text on Fig. 2 right panel",
+     "quote": "M\u03c72 /M\u03c71 is respectively of order 6%, 2%, 1%",
+     "paper": "1510.06151"
+    }
+   ],
+   "dropped": [],
+   "recovered": 2,
+   "spent": 0.8527368
+  },
+  {
+   "id": "singlet_triplet_fermion_choubey",
+   "papers": [
+    "1711.08888"
+   ],
+   "targets": 3,
+   "kept": [
+    {
+     "quantity": "omega_h2",
+     "value": 0.1207,
+     "unit": "",
+     "at": {
+      "BP": "BP1",
+      "M_rho01_GeV": 87.6,
+      "M_rho02_GeV": 128.0,
+      "M_rho+_GeV": 128.2,
+      "M_h2_GeV": 195.5,
+      "M_H+-_GeV": 195.5,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP1, \u03a9h2 column",
+     "quote": "0.1207",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 2.1e-12,
+     "unit": "pb",
+     "at": {
+      "BP": "BP1",
+      "M_rho01_GeV": 87.6,
+      "M_rho02_GeV": 128.0,
+      "M_rho+_GeV": 128.2,
+      "M_h2_GeV": 195.5,
+      "M_H+-_GeV": 195.5,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP1, \u03c3SI [pb] column",
+     "quote": "2.1 \u00d710\u221212",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1197,
+     "unit": "",
+     "at": {
+      "BP": "BP2",
+      "M_rho01_GeV": 132.0,
+      "M_rho02_GeV": 172.0,
+      "M_rho+_GeV": 172.2,
+      "M_h2_GeV": 300.0,
+      "M_H+-_GeV": 300.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP2, \u03a9h2 column",
+     "quote": "0.1197",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 4.8e-12,
+     "unit": "pb",
+     "at": {
+      "BP": "BP2",
+      "M_rho01_GeV": 132.0,
+      "M_rho02_GeV": 172.0,
+      "M_rho+_GeV": 172.2,
+      "M_h2_GeV": 300.0,
+      "M_H+-_GeV": 300.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP2, \u03c3SI [pb] column",
+     "quote": "4.8 \u00d710\u221212",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1195,
+     "unit": "",
+     "at": {
+      "BP": "BP3",
+      "M_rho01_GeV": 171.1,
+      "M_rho02_GeV": 211.0,
+      "M_rho+_GeV": 211.2,
+      "M_h2_GeV": 400.0,
+      "M_H+-_GeV": 400.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP3, \u03a9h2 column",
+     "quote": "0.1195",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 2.9e-11,
+     "unit": "pb",
+     "at": {
+      "BP": "BP3",
+      "M_rho01_GeV": 171.1,
+      "M_rho02_GeV": 211.0,
+      "M_rho+_GeV": 211.2,
+      "M_h2_GeV": 400.0,
+      "M_H+-_GeV": 400.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP3, \u03c3SI [pb] column",
+     "quote": "2.9 \u00d710\u221211",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1208,
+     "unit": "",
+     "at": {
+      "BP": "BP4",
+      "M_rho01_GeV": 86.7,
+      "M_rho02_GeV": 200.0,
+      "M_rho+_GeV": 200.2,
+      "M_h2_GeV": 194.1,
+      "M_H+-_GeV": 194.1,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP4, \u03a9h2 column",
+     "quote": "0.1208",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 4.1e-12,
+     "unit": "pb",
+     "at": {
+      "BP": "BP4",
+      "M_rho01_GeV": 86.7,
+      "M_rho02_GeV": 200.0,
+      "M_rho+_GeV": 200.2,
+      "M_h2_GeV": 194.1,
+      "M_H+-_GeV": 194.1,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP4, \u03c3SI [pb] column",
+     "quote": "4.1 \u00d710\u221212",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1186,
+     "unit": "",
+     "at": {
+      "BP": "BP5",
+      "M_rho01_GeV": 119.0,
+      "M_rho02_GeV": 230.0,
+      "M_rho+_GeV": 230.2,
+      "M_h2_GeV": 280.0,
+      "M_H+-_GeV": 280.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP5, \u03a9h2 column",
+     "quote": "0.1186",
+     "paper": "1711.08888"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 1.8e-11,
+     "unit": "pb",
+     "at": {
+      "BP": "BP5",
+      "M_rho01_GeV": 119.0,
+      "M_rho02_GeV": 230.0,
+      "M_rho+_GeV": 230.2,
+      "M_h2_GeV": 280.0,
+      "M_H+-_GeV": 280.0,
+      "sin_alpha": 0.03,
+      "sin_beta": 0.1
+     },
+     "page": 22,
+     "location": "Table IV, row BP5, \u03c3SI [pb] column",
+     "quote": "1.8 \u00d710\u221211",
+     "paper": "1711.08888"
+    }
+   ],
+   "dropped": [],
+   "recovered": 2,
+   "spent": 1.0322959999999999
+  },
+  {
+   "id": "doublet_triplet_fermion_dedes",
+   "papers": [
+    "1403.7744"
+   ],
+   "targets": 2,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 110.0,
+     "unit": "GeV",
+     "at": {
+      "MT": 100.0,
+      "m": 200.0
+     },
+     "page": 3,
+     "location": "Figure 1 caption (benchmark spectrum)",
+     "quote": "written to the right we have chosen MD = 110 GeV, MT = 100 GeV and m = Y v = 200",
+     "paper": "1403.7744"
+    },
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 91.0,
+     "unit": "GeV",
+     "at": {
+      "m": 140.0,
+      "MT": "MD"
+     },
+     "page": 20,
+     "location": "Text discussing Fig. 7b (MD = MT plane)",
+     "quote": "For m\u03c7 \u2243 91 GeV the correct\ndensity is obtained for m \u2243 140 GeV.",
+     "paper": "1403.7744"
+    }
+   ],
+   "dropped": [],
+   "recovered": 0,
+   "spent": 1.2354751999999998
+  },
+  {
+   "id": "coloured_coannihilation_scalar_triplet_desimone",
+   "papers": [
+    "1402.6287"
+   ],
+   "targets": 2,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 1.7,
+     "unit": "TeV",
+     "at": {},
+     "page": 9,
+     "location": "Table eq. (2.26), row 'MDM (Sommerfeld included)', column 'Scalar triplet' (\u2206M = 0)",
+     "quote": "MDM (Sommerfeld included) 1.7 TeV 4 \u2212 5 TeV 5 \u2212 6 TeV 7 \u2212 8 TeV",
+     "paper": "1402.6287"
+    },
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 1.3,
+     "unit": "TeV",
+     "at": {},
+     "page": 9,
+     "location": "Table eq. (2.26), row 'MDM (Sommerfeld neglected)', column 'Scalar triplet' (\u2206M = 0)",
+     "quote": "MDM (Sommerfeld neglected) 1.3 TeV",
+     "paper": "1402.6287"
+    }
+   ],
+   "dropped": [],
+   "recovered": 2,
+   "spent": 1.3619183999999998
+  },
+  {
+   "id": "coloured_coannihilation_bsf_harz",
+   "papers": [
+    "1805.01200"
+   ],
+   "targets": 3,
+   "kept": [
+    {
+     "quantity": "thermal_mass_gev",
+     "value": 3.3,
+     "unit": "TeV",
+     "at": {},
+     "page": 24,
+     "location": "Section 3.5 text discussing Fig. 7 (upper end of the full computation band, including bound-state formation)",
+     "quote": "DM can be as heavy as 3.3 TeV",
+     "paper": "1805.01200"
+    }
+   ],
+   "dropped": [],
+   "recovered": 1,
+   "spent": 1.5406095999999998
+  },
+  {
+   "id": "dark_photon_complex_scalar_feng",
+   "papers": [
+    "1707.03835"
+   ],
+   "targets": 2,
+   "kept": [],
+   "dropped": [],
+   "recovered": 0,
+   "spent": 1.6326807999999997
+  },
+  {
+   "id": "vector_higgs_portal_athron",
+   "papers": [
+    "1808.10465"
+   ],
+   "targets": 2,
+   "kept": [],
+   "dropped": [],
+   "error": "BudgetExceeded: LLM budget stopped before dispatch: $1.632681 committed of $2.400000; next request needs up to $1.126752",
+   "spent": 1.6326807999999997
+  },
+  {
+   "id": "singlet_fermion_scalar_mediator_das",
+   "papers": [
+    "2601.13147"
+   ],
+   "targets": 4,
+   "kept": [],
+   "dropped": [],
+   "error": "BudgetExceeded: LLM budget stopped before dispatch: $1.632681 committed of $2.400000; next request needs up to $1.104040",
+   "spent": 1.6326807999999997
+  },
+  {
+   "id": "real_scalar_dm_vectorlike_lepton_giacchino",
+   "papers": [
+    "1307.6480"
+   ],
+   "targets": 1,
+   "kept": [
+    {
+     "quantity": "omega_h2",
+     "value": 0.11,
+     "unit": "",
+     "at": {
+      "Mdm_GeV": 150.0,
+      "r": 1.16,
+      "yl": 1.17,
+      "lambda_S": 0.0
+     },
+     "page": 18,
+     "location": "Table II, Scalar row, \u03a9dm h2 column",
+     "quote": "yl = 1.17 1.16 5.4 10\u221227 1.3 10\u221228 0.11",
+     "paper": "1307.6480"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1,
+     "unit": "",
+     "at": {
+      "Mdm_GeV": 150.0,
+      "r": 1.32,
+      "yl": 1.8,
+      "lambda_S": 0.0
+     },
+     "page": 20,
+     "location": "Sec. IV D text, scan candidate",
+     "quote": "a scalar candidate with Mdm = 150 GeV, r = 1.32 and yl = 1.8 which relic abundance\n\u03a9dm h2 = 0.1",
+     "paper": "1307.6480"
+    },
+    {
+     "quantity": "omega_h2",
+     "value": 0.1,
+     "unit": "",
+     "at": {
+      "Mdm_GeV": 150.0,
+      "r": 1.32,
+      "yl": 1.5,
+      "lambda_S": -0.06
+     },
+     "page": 20,
+     "location": "Sec. IV D text, candidate with Higgs portal",
+     "quote": "allowing for \u03bbS = \u22120.06 and decreasing yl to 1.5, we can still account for \u03a9dm h2 = 0.1 while",
+     "paper": "1307.6480"
+    },
+    {
+     "quantity": "sigma_si_cm2",
+     "value": 8.45e-46,
+     "unit": "cm2",
+     "at": {
+      "Mdm_GeV": 150.0,
+      "r": 1.32,
+      "yl": 1.5,
+      "lambda_S": -0.06
+     },
+     "page": 20,
+     "location": "Sec. IV D text, proton scattering cross-section",
+     "quote": "the scattering cross-section on a proton amounts to 8.45 10\u221246 cm2",
+     "paper": "1307.6480"
+    }
+   ],
+   "dropped": [],
+   "recovered": 1,
+   "spent": 1.7676119999999997
+  }
+ ]
+}

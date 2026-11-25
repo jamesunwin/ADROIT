@@ -1,0 +1,7 @@
+# The channel and dataset of a packaged record's result, where its fields do not state them: read by the records
+# index so that constraint discovery can establish a result's identity positively (the fresh audit's F19-01). A sidecar,
+# so that the signed records are not edited. A record absent here states neither: a proposal naming a channel or a
+# dataset is then not matched to it, and stays a requirement.
+atlas-2301.10731-hinv:
+  channel: "combination of the Run 2 searches (VBF, ttH, VH, ggF and mono-jet), with Run 1"
+  dataset: "139 fb⁻¹ at 13 TeV combined with Run 1"

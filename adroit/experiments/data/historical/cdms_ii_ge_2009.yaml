@@ -1,0 +1,38 @@
+# CDMS II, germanium detectors, final exposure (arXiv:0912.3592; Science 327 (2010) 1619).
+# Every number is the paper's, except where a line says "declared".
+name: CDMS II Ge (2009)
+target: Ge
+references: [arXiv:0912.3592]
+exposure_kg_day: 612.0          # raw; the efficiency carries the cuts and the fiducial volume
+window_kev: [10.0, 100.0]
+events_kev: [12.3, 15.5]
+resolution_kev: 0.4
+resolution_note: >-
+  declared: the paper quotes the ionization resolution at the 10 keV threshold (≤ 0.4 keV);
+  the recoil-energy resolution is taken equal to it
+background_events: 0.9
+background_note: >-
+  the revised surface-event estimate 0.8 ± 0.1 (stat) ± 0.2 (syst), plus cosmogenic neutrons
+  0.04 (+0.04 -0.03) and radiogenic neutrons 0.03-0.06; P(two or more | 0.9) = 23%, the paper's
+  figure. Declared: flat in recoil energy over the window (the paper gives counts, not spectra).
+background_uncertainty:          # events; combined in quadrature, then profiled in Path 2's fits
+  plus: [0.1, 0.2, 0.04, 0.015]    # surface stat, surface syst, cosmogenic, radiogenic (0.03-0.06 as 0.045 ± 0.015)
+  minus: [0.1, 0.2, 0.03, 0.015]
+efficiency:
+  points: {recoil_energy_kev: [10.0, 20.0, 100.0], efficiency: [0.25, 0.32, 0.25]}
+  note: >-
+    the paper's text: a maximum of about 32% at 20 keV, falling to about 25% at 10 keV and at
+    100 keV; declared: linear between these points
+halo: {v0_km_s: 220.0, v_earth_km_s: 232.0, v_esc_km_s: 544.0, rho_gev_cm3: 0.3}
+halo_note: >-
+  the paper cites "standard galactic halo assumptions"; declared: the CDMS II values of
+  arXiv:1304.4279 (v0 = 220, v_E = 232, v_esc = 544 km/s, ρ = 0.3 GeV/cm³)
+limit_method: optimum interval (Yellin), no background subtraction
+quoted:
+  - {quantity: si_limit_cm2, mass_gev: 70.0, value: 7.0e-44,
+     note: "90% CL spin-independent limit from this exposure alone (the curve's minimum)"}
+  - {quantity: equivalent_exposure_kg_day, mass_gev: 60.0, value: 194.1,
+     note: "the spectrum-averaged equivalent exposure for a 60 GeV WIMP"}
+collaboration_result: >-
+  two events against an expected 0.9; P(two or more background events) = 23%; "cannot be
+  interpreted as significant evidence for WIMP interactions"

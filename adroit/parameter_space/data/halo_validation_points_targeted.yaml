@@ -1,0 +1,30 @@
+# A targeted validation of the halo count ratio (halo_limits), declared 2026-11-24 before any full calculation at these
+# points ran (the owner's plan "signal-qualified planes and decisive DD exclusions", section 3: "where needed, provide
+# targeted validation"). It adds to the declaration of 2026-11-13 (halo_validation_points.yaml), which is unchanged.
+#
+# Why these masses: the saved vector study (runs/track1_higgs_portal_vector_20261120-085132_e25f459f) has 12 thermal
+# points excluded by direct detection at the region's centre whose halo coverage is incomplete, at 56-785 GeV. At every
+# other halo sample the deciding xenon searches were "outside the count ratio's validated masses and halos" and the
+# point's budget of full calculations was spent: LZ's and XENONnT's spin-independent entries of 2026-11-13 failed the
+# gate at their lowest checkpoints (LZ 40% at 10 GeV, XENONnT 21% at 30 GeV, both at low v0), well below these masses.
+# LZ decides at 56-89 GeV, XENONnT above (PandaX-4T's comparisons there are near its limit).
+#
+# The same protocol and gate as the original: per module and kind, three masses (near the range's low edge, in the
+# middle, near its high edge) and the same seven halos of the preset's region; the count ratio's limit compared with
+# the module's full procedure at each; the largest |L_ratio/L_full - 1| is the empirical error e, used only if
+# e <= 0.15, between the lowest and highest masses declared here, and a comparison it decides must clear the limit by
+# 2e. e is an estimate, not a bound. A range that fails is reported as failed; nothing here is extrapolated.
+gate_max_discrepancy: 0.15
+halos:                                # (v0, v_esc) in standardised units of the preset, as in the original declaration
+  centre: [0.0, 0.0]
+  v0_low: [-1.0, 0.0]
+  v0_high: [1.0, 0.0]
+  v_esc_low: [0.0, -1.0]
+  v_esc_high: [0.0, 1.0]
+  both_low: [-0.7071067811865476, -0.7071067811865476]
+  both_high: [0.7071067811865476, 0.7071067811865476]
+modules:
+  LZ WS2022+WS2024:
+    SI: [50.0, 70.0, 90.0]
+  XENONnT SR0+SR1:
+    SI: [90.0, 300.0, 1000.0]

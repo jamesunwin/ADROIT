@@ -1,0 +1,727 @@
+# The external tools and data the system uses, and how each is obtained.
+# Read by adroit.external.manifest. The set-up command (`adroit setup`, DM11)
+# reports every item and its licence; with --fetch it fetches every item marked
+# git or download and runs its `build` commands if it has any, and it tells the
+# user how to fetch each item marked manual or pip.
+#
+# Versions and licences are those found in the DM0 audit (docs/dm0_tool_audit.md).
+# A licence of "" has not been confirmed and must be read before the tool is
+# depended on. Academic codes published without a licence file are used with
+# citation and are never copied into this repository (owner's decision,
+# 2026-09-29).
+tools:
+  - name: WIMpy_NREFT
+    repo_folder: data/external/WIMpy_NREFT
+    present_if: WIMpy/DMUtils.py
+    note: >-
+      The existing data/external checkout is discovered if the tools checkout is absent.
+      docs/dm2/reference_drivers.py runs it with explicit code root in a Python 3.12
+      numpy/scipy environment, restoring SciPy trapz/cumtrapz aliases locally.
+    purpose: reference rates for the nonrelativistic operators; the source of the shipped shell-model response coefficients (adroit/physics/data/, with its licence)
+    obtain: git
+    source: https://github.com/bradkav/WIMpy_NREFT
+    version: "50581c6"
+    licence: MIT
+    reference: "doi:10.5281/zenodo.1230503"
+    used_in: [DM2]
+    role: test reference
+    required: false
+
+  - name: WimPyDD
+    purpose: reference rates, including inelastic scattering; the code LZ used
+    obtain: manual
+    source: https://wimpydd.hepforge.org
+    version: "2.0.3"
+    licence: none stated; freely available, used with citation and not redistributed
+    reference: "arXiv:2106.06207, arXiv:2110.11086"
+    used_in: [DM2, DM6]
+    role: test reference
+    required: false
+    folder: WimPyDD
+    manual_steps: >-
+      The site blocks automated downloads. Download WimPyDD in a browser from
+      https://wimpydd.hepforge.org and place its folder at
+      data/external/manual/WimPyDD.
+
+  - name: DirectDM
+    purpose: quark-level coefficients to nonrelativistic coefficients, with running
+    obtain: git
+    source: https://github.com/DirectDM/directdm-py
+    version: "b949fb6"
+    licence: MIT
+    reference: "arXiv:1708.02678"
+    used_in: [DM4, DM8]
+    role: dependency
+    note: >-
+      the PyPI release 2.2.2 fails under NumPy 2, so the git commit is used. It runs in its
+      own environment, <tools>/.venv-directdm (uv venv --python 3.12; setuptools<81, numpy,
+      scipy), through adroit/library/interactions/directdm_driver.py, which also restores
+      NumPy < 1.19's tolerance of out-of-range np.delete indices that its four- and
+      five-flavour Majorana classes rely on. adroit setup --fetch builds the environment, with
+      the working versions (adroit/external/constraints/directdm.txt) and ADROIT's own Python
+    build:
+      - 'uv venv --allow-existing --python "{python}" "{tools}/.venv-directdm"'
+      - 'uv pip install --python "{tools}/.venv-directdm/bin/python" -r "{repo}/adroit/external/constraints/directdm.txt"'
+    present_if: "../.venv-directdm/lib/python3*/site-packages/scipy"
+
+  - name: DIAMX
+    purpose: likelihoods and packaged public data of the xenon experiments
+    obtain: git
+    source: https://github.com/mhliu0001/diamx
+    version: "2577bc9"
+    licence: Apache-2.0
+    reference: "arXiv:2512.05850"
+    used_in: [DM3, DM6]
+    role: dependency (the xenon likelihoods)
+    folder: diamx
+    note: >-
+      Build in the tools folder (a path without spaces) with a native arm64
+      Python 3.12 environment at <tools>/.venv-diamx, installed from its
+      requirements.txt with llvmlite<0.44, numba<0.61, jax<0.4.39, numpy<2.1
+      and blueice==1.2.1 (1.2.2 breaks alea 0.3.4), then
+      CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5" pip install
+      --config-settings editable.mode=inplace -e . and link
+      diamx/nest/nestDiamx*.so into diamx/. Its 15 tests then pass (DM3). adroit setup --fetch
+      does all of this, with the working versions (adroit/external/constraints/diamx.txt) and
+      ADROIT's own Python (a C++ compiler is needed; scikit-build-core fetches CMake and Ninja).
+      The constraints are copied into the environment first: uv pip install -c fails on a path
+      with spaces, which the repository's may have
+    build:
+      - 'uv venv --allow-existing --python "{python}" "{tools}/.venv-diamx"'
+      - 'cp "{repo}/adroit/external/constraints/diamx.txt" "{tools}/.venv-diamx/constraints.txt"'
+      - 'uv pip install --python "{tools}/.venv-diamx/bin/python" -r requirements.txt -c "{tools}/.venv-diamx/constraints.txt"'
+      - 'CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_OSX_ARCHITECTURES={arch}" uv pip install --python "{tools}/.venv-diamx/bin/python" -c "{tools}/.venv-diamx/constraints.txt" -C editable.mode=inplace --reinstall-package diamx -e .'
+      - 'cd diamx && for so in nest/nestDiamx*.so; do ln -sf "$so" .; done'
+      - '"{tools}/.venv-diamx/bin/python" -c "import diamx.nestDiamx" || {{ rm -f diamx/nestDiamx*.so; exit 1; }}'
+    present_if: "diamx/nestDiamx*.so"
+
+  - name: XENONnT SR0+SR1 WIMP data release
+    purpose: XENONnT's published SI, SD-neutron and SD-proton limits of 2025, the xenon module's spin-dependent validation (DM3)
+    obtain: download
+    source: https://doi.org/10.5281/zenodo.17419967
+    version: "sr0+sr1 (2025-10-22)"
+    licence: CC-BY-4.0
+    reference: "arXiv:2502.18005"
+    used_in: [DM3]
+    role: validation reference
+    required: false
+    folder: xenonnt-sr0sr1-wimp
+    files:
+      - https://zenodo.org/api/records/17419967/files/XENONnT/wimp_data_release-sr0+sr1.zip/content#wimp_data_release-sr0sr1.zip
+    build:
+      - "unzip -o -q wimp_data_release-sr0sr1.zip"
+    present_if: "*/SR0+SR1/xenonnt_2025_sd_neutron_wimp.csv"
+    note: >-
+      Power-constrained 90% limits (PCL at -1 sigma) with sensitivity bands; SD with the medians of Klos et al.
+      2013 (arXiv:1304.7684), as the paper says.
+
+  - name: LZ WS2022+WS2024 spin-dependent limits (HEPData)
+    purpose: LZ's published SD-neutron and SD-proton limits of 2025, compared with the xenon module (DM3; another reading)
+    obtain: download
+    source: https://www.hepdata.net/record/ins2841863
+    version: "v2"
+    licence: CC0 (HEPData)
+    reference: "arXiv:2410.17036; doi:10.17182/hepdata.155182.v2"
+    used_in: [DM3]
+    role: validation reference
+    required: false
+    folder: lz-ws2024-sd
+    user_agent: "curl/8.7.1"
+    files:
+      - https://www.hepdata.net/download/table/ins2841863/SDn%20cross%20section/2/csv#lz_ws2024_sd_neutron.csv
+      - https://www.hepdata.net/download/table/ins2841863/SDp%20cross%20section/2/csv#lz_ws2024_sd_proton.csv
+    note: >-
+      Power-constrained 90% limits. LZ's SD limits use the mean of the structure functions of Hoferichter,
+      Menendez and Schwenk (2020, arXiv:2007.08529), which ADROIT does not have, so DM3 records the comparison
+      under Klos et al. 2013 as another reading, outside the validated ranges.
+
+  - name: Elastic density matrices (Haxton & McElvain)
+    purpose: updated one-body density matrices of the target nuclei, the nuclear input LZ uses
+    obtain: git
+    source: https://github.com/Berkeley-Electroweak-Physics/Elastic
+    version: "a979c39"
+    licence: none stated (publicly available; cited, fetched, never copied in)
+    reference: "W. Haxton and K. McElvain (2022), as cited by arXiv:2312.02030 and 2609.02823"
+    used_in: [DM5, DM6]
+    role: data (nuclear density matrices)
+    folder: elastic
+
+  - name: Mu2e nuclear-response scripts (Berkeley-Electroweak-Physics)
+    purpose: the multipole matrix elements that turn density matrices into response functions
+    obtain: git
+    source: https://github.com/Berkeley-Electroweak-Physics/Mu2e
+    version: "2f55fa2"
+    licence: BSD-3-Clause
+    reference: "Haxton, McElvain et al.; the Python port of their Mathematica mu2e_eft.nb"
+    used_in: [DM5, DM6]
+    role: dependency (run in its own environment, <tools>/.venv-mu2e)
+    folder: mu2e
+    note: >-
+      Run python/mu2e.py in <tools>/.venv-mu2e (numpy, scipy, pyyaml, multipledispatch,
+      py3nj); adroit/physics/haxton_driver.py calls it to tabulate response functions.
+      adroit setup --fetch builds the environment, with the working versions
+      (adroit/external/constraints/mu2e.txt), for the architecture gfortran compiles py3nj's
+      Fortran for (an Intel Homebrew gfortran on Apple Silicon: x86_64; ADROIT runs the scripts
+      as a separate process); an environment whose py3nj does not import is removed
+    build:
+      - 'uv venv --allow-existing --python "{fortran_python}" "{tools}/.venv-mu2e"'
+      - 'uv pip install --python "{tools}/.venv-mu2e/bin/python" -r "{repo}/adroit/external/constraints/mu2e.txt"'
+      - '"{tools}/.venv-mu2e/bin/python" -c "import py3nj" || {{ rm -rf "{tools}/.venv-mu2e"; exit 1; }}'
+    present_if: "../.venv-mu2e/lib/python3*/site-packages/py3nj"
+
+  - name: DDCalc
+    purpose: coded likelihoods of 26 earlier analyses, as a cross-check (no module depends on it)
+    obtain: git
+    source: https://github.com/GambitBSM/DDCalc
+    version: "f504c9b"
+    licence: non-commercial, with citation
+    reference: "arXiv:1705.07920"
+    used_in: [DM3]
+    role: cross-check
+    required: false
+    note: builds only in a path without spaces
+
+  - name: dmscatter
+    repo_folder: data/external/dmscatter
+    purpose: a second reference for rates
+    obtain: git
+    source: https://github.com/ogorton/dmscatter
+    version: "d5c4046"
+    licence: MIT
+    reference: "arXiv:2209.09187"
+    used_in: [DM2]
+    role: test reference
+    required: false
+    present_if: bin/dmscatter
+    build:
+      - 'python "{repo}/scripts/build_reference_backends.py" dmscatter "{folder}"'
+    note: >-
+      Pinned d5c4046; scripts/build_reference_backends.py corrects the invalid
+      I2,x2e11.4 format to I2,2X,4E11.4 and adds orbitals.o's missing dependency on
+      main.o (it uses that module; a parallel make could race) before make -j2 openmp.
+      No physics changes.
+
+  - name: NEST
+    purpose: the response of a xenon detector to a recoil
+    obtain: pip
+    source: nestpy
+    version: "2.1.1"
+    licence: GPL-3.0
+    reference: "arXiv:1106.1613"
+    used_in: [DM3]
+    role: optional dependency
+    required: false
+    note: "Optional pinned reference extra: uv sync --extra references; validate with scripts/validate_optional_backends.py"
+
+  - name: Semantic retrieval
+    purpose: optional local literature embeddings; deterministic hash indices remain compatible
+    obtain: pip
+    source: sentence-transformers
+    version: "6.1.0 (uv.lock); all-MiniLM-L6-v2 revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    licence: Apache-2.0
+    reference: "arXiv:1908.10084; https://www.sbert.net/docs/installation.html"
+    used_in: [DM8, DM9]
+    role: optional dependency
+    required: false
+    note: "uv sync --extra retrieval; cache the pinned model once, then HF_HUB_OFFLINE=1 supports offline operation"
+
+  - name: Capt'n General
+    purpose: capture of dark matter in the Sun for general operators
+    obtain: git
+    source: https://github.com/aaronvincent/captngen
+    version: "59b55a4b31dc27e6d2435d588a6d72a463cb04ca"
+    folder: captngen
+    present_if: gencaplib.so
+    build: ["make gencaplib.so"]           # sequential: gencap.f90 uses the module sharedcap.f90 defines, and make -j2 raced
+    licence: MIT
+    reference: "arXiv:2105.06810"
+    used_in: [DM7]
+    role: reference (ADROIT computes capture itself; only Capt'n General's copy of the B16 solar model is used, as its own data item)
+    required: false
+    note: >-
+      Capt'n Oper's factor_final uses NAvo*rho/mass_GeV for a density in g/cm3.
+      The reference adapter explicitly multiplies raw capture by AMU_GEV to restore
+      grams per mole; raw and converted results are both retained. The production
+      ADROIT capture integration is unchanged. See scripts/validate_optional_backends.py.
+
+  # DM8's numerical cross-check. MadDM and micrOMEGAs are used as dependencies under fair use (the
+  # owner's decision, 2026-10-01): installed by the user, called as programs, never bundled, and cited.
+  - name: MadGraph5_aMC@NLO
+    purpose: runs UFO models; computes the widths of new states (compute_widths); hosts MadDM
+    obtain: git
+    source: https://github.com/mg5amcnlo/mg5amcnlo
+    version: "v3.8.0"
+    licence: the MadTeam's open-source licence, adapted from the University of Illinois/NCSA licence
+    reference: "Alwall et al., JHEP 07 (2014) 079, arXiv:1405.0301"
+    used_in: [DM8]
+    role: dependency (numerical cross-check)
+    required: false
+    folder: mg5amcnlo-3.8.0
+    note: >-
+      runs under <tools>/.venv-mg5, with ADROIT's own Python (numpy, scipy, six, cmake: the working
+      versions, adroit/external/constraints/mg5.txt). input/mg5_configuration.txt: auto_update = 0,
+      fortran_compiler = the installed gfortran. Its Fortran programs run as separate processes, so an
+      x86_64 gfortran is fine. adroit setup --fetch does all of this; the UFO portals evaluate their
+      models in this environment, and the UFO items' conversions need it
+    build:
+      - 'python "{repo}/scripts/build_reference_backends.py" madgraph "{folder}"'
+      - 'uv venv --allow-existing --python "{python}" "{tools}/.venv-mg5"'
+      - 'uv pip install --python "{tools}/.venv-mg5/bin/python" -r "{repo}/adroit/external/constraints/mg5.txt"'
+    present_if: "../.venv-mg5/lib/python3*/site-packages/six.py"
+
+  - name: MadDM
+    purpose: relic density, and the quark-level coefficients of a UFO model at zero momentum
+    obtain: git
+    source: https://github.com/maddmhep/maddm
+    version: "6570bb5"                       # rc/3.3: the MadDM v3.3.0 release candidate
+    licence: none stated; used under fair use as a dependency, called and cited, never bundled (owner, 2026-10-01)
+    reference: "arXiv:1308.4955 (relic), 1505.04190 (direct), 1804.00044 (v3), 2107.04598 (v3.2), as its CITATION.bib asks"
+    used_in: [DM8]
+    role: dependency (numerical cross-check)
+    required: false
+    folder: mg5amcnlo-3.8.0/PLUGIN/maddm
+    note: >-
+      cloned into MadGraph's PLUGIN folder with its RAPIDD submodule, and bin/maddm copied from it. The
+      stable 3.2.13 is Python 2 only. Its 3.3 nucleon cross-sections are four times too large for Dirac
+      and complex dark matter (DM8 record, section 14): ADROIT takes its quark-level coefficients instead
+
+  - name: RAPIDD (MadDM's vendored copy)
+    purpose: MadDM 3.3's nucleon cross-sections and recoil rates, loaded by MadDM's Python
+    obtain: git
+    source: https://github.com/cheekyparticle/RAPIDD_for_DM
+    version: "f471a10"                       # MadDM's submodule at that commit
+    licence: unspecified in its pyproject; fetched by MadDM's own submodule, cited, never bundled
+    reference: "arXiv:1802.03174"
+    used_in: [DM8]
+    role: dependency of MadDM
+    required: false
+    folder: mg5amcnlo-3.8.0/PLUGIN/maddm/vendor/RAPIDD_for_DM
+    note: >-
+      built for arm64 in place (lib/build: cmake -DGSL_ROOT_DIR=<tools>/gsl -DCMAKE_OSX_ARCHITECTURES=arm64),
+      as MadDM loads it with ctypes from its arm64 Python
+
+  - name: GNU Scientific Library
+    purpose: needed by RAPIDD
+    obtain: download
+    source: https://ftp.gnu.org/gnu/gsl/
+    version: "2.8"
+    licence: GPL-3.0-or-later; built in the tools folder, never bundled
+    reference: "https://www.gnu.org/software/gsl/"
+    used_in: [DM8]
+    role: dependency of RAPIDD
+    required: false
+    folder: gsl
+    files:
+      - https://ftp.gnu.org/gnu/gsl/gsl-2.8.tar.gz
+    note: built for arm64 with clang (./configure --prefix=<tools>/gsl --disable-static)
+    present_if: lib/libgsl.*
+    build:
+      - tar xzf gsl-2.8.tar.gz
+      - cd gsl-2.8 && ./configure --prefix="{folder}" --disable-static && make -j2 && make install
+
+  - name: PDF4LHC21_40 (LHAPDF grid)
+    purpose: parton distributions for the record derivations (the dilepton recast's LO cross-section; the twist-2 moments, docs/twist2/moments.py)
+    obtain: download
+    source: https://lhapdfsets.web.cern.ch/current/
+    version: "PDF4LHC21_40 (LHAPDF6 lhagrid1, 40 Hessian members plus the central one)"
+    licence: none stated; LHAPDF's public set repository, fetched and cited, never bundled
+    reference: "PDF4LHC Working Group, J. Phys. G 49 (2022) 080501, arXiv:2203.05506; LHAPDF6, arXiv:1412.7420"
+    used_in: [records]
+    role: derivation data
+    required: false
+    folder: lhapdf
+    files:
+      - https://lhapdfsets.web.cern.ch/current/PDF4LHC21_40.tar.gz
+    build:
+      - tar xzf PDF4LHC21_40.tar.gz
+    present_if: PDF4LHC21_40/PDF4LHC21_40_0000.dat
+
+  - name: NNPDF23_lo_as_0130_qed (LHAPDF grid)
+    purpose: the analytic LO cross-check of the MadGraph production tables (scripts/madgraph_xsec/analytic_lo.py), with MadGraph's own PDF
+    obtain: download
+    source: https://lhapdfsets.web.cern.ch/current/
+    version: "NNPDF23_lo_as_0130_qed (LHAPDF6 lhagrid1)"
+    licence: none stated; LHAPDF's public set repository, fetched and cited, never bundled
+    reference: "NNPDF Collaboration, arXiv:1207.1303 (NNPDF2.3) and arXiv:1308.0598 (its QED sets); LHAPDF6, arXiv:1412.7420"
+    used_in: [records]
+    role: derivation data
+    required: false
+    folder: lhapdf
+    files:
+      - https://lhapdfsets.web.cern.ch/current/NNPDF23_lo_as_0130_qed.tar.gz
+    build:
+      - tar xzf NNPDF23_lo_as_0130_qed.tar.gz
+    present_if: NNPDF23_lo_as_0130_qed/NNPDF23_lo_as_0130_qed_0000.dat
+
+  - name: InertDoublet_UFO
+    purpose: the inert doublet model's Feynman rules (Goudelis, Herrmann & Stål), read by the UFO portal (portal library, part 2)
+    obtain: download
+    source: https://feynrules.irmp.ucl.ac.be/wiki/InertDoublet
+    version: "v1.0 (FeynRules 2.3.49, 2024-11-22)"
+    licence: none stated; FeynRules model database, used with citation and not redistributed
+    reference: "arXiv:1303.3010, arXiv:1503.07367"
+    used_in: [PL2]
+    role: model
+    required: false
+    folder: ufo
+    files:
+      - https://feynrules.irmp.ucl.ac.be/raw-attachment/wiki/InertDoublet/InertDoublet_UFO.tar.gz
+    build:
+      - "tar xzf InertDoublet_UFO.tar.gz"
+      - "printf 'convert model {folder}/InertDoublet_UFO\\n' > convert.mg5 && \"{tools}/.venv-mg5/bin/python\" \"{tools}/mg5amcnlo-3.8.0/bin/mg5_aMC\" convert.mg5"
+    present_if: "InertDoublet_UFO/vertices.py"
+    note: >-
+      Python 2 as published; converted with MadGraph's `convert model`. Its aEWM1 holds α itself
+      (1/128.9), and MW is an independent input (79.947 GeV)
+
+  - name: Pseudoscalar_2HDM
+    purpose: the 2HDM+a's Feynman rules (LHC Dark Matter Working Group), read by the UFO portal (portal library, part 2)
+    obtain: download
+    source: https://github.com/LHC-DMWG/model-repository/tree/master/models/Pseudoscalar_2HDM
+    version: "v2.0 (FeynRules 2.3.13, 2017-09-11)"
+    licence: none stated in the model folder; LHC DM Working Group model repository, used with citation and not redistributed
+    reference: "arXiv:1701.07427, arXiv:1810.09420"
+    used_in: [PL2]
+    role: model
+    required: false
+    folder: ufo/Pseudoscalar_2HDM
+    files:
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/__init__.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/CT_couplings.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/CT_vertices.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/README.txt
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/coupling_orders.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/couplings.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/decays.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/function_library.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/lorentz.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/object_library.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/parameters.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/particles.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/propagators.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/restrict_default.dat
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/restrict_relic.dat
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/vertices.py
+      - https://raw.githubusercontent.com/LHC-DMWG/model-repository/master/models/Pseudoscalar_2HDM/write_param_card.py
+    build:
+      - "printf 'convert model {folder}/.\\n' > convert.mg5 && \"{tools}/.venv-mg5/bin/python\" \"{tools}/mg5amcnlo-3.8.0/bin/mg5_aMC\" convert.mg5"
+    present_if: "vertices.py"
+
+data:
+  - name: PPPC photon spectra
+    purpose: prompt photon yields for branching mixtures and on-shell scalar cascades
+    obtain: download
+    source: https://www.marcocirelli.net/PPPC4DMID.html
+    version: "release 6.0 (January 2016)"
+    licence: public author tables, used with citation and not redistributed
+    reference: "arXiv:1012.4515; arXiv:1009.0224"
+    role: theory data
+    used_in: [spectra]
+    required: false
+    folder: pppc-photons
+    files: [https://www.marcocirelli.net/PPPC4DMID/AtProduction_gammas.dat.zip]
+    build:
+      - 'python "{repo}/scripts/install_spectral_data.py" pppc "{folder}"'
+    present_if: AtProduction_gammas.dat
+    note: "Pinned archive SHA256 5adff547fd16ae3cefa55fc37f3d62f0adc37e317a9297ec374708429fac601a; includes electroweak corrections."
+
+  - name: McDaniel dwarf likelihoods
+    purpose: source spectral likelihoods for the 42-dwarf benchmark, 14.3 years of Fermi-LAT data
+    obtain: download
+    source: https://figshare.com/articles/dataset/24058650
+    version: "arXiv:2311.04982 (2024), standard SEDs"
+    licence: CC BY 4.0 (Figshare); attribution to McDaniel et al.
+    reference: "Phys. Rev. D 109, 063024; doi:10.1103/PhysRevD.109.063024"
+    role: experiment data
+    used_in: [spectra]
+    required: false
+    folder: fermi-mcdaniel2024
+    files:
+      - https://ndownloader.figshare.com/files/42263853
+      - https://ndownloader.figshare.com/files/44477168
+    build:
+      - 'python "{repo}/scripts/install_spectral_data.py" dwarfs "{folder}"'
+    present_if: dSphs.csv
+    note: "Archive MD5 53ece3239910abec1934432c621c54b0; CSV MD5 1627630e27c73cded88370a9344c66a2. New record needs human verification; overlaps the 2015 data and is used only when its pure-channel comparison is unavailable."
+  - name: LZ extended window (arXiv:2609.02823)
+    purpose: event samples, and limits and significances for 43 model tables
+    obtain: manual
+    source: https://www.hepdata.net/record/ins3199115
+    licence: CC0
+    reference: "doi:10.17182/hepdata.182472"
+    used_in: [DM3, DM6]
+    folder: lz_2609.02823
+    manual_steps: >-
+      HEPData blocks automated downloads. Open
+      https://www.hepdata.net/record/ins3199115 in a browser, choose "Download
+      All" (YAML), and unpack the files into
+      data/external/manual/lz_2609.02823.
+
+  - name: CRESST-III data release (arXiv:1905.07335)
+    purpose: the events, efficiencies and limits of CRESST-III detector A (2019)
+    obtain: download
+    source: https://arxiv.org/abs/1905.07335
+    version: "v3"
+    licence: collaboration data release on arXiv; no redistribution terms stated, so fetched, not copied
+    reference: "arXiv:1904.00498, arXiv:1905.07335"
+    used_in: [DM3]
+    role: experiment data
+    folder: cresst-iii-2019
+    files:
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_AR.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_full.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_cuteff.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_eff_AR_O.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_eff_AR_Ca.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_eff_AR_W.dat
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_DataRelease_SI.xy
+      - https://arxiv.org/src/1905.07335v3/anc/C3P1_DetA_DataRelease_SD.xy
+
+  - name: CDMSlite Run 2 data release (arXiv:1707.01632)
+    purpose: the events, efficiency and limits of the CDMSlite Run 2 search (germanium)
+    obtain: download
+    source: https://arxiv.org/abs/1707.01632
+    version: "v3"
+    licence: collaboration data release on arXiv; no redistribution terms stated, so fetched, not copied
+    reference: "arXiv:1707.01632"
+    used_in: [DM3]
+    role: experiment data
+    folder: cdmslite-run2
+    files:
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/eventEnergy_keVee.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/efficiency_bestFit_keVee.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/limits_SI_GeVc2_cm2.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/limits_SD_n_GeVc2_cm2.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/limits_SD_p_GeVc2_cm2.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/data_files/efficiency_samples.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_DataRelease_Document.pdf
+
+  - name: Optimum interval code (Yellin)
+    purpose: upper limits by the optimum interval method with its high-statistics extension, with its Monte Carlo tables
+    obtain: download
+    source: http://titus.stanford.edu/Upperlimit/ (copy distributed with the CDMSlite Run 2 release, arXiv:1707.01632)
+    version: "CDMSlite Run 2 release"
+    licence: none stated; freely available, used with citation and not redistributed
+    reference: "S. Yellin, Phys. Rev. D 66 (2002) 032005, physics/0203002; arXiv:0709.2701"
+    used_in: [DM3]
+    role: dependency
+    folder: yellin-optimum-interval
+    note: compiled with gfortran on first use (adroit/statistics/optimum_interval.py)
+    files:
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CERN_Stuff2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CLtable.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CLtableNew.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CMaxf.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CMaxfLow.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CMaxflowNew.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CMaxinfNew2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/CalcOptLim2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/Cinf2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/ConfLev2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/ConfLevNew2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/ULinput
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/ULoutput
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/UpperLimNew2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/lite2Upper.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/y_vs_CLf.txt
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/y_vs_CLf2.f
+      - https://arxiv.org/src/1707.01632v3/anc/CDMSlite_Run2_data/OI_code/ymintable.txt
+
+  - name: B16 standard solar model (AGSS09)
+    purpose: the Sun's radial profile of density and composition (H to Ni), for capture in the Sun (tier 2)
+    obtain: download
+    source: https://github.com/aaronvincent/captngen (solarmodels/), as released by the B16 authors
+    version: "captngen 59b55a4"
+    licence: MIT (Capt'n General, whose copy is fetched); the model is the B16 authors' public release, cited
+    reference: "N. Vinyoles et al., ApJ 835 (2017) 202, arXiv:1611.09867"
+    used_in: [DM7]
+    role: data
+    folder: solar
+    files:
+      - https://raw.githubusercontent.com/aaronvincent/captngen/59b55a4b31dc27e6d2435d588a6d72a463cb04ca/solarmodels/struct_b16_agss09.dat
+      - https://raw.githubusercontent.com/aaronvincent/captngen/59b55a4b31dc27e6d2435d588a6d72a463cb04ca/LICENSE
+
+  - name: DarkCast
+    purpose: the dark photon's visible and invisible search limits (beam dumps, BaBar, LHCb, NA64, CMS, KLOE, ...) and BaBar's L_mu − L_tau search, in ε (or g′) against the mass
+    obtain: git
+    source: https://gitlab.com/darkcast/releases.git
+    version: "5a2a53a"
+    licence: GPL-2.0-or-later; used as a dependency, never copied into this repository
+    reference: "arXiv:1801.04847, arXiv:2005.01515"
+    used_in: [PL2]
+    role: experiment data
+    required: false
+
+  - name: Slatyer f_eff
+    purpose: the fraction of annihilation energy deposited in the CMB era, f_eff(m) by channel, and for electrons and photons by energy (the CMB constraint)
+    obtain: download
+    source: https://faun.rc.fas.harvard.edu/epsilon/
+    licence: none stated; the public data of arXiv:1506.03811, used with citation and not redistributed
+    reference: "arXiv:1506.03811"
+    used_in: [PL2]
+    role: experiment data
+    required: false
+    folder: slatyer-feff
+    files:
+      - https://faun.rc.fas.harvard.edu/epsilon/detaileddeposition/annihilation/dat/feff_PPPC_3keV.dat
+      - https://faun.rc.fas.harvard.edu/epsilon/detaileddeposition/annihilation/dat/feff_3keV.dat
+
+  - name: PDG R ratio
+    purpose: R = σ(e⁺e⁻ → hadrons)/σ(e⁺e⁻ → μ⁺μ⁻), the PDG's compilation (sum of exclusive channels below 2 GeV), for vector mediators' hadronic final states
+    obtain: download
+    source: https://pdg.lbl.gov/2026/hadronic-xsections/hadron.html
+    version: "rpp2022 (unchanged in the 2024–2026 editions)"
+    licence: CC BY 4.0 (the 2024–2026 Review's site terms); cite R. L. Workman et al. (PDG), PTEP 2022, 083C01
+    reference: "PTEP 2022, 083C01; hep-ph/0312114"
+    used_in: [PL3]
+    role: experiment data
+    required: false
+    folder: pdg-r-ratio
+    files:
+      - https://pdg.lbl.gov/2026/hadronic-xsections/rpp2022-hadronicrpp_page1001.dat
+
+  - name: CCFR trident (digitised)
+    purpose: the CCFR neutrino-trident bound on an L_μ − L_τ Z′ (g′ against m_Z′), a third party's digitisation of Fig. 2 of arXiv:1406.2332
+    obtain: download
+    source: https://github.com/jacintoneto/ThermalDM-EMD-LmuLtau
+    version: "1ca0599"
+    licence: none stated (all rights reserved by default); fetched for use with citation, never copied into this repository
+    reference: "arXiv:1406.2332 (the bound); arXiv:2507.02048 (the digitisation's authors)"
+    used_in: [PL3]
+    role: experiment data
+    required: false
+    folder: ccfr-trident
+    files:
+      - https://raw.githubusercontent.com/jacintoneto/ThermalDM-EMD-LmuLtau/1ca059923ec1949cb6ce41d14318b2be6b847ec2/bounds/collider_bounds/CCFR.txt
+
+  - name: SModelS
+    purpose: LHC searches recast on simplified-model topologies (131 ATLAS and CMS analyses), run as a program in its own environment (the LHC constraint of the portal library)
+    obtain: download
+    source: https://smodels.github.io
+    version: "3.2.1 (database 3.2.1, doi:10.5281/zenodo.23067688)"
+    licence: GPL-3 (the program; used as a program, never imported or copied); CC BY 4.0 (the database)
+    reference: "arXiv:2306.17676"
+    used_in: [PL3]
+    role: dependency
+    required: false
+    folder: smodels-db
+    files:
+      - https://zenodo.org/records/23067688/files/official321.pcl
+    build:
+      - 'uv venv --python 3.12 "{tools}/.venv-smodels"'
+      - 'uv pip install --python "{tools}/.venv-smodels/bin/python" smodels==3.2.1'
+    present_if: "official321.pcl"
+    note: >-
+      the database is a 1.1 GB pickle; loading it takes ~4 s, so the scan sends SModelS all its points in one
+      batch; point SModelS at this local file (never "official", which fetches it over the network)
+
+  - name: LHC SUSY cross sections
+    purpose: 13 TeV cross-sections for SModelS (a colour-triplet scalar pair, a right-handed slepton pair, wino and higgsino production), from the LHC SUSY Cross Section Working Group's pages
+    obtain: download
+    source: https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections
+    licence: none stated (CERN TWiki, the property of its authors); fetched, never copied; cite NNLL-fast and Resummino
+    reference: "SciPost Phys. Core 7, 072 (2024); arXiv:2304.11915"
+    used_in: [PL3]
+    role: experiment data
+    required: false
+    folder: susy-xsec
+    files:
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVstopsbottom
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVslepslep
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13x0TeVn2x1wino
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13x0TeVhinosplit
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13x6TeVstopsbottom
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVsquarkantisquark
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVn2x1wino
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVx1x1wino
+      - https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVhino
+    build:
+      - "mkdir -p twiki twiki_csv tables && for f in SUSYCrossSections*; do cp \"$f\" \"twiki/$f.html\"; done"
+      - 'python "{repo}/scripts/twiki_tables.py" twiki_csv twiki/*.html'
+      - 'SUSY_XSEC_DIR="{folder}" python "{repo}/scripts/build_xsec_tables.py"'
+    present_if: "tables/13TeV_stop_sbottom_pair_NNLOapprox+NNLL.json"
+
+  - name: micrOMEGAs
+    purpose: "an independent relic-density code for cross-checks (adroit crosscheck): the inert doublet with W W* and Z Z* final states, the scalar singlet, a Z′ portal"
+    obtain: download
+    source: https://lapth.cnrs.fr/micromegas/
+    version: "7.1.10"
+    licence: none stated in the tarball (Zenodo deposits CC BY 4.0; the authors ask users to register); used as a program, never copied
+    reference: "arXiv:2606.06645, arXiv:2312.14894"
+    used_in: [PL3]
+    role: cross-check
+    required: false
+    folder: micromegas_7.1.10
+    files:
+      - https://micromegasdm.github.io/downloadarea/v7.1/micromegas_7.1.10.tgz
+    build:
+      - "tar xzf micromegas_7.1.10.tgz --strip-components=1"
+      - "env PATH=/usr/bin:/bin:/usr/sbin:/sbin nice -n 10 make"
+      - 'for m in IDM SingletDM ZpPortal; do cp "{repo}/adroit/constraints/mo_omega.c" $m/ && (cd $m && make main=mo_omega.c); done'
+    present_if: "IDM/mo_omega"
+    note: >-
+      built without Fortran (the x86 gfortran of Intel Homebrew cannot link arm64 code): the restricted PATH hides it;
+      the MSSM spectrum generators are lost, the IDM, SingletDM and ZpPortal relic densities are not
+
+  - name: Higgs Cross Section Working Group YR4 (BSM, 13 TeV)
+    purpose: a heavy Standard-Model-like Higgs's gluon-fusion cross-section (quark loop, NNLO+NNLL), the singlet's h₂ and the K-factor of gluon fusion (portal library, part 4)
+    obtain: download
+    source: https://twiki.cern.ch/twiki/bin/view/LHCPhysics/CERNYellowReportPageBSMAt13TeV
+    licence: YR4 (arXiv:1610.07922) is CC BY 4.0; the spreadsheet states no licence of its own; fetched, never copied
+    reference: "arXiv:1610.07922"
+    used_in: [PL4]
+    role: theory data
+    required: false
+    folder: hxswg
+    files:
+      - https://twiki.cern.ch/twiki/pub/LHCPhysics/LHCHWG/Higgs_XSBR_YR4_update.xlsx
+    build:
+      - 'cd "{repo}/scripts/madgraph_xsec" && "{tools}/.venv-mg5/bin/python" fetch_hxswg.py'
+    present_if: "hxswg_yr4_bsm13_ggF_quarkloop_NNLO_NNLL.json"
+
+  - name: MadGraph production tables
+    purpose: "13 TeV LO cross-sections at unit couplings for the portals' mediators: q q̄ → Z′, gg → S (t, b), the inert doublet's Drell–Yan pairs, the K-factor of gluon fusion (constraints/production.py)"
+    obtain: download
+    source: "our computation, scripts/madgraph_xsec/ (MadGraph 3.8, NNPDF2.3 LO, μ = M), with the LHC DM Working Group's DMsimp models (https://feynrules.irmp.ucl.ac.be/wiki/DMsimp) and MadGraph's heft"
+    licence: our own tables; MadGraph carries the MadTeam's open-source licence (adapted from the University of Illinois/NCSA one); the DMsimp and heft models state none (FeynRules model database, MadGraph's model downloads), used with citation and not redistributed
+    reference: "arXiv:1405.0301, arXiv:1507.00966, arXiv:1703.05703; docs/portal_library_4.md"
+    used_in: [PL4]
+    role: theory data
+    required: false
+    folder: madgraph-xsec
+    files:
+      - http://feynrules.irmp.ucl.ac.be/raw-attachment/wiki/DMsimp/DMsimp_s_spin1.zip
+      - http://feynrules.irmp.ucl.ac.be/raw-attachment/wiki/DMsimp/DMsimp_s_spin0_4f_ybMSbar.zip
+      - http://madgraph.phys.ucl.ac.be/Downloads/models/heft.tgz
+    build:
+      - 'mkdir -p "{tools}/ufo" && unzip -o DMsimp_s_spin1.zip -d "{tools}/ufo" && unzip -o DMsimp_s_spin0_4f_ybMSbar.zip -d "{tools}/ufo" && tar xzf heft.tgz -C "{tools}/ufo"'
+      - 'bash "{repo}/scripts/madgraph_xsec/run_all.sh"'
+    present_if: "zprime_spin1_vector_13TeV_LO.json"
+    note: >-
+      about 1.5–2 h on one Mac with two jobs at once (niced); needs MadGraph, the Higgs Working Group's table, and the
+      inert doublet's MadGraph copy (ufo/InertDoublet_UFO_mg5: InertDoublet_UFO with α_s moved to SMINPUTS 3 and
+      m_c = m_b = 0, edited by hand; ADROIT's UFO portal reads the original). MadGraph's work folders (1.3 GB) stay in
+      madgraph-xsec/work
+
+  - name: Saikawa-Shirai relic cross sections (DM2020)
+    purpose: >-
+      their equation of state (eos2020.dat, and the upper and lower edges of its band, eos2020_err1.dat and
+      eos2020_err2.dat: T, g*s, g*ρ), read for the equation of state's band, which ADROIT 1.0 does not
+      assess (deferred to 1.0.2; relic.EOS_TABLES, sha256 checked; docs/eos_band.md); and the s-wave cross section a Majorana fermion needs for
+      Ωh² = 0.120 against its mass (S_2), the reference of the relic density's validation
+      (scripts/validate_relic_ss2020.py)
+    obtain: download
+    source: https://member.ipmu.jp/satoshi.shirai/DM2020/
+    licence: >-
+      none stated; the public data of arXiv:2005.03544, used with citation and fetched, never copied into this
+      repository (the equation-of-state tables had been, until the release audit's PR23-05: the owner, 2026-10-23)
+    reference: "arXiv:2005.03544"
+    used_in: [relic, relic validation]
+    role: theory data
+    folder: relic-ss2020
+    files:
+      - https://member.ipmu.jp/satoshi.shirai/DM2020/S_2.dat
+      - https://member.ipmu.jp/satoshi.shirai/DM2020/eos2020.dat
+      - https://member.ipmu.jp/satoshi.shirai/DM2020/eos2020_err1.dat
+      - https://member.ipmu.jp/satoshi.shirai/DM2020/eos2020_err2.dat
+

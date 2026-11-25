@@ -1,0 +1,249 @@
+structure: anapole
+confidence_level: 0.9
+computed: '2026-10-04'
+generated_by: scripts/tabulate_operator_limits.py anapole
+code_commit: 6a9fc3c (portal library part 4; the file was last touched at 3e3422d;
+  recomputed in R6)
+method: Path 1 direct route, each module's published halo and spin-dependent nuclear
+  model; the envelope is the smallest μ₉₀ over the modules validated at each mass
+masses_gev:
+- 5.0
+- 9.978
+- 19.914
+- 39.742
+- 79.313
+- 158.284
+- 315.887
+- 630.413
+- 1258.111
+- 2510.804
+- 5010.792
+- 10000.0
+mu_up:
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+modules:
+  CRESST-III 2019:
+    mu_up:
+    - 0.0059394120039935674
+    - 0.0017997058593937649
+    - 0.0008831519011014548
+    - 0.0007800930029801378
+    - 0.0009280520510426605
+    - 0.0012392085680710274
+    - 0.0017161017904361723
+    - 0.0024053904858843227
+    - 0.0033864834132284766
+    - 0.004776520920378611
+    - 0.006742745044071422
+    - 0.009521954731180435
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  CDMSlite Run 2:
+    mu_up:
+    - 0.0034097826084438054
+    - 0.00202720890629399
+    - 0.0018068736645581768
+    - 0.0022377777282136424
+    - 0.0030337984327320627
+    - 0.004223123980699266
+    - 0.005929093799677729
+    - 0.008353167665611528
+    - 0.011785454253629004
+    - 0.016638997445705964
+    - 0.023498665884470752
+    - 0.0331913690447807
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  PICO-60 C3F8 (2019):
+    mu_up:
+    - 0.00021380605208509644
+    - 6.318327564035995e-05
+    - 3.7740910347724566e-05
+    - 3.115810389579907e-05
+    - 3.191930584020793e-05
+    - 3.7676707658954726e-05
+    - 4.837008459227714e-05
+    - 6.503273067640633e-05
+    - 8.958433734195475e-05
+    - 0.00012495339503556214
+    - 0.0001753928088114229
+    - 0.000246979624036605
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  DEAP-3600 (2019):
+    mu_up:
+    - .inf
+    - .inf
+    - 0.002478335965737712
+    - 9.901391234003114e-05
+    - 4.9316370087332755e-05
+    - 4.7016687248225415e-05
+    - 5.615679044182145e-05
+    - 7.345466970221663e-05
+    - 0.00010001923309579586
+    - 0.0001387757077860235
+    - 0.00019430826251607653
+    - 0.00027328226347180873
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  LZ WS2022+WS2024:
+    mu_up:
+    - 0.0003233431224845304
+    - 6.0263795349767655e-06
+    - 1.5313502847295424e-06
+    - 1.0949840960373372e-06
+    - 1.3001119558375058e-06
+    - 1.765576091218973e-06
+    - 2.455554571300775e-06
+    - 3.4562031012403814e-06
+    - 4.862894352267177e-06
+    - 6.913143210814755e-06
+    - 9.650262013876293e-06
+    - 1.3659732671326074e-05
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  XENONnT SR0+SR1:
+    mu_up:
+    - .inf
+    - 1.6999170887579347e-05
+    - 4.096872002166139e-06
+    - 3.279108095482713e-06
+    - 4.0186713661386735e-06
+    - 5.3930611026688916e-06
+    - 7.47860458463306e-06
+    - 1.0469454719968225e-05
+    - 1.4741394000968897e-05
+    - 2.07995738817071e-05
+    - 2.9313079204118425e-05
+    - 4.1413536917241195e-05
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+  PandaX-4T Run0+Run1:
+    mu_up:
+    - 0.00012763908218534133
+    - 3.257334042814475e-05
+    - 7.975595896756953e-06
+    - 3.7637633188862455e-06
+    - 3.590432099671309e-06
+    - 4.434631919653172e-06
+    - 5.913496082869634e-06
+    - 8.151457300063584e-06
+    - 1.149693212992022e-05
+    - 1.6151433783403737e-05
+    - 2.2595009569830134e-05
+    - 3.203567167399263e-05
+    validated:
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    - false
+    unvalidated:
+    - 'unvalidated: no validation of this response structure (O8, O9) against published
+      limits'
+revalidated: '2026-10-10'
+revalidation_commit: 3adff48+dirty
+revalidation: validated marks and envelope recomputed with exclusion.direct_validation
+  (R6, audit M8); μ₉₀ as computed on the date above

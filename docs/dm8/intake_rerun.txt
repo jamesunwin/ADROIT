@@ -1,0 +1,12 @@
+G1   PASS  terms as the reference  | MadDM: 3.2e-03
+G2   PASS  terms as the reference  | MadDM: 3.1e-03
+G3   PASS  terms as the reference  | MadDM: 2.8e-03
+G4   PASS  terms as the reference  | MadDM: 4.0e-03
+G5   PASS  terms as the reference  | MadDM: not covered: not written as UFO ((mu_chi/2) chī σ^{μν} chi F_μν: a dipole coupling to a spin-1 boson is not written)
+G6   PASS  terms as the reference  | MadDM: not covered: not written as UFO (anapole chī γ^μ γ^5 chi ∂^ν F_μν: the photon couples to a new neutral field only through its field strength, which is not written)
+G7   PASS  terms as the reference  | MadDM: 1.3e-03
+G8   PASS  terms as the reference  | MadDM: 1.3e-03
+G9   FAIL  'g_d*m_d/v' is 1.909e-05 where the reference's 'g_d*m_d/v' is 1.897e-05; 'g_d*m_s/v' is 0.0003777 where the reference's 'g_d*m_s/v' is 0.0003793  | MadDM: not covered: MadDM's coefficients are all zero: no such operator in its basis
+G10  PASS  terms as the reference  | MadDM: not covered: not written as UFO ((d_chi/2) chī iσ^{μν} γ^5 chi F_μν: a dipole coupling to a spin-1 boson is not written)
+
+9/10 pass; spent $0.27

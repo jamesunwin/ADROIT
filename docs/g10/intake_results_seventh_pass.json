@@ -1,0 +1,919 @@
+{
+ "model": "claude-opus-5-5",
+ "dry_run": false,
+ "summary": {
+  "entries": 3,
+  "compared": 3,
+  "equal": 2,
+  "equal_d19": 2,
+  "spent": 0.5611304000000001,
+  "gate": false
+ },
+ "results": [
+  {
+   "id": "secluded_dirac_vector_pospelov",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The covariant derivative D_mu = d_mu + i e' V_mu gives the coupling -e' psi-bar gamma^mu psi V_mu, with e' = sqrt(4 pi alpha').",
+    "kappa V_nu d_mu F^{mu nu} was integrated by parts to -(kappa/2) V_{mu nu} F^{mu nu}, so the kinetic_mixing coefficient is -kappa/2.",
+    "The vector mass (1/2) m_V^2 V_mu^2 is the field's Lagrangian mass_gev = m_V.",
+    "The Dirac mass -m_psi psi-bar psi is the field's mass_gev = m_psi.",
+    "The U(1)' charge of psi is normalised to +1 (extra charge 'U1p')."
+   ],
+   "assumptions": [
+    "Phase 'broken' is used because the paper mixes V with the photon field strength, and the instructions require keeping that field strength.",
+    "L_h' and the Delta m_psi splitting are omitted: the first is not fixed by the benchmark, the second is set to zero by the paper.",
+    "dark_parity -1 is assigned to psi to mark its conserved U(1)' charge."
+   ],
+   "equal": true,
+   "differences": [],
+   "equal_d19": true,
+   "differences_d19": [],
+   "agent_spec": {
+    "name": "secluded_dirac_wimp_U1prime_vector_portal",
+    "phase": "broken",
+    "source": "Pospelov & Ritz, Astrophysical Signatures of Secluded Dark Matter, eqs. (3)-(4)",
+    "fields": [
+     {
+      "name": "psi",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 270.0,
+      "mass_justification": "Dirac mass m_psi in psi-bar(i D-slash - m_psi)psi; benchmark m_psi = 270 GeV",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {
+        "U1p": 1.0
+       }
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "V",
+      "role": "mediator",
+      "spin": 1.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 1.0,
+      "mass_justification": "(1/2) m_V^2 V_mu^2 from spontaneously broken U(1)'; benchmark m_V = 1 GeV",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "A",
+      "role": "standard_model",
+      "spin": 1.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 0.0,
+      "mass_justification": "Standard Model photon",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "m_psi",
+      "value": 270.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark (chosen by the zoo): m_psi = 270 GeV from the paper's relic relation (8)"
+     },
+     {
+      "name": "alpha_prime",
+      "value": 0.01,
+      "mass_dimension": 0,
+      "justification": "Benchmark (chosen by the zoo): alpha' = e'^2/(4 pi) = 0.01 from relation (8)"
+     },
+     {
+      "name": "m_V",
+      "value": 1.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark (chosen by the zoo): m_V = 1 GeV, the paper's regime m_V << m_psi"
+     },
+     {
+      "name": "kappa",
+      "value": 1e-06,
+      "mass_dimension": 0,
+      "justification": "Benchmark (chosen by the zoo): kappa = 1e-6, the paper's kappa << 1, so that V decays before BBN"
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "psi",
+        "conjugate": true
+       },
+       {
+        "field": "psi",
+        "conjugate": false
+       },
+       {
+        "field": "V",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "-sqrt(4*pi*alpha_prime)",
+      "plus_hc": false,
+      "text": "psi-bar i gamma^mu (i e' V_mu) psi = -e' psi-bar gamma^mu psi V_mu, with e' = sqrt(4 pi alpha')",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "V",
+        "conjugate": false
+       },
+       {
+        "field": "A",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "kinetic_mixing",
+      "coupling": "-kappa/2",
+      "plus_hc": false,
+      "text": "kappa V_nu d_mu F^{mu nu} = -(kappa/2) V_{mu nu} F^{mu nu} (integration by parts)",
+      "indices": ""
+     }
+    ],
+    "assumptions": [
+     "Kinetic mixing written with the photon field strength F, as in the paper's eq. (3), so phase 'broken' with A declared. The paper's text also mentions B_mu nu mixing, but the Lagrangian uses F; it is not converted.",
+     "The U(1)' Higgs sector L_h' is left out. The benchmark does not fix the h' mass or its couplings; the paper only states m_h' > m_V/2. Its dark self-couplings are not invented.",
+     "The mass splitting L(Delta m_psi) is set to zero: the paper treats psi as a pure Dirac fermion.",
+     "psi is assigned dark_parity -1: its stability follows from the U(1)' charge (accidental particle-number symmetry). V and h' are even."
+    ],
+    "dropped": [
+     "L_h' (Higgs' sector of the broken U(1)'): not fixed by the benchmark",
+     "L(Delta m_psi): set to zero by the paper"
+    ],
+    "stability": "psi is stabilised by its conserved U(1)' charge (dark fermion number); it is the lightest charged state.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "equal",
+   "spent": 0.11821200000000001,
+   "rescored": {
+    "equal": true,
+    "differences": [],
+    "equal_d19": true,
+    "differences_d19": []
+   }
+  },
+  {
+   "id": "forbidden_dark_photon_dagnolo",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper's kinetic mixing is with the photon field strength F, so it is kept as mixing with A, and the spec is written in phase 'broken' as the kinetic-mixing rule requires.",
+    "The dark gauge coupling is g_d = sqrt(4 pi alpha_d), with coupling +g_d psibar gamma psi gd (covariant derivative D = d - i g_d Q gd, Q_psi = 1).",
+    "The dark photon mass m_gd = m_psi (1+Delta) enters as an explicit term +1/2 m^2 V_mu V^mu."
+   ],
+   "assumptions": [
+    "psi carries unit charge under U(1)_d; the paper does not state the normalisation, and alpha_d is the coupling of psi.",
+    "The dark photon mass is treated as a Stueckelberg-like mass with no dark Higgs dynamics.",
+    "epsilon = 1e-5, as chosen by the zoo.",
+    "The sign of the dark gauge coupling is a convention and does not affect the rates.",
+    "Dark parity -1 is assigned to psi to mark it as the stable dark state (in the model its stability comes from U(1)_d); the dark photon is assigned +1."
+   ],
+   "equal": true,
+   "differences": [],
+   "equal_d19": true,
+   "differences_d19": [],
+   "agent_spec": {
+    "name": "forbidden_dirac_dm_dark_photon",
+    "phase": "broken",
+    "source": "Forbidden Dark Matter (Dirac DM annihilating into heavier dark photons), eq. (6) and text",
+    "fields": [
+     {
+      "name": "psi",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 1.0,
+      "mass_justification": "Benchmark m_psi = 1.0 GeV; Dirac mass M in -M psibar psi.",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {
+        "U1d": 1.0
+       }
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "Ad",
+      "role": "mediator",
+      "spin": 1.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "The mass is m_gd = m_psi (1 + Delta), a formula in benchmark inputs, so it is given by an explicit mass term.",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "A",
+      "role": "standard_model",
+      "spin": 1.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": null,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "m_psi",
+      "value": 1.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark DM mass."
+     },
+     {
+      "name": "alpha_d",
+      "value": 0.1,
+      "mass_dimension": 0,
+      "justification": "Benchmark dark fine-structure constant; g_d = sqrt(4 pi alpha_d)."
+     },
+     {
+      "name": "Delta",
+      "value": 0.309,
+      "mass_dimension": 0,
+      "justification": "Benchmark relative splitting (m_gd - m_psi)/m_psi, the partner's relative splitting."
+     },
+     {
+      "name": "epsilon",
+      "value": 1e-05,
+      "mass_dimension": 0,
+      "justification": "Kinetic mixing, chosen by the zoo (1e-5), small enough not to affect the annihilation."
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "psi",
+        "conjugate": true
+       },
+       {
+        "field": "psi",
+        "conjugate": false
+       },
+       {
+        "field": "Ad",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "sqrt(4*pi*alpha_d)",
+      "plus_hc": false,
+      "text": "g_d psibar gamma^mu psi gd_mu (unit dark charge)",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "Ad",
+        "conjugate": false
+       },
+       {
+        "field": "Ad",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "0.5*(m_psi*(1+Delta))**2",
+      "plus_hc": false,
+      "text": "+1/2 m_gd^2 gd_mu gd^mu with m_gd = m_psi (1+Delta)",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "Ad",
+        "conjugate": false
+       },
+       {
+        "field": "A",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "kinetic_mixing",
+      "coupling": "-epsilon/2",
+      "plus_hc": false,
+      "text": "-(epsilon/2) F^d_{mu nu} F^{mu nu}, eq. (6)",
+      "indices": ""
+     }
+    ],
+    "assumptions": [],
+    "dropped": [
+     "Dark radiation n coupling q_n g_d nbar gamma n gd (eq. 9): belongs only to the epsilon -> 0 decoupled scenario, not this benchmark with epsilon = 1e-5 and m_psi = 1 GeV.",
+     "Dark Higgs: mentioned only for the N_eff computation; no couplings are given."
+    ],
+    "stability": "psi is stable by its conserved U(1)_d charge and is the lightest U(1)_d-charged state; the dark photon decays to SM through epsilon.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "equal",
+   "spent": 0.2627456,
+   "rescored": {
+    "equal": true,
+    "differences": [],
+    "equal_d19": true,
+    "differences_d19": []
+   }
+  },
+  {
+   "id": "two_hdm_pseudoscalar_singlet_mediator_ipek",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper's hypercharge convention is standard (doublets Y = 1/2, Q = T3 + Y), so no halving was needed.",
+    "Paper v = 246 GeV with <H_i> = v_i/sqrt2, the same as ADROIT; v = 246.22 GeV is used.",
+    "The paper's doublets H1, H2 are rotated to the Higgs basis H = c_b H1 + s_b H2, Phi = -s_b H1 + c_b H2. Then the neutral imaginary part of Phi is -A0.",
+    "V_port = i B a0 H1^dag H2 + h.c. becomes exactly i B a0 H^dag Phi + h.c. in the Higgs basis (the hermitian pieces cancel); it enters L with a minus sign.",
+    "Under the stated assumptions V_2HDM in the Higgs basis becomes kappa (H^dag H + Phi^dag Phi)^2 - kappa v^2 H^dag H + (m_A0^2 - m_h^2/2) Phi^dag Phi, with kappa = m_h^2/(2v^2). The lambda4 term cancels against the lambda5 = lambda6 part. Every term enters L with a minus sign.",
+    "Physical inputs are inverted into Lagrangian parameters: m_A0^2 = c^2 m_A^2 + s^2 m_a^2, m_a0^2 = s^2 m_A^2 + c^2 m_a^2, B v = s c (m_A^2 - m_a^2), with c^2, s^2 = (1 +- sqrt(1 - sin2theta^2))/2.",
+    "Type II Yukawas are written in the Higgs basis via Y_d c_b = sqrt2 m_d/v and Y_u s_b = sqrt2 m_u/v. The paper's typo Y_d H2tilde u_R is read as Y_u.",
+    "The SM Yukawas to H are left to G1."
+   ],
+   "assumptions": [],
+   "equal": false,
+   "differences": [
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.25 GeV has no counterpart",
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.09 GeV is extra"
+   ],
+   "equal_d19": false,
+   "differences_d19": [
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.25 GeV has no counterpart",
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.09 GeV is extra"
+   ],
+   "agent_spec": {
+    "name": "Ipek_McKeen_Nelson_2HDM_pseudoscalar_portal_Dirac_DM",
+    "phase": "unbroken",
+    "source": "arXiv:1404.3716, eqs. (3)-(6), (13)-(17), (20)-(24)",
+    "fields": [
+     {
+      "name": "chi",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 30.0,
+      "mass_justification": "Dirac mass m_chi = 30 GeV (benchmark)",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "a0",
+      "role": "mediator",
+      "spin": 0.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "Real singlet pseudoscalar. Its Lagrangian mass m_a0^2 = s_theta^2 m_A^2 + c_theta^2 m_a^2 is a formula, so it is an explicit term.",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "H",
+      "role": "standard_model",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "Higgs-basis doublet taking the whole vev. Its potential is written explicitly because the extended scalar sector mixes.",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "Phi",
+      "role": "other",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "Second doublet in the Higgs basis (no vev). Its mass is an explicit formula term.",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "qL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 2,
+       "hypercharge": 0.16666666666666666,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "uR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": 0.6666666666666666,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "dR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": -0.3333333333333333,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "lL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": -0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "eR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": -1.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "m_chi",
+      "value": 30.0,
+      "mass_dimension": 1,
+      "justification": "benchmark DM mass"
+     },
+     {
+      "name": "m_a",
+      "value": 100.0,
+      "mass_dimension": 1,
+      "justification": "benchmark light CP-odd eigenstate mass"
+     },
+     {
+      "name": "m_A",
+      "value": 600.0,
+      "mass_dimension": 1,
+      "justification": "heavy CP-odd eigenstate mass, chosen by the zoo (m_a << m_A)"
+     },
+     {
+      "name": "y_chi",
+      "value": 0.8,
+      "mass_dimension": 0,
+      "justification": "chosen by the zoo"
+     },
+     {
+      "name": "sin2theta",
+      "value": 0.3,
+      "mass_dimension": 0,
+      "justification": "CP-odd mixing sin 2theta, chosen by the zoo"
+     },
+     {
+      "name": "tanb",
+      "value": 10.0,
+      "mass_dimension": 0,
+      "justification": "tan beta, chosen by the zoo"
+     },
+     {
+      "name": "y_chi_sin2theta_tanbeta",
+      "value": 2.4,
+      "mass_dimension": 0,
+      "justification": "paper's product entering eq. (29); equals y_chi*sin2theta*tanb, not used independently"
+     },
+     {
+      "name": "Gamma_a",
+      "value": 0.0,
+      "mass_dimension": 1,
+      "justification": "benchmark width input (not a Lagrangian parameter)"
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "chi",
+        "conjugate": true
+       },
+       {
+        "field": "chi",
+        "conjugate": false
+       },
+       {
+        "field": "a0",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "pseudoscalar",
+      "coupling": "y_chi",
+      "plus_hc": false,
+      "text": "y_chi a0 chibar i gamma5 chi (eq. 3)",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "a0",
+        "conjugate": false
+       },
+       {
+        "field": "a0",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(m_A**2*(1-sqrt(1-sin2theta**2))/2 + m_a**2*(1+sqrt(1-sin2theta**2))/2)/2",
+      "plus_hc": false,
+      "text": "-1/2 m_a0^2 a0^2, with m_a0^2 = s_th^2 m_A^2 + c_th^2 m_a^2",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "a0",
+        "conjugate": false
+       },
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-I*(m_A**2-m_a**2)*sin2theta/(2*v)",
+      "plus_hc": true,
+      "text": "-(i B a0 H1^dag H2 + h.c.) = -(i B a0 H^dag Phi + h.c.), with B = (m_A^2-m_a^2) sin2theta/(2v) (eq. 17)",
+      "indices": "a0 H*[i] Phi[i]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "m_h**2/2",
+      "plus_hc": false,
+      "text": "+kappa v^2 H^dag H, with kappa = m_h^2/(2v^2)",
+      "indices": "H*[i] H[i]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       },
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-m_h**2/(2*v**2)",
+      "plus_hc": false,
+      "text": "-kappa (H^dag H)^2",
+      "indices": "H*[i] H[i] H*[j] H[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-m_h**2/(2*v**2)",
+      "plus_hc": false,
+      "text": "-kappa (Phi^dag Phi)^2",
+      "indices": "Phi*[i] Phi[i] Phi*[j] Phi[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       },
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-m_h**2/v**2",
+      "plus_hc": false,
+      "text": "-2 kappa (H^dag H)(Phi^dag Phi)",
+      "indices": "H*[i] H[i] Phi*[j] Phi[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(m_A**2*(1+sqrt(1-sin2theta**2))/2 + m_a**2*(1-sqrt(1-sin2theta**2))/2 - m_h**2/2)",
+      "plus_hc": false,
+      "text": "-(m_A0^2 - m_h^2/2) Phi^dag Phi, with m_A0^2 = c_th^2 m_A^2 + s_th^2 m_a^2",
+      "indices": "Phi*[i] Phi[i]"
+     },
+     {
+      "fields": [
+       {
+        "field": "qL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "dR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "sqrt(2)*tanb*m_q/v",
+      "plus_hc": true,
+      "text": "Type II: -Qbar Y_d H1 d_R with H1 = c_b H - s_b Phi gives +tan(beta) sqrt2 m_d/v Qbar Phi d_R + h.c.",
+      "indices": "qL*[i,c] Phi[i] dR[c]"
+     },
+     {
+      "fields": [
+       {
+        "field": "qL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "uR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-sqrt(2)*m_q/(tanb*v)",
+      "plus_hc": true,
+      "text": "Type II: -Qbar Y_u H2tilde u_R with H2 = s_b H + c_b Phi gives -cot(beta) sqrt2 m_u/v Qbar Phitilde u_R + h.c.",
+      "indices": "eps[i,j] qL*[i,c] Phi*[j] uR[c]"
+     },
+     {
+      "fields": [
+       {
+        "field": "lL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "eR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "sqrt(2)*tanb*m_l/v",
+      "plus_hc": true,
+      "text": "Type II: -Lbar Y_e H1 e_R gives +tan(beta) sqrt2 m_l/v Lbar Phi e_R + h.c.",
+      "indices": "lL*[i] Phi[i] eR"
+     }
+    ],
+    "assumptions": [
+     "Exact alignment alpha = beta - pi/2, the paper's decoupling limit made exact.",
+     "lambda1 = lambda2 and m_H = m_H+- = m_A0, the paper's near-degenerate decoupling spectrum made exact. With m_h = 125 GeV this fixes every lambda_i: lambda1 = lambda2 = m_A0^2/v^2, lambda4 = lambda5 = lambda6 = 2 m_A0^2/v^2, lambda3 = m_h^2/(2v^2) - m_A0^2/v^2.",
+     "theta is taken in (0, pi/4), i.e. B > 0 and m_A0 > m_a0, so cos 2theta = +sqrt(1 - sin2theta^2).",
+     "The dark quartic lambda_a a0^4/4 is not fixed by the benchmark and is left out.",
+     "CP conservation is assumed (B and y_chi real), as the paper does.",
+     "Yukawas apply to all three generations (flavour-diagonal, using each flavour's mass).",
+     "Gamma_a = 0 and y_chi_sin2theta_tanbeta are listed but do not enter the Lagrangian."
+    ],
+    "dropped": [
+     "lambda_a a0^4/4 (dark self-coupling, value not given)"
+    ],
+    "stability": "chi is stabilised by a separate Z2 (chi -> -chi) that forbids Lbar H1tilde chi_R.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "differs",
+   "spent": 0.5611304000000001,
+   "rescored": {
+    "equal": false,
+    "differences": [
+     "SSS vertices among 3 legs: 1 against 0",
+     "a SSS vertex's coupling: 62.5037 against 63.9673",
+     "a SSS vertex's coupling: 193.87 against 203.403",
+     "SSS vertices among 3 legs: 1 against 0",
+     "a SSS vertex's coupling: 126.055 against 63.9673",
+     "SSSS vertices among 4 legs: 1 against 0"
+    ],
+    "equal_d19": false,
+    "differences_d19": [
+     "SSS vertices among 3 legs: 1 against 0",
+     "a SSS vertex's coupling: 62.5037 against 63.9673",
+     "a SSS vertex's coupling: 193.87 against 203.403",
+     "SSS vertices among 3 legs: 1 against 0",
+     "a SSS vertex's coupling: 126.055 against 63.9673",
+     "SSSS vertices among 4 legs: 1 against 0"
+    ]
+   }
+  }
+ ],
+ "rescored_summary": {
+  "entries": 3,
+  "compared": 3,
+  "equal": 2,
+  "equal_d19": 2
+ }
+}

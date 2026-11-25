@@ -1,0 +1,140 @@
+# DM13 gate
+
+- G1: PASS
+- G2: PASS
+- G3: FAIL
+- G4: PASS
+
+**NOT PASSED** ($0)
+
+```
+{
+ "G1": [
+  {
+   "model": "V1",
+   "m_dm": 10,
+   "dm7": 31000.0,
+   "scan": 30575.1,
+   "ratio": 0.986,
+   "pass": true
+  },
+  {
+   "model": "V1",
+   "m_dm": 100,
+   "dm7": 37000.0,
+   "scan": 35207.9,
+   "ratio": 0.952,
+   "pass": true
+  },
+  {
+   "model": "V1",
+   "m_dm": 300,
+   "dm7": 30000.0,
+   "scan": 29875.2,
+   "ratio": 0.996,
+   "pass": true
+  },
+  {
+   "model": "A1",
+   "m_dm": 10,
+   "dm7": 420.0,
+   "scan": 423.0,
+   "ratio": 1.007,
+   "pass": true
+  },
+  {
+   "model": "A1",
+   "m_dm": 100,
+   "dm7": 440.0,
+   "scan": 440.2,
+   "ratio": 1.0,
+   "pass": true
+  },
+  {
+   "model": "A1",
+   "m_dm": 300,
+   "dm7": 350.0,
+   "scan": 352.4,
+   "ratio": 1.007,
+   "pass": true
+  }
+ ],
+ "G2": [
+  {
+   "m_dm": 100.0,
+   "m_med": 500.0,
+   "maddm": 141.0,
+   "adroit": 141.00611936982122,
+   "ratio": 0.9999566020974936,
+   "pass": true
+  },
+  {
+   "m_dm": 200.0,
+   "m_med": 500.0,
+   "maddm": 0.0521,
+   "adroit": 0.05280077742126693,
+   "ratio": 0.9867278957717642,
+   "pass": true
+  },
+  {
+   "m_dm": 300.0,
+   "m_med": 1000.0,
+   "maddm": 0.401,
+   "adroit": 0.4024266153186366,
+   "ratio": 0.9964549677771511,
+   "pass": true
+  }
+ ],
+ "G3": {
+  "a": {
+   "level": "excluded",
+   "pass": true
+  },
+  "b": {
+   "level": "viable_pending",
+   "cms_200_1800": "27/28",
+   "pass": false
+  },
+  "c": {
+   "level": "viable_pending",
+   "dd_excludes": 0,
+   "fermi_below_50": "9/9",
+   "fermi_above_200": "0/14",
+   "pass": true
+  },
+  "d": {
+   "undetermined": "7/7",
+   "pass": true
+  }
+ },
+ "G4": [
+  {
+   "model": "vector_mediator",
+   "missing": [],
+   "plots": [
+    "direct_detection.png",
+    "parameter_plane.png"
+   ],
+   "pass": true
+  },
+  {
+   "model": "axial_mediator",
+   "missing": [],
+   "plots": [
+    "direct_detection.png",
+    "parameter_plane.png"
+   ],
+   "pass": true
+  },
+  {
+   "model": "scalar_mediator",
+   "missing": [],
+   "plots": [
+    "direct_detection.png",
+    "parameter_plane.png"
+   ],
+   "pass": true
+  }
+ ]
+}
+```

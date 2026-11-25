@@ -1,0 +1,361 @@
+declared: adroit/parameter_space/data/halo_validation_points_targeted.yaml
+declared_sha256: 87b6283c0329a5e926427ebdf9a8af91f3254cd7b8831ae29c07bfb0cf866715
+date: '2026-11-24'
+gate_max_discrepancy: 0.15
+modules:
+  LZ WS2022+WS2024:
+    SI:
+      masses_gev:
+      - 50.0
+      - 90.0
+      max_discrepancy: 0.12724453187586926
+      passed: true
+      declared_sha256: 87b6283c0329a5e926427ebdf9a8af91f3254cd7b8831ae29c07bfb0cf866715
+      inputs_sha256: 3552abfbd563b35c2b9e493be1cd260ac107d56506f2bed4a5d5c90f92f40a48
+      points:
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.517600975880892e-48
+        ratio_cm2: 3.545363006385001e-48
+        discrepancy: 0.007892319422943217
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.326423963096906e-48
+        ratio_cm2: 4.342808516820828e-48
+        discrepancy: 0.0037870892597853256
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 5.261671525076247e-48
+        ratio_cm2: 5.334651908104518e-48
+        discrepancy: 0.013870189858956161
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.6277330970834256e-48
+        ratio_cm2: 4.0696906425965235e-48
+        discrepancy: 0.12182747012684492
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 3.9427232498383926e-48
+        ratio_cm2: 4.4444132240801844e-48
+        discrepancy: 0.12724453187586926
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 4.6058104601454226e-48
+        ratio_cm2: 5.126420221255055e-48
+        discrepancy: 0.11303325779784568
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.7318771350262396e-48
+        ratio_cm2: 3.467065959302865e-48
+        discrepancy: 0.07095924279980692
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.8756838014160607e-48
+        ratio_cm2: 4.5329963728487366e-48
+        discrepancy: 0.07028499847914593
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 6.051478257552184e-48
+        ratio_cm2: 5.758075924501079e-48
+        discrepancy: 0.04848440671251564
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.4611744353599605e-48
+        ratio_cm2: 3.5504444305574784e-48
+        discrepancy: 0.025791822072161352
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.2687821290471366e-48
+        ratio_cm2: 4.316937938131895e-48
+        discrepancy: 0.01128092454217322
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 5.204307536111852e-48
+        ratio_cm2: 5.2840677680862117e-48
+        discrepancy: 0.01532581067143246
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.5300439754633664e-48
+        ratio_cm2: 3.5471437235996734e-48
+        discrepancy: 0.004844060939513506
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.3607190972248694e-48
+        ratio_cm2: 4.354924784018243e-48
+        discrepancy: 0.0013287517671830562
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 5.334183981531976e-48
+        ratio_cm2: 5.3551700281754054e-48
+        discrepancy: 0.003934256245395229
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.521313182280531e-48
+        ratio_cm2: 3.8345213474494745e-48
+        discrepancy: 0.08894640974992707
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.0086928630056973e-48
+        ratio_cm2: 4.354176095166964e-48
+        discrepancy: 0.08618351267306257
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 4.766038160861336e-48
+        ratio_cm2: 5.1339169844501524e-48
+        discrepancy: 0.0771875530938535
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 50.0
+        reference_cm2: 3.527911015469608e-48
+        full_cm2: 3.690401778526627e-48
+        ratio_cm2: 3.476694840085552e-48
+        discrepancy: 0.05790885417532954
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 70.0
+        reference_cm2: 4.35701624803785e-48
+        full_cm2: 4.7335457167739916e-48
+        ratio_cm2: 4.492414507738294e-48
+        discrepancy: 0.05094092747033474
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 90.0
+        reference_cm2: 5.375080433279146e-48
+        full_cm2: 5.911511667524543e-48
+        ratio_cm2: 5.672593860112122e-48
+        discrepancy: 0.04041568736554124
+  XENONnT SR0+SR1:
+    SI:
+      masses_gev:
+      - 90.0
+      - 1000.0
+      max_discrepancy: 0.14552042049642644
+      passed: true
+      declared_sha256: 87b6283c0329a5e926427ebdf9a8af91f3254cd7b8831ae29c07bfb0cf866715
+      inputs_sha256: e7f77892799d3d48374ef85512feb9c26057483952f7380d141815013ad1bee2
+      points:
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 4.2402135449917645e-47
+        ratio_cm2: 4.2260904896033796e-47
+        discrepancy: 0.003330741538964732
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.2895839263115369e-46
+        ratio_cm2: 1.2974533721905001e-46
+        discrepancy: 0.0061023138691496115
+      - halo: centre
+        v0_km_s: 233.0
+        v_esc_km_s: 528.0
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 4.231971649665718e-46
+        ratio_cm2: 4.215532032231625e-46
+        discrepancy: 0.0038846237156129337
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 3.608590518488085e-47
+        ratio_cm2: 4.1337141281378884e-47
+        discrepancy: 0.14552042049642644
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.0302946684907699e-46
+        ratio_cm2: 1.0980399875324027e-46
+        discrepancy: 0.065753343304076
+      - halo: v0_low
+        v0_km_s: 177.0903
+        v_esc_km_s: 528.0
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 3.3520975415823487e-46
+        ratio_cm2: 3.4579033466838648e-46
+        discrepancy: 0.03156405915669458
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 4.767329550916435e-47
+        ratio_cm2: 4.525673502058213e-47
+        discrepancy: 0.05069002389645327
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.5153950884831745e-46
+        ratio_cm2: 1.4910487534076248e-46
+        discrepancy: 0.016065998405682458
+      - halo: v0_high
+        v0_km_s: 288.9097
+        v_esc_km_s: 528.0
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 4.9711879716870555e-46
+        ratio_cm2: 4.91571171787019e-46
+        discrepancy: 0.011159556655838676
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 4.128945789292252e-47
+        ratio_cm2: 4.189698550764644e-47
+        discrepancy: 0.014713867551844562
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.261346176562291e-46
+        ratio_cm2: 1.2765834089881876e-46
+        discrepancy: 0.012080135262648284
+      - halo: v_esc_low
+        v0_km_s: 233.0
+        v_esc_km_s: 444.1355
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 4.123203540690836e-46
+        ratio_cm2: 4.141247179418895e-46
+        discrepancy: 0.004376121273177658
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 4.2343753274554517e-47
+        ratio_cm2: 4.241372364947438e-47
+        discrepancy: 0.0016524367706891585
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.2956801726758041e-46
+        ratio_cm2: 1.3047412944326255e-46
+        discrepancy: 0.006993332110738937
+      - halo: v_esc_high
+        v0_km_s: 233.0
+        v_esc_km_s: 611.8645
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 4.248230074877984e-46
+        ratio_cm2: 4.2407290538199515e-46
+        discrepancy: 0.0017656814545873312
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 3.7618861066029373e-47
+        ratio_cm2: 4.1121362353043675e-47
+        discrepancy: 0.0931049262992476
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.1134704617059073e-46
+        ratio_cm2: 1.1513248328530218e-46
+        discrepancy: 0.033996744816309876
+      - halo: both_low
+        v0_km_s: 193.4659
+        v_esc_km_s: 468.6988
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 3.617527611767155e-46
+        ratio_cm2: 3.668100739788653e-46
+        discrepancy: 0.013980025434220167
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 90.0
+        reference_cm2: 4.253616751055899e-47
+        full_cm2: 4.695102985232162e-47
+        ratio_cm2: 4.464380611290611e-47
+        discrepancy: 0.049141067760868684
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 300.0
+        reference_cm2: 1.318014012450508e-46
+        full_cm2: 1.4669555037779194e-46
+        ratio_cm2: 1.453174146053e-46
+        discrepancy: 0.009394530160885983
+      - halo: both_high
+        v0_km_s: 272.5341
+        v_esc_km_s: 587.3012
+        mass_gev: 1000.0
+        reference_cm2: 4.2905482533809085e-46
+        full_cm2: 4.8337402287204186e-46
+        ratio_cm2: 4.7789458029931385e-46
+        discrepancy: 0.011335823427521152

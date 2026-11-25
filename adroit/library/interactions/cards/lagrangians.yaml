@@ -1,0 +1,1356 @@
+# Layer 2: the twenty relativistic interactions of arXiv:1308.6288, Table 1, with their
+# nonrelativistic reductions (the column 'Σ c_i O_i'), in Bjorken–Drell conventions.
+# Transcribed by hand from the TeX source of arXiv:1308.6288v1 (table:LWL); the five
+# pairs LZ found to differ only by a constant (L1/L5, L2/L8, L3/L17, L4/L20, L11/L14)
+# are the only proportional pairs, which the tests check.
+- id: L01
+  name: 'L1: χ̄χ N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L1 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O1. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄χ N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O1
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L02
+  name: 'L2: i χ̄χ N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L2 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O10. P = p + p', K = k + k', q = p' − p.
+  interaction: i χ̄χ N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O10
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L03
+  name: 'L3: i χ̄γ⁵χ N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L3 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O11. P = p + p', K = k + k', q = p' − p.
+  interaction: i χ̄γ⁵χ N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O11
+    factor: -1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_chi: -1
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L04
+  name: 'L4: χ̄γ⁵χ N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L4 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O6. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄γ⁵χ N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O6
+    factor: -1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_chi: -1
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L05
+  name: 'L5: (P^μ/m_M) χ̄χ (K_μ/m_M) N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L5 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O1. P = p + p', K = k + k', q = p' − p.
+  interaction: (P^μ/m_M) χ̄χ (K_μ/m_M) N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O1
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: 1
+      m_N: 1
+      m_M: -2
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L06
+  name: 'L6: (P^μ/m_M) χ̄χ N̄ iσ_μα (q^α/m_M) N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L6 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O1 + O3. P = p + p', K = k + k', q = p' − p.
+  interaction: (P^μ/m_M) χ̄χ N̄ iσ_μα (q^α/m_M) N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O1
+    factor: -1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: 1
+      m_N: -1
+      m_M: -2
+    q_power: 2
+  - target: O3
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: 1
+      m_N: 1
+      m_M: -2
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L07
+  name: 'L7: (P^μ/m_M) χ̄χ N̄γ_μγ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L7 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O7. P = p + p', K = k + k', q = p' − p.
+  interaction: (P^μ/m_M) χ̄χ N̄γ_μγ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O7
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: 1
+      m_M: -1
+    q_power: 0
+  parity_time: O/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L08
+  name: 'L8: i (P^μ/m_M) χ̄χ (K_μ/m_M) N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L8 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O10. P = p + p', K = k + k', q = p' − p.
+  interaction: i (P^μ/m_M) χ̄χ (K_μ/m_M) N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O10
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: 1
+      m_N: 1
+      m_M: -2
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L09
+  name: 'L9: χ̄ iσ^μν (q_ν/m_M) χ (K_μ/m_M) N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L9 of arXiv:1308.6288 (Table 1), for spin-1/2
+    dark matter; its nonrelativistic limit is O1 + O5. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄ iσ^μν (q_ν/m_M) χ (K_μ/m_M) N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O1
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_chi: -1
+      m_M: -2
+    q_power: 2
+  - target: O5
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L10
+  name: 'L10: χ̄ iσ^μν (q_ν/m_M) χ N̄ iσ_μα (q^α/m_M) N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L10 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O4 + O6. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄ iσ^μν (q_ν/m_M) χ N̄ iσ_μα (q^α/m_M) N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O4
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_M: -2
+    q_power: 2
+  - target: O6
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L11
+  name: 'L11: χ̄ iσ^μν (q_ν/m_M) χ N̄γ^μγ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L11 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O9. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄ iσ^μν (q_ν/m_M) χ N̄γ^μγ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O9
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  parity_time: O/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L12
+  name: 'L12: i χ̄ iσ^μν (q_ν/m_M) χ (K_μ/m_M) N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L12 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O10 + O12 + O15. P = p + p', K = k + k', q = p'
+    − p.
+  interaction: i χ̄ iσ^μν (q_ν/m_M) χ (K_μ/m_M) N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O10
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_chi: -1
+      m_M: -2
+    q_power: 2
+  - target: O12
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_M: -2
+    q_power: 2
+  - target: O15
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L13
+  name: 'L13: χ̄γ^μγ⁵χ (K_μ/m_M) N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L13 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O8. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄γ^μγ⁵χ (K_μ/m_M) N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O8
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  parity_time: O/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L14
+  name: 'L14: χ̄γ^μγ⁵χ N̄ iσ_μα (q^α/m_M) N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L14 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O9. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄γ^μγ⁵χ N̄ iσ_μα (q^α/m_M) N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O9
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  parity_time: O/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L15
+  name: 'L15: χ̄γ^μγ⁵χ N̄γ_μγ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L15 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O4. P = p + p', K = k + k', q = p' − p.
+  interaction: χ̄γ^μγ⁵χ N̄γ_μγ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O4
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L16
+  name: 'L16: i χ̄γ^μγ⁵χ (K_μ/m_M) N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L16 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O13. P = p + p', K = k + k', q = p' − p.
+  interaction: i χ̄γ^μγ⁵χ (K_μ/m_M) N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O13
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  parity_time: E/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L17
+  name: 'L17: i (P^μ/m_M) χ̄γ⁵χ (K_μ/m_M) N̄N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L17 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O11. P = p + p', K = k + k', q = p' − p.
+  interaction: i (P^μ/m_M) χ̄γ⁵χ (K_μ/m_M) N̄N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O11
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L18
+  name: 'L18: i (P^μ/m_M) χ̄γ⁵χ N̄ iσ_μα (q^α/m_M) N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L18 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O11 + O15. P = p + p', K = k + k', q = p' − p.
+  interaction: i (P^μ/m_M) χ̄γ⁵χ N̄ iσ_μα (q^α/m_M) N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O11
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers:
+      m_M: -2
+    q_power: 2
+  - target: O15
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: O/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L19
+  name: 'L19: i (P^μ/m_M) χ̄γ⁵χ N̄γ_μγ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L19 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O14. P = p + p', K = k + k', q = p' − p.
+  interaction: i (P^μ/m_M) χ̄γ⁵χ N̄γ_μγ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O14
+    factor: 4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  parity_time: E/O
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L20
+  name: 'L20: (P^μ/m_M) χ̄γ⁵χ (K_μ/m_M) N̄γ⁵N'
+  layer: relativistic
+  description: The relativistic dark matter–nucleon interaction L20 of arXiv:1308.6288 (Table 1), for
+    spin-1/2 dark matter; its nonrelativistic limit is O6. P = p + p', K = k + k', q = p' − p.
+  interaction: (P^μ/m_M) χ̄γ⁵χ (K_μ/m_M) N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling d_j (1/m_v^2 is LZ's unit coupling)
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 246.2
+    description: the scale in P/m_M, K/m_M and q/m_M; m_v by default, as LZ used
+  terms:
+  - target: O6
+    factor: -4.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -2
+    q_power: 0
+  parity_time: E/E
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  references:
+  - arXiv:1308.6288
+- id: L06_LZ
+  name: 'L6 as LZ defines it: χ̄γ^μχ N̄ iσ_μα (q^α/m_M) N'
+  layer: relativistic
+  description: LZ's definition of L6 (arXiv:2404.17666, Table I; the Ve-MM interaction), which uses a
+    vector current γ^μ where Table 1 of arXiv:1308.6288 has P^μ/m_M or K^μ/m_M, with the O3 term reversed as
+    LZ's published limits require. LZ's table and the explicit-spinor reduction (nr_projection) give O1 and O3
+    the opposite relative sign (c3 = −2 m_N/m_M); O3 is the only term odd in v⊥ and interferes with O1 through
+    xenon's Φ″–M response, so a v⊥ pointing the other way in LZ's code reproduces their limits (docs/dm6/
+    lz_conventions.py; docs/notes/lz_model_cards.html). For LZ comparisons only; q² is the three-momentum squared.
+  interaction: χ̄γ^μχ N̄ iσ_μα (q^α/m_M) N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in q/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O1
+    factor: 0.5
+    couplings:
+    - d_{N}
+    powers:
+      m_N: -1
+      m_M: -1
+    q_power: 2
+  - target: O3
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  - target: O4
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_M: -1
+      m_chi: -1
+    q_power: 2
+  - target: O6
+    factor: -2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 2
+      m_M: -1
+      m_chi: -1
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L06
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L09_LZ
+  name: 'L9 as LZ defines it: χ̄ iσ^μν (q_ν/m_M) χ N̄γ_μN'
+  layer: relativistic
+  description: LZ's definition of L9 (arXiv:2404.17666, Table I; the MM-Ve interaction), which uses a
+    vector current γ^μ where Table 1 of arXiv:1308.6288 has P^μ/m_M or K^μ/m_M. Its reduction is transcribed
+    from LZ's table, with q² there the three-momentum squared.
+  interaction: χ̄ iσ^μν (q_ν/m_M) χ N̄γ_μN
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in q/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O1
+    factor: 0.5
+    couplings:
+    - d_{N}
+    powers:
+      m_chi: -1
+      m_M: -1
+    q_power: 2
+  - target: O5
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  - target: O4
+    factor: -2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: -1
+      m_M: -1
+    q_power: 2
+  - target: O6
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers:
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L09
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L05_LZ
+  name: 'L5 as LZ computes it: χ̄γ^μχ N̄γ_μN'
+  layer: relativistic
+  description: LZ's limits (arXiv:2609.02823) follow this form, with a vector current where Table 1 of arXiv:1308.6288 has (P^μ/m_M) χ̄χ and (K_μ/m_M) N̄N, as LZ's covariant paper (arXiv:2404.17666) wrote L6 and L9; by the Gordon identity the leading coefficient is m_M²/4m_χm_N times Table 1's. Coefficients from the explicit-spinor reduction (nr_projection), at leading order as Table 1 gives every L_j; the full reduction's O3, O5 and O6 terms, suppressed by q and v⊥, change LZ's xenon limits by under 0.1%. For LZ comparisons only (docs/notes/lz_model_cards.html).
+  interaction: χ̄γ^μχ N̄γ_μN
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in P/m_M and K/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O1
+    factor: 1.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L05
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2609.02823
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L07_LZ
+  name: 'L7 as LZ computes it: χ̄γ^μχ N̄γ_μγ⁵N'
+  layer: relativistic
+  description: LZ's limits (arXiv:2609.02823) follow this form, with a vector current where Table 1 of arXiv:1308.6288 has (P^μ/m_M) χ̄χ, as LZ's covariant paper (arXiv:2404.17666) wrote L6 and L9; by the Gordon identity the leading coefficient is m_M/2m_χ times Table 1's. Coefficients from the explicit-spinor reduction (nr_projection), at leading order as Table 1 gives every L_j; the current's magnetic part adds O9, which is not velocity-suppressed and sets the rate below about 50 GeV, as LZ's limits require. For LZ comparisons only (docs/notes/lz_model_cards.html).
+  interaction: χ̄γ^μχ N̄γ_μγ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in P/m_M and K/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O7
+    factor: -2.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  - target: O9
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers: 
+      m_N: 1
+      m_chi: -1
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L07
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2609.02823
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L08_LZ
+  name: 'L8 as LZ computes it: i χ̄γ^μχ (K_μ/m_M) N̄γ⁵N'
+  layer: relativistic
+  description: LZ's limits (arXiv:2609.02823) follow this form, with a vector current where Table 1 of arXiv:1308.6288 has (P^μ/m_M) χ̄χ, as LZ's covariant paper (arXiv:2404.17666) wrote L6 and L9; by the Gordon identity the leading coefficient is m_M/2m_χ times Table 1's. Coefficients from the explicit-spinor reduction (nr_projection), at leading order as Table 1 gives every L_j; the full reduction's O12 and O15 terms change LZ's xenon limits by under 0.1%. For LZ comparisons only (docs/notes/lz_model_cards.html).
+  interaction: i χ̄γ^μχ (K_μ/m_M) N̄γ⁵N
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in P/m_M and K/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O10
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers: 
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L08
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2609.02823
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L13_LZ
+  name: 'L13 as LZ computes it: χ̄γ^μγ⁵χ N̄γ_μN'
+  layer: relativistic
+  description: LZ's limits (arXiv:2609.02823) follow this form, with a vector current where Table 1 of arXiv:1308.6288 has (K_μ/m_M) N̄N, as LZ's covariant paper (arXiv:2404.17666) wrote L6 and L9; by the Gordon identity the leading coefficient is m_M/2m_N times Table 1's. Coefficients from the explicit-spinor reduction (nr_projection), at leading order as Table 1 gives every L_j; the nucleon current's magnetic part adds O9 (as DirectDM has, c9 = 2F₁), which xenon cannot tell apart from O8 alone. For LZ comparisons only (docs/notes/lz_model_cards.html).
+  interaction: χ̄γ^μγ⁵χ N̄γ_μN
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in P/m_M and K/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O8
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  - target: O9
+    factor: 2.0
+    couplings:
+    - d_{N}
+    powers: {}
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L13
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2609.02823
+  - arXiv:2404.17666
+  - arXiv:1308.6288
+- id: L17_LZ
+  name: 'L17 as LZ computes it: i (P^μ/m_M) χ̄γ⁵χ N̄γ_μN'
+  layer: relativistic
+  description: LZ's limits (arXiv:2609.02823) follow this form, with a vector current where Table 1 of arXiv:1308.6288 has (K_μ/m_M) N̄N, as LZ's covariant paper (arXiv:2404.17666) wrote L6 and L9; by the Gordon identity the leading coefficient is m_M/2m_N times Table 1's. Coefficients from the explicit-spinor reduction (nr_projection), at leading order as Table 1 gives every L_j. For LZ comparisons only (docs/notes/lz_model_cards.html).
+  interaction: i (P^μ/m_M) χ̄γ⁵χ N̄γ_μN
+  parameters:
+  - name: d_p
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the proton coupling
+  - name: d_n
+    unit: GeV^-2
+    default: 1.6497719025367554e-05
+    description: the neutron coupling
+  - name: m_M
+    unit: GeV
+    default: 0.93149410242
+    description: the scale in P/m_M and K/m_M; LZ sets it to the nucleon mass
+  terms:
+  - target: O11
+    factor: -2.0
+    couplings:
+    - d_{N}
+    powers: 
+      m_N: 1
+      m_M: -1
+    q_power: 0
+  isospin_variants: true
+  kinematics:
+  - elastic
+  - inelastic
+  - exothermic
+  validity:
+  - kind: contact
+    note: 'a contact interaction: heavy mediator'
+  - kind: spin_half
+    note: written for spin-1/2 dark matter
+  constraint_tiers:
+  - 1
+  - 2
+  - 3
+  neighbours:
+  - target: L17
+    deformation: change_lorentz_structure
+    note: Anand et al.'s L_j with the same index
+  references:
+  - arXiv:2609.02823
+  - arXiv:2404.17666
+  - arXiv:1308.6288

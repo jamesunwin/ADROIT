@@ -1,0 +1,12 @@
+G1   PASS  terms as the reference  | MadDM: not run
+G2   PASS  terms as the reference  | MadDM: not run
+G3   PASS  terms as the reference  | MadDM: not run
+G4   PASS  terms as the reference  | MadDM: not run
+G5   PASS  terms as the reference  | MadDM: not run
+G6   PASS  terms as the reference  | MadDM: not run
+G7   PASS  terms as the reference  | MadDM: not run
+G8   PASS  terms as the reference  | MadDM: not run
+G9   PASS  terms as the reference  | MadDM: not run
+G10  PASS  terms as the reference  | MadDM: not run
+
+10/10 pass; spent $0.00

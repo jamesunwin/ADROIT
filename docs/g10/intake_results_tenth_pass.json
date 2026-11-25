@@ -1,0 +1,370 @@
+{
+ "model": "claude-opus-5-5",
+ "dry_run": false,
+ "summary": {
+  "entries": 1,
+  "compared": 1,
+  "equal": 1,
+  "equal_d19": 1,
+  "spent": 0.145585,
+  "gate": true,
+  "budget_stopped": false
+ },
+ "results": [
+  {
+   "id": "b_minus_l_rhn_zprime_okada",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper's hypercharge already uses Q = T3 + Y; the SM fermion hypercharges are kept as in Table 1.",
+    "The Majorana N built from the right-handed Weyl field: N\u0304_R \u03b3^\u03bc N_R = \u00bd N\u0304 \u03b3^\u03bc \u03b35 N, so the B-L gauge coupling of N is the axial term with coupling g_BL q_N/2 = -g_BL/2.",
+    "The SM fermions are written as Weyl fields qL, uR, dR, lL, eR (3 generations each) with B-L charges 1/3, 1/3, 1/3, -1, -1. The Z' couples to them through vector currents."
+   ],
+   "assumptions": [
+    "Sign convention: L \u2283 + g_BL Q_BL f\u0304 \u03b3^\u03bc f Z'_\u03bc for every field.",
+    "The Z' mass of 3000 GeV is entered as a Lagrangian mass, without the \u03a6 sector.",
+    "No Z'-hypercharge kinetic mixing."
+   ],
+   "equal": true,
+   "differences": [],
+   "equal_d19": true,
+   "differences_d19": [],
+   "agent_spec": {
+    "name": "BL_ZpPortal_RHN_DM",
+    "phase": "unbroken",
+    "source": "Z'_BL portal dark matter and LHC Run-2 results, eq. (1), (4), Table 1",
+    "fields": [
+     {
+      "name": "N",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 1432.3,
+      "mass_justification": "Benchmark m_DM = 1432.3 GeV, the Majorana mass Y_N v_BL/sqrt(2), given directly",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": -1.0
+       }
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "Zp",
+      "role": "mediator",
+      "spin": 1.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 3000.0,
+      "mass_justification": "Benchmark m_Z' = 3000 GeV (= 2 g_BL v_BL), given directly",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": 0.0
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "qL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 2,
+       "hypercharge": 0.16666666666666666,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": 0.3333333333333333
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "uR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": 0.6666666666666666,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": 0.3333333333333333
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "dR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": -0.3333333333333333,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": 0.3333333333333333
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "lL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": -0.5,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": -1.0
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "eR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": -1.0,
+       "electric_charge": 0.0,
+       "extra": {
+        "BL": -1.0
+       }
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "m_Zp",
+      "value": 3000.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark Z'_BL mass"
+     },
+     {
+      "name": "alpha_BL",
+      "value": 0.003,
+      "mass_dimension": 0,
+      "justification": "Benchmark B-L fine-structure constant, g_BL = sqrt(4 pi alpha_BL)"
+     },
+     {
+      "name": "m_DM",
+      "value": 1432.3,
+      "mass_dimension": 1,
+      "justification": "Benchmark dark matter mass"
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "N",
+        "conjugate": true
+       },
+       {
+        "field": "N",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "axial",
+      "coupling": "-sqrt(4*pi*alpha_BL)/2",
+      "plus_hc": false,
+      "text": "g_BL q_N N\u0304_R \u03b3^\u03bc N_R Z'_\u03bc with q_N = -1, i.e. (g_BL q_N/2) N\u0304 \u03b3^\u03bc \u03b35 N Z'_\u03bc",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "qL",
+        "conjugate": true
+       },
+       {
+        "field": "qL",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "sqrt(4*pi*alpha_BL)/3",
+      "plus_hc": false,
+      "text": "g_BL (1/3) q\u0304_L \u03b3^\u03bc q_L Z'_\u03bc",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "uR",
+        "conjugate": true
+       },
+       {
+        "field": "uR",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "sqrt(4*pi*alpha_BL)/3",
+      "plus_hc": false,
+      "text": "g_BL (1/3) \u016b_R \u03b3^\u03bc u_R Z'_\u03bc",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "dR",
+        "conjugate": true
+       },
+       {
+        "field": "dR",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "sqrt(4*pi*alpha_BL)/3",
+      "plus_hc": false,
+      "text": "g_BL (1/3) d\u0304_R \u03b3^\u03bc d_R Z'_\u03bc",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "lL",
+        "conjugate": true
+       },
+       {
+        "field": "lL",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "-sqrt(4*pi*alpha_BL)",
+      "plus_hc": false,
+      "text": "g_BL (-1) \u2113\u0304_L \u03b3^\u03bc \u2113_L Z'_\u03bc",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "eR",
+        "conjugate": true
+       },
+       {
+        "field": "eR",
+        "conjugate": false
+       },
+       {
+        "field": "Zp",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "vector",
+      "coupling": "-sqrt(4*pi*alpha_BL)",
+      "plus_hc": false,
+      "text": "g_BL (-1) \u0113_R \u03b3^\u03bc e_R Z'_\u03bc",
+      "indices": ""
+     }
+    ],
+    "assumptions": [
+     "Gauge couplings use one covariant derivative D_\u03bc = \u2202_\u03bc - i g_BL Q_BL Z'_\u03bc for all fields, so L \u2283 + g_BL Q_BL f\u0304 \u03b3^\u03bc f Z'_\u03bc.",
+     "g_BL = sqrt(4 pi alpha_BL), written as a formula.",
+     "The Z' mass and the N mass are taken as the benchmark's direct inputs. The B-L Higgs \u03a6 that generates them is left out, as the reference does.",
+     "No kinetic mixing between Z' and hypercharge: the paper writes none."
+    ],
+    "dropped": [
+     "The two Z2-even right-handed neutrinos N_R^1,2 and their Dirac Yukawas Y_D (left out by the reference: heavier than m_Z'/2).",
+     "The B-L Higgs \u03a6, its potential and the Majorana Yukawa \u00bd Y_N \u03a6 N\u0304^C N (left out by the reference: N's mass is given).",
+     "The Higgs portal \u03bb_H\u03a6 (left out by the reference: taken negligible)."
+    ],
+    "stability": "Z2 parity: N is the only Z2-odd field.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "equal",
+   "spent": 0.145585,
+   "rescored": {
+    "equal": true,
+    "differences": [],
+    "equal_d19": true,
+    "differences_d19": []
+   }
+  }
+ ],
+ "rescored_summary": {
+  "entries": 1,
+  "compared": 1,
+  "equal": 1,
+  "equal_d19": 1,
+  "gate": true
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "signal",
+ "title": "Path 2: CDMS II Si (2013)",
+ "folder": ".",
+ "created": "2026-10-11T06:06:53+00:00",
+ "inputs": {},
+ "steps": [],
+ "cost_usd": 0.0,
+ "outputs": [
+  "report.md",
+  "result.evidence.json",
+  "result.json"
+ ],
+ "parent": "",
+ "children": [
+  "children/scalar_mediator_for_L01_L01s_10",
+  "children/vector_mediator_for_O1_O1s_10",
+  "children/scalar_mediator_for_O1_O1s_10"
+ ],
+ "calculation_started_at": "",
+ "calculation_completed_at": "",
+ "model_references": []
+}

@@ -1,0 +1,7 @@
+Task T2: what explains an excess
+
+CDMS II's silicon detectors saw three events in their 2013 WIMP search (arXiv:1304.4279). Interpreted as elastic,
+spin-independent, isospin-conserving dark matter scattering in the standard halo, at what dark matter mass and
+dark matter-nucleon cross-section does the likelihood peak?
+
+Answer: the mass in GeV and the cross-section in cm^2, and one sentence on how you obtained them.

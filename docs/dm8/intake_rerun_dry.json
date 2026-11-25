@@ -1,0 +1,1273 @@
+{
+ "rows": [
+  {
+   "id": "G1",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G2",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G3",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G4",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G5",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G6",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G7",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G8",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G9",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  },
+  {
+   "id": "G10",
+   "coefficients": [],
+   "terms": [],
+   "maddm": "not run",
+   "passed": true
+  }
+ ],
+ "specs": {
+  "G1": {
+   "name": "vector_mediator",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G2": {
+   "name": "axial_mediator",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G3": {
+   "name": "scalar_mediator",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "phi",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 500.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_q",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "phi",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "phi",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "g_q*m_q/v",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G4": {
+   "name": "scalar_higgs_portal",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "S",
+     "role": "dark_matter",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "h",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 125.25,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "lam_hs",
+     "value": 0.1,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "h",
+       "conjugate": false
+      },
+      {
+       "field": "S",
+       "conjugate": false
+      },
+      {
+       "field": "S",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "lam_hs*v/2",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "h",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "scalar",
+     "coupling": "m_q/v",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G5": {
+   "name": "magnetic_dipole",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "mu_chi",
+     "value": 1e-05,
+     "mass_dimension": -1,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "dipole",
+     "coupling": "mu_chi/2",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G6": {
+   "name": "anapole",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "anapole",
+     "value": 1e-05,
+     "mass_dimension": -2,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "other",
+     "coupling": "anapole",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G7": {
+   "name": "scalar_dm_vector_mediator",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "phi",
+     "role": "dark_matter",
+     "spin": 0.0,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "q",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "phi",
+       "conjugate": true
+      },
+      {
+       "field": "phi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "q",
+       "conjugate": true
+      },
+      {
+       "field": "q",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "vector",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G8": {
+   "name": "isovector_axial",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "Zp",
+     "role": "mediator",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 2000.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "u",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    },
+    {
+     "name": "d",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_q",
+     "value": 0.25,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "u",
+       "conjugate": true
+      },
+      {
+       "field": "u",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "g_q",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "d",
+       "conjugate": true
+      },
+      {
+       "field": "d",
+       "conjugate": false
+      },
+      {
+       "field": "Zp",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "axial",
+     "coupling": "-g_q",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G9": {
+   "name": "down_type_pseudoscalar",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "a",
+     "role": "mediator",
+     "spin": 0.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 500.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": 1
+    },
+    {
+     "name": "d",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    },
+    {
+     "name": "s",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    },
+    {
+     "name": "b",
+     "role": "standard_model",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "g_chi",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    },
+    {
+     "name": "g_d",
+     "value": 1.0,
+     "mass_dimension": 0,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_chi",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "d",
+       "conjugate": true
+      },
+      {
+       "field": "d",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_d/v",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "s",
+       "conjugate": true
+      },
+      {
+       "field": "s",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_s/v",
+     "plus_hc": false,
+     "text": ""
+    },
+    {
+     "fields": [
+      {
+       "field": "b",
+       "conjugate": true
+      },
+      {
+       "field": "b",
+       "conjugate": false
+      },
+      {
+       "field": "a",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "pseudoscalar",
+     "coupling": "g_d*m_b/v",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  },
+  "G10": {
+   "name": "electric_dipole",
+   "phase": "broken",
+   "source": "",
+   "fields": [
+    {
+     "name": "chi",
+     "role": "dark_matter",
+     "spin": 0.5,
+     "self_conjugate": false,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": 100.0,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": -1
+    },
+    {
+     "name": "A",
+     "role": "standard_model",
+     "spin": 1.0,
+     "self_conjugate": true,
+     "chirality": "",
+     "generations": 1,
+     "mass_gev": null,
+     "mass_justification": "",
+     "charges": {
+      "su3": "1",
+      "su2": 1,
+      "hypercharge": 0.0,
+      "electric_charge": 0.0,
+      "extra": {}
+     },
+     "dark_parity": null
+    }
+   ],
+   "couplings": [
+    {
+     "name": "d_chi",
+     "value": 1e-05,
+     "mass_dimension": -1,
+     "justification": ""
+    }
+   ],
+   "terms": [
+    {
+     "fields": [
+      {
+       "field": "chi",
+       "conjugate": true
+      },
+      {
+       "field": "chi",
+       "conjugate": false
+      },
+      {
+       "field": "A",
+       "conjugate": false
+      }
+     ],
+     "lorentz": "dipole",
+     "coupling": "d_chi/2",
+     "plus_hc": false,
+     "text": ""
+    }
+   ],
+   "assumptions": [],
+   "dropped": [],
+   "stability": "Z2: the dark matter is odd, every other field even",
+   "relic_fraction": 1.0,
+   "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release"
+  }
+ },
+ "spent": 0.0
+}

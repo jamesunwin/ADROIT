@@ -1,0 +1,98 @@
+spec:
+  name: vector_mediator
+  phase: broken
+  source: ''
+  fields:
+  - name: chi
+    role: dark_matter
+    spin: 0.5
+    self_conjugate: false
+    chirality: ''
+    generations: 1
+    mass_gev: 10.0
+    mass_justification: ''
+    charges:
+      su3: '1'
+      su2: 1
+      hypercharge: 0.0
+      electric_charge: 0.0
+      extra: {}
+    dark_parity: -1
+  - name: Zp
+    role: mediator
+    spin: 1.0
+    self_conjugate: true
+    chirality: ''
+    generations: 1
+    mass_gev: 125.0
+    mass_justification: ''
+    charges:
+      su3: '1'
+      su2: 1
+      hypercharge: 0.0
+      electric_charge: 0.0
+      extra: {}
+    dark_parity: 1
+  - name: q
+    role: standard_model
+    spin: 0.5
+    self_conjugate: false
+    chirality: ''
+    generations: 1
+    mass_gev: null
+    mass_justification: ''
+    charges:
+      su3: '1'
+      su2: 1
+      hypercharge: 0.0
+      electric_charge: 0.0
+      extra: {}
+    dark_parity: null
+  couplings:
+  - name: g_chi
+    value: 0.001
+    mass_dimension: 0
+    justification: ''
+  - name: g_q
+    value: 0.25
+    mass_dimension: 0
+    justification: ''
+  terms:
+  - fields:
+    - field: chi
+      conjugate: true
+    - field: chi
+      conjugate: false
+    - field: Zp
+      conjugate: false
+    lorentz: vector
+    coupling: g_chi
+    plus_hc: false
+    text: ''
+  - fields:
+    - field: q
+      conjugate: true
+    - field: q
+      conjugate: false
+    - field: Zp
+      conjugate: false
+    lorentz: vector
+    coupling: g_q
+    plus_hc: false
+    text: ''
+  assumptions: []
+  dropped: []
+  stability: 'Z2: the dark matter is odd, every other field even'
+  relic_fraction: 1.0
+  cosmology: 'standard: radiation domination from a reheating temperature far above
+    m_χ/20, Standard Model degrees of freedom, no late entropy release'
+  physical_fit: null
+  vector_currents: null
+  scalar_potential: null
+  scalar_running: null
+  chemical_equilibrium: null
+approval:
+  model_sha256: a5274a432eeae2ff7065e69a88af05a1f21a7bd394360a01e5631883f193639f
+  source_model_sha256: a5274a432eeae2ff7065e69a88af05a1f21a7bd394360a01e5631883f193639f
+  choice: supplied
+  changes: []

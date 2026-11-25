@@ -1,0 +1,40 @@
+# CDMS II, silicon detectors, final exposure (arXiv:1304.4279; PRL 111 (2013) 251301).
+# Every number is the paper's, except where a line says "declared".
+name: CDMS II Si (2013)
+target: Si
+references: [arXiv:1304.4279]
+exposure_kg_day: 140.2          # before the WIMP-candidate selection; the efficiency carries the cuts
+window_kev: [7.0, 100.0]
+events_kev: [8.2, 9.5, 12.3]
+resolution_kev: 0.5
+resolution_note: >-
+  declared: the paper quotes no recoil-energy resolution; σ = 0.5 keV, small beside the
+  width of any spectrum over 7-100 keV
+background_events: 0.41
+background_note: >-
+  the surface-event estimate 0.41 (+0.20 -0.08 stat, +0.28 -0.24 syst); neutrons (< 0.13) and
+  206Pb recoils (< 0.08) are 90% upper limits and are not added. Spread in energy as the surface
+  events of the WIMP-search data that lie in the nuclear-recoil yield band but fail the timing
+  cut (Fig. 3): 22 at 7-20 keV, 6 at 20-30 keV, none above. The collaboration's pass-fail
+  estimate scales this population. Declared: flat within each of the three energy ranges.
+  A flat background over 7-100 keV (DM10's first development run) puts 5.6 times less background
+  at 8-12 keV, and so overstates how signal-like the three events are.
+background_uncertainty:          # events; combined in quadrature, then profiled in Path 2's fits
+  plus: [0.20, 0.28]               # statistical, systematic
+  minus: [0.08, 0.24]
+background_shape:
+  digitised: cdms_ii_si_2013_fig3   # docs/dm10/digitise_cdms_si.py
+  counts: surface_events_failing_timing
+efficiency:
+  digitised: cdms_ii_si_2013     # Fig. 1, the '+Phonon Timing' curve (docs/dm10/digitise_cdms_si.py)
+halo: {v0_km_s: 220.0, v_earth_km_s: 232.0, v_esc_km_s: 544.0, rho_gev_cm3: 0.3}
+limit_method: optimum interval (Yellin), no background subtraction
+quoted:
+  - {quantity: si_limit_cm2, mass_gev: 10.0, value: 2.4e-41,
+     note: "90% CL spin-independent limit from this exposure alone"}
+  - {quantity: equivalent_exposure_kg_day, mass_gev: 10.0, value: 23.4,
+     note: "the exposure weighted by the efficiency over 7-100 keV, for a 10 GeV WIMP"}
+collaboration_result: >-
+  P(three or more background events) = 5.4%; a profile likelihood ratio including the energies
+  gives p = 0.19% for background alone against WIMP + background; best fit 8.6 GeV, 1.9e-41 cm²;
+  "we do not believe this result rises to the level of a discovery"

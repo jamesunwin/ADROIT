@@ -1,0 +1,165 @@
+source: PICO Collaboration, arXiv:1902.04031 (Phys. Rev. D 100, 022001)
+figure: Fig. 3
+digitised_on: '2026-09-29'
+method: vector coordinates of the drawn paths (PyMuPDF), axes calibrated from tick-label centres; docs/dm3/digitise_figures.py
+note: Best-fit curves are piecewise linear in energy between efficiencies 0, 0.2, 0.5, 0.8, 1.
+threshold_2.45_keV:
+  seitz_line_kev: 2.45
+  F_best_fit:
+    efficiency:
+    - 0.0
+    - 0.2
+    - 0.5
+    - 0.8
+    - 1.0
+    energy_kev:
+    - 3.541
+    - 3.667
+    - 3.672
+    - 4.079
+    - 5.938
+  F_band_1sigma:
+    outline_energy_kev:
+    - 3.782
+    - 2.45
+    - 3.305
+    - 3.313
+    - 3.506
+    - 3.865
+    - 7.344
+    - 4.435
+    - 4.185
+    - 4.08
+    - 3.782
+    outline_efficiency:
+    - 0.0
+    - 0.0
+    - 0.2
+    - 0.5
+    - 0.8
+    - 1.0
+    - 1.0
+    - 0.8
+    - 0.5
+    - 0.2
+    - 0.0
+    note: the band's outline, in drawing order; the figure clips it at 16 keV
+  C_best_fit:
+    efficiency:
+    - 0.0
+    - 0.2
+    - 0.5
+    - 0.8
+    - 1.0
+    energy_kev:
+    - 6.437
+    - 6.525
+    - 10.258
+    - 11.568
+    - 13.149
+  C_band_1sigma:
+    outline_energy_kev:
+    - 10.947
+    - 2.51
+    - 4.117
+    - 5.213
+    - 5.959
+    - 6.373
+    - 14.937
+    - 14.193
+    - 13.225
+    - 11.188
+    - 10.947
+    outline_efficiency:
+    - 0.0
+    - 0.0
+    - 0.2
+    - 0.5
+    - 0.8
+    - 1.0
+    - 1.0
+    - 0.8
+    - 0.5
+    - 0.2
+    - 0.0
+    note: the band's outline, in drawing order; the figure clips it at 16 keV
+threshold_3.29_keV:
+  seitz_line_kev: 3.29
+  F_best_fit:
+    efficiency:
+    - 0.0
+    - 0.2
+    - 0.501
+    - 0.801
+    - 1.001
+    energy_kev:
+    - 3.656
+    - 3.772
+    - 3.775
+    - 4.194
+    - 6.113
+  F_band_1sigma:
+    outline_energy_kev:
+    - 4.206
+    - 3.37
+    - 3.497
+    - 3.502
+    - 3.794
+    - 4.613
+    - 9.066
+    - 4.659
+    - 4.313
+    - 4.31
+    - 4.206
+    outline_efficiency:
+    - 0.0
+    - 0.0
+    - 0.2
+    - 0.501
+    - 0.801
+    - 1.001
+    - 1.001
+    - 0.801
+    - 0.501
+    - 0.2
+    - 0.0
+    note: the band's outline, in drawing order; the figure clips it at 16 keV
+  C_best_fit:
+    efficiency:
+    - 0.0
+    - 0.2
+    - 0.501
+    - 0.801
+    - 1.001
+    energy_kev:
+    - 7.144
+    - 7.171
+    - 10.659
+    - 13.274
+    - 13.935
+  C_band_1sigma:
+    outline_energy_kev:
+    - 11.984
+    - 5.236
+    - 5.28
+    - 7.392
+    - 11.242
+    - 12.441
+    - 20.513
+    - 15.706
+    - 13.892
+    - 11.986
+    - 11.984
+    outline_efficiency:
+    - 0.0
+    - 0.0
+    - 0.2
+    - 0.501
+    - 0.801
+    - 1.001
+    - 1.001
+    - 0.801
+    - 0.501
+    - 0.2
+    - 0.0
+    note: the band's outline, in drawing order; the figure clips it at 16 keV

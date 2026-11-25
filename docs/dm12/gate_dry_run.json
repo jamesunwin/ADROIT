@@ -1,0 +1,302 @@
+{
+ "A": [
+  {
+   "case": "Standard Model (Yukawas and potential)",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "real singlet scalar, Z2-odd",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "inert doublet",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "Majorana singlet, Z2-odd",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "fermion quintuplet (minimal dark matter)",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "fermion triplet, no Z2 (type-III seesaw)",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "scalar triplet Y = 1 (type II), with a Majorana dark matter",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "dark photon gauging the dark matter's U(1)",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  },
+  {
+   "case": "massive Z\u2032 and a Dirac fermion with dark number",
+   "pass": true,
+   "extra": [],
+   "absent": []
+  }
+ ],
+ "B": {
+  "seeded": [
+   {
+    "error": "vector label without a vector field",
+    "caught": true,
+    "checks": [
+     "Lorentz"
+    ]
+   },
+   {
+    "error": "scalar label with a lone vector",
+    "caught": true,
+    "checks": [
+     "Lorentz"
+    ]
+   },
+   {
+    "error": "odd number of fermions",
+    "caught": true,
+    "checks": [
+     "Lorentz",
+     "dimension",
+     "gauge",
+     "hermiticity"
+    ]
+   },
+   {
+    "error": "dipole without a field strength",
+    "caught": true,
+    "checks": [
+     "Lorentz",
+     "dimension"
+    ]
+   },
+   {
+    "error": "kinetic mixing of a scalar",
+    "caught": true,
+    "checks": [
+     "Lorentz"
+    ]
+   },
+   {
+    "error": "Majorana vector current",
+    "caught": true,
+    "checks": [
+     "identity"
+    ]
+   },
+   {
+    "error": "real scalar current",
+    "caught": true,
+    "checks": [
+     "identity"
+    ]
+   },
+   {
+    "error": "dimension-5 term with a dimensionless coupling",
+    "caught": true,
+    "checks": [
+     "dimension"
+    ]
+   },
+   {
+    "error": "gauge charge left over",
+    "caught": true,
+    "checks": [
+     "gauge",
+     "hermiticity"
+    ]
+   },
+   {
+    "error": "no SU(2) invariant",
+    "caught": true,
+    "checks": [
+     "dimension"
+    ]
+   },
+   {
+    "error": "missing + h.c.",
+    "caught": true,
+    "checks": [
+     "gauge",
+     "hermiticity"
+    ]
+   },
+   {
+    "error": "anapole without a vector",
+    "caught": true,
+    "checks": [
+     "Lorentz",
+     "dimension"
+    ]
+   }
+  ],
+  "clean": [
+   {
+    "model": "DM8 G1",
+    "valid": true
+   },
+   {
+    "model": "DM8 G2",
+    "valid": true
+   },
+   {
+    "model": "DM8 G3",
+    "valid": true
+   },
+   {
+    "model": "DM8 G4",
+    "valid": true
+   },
+   {
+    "model": "DM8 G5",
+    "valid": true
+   },
+   {
+    "model": "DM8 G6",
+    "valid": true
+   },
+   {
+    "model": "DM8 G7",
+    "valid": true
+   },
+   {
+    "model": "DM8 G8",
+    "valid": true
+   },
+   {
+    "model": "DM8 G9",
+    "valid": true
+   },
+   {
+    "model": "DM8 G10",
+    "valid": true
+   },
+   {
+    "model": "generated: real singlet scalar, Z2-odd",
+    "valid": true
+   },
+   {
+    "model": "generated: inert doublet",
+    "valid": true
+   },
+   {
+    "model": "generated: Majorana singlet, Z2-odd",
+    "valid": true
+   },
+   {
+    "model": "generated: fermion quintuplet (minimal dark matter)",
+    "valid": true
+   },
+   {
+    "model": "generated: fermion triplet, no Z2 (type-III seesaw)",
+    "valid": true
+   },
+   {
+    "model": "generated: scalar triplet Y = 1 (type II), with a Majorana dark matter",
+    "valid": true
+   },
+   {
+    "model": "generated: dark photon gauging the dark matter's U(1)",
+    "valid": true
+   },
+   {
+    "model": "generated: massive Z\u2032 and a Dirac fermion with dark number",
+    "valid": true
+   }
+  ]
+ },
+ "C": [
+  {
+   "omission": "Higgs portal of a singlet",
+   "found": true
+  },
+  {
+   "omission": "\u03bb5 of the inert doublet",
+   "found": true
+  },
+  {
+   "omission": "Z\u2032's kinetic mixing and axial coupling",
+   "found": true
+  },
+  {
+   "omission": "pseudoscalar Yukawa and Majorana masses of a neutral Dirac fermion",
+   "found": true
+  }
+ ],
+ "D": [
+  {
+   "idea": "scalar dark matter that talks to the Standard Model only through the Higgs boson",
+   "models": [
+    "textbook0"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  },
+  {
+   "idea": "a fermionic dark matter particle that interacts with quarks through a new heavy neutral vector boson",
+   "models": [
+    "textbook1"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  },
+  {
+   "idea": "dark matter as the neutral component of a single electroweak multiplet, stable without any new symmetry",
+   "models": [
+    "textbook2"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  },
+  {
+   "idea": "an inert second Higgs doublet whose lightest neutral component is the dark matter",
+   "models": [
+    "textbook3"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  },
+  {
+   "idea": "hidden-sector dark matter charged under a dark U(1) whose gauge boson kinetically mixes with hypercharge",
+   "models": [
+    "textbook4"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  },
+  {
+   "idea": "a wino-like dark matter candidate",
+   "models": [
+    "textbook5"
+   ],
+   "all_valid": true,
+   "dropped": [],
+   "textbook_found": true
+  }
+ ],
+ "spent": 0.0
+}

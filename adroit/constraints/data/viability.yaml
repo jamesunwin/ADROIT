@@ -1,0 +1,213 @@
+# The viability checklist for thermal freeze-out dark matter (the owner's list, 2026-10-01).
+#
+# Every Track 1, single-idea and Path 1 report states each item's status for that model: computed (by the
+# run, with its verdict; orchestrator/checklist.py), undecided (compared by the run, but no verdict at any point:
+# the reasons are given, and it neither excludes nor allows), checked or flagged (computed here), assumed (a stated assumption), applies (relevant,
+# not yet computed: "planned" says where it will be built), or does not apply (with the
+# reason, from the model's masses and couplings). The rules are in constraints/viability.py.
+#
+# built: what ADROIT computes today. planned: where the rest is to be built
+# (docs/adroit_build.md, "The viability checklist").
+
+groups:
+  thermal: Thermal history and relic abundance
+  searches: Laboratory and observational searches
+  cosmology: Cosmology and astrophysics
+  theory: Theoretical consistency
+
+items:
+  - id: relic_abundance
+    group: thermal
+    title: Relic abundance
+    check: Ωh² ≈ 0.12 (or the intended fraction) from all depletion and production processes.
+    built: 'Own Boltzmann solution for every Track 1 class: the spin-1 and scalar classes, every portal of the library, with an exact thermal average, the coannihilation solver (Edsjö–Gondolo) and long-range effects where the class has them; cross-checked against micrOMEGAs and MadDM. Thermal roots on the contour are certified (Track 1).'
+    planned: 'Bespoke Path 1 models: the project''s UFO files to MadDM as a routine step, not only as a numerical cross-check.'
+
+  - id: initial_equilibrium
+    group: thermal
+    title: Initial chemical equilibrium
+    check: The interactions establish chemical equilibrium before freeze-out, rather than assuming it.
+    built: The conversion chemical-equilibrium certificate for t-channel partners (core/chemical_equilibrium.py); freeze-out otherwise starts from equilibrium.
+    planned: Γ = n_eq⟨σv⟩ against H(T) from x ≈ 1 to freeze-out, for every class.
+
+  - id: coannihilation_resonance_threshold
+    group: thermal
+    title: Coannihilation, resonances and thresholds
+    check: Nearby states included; annihilation thermally averaged across poles and channel thresholds.
+    built: Exact thermal average across s-channel resonances and channel thresholds for every class; coannihilation for the classes with partner states (t-channel, electroweak multiplets, inert doublet and other UFO portals), with the conversion chemical-equilibrium certificate for t-channel partners.
+    planned: Coannihilation in bespoke Path 1 models.
+
+  - id: sommerfeld_bound_states
+    group: thermal
+    title: Sommerfeld enhancement and bound states
+    check: Long-range forces (light mediators, heavy electroweak multiplets) do not alter freeze-out or later annihilation.
+    built: The Sommerfeld factor and bound-state formation for electroweak multiplets (wino, higgsino) and for coloured or charged t-channel partners (constraints/sommerfeld.py).
+    planned: Light-mediator (Yukawa) potentials for the general classes.
+
+  - id: kinetic_equilibrium
+    group: thermal
+    title: Kinetic equilibrium
+    check: The dark matter keeps a thermal momentum distribution through chemical freeze-out.
+    built: Not built.
+    planned: The scattering rate on the bath against H, where the rules say it matters (resonances, forbidden channels).
+
+  - id: cosmological_history
+    group: thermal
+    title: Cosmological history
+    check: The reheating temperature, expansion rate and entropy history are stated.
+    built: "Stated in every model (ModelSpec.cosmology); the relic code assumes the standard history."
+    planned: "Phase 2: early matter domination and late entropy release."
+
+  - id: secluded_sector
+    group: thermal
+    title: Secluded-sector evolution
+    check: Annihilation into other dark particles tracks their temperature, abundance and fate.
+    built: Annihilation into mediator pairs, with prompt mediator decays to the Standard Model assumed.
+    planned: 'Phase 2: the mediators'' lifetime and temperature.'
+
+  - id: direct_detection
+    group: searches
+    title: Direct detection
+    check: Nuclear and electron recoil rates against limits, with inelastic kinematics, light mediators and loop-induced scattering.
+    built: Nuclear recoils in every module, elastic and inelastic, every non-zero SI, SD-proton and SD-neutron channel compared within validated ranges (R2); loop-induced scattering (twist-2, anapole, charge radius) for the portal classes; bespoke models through DirectDM with its running; private published limits when selected.
+    planned: Electron recoils; light mediators in bespoke models.
+
+  - id: indirect_detection
+    group: searches
+    title: Indirect detection
+    check: Present-day annihilation in gamma rays, charged cosmic rays and other messengers.
+    built: Gamma rays from dwarf galaxies (Fermi-LAT; prompt channels and declared mixtures), γ-ray lines (Fermi-LAT, H.E.S.S.), and AMS-02 antiprotons with conservative, central or aggressive propagation (stronger models flag).
+    planned: Positrons; indirect detection for bespoke Path 1 models.
+
+  - id: colliders
+    group: searches
+    title: Colliders
+    check: Missing energy, mediator resonances, exotic, prompt and displaced decays across the spectrum.
+    built: CMS's summary limits (benchmark couplings), SModelS 3.2.1 recasts with the project's MadGraph cross-section tables, dijet, tt̄ and dilepton resonances, the spin-0 monojet, 2HDM+a mono-h and mono-Z, heavy scalars to ZZ/WW, the squark search, LEP (inert doublet) and the L_μ − L_τ searches.
+    planned: CheckMATE or MadAnalysis 5 recasts for bespoke spectra.
+
+  - id: beam_dumps
+    group: searches
+    title: Beam dumps and fixed-target experiments
+    check: Light states produced and decaying visibly, invisibly, or scattering downstream.
+    built: 'Dark photons through DarkCast: beam dumps, fixed-target experiments and B factories.'
+    planned: Other light mediators (scalars, ALPs) in beam dumps.
+
+  - id: rare_meson_decays
+    group: searches
+    title: Rare meson decays
+    check: K, B and other decays to invisible or displaced final states, when the portal couples to quarks.
+    built: B → K a for light scalars and ALPs (BaBar, Belle II records).
+    planned: K → π X and other rare decays.
+
+  - id: neutrino_fluxes
+    group: searches
+    title: Neutrino fluxes
+    check: Neutrinos from halo annihilation, or from capture and annihilation in the Sun or Earth.
+    built: 'Capture in the Sun for any interaction, against IceCube''s records, with its applicability checked (Track 1 and Path 1). The Earth and the halo: not built.'
+    planned: The Earth and the halo.
+
+  - id: flavour
+    group: searches
+    title: Flavour
+    check: Meson mixing, flavour-changing transitions, lepton flavour violation and CP, given the flavour structure.
+    built: Not built (B → K a is counted under rare meson decays).
+    planned: 'Phase 2: meson mixing, lepton flavour violation, CP.'
+
+  - id: precision
+    group: searches
+    title: Precision measurements
+    check: Invisible h and Z widths, Higgs couplings, electroweak precision data, dipole moments, neutrino scattering.
+    built: Invisible Higgs (ATLAS) and Z (LEP) widths, the Higgs signal strength, the muon g−2, LEP-II contact interactions and neutrino tridents (CCFR, L_μ − L_τ).
+    planned: Electroweak precision data (S, T, U) for multiplets; dipole moments.
+
+  - id: stellar_cooling
+    group: searches
+    title: Stellar and supernova cooling
+    check: Emission of light mediators or dark particles from stars and supernovae.
+    built: "Not built."
+    planned: "Phase 2 (light dark sectors)."
+
+  - id: dm_decay
+    group: cosmology
+    title: Dark matter decay, if metastable
+    check: The lifetime and decay products against photon, cosmic-ray, neutrino, BBN and CMB limits.
+    built: "The stabilising symmetry is checked on the model's terms (model_checks)."
+    planned: "Lifetimes from symmetry-breaking operators: phase 2."
+
+  - id: free_streaming
+    group: cosmology
+    title: Free streaming
+    check: Small-scale structure against Lyman-α and satellites, for light or late-produced candidates.
+    built: "Not built."
+    planned: "Phase 2 (light dark sectors)."
+
+  - id: bbn_neff
+    group: cosmology
+    title: BBN and dark radiation
+    check: Light thermal states or late-decaying mediators and the light elements, neutrino heating and N_eff.
+    built: Mass bounds on light states in equilibrium at BBN (Sabti et al., arXiv:1910.01649), for thermalised light vectors.
+    planned: Mediator lifetimes in general, through the UFO files.
+
+  - id: cmb_annihilation
+    group: cosmology
+    title: CMB energy injection
+    check: Annihilation around recombination, separately from present-day searches, for visible s-wave channels.
+    built: Planck's limit on p_ann = f_eff⟨σv⟩/m_χ with Slatyer's f_eff, for every class with visible s-wave annihilation.
+    planned: Bespoke Path 1 models.
+
+  - id: self_interactions
+    group: cosmology
+    title: Self-interactions
+    check: Dark matter scattering against galaxies and clusters, with its velocity dependence.
+    built: "An estimate for heavy mediators (Born, contact): σ/m ≈ 4πα_D² m_χ/M⁴."
+    planned: "Light mediators (velocity-dependent, beyond Born): phase 2."
+
+  - id: plasma_scattering
+    group: cosmology
+    title: Scattering with the cosmological plasma
+    check: Dark matter–baryon, photon or neutrino interactions and the CMB and structure.
+    built: "Not built."
+    planned: "Phase 2 (light dark sectors)."
+
+  - id: unitarity
+    group: theory
+    title: Unitarity
+    check: Scattering amplitudes, and whether the required depletion respects partial-wave unitarity.
+    built: Axial couplings of massive vectors (arXiv:1510.02110, eqs. 2.8–2.9), in model_checks; partial-wave unitarity certificates for the complete scalar portal.
+    planned: The thermal-relic mass bound, for m_χ above 10 TeV.
+
+  - id: anomaly_cancellation
+    group: theory
+    title: Anomaly cancellation
+    check: Pure, mixed and gravitational anomalies of chiral gauge charges, over the full fermion spectrum.
+    built: "All six coefficients of each new U(1), and axial couplings to Standard Model fermions (model_checks)."
+    planned: "Non-abelian dark groups: later."
+
+  - id: perturbativity
+    group: theory
+    title: Perturbativity
+    check: Couplings and the loop expansion stay controlled over the energies the model predicts.
+    built: 'Coupling sizes: √(4π), and 4π for a scalar quartic (model_checks); one-loop running certificates (boundedness and perturbativity) for the complete scalar portal.'
+    planned: Running for the other classes.
+
+  - id: vacuum_structure
+    group: theory
+    title: Vacuum structure
+    check: The scalar potential has a viable vacuum that keeps the stabilising symmetry.
+    built: Tree-level vacuum certificates for the complete scalar portal, with the metastable vacuum's lifetime from the O(4) bounce (theory/vacuum_decay.py).
+    planned: Other scalar potentials.
+
+  - id: stability_mechanism
+    group: theory
+    title: Stability mechanism
+    check: The symmetry protecting the dark matter, including allowed higher-dimensional or radiative decay operators.
+    built: "The stated parity: every term even, the dark matter odd and the lightest odd state (model_checks)."
+    planned: "Higher-dimensional decay operators: phase 2."
+
+  - id: eft_validity
+    group: theory
+    title: EFT validity
+    check: Effective operators valid at the energies of freeze-out and of the searches compared.
+    built: "Mediators against the largest momentum transfer and against freeze-out (model_checks)."
+    planned: "Collider energies with the recasting tools."

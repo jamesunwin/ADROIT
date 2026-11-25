@@ -1,0 +1,5177 @@
+[
+{
+"model": "L01s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 3.5e-05,
+"ours": 4.7466398048028236e-05,
+"ratio_d": 1.3561828013722355,
+"pass": false
+},
+{
+"model": "L01s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 2.5e-05,
+"ours": 2.8351621639949823e-05,
+"ratio_d": 1.1340648655979928,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 2e-05,
+"ours": 2.0441979221655655e-05,
+"ratio_d": 1.0220989610827826,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 1.6e-05,
+"ours": 1.5047091505645226e-05,
+"ratio_d": 0.9404432191028267,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.3e-05,
+"ours": 1.1921863614146826e-05,
+"ratio_d": 0.9170664318574482,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 1.1e-05,
+"ours": 9.527830494782845e-06,
+"ratio_d": 0.8661664086166223,
+"pass": false
+},
+{
+"model": "L01s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 9.8e-06,
+"ours": 8.874822896263678e-06,
+"ratio_d": 0.9055941730881305,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 1.1e-05,
+"ours": 8.81852204234982e-06,
+"ratio_d": 0.8016838220318019,
+"pass": false
+},
+{
+"model": "L01s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 1.3e-05,
+"ours": 1.0536591042665997e-05,
+"ratio_d": 0.8105070032819999,
+"pass": false
+},
+{
+"model": "L01s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 1.8e-05,
+"ours": 1.600830839328426e-05,
+"ratio_d": 0.8893504662935701,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 2.9e-05,
+"ours": 2.4540037234827542e-05,
+"ratio_d": 0.8462081805112945,
+"pass": false
+},
+{
+"model": "L01s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 3.9e-05,
+"ours": 4.0521636780675946e-05,
+"ratio_d": 1.0390163277096396,
+"pass": true
+},
+{
+"model": "L01s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 7.6e-05,
+"ours": 8.236243289543278e-05,
+"ratio_d": 1.083716222308326,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.00021,
+"ours": 0.0002767457209050946,
+"ratio_d": 1.317836766214736,
+"pass": false
+},
+{
+"model": "L01v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.00015,
+"ours": 0.00016627909766906644,
+"ratio_d": 1.1085273177937764,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.00012,
+"ours": 0.00012059783167642416,
+"ratio_d": 1.004981930636868,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 9.3e-05,
+"ours": 8.955845534133319e-05,
+"ratio_d": 0.9629941434551956,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 7.9e-05,
+"ours": 7.178940893436138e-05,
+"ratio_d": 0.9087266953716631,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 6.5e-05,
+"ours": 5.8783005063716505e-05,
+"ratio_d": 0.9043539240571771,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 6.2e-05,
+"ours": 5.595243896638404e-05,
+"ratio_d": 0.9024586930061941,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 6.1e-05,
+"ours": 5.6481357101279215e-05,
+"ratio_d": 0.9259238869062166,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 8e-05,
+"ours": 7.08019192858538e-05,
+"ratio_d": 0.8850239910731723,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.00015,
+"ours": 0.00012894143821510245,
+"ratio_d": 0.8596095881006831,
+"pass": false
+},
+{
+"model": "L01v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.00021,
+"ours": 0.00019349805045104995,
+"ratio_d": 0.9214192878621426,
+"pass": true
+},
+{
+"model": "L01v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.00038,
+"ours": 0.00030794187688455097,
+"ratio_d": 0.8103733602225025,
+"pass": false
+},
+{
+"model": "L01v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.00075,
+"ours": 0.0006161258510896029,
+"ratio_d": 0.8215011347861372,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.69,
+"ours": 0.7820171816149766,
+"ratio_d": 1.1333582342246038,
+"pass": true
+},
+{
+"model": "L02s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.44,
+"ours": 0.43299186425147085,
+"ratio_d": 0.9840724187533428,
+"pass": true
+},
+{
+"model": "L02s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.32,
+"ours": 0.29312134582730026,
+"ratio_d": 0.9160042057103133,
+"pass": true
+},
+{
+"model": "L02s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.23,
+"ours": 0.19908219573595742,
+"ratio_d": 0.86557476406938,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.17,
+"ours": 0.14413381302631748,
+"ratio_d": 0.847845958978338,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.09832065147085069,
+"ratio_d": 0.8938241042804608,
+"pass": true
+},
+{
+"model": "L02s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.094,
+"ours": 0.08028213484374207,
+"ratio_d": 0.8540652642951284,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.086,
+"ours": 0.07197747951391256,
+"ratio_d": 0.8369474362082857,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.09779476534456732,
+"ratio_d": 0.752267425727441,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.09983839380801147,
+"ratio_d": 0.8319866150667623,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.14,
+"ours": 0.12015006607469249,
+"ratio_d": 0.8582147576763748,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.2,
+"ours": 0.1740480258494093,
+"ratio_d": 0.8702401292470464,
+"pass": false
+},
+{
+"model": "L02s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.38,
+"ours": 0.334456794331005,
+"ratio_d": 0.8801494587658026,
+"pass": true
+},
+{
+"model": "L02v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.71,
+"ours": 0.8132809332992161,
+"ratio_d": 1.1454661032383326,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.45,
+"ours": 0.45016472456438583,
+"ratio_d": 1.0003660545875241,
+"pass": true
+},
+{
+"model": "L02v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.33,
+"ours": 0.3046427952547556,
+"ratio_d": 0.9231599856204715,
+"pass": true
+},
+{
+"model": "L02v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.24,
+"ours": 0.20678758913385742,
+"ratio_d": 0.861614954724406,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.18,
+"ours": 0.14957954538351415,
+"ratio_d": 0.8309974743528564,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.1017938387744665,
+"ratio_d": 0.8482819897872209,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.099,
+"ours": 0.08287710332024001,
+"ratio_d": 0.837142457780202,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.09,
+"ours": 0.07409883413286351,
+"ratio_d": 0.8233203792540391,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.09973844096500538,
+"ratio_d": 0.7672187766538875,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.10128090593278903,
+"ratio_d": 0.8440075494399086,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.14,
+"ours": 0.12164943825081627,
+"ratio_d": 0.8689245589344018,
+"pass": false
+},
+{
+"model": "L02v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.2,
+"ours": 0.1760633626277815,
+"ratio_d": 0.8803168131389074,
+"pass": true
+},
+{
+"model": "L02v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.38,
+"ours": 0.3382040107532958,
+"ratio_d": 0.8900105546139363,
+"pass": true
+},
+{
+"model": "L03s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.024,
+"ours": 0.02799598949815521,
+"ratio_d": 1.1664995624231338,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.019,
+"ours": 0.01853564580068683,
+"ratio_d": 0.9755603052993068,
+"pass": true
+},
+{
+"model": "L03s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.016,
+"ours": 0.014629160900030247,
+"ratio_d": 0.9143225562518904,
+"pass": true
+},
+{
+"model": "L03s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.014,
+"ours": 0.012090950991735815,
+"ratio_d": 0.8636393565525582,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.013,
+"ours": 0.010888660119772218,
+"ratio_d": 0.8375892399824784,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.012,
+"ours": 0.01090812176419296,
+"ratio_d": 0.9090101470160801,
+"pass": true
+},
+{
+"model": "L03s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.014,
+"ours": 0.012406774754722322,
+"ratio_d": 0.8861981967658801,
+"pass": true
+},
+{
+"model": "L03s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.017,
+"ours": 0.014604752222266383,
+"ratio_d": 0.8591030718980225,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.048,
+"ours": 0.03917748867473137,
+"ratio_d": 0.8161976807235702,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.17,
+"ours": 0.12323873199452595,
+"ratio_d": 0.7249337176148585,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.47,
+"ours": 0.33884588731463383,
+"ratio_d": 0.7209486964141145,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 1.8,
+"ours": 1.3147358751600382,
+"ratio_d": 0.7304088195333546,
+"pass": false
+},
+{
+"model": "L03s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 15.0,
+"ours": 10.42467284590837,
+"ratio_d": 0.6949781897272247,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.14,
+"ours": 0.16357414076101892,
+"ratio_d": 1.1683867197215636,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.10912403366177567,
+"ratio_d": 0.9920366696525061,
+"pass": true
+},
+{
+"model": "L03v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.095,
+"ours": 0.08682021135990446,
+"ratio_d": 0.9138969616832049,
+"pass": true
+},
+{
+"model": "L03v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.083,
+"ours": 0.07268648626975441,
+"ratio_d": 0.8757407984307759,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.077,
+"ours": 0.06666949852806313,
+"ratio_d": 0.8658376432215991,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.078,
+"ours": 0.06966489778498795,
+"ratio_d": 0.8931397151921533,
+"pass": true
+},
+{
+"model": "L03v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.086,
+"ours": 0.08251338748186957,
+"ratio_d": 0.9594579939752276,
+"pass": true
+},
+{
+"model": "L03v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.10006575477187878,
+"ratio_d": 0.9096886797443525,
+"pass": true
+},
+{
+"model": "L03v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.37,
+"ours": 0.32438543413134296,
+"ratio_d": 0.8767173895441702,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 1.2,
+"ours": 0.9198032561904267,
+"ratio_d": 0.7665027134920223,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 3.2,
+"ours": 2.4904889593509028,
+"ratio_d": 0.778277799797157,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 12.0,
+"ours": 9.596458460134114,
+"ratio_d": 0.7997048716778429,
+"pass": false
+},
+{
+"model": "L03v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 97.0,
+"ours": 75.85109063868161,
+"ratio_d": 0.7819700065843466,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 430.0,
+"ours": 447.04964469516494,
+"ratio_d": 1.0396503365003835,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 300.0,
+"ours": 271.11503649939624,
+"ratio_d": 0.9037167883313209,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 230.0,
+"ours": 198.31111021441365,
+"ratio_d": 0.8622222183235376,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 180.0,
+"ours": 148.1705990851446,
+"ratio_d": 0.82316999491747,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 130.0,
+"ours": 118.61208663856186,
+"ratio_d": 0.9124006664504759,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 110.0,
+"ours": 89.1427710399911,
+"ratio_d": 0.8103888276362827,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 120.0,
+"ours": 89.0648575442014,
+"ratio_d": 0.7422071462016784,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 200.0,
+"ours": 166.04747028949438,
+"ratio_d": 0.8302373514474719,
+"pass": false
+},
+{
+"model": "L04s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 290.0,
+"ours": 270.5258672695509,
+"ratio_d": 0.932847818170865,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 630.0,
+"ours": 598.4440979068486,
+"ratio_d": 0.9499112665188073,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 2200.0,
+"ours": 2084.424055260274,
+"ratio_d": 0.9474654796637609,
+"pass": true
+},
+{
+"model": "L04s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 16000.0,
+"ours": 15762.483046996796,
+"ratio_d": 0.9851551904372998,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 440.0,
+"ours": 464.8837903004306,
+"ratio_d": 1.056554068864615,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 320.0,
+"ours": 281.82082656600403,
+"ratio_d": 0.8806900830187626,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 250.0,
+"ours": 206.04760747916183,
+"ratio_d": 0.8241904299166473,
+"pass": false
+},
+{
+"model": "L04v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 140.0,
+"ours": 122.97554831213732,
+"ratio_d": 0.8783967736581237,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 120.0,
+"ours": 98.60441242845866,
+"ratio_d": 0.8217034369038222,
+"pass": false
+},
+{
+"model": "L04v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 110.0,
+"ours": 91.63699156863716,
+"ratio_d": 0.8330635597148832,
+"pass": false
+},
+{
+"model": "L04v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 130.0,
+"ours": 91.1634905413344,
+"ratio_d": 0.7012576195487261,
+"pass": false
+},
+{
+"model": "L04v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 200.0,
+"ours": 167.97239509087007,
+"ratio_d": 0.8398619754543504,
+"pass": false
+},
+{
+"model": "L04v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 300.0,
+"ours": 272.7463984872971,
+"ratio_d": 0.9091546616243236,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 630.0,
+"ours": 602.8496515434887,
+"ratio_d": 0.9569042087991884,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 2200.0,
+"ours": 2099.06012156831,
+"ratio_d": 0.9541182370765046,
+"pass": true
+},
+{
+"model": "L04v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 16000.0,
+"ours": 15871.02999596497,
+"ratio_d": 0.9919393747478106,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 3.6e-05,
+"ours": 4.7466398048028236e-05,
+"ratio_d": 1.3185110568896732,
+"pass": false
+},
+{
+"model": "L05s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 2.5e-05,
+"ours": 2.8351621639949823e-05,
+"ratio_d": 1.1340648655979928,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 2e-05,
+"ours": 2.0441979221655655e-05,
+"ratio_d": 1.0220989610827826,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 1.6e-05,
+"ours": 1.5047091505645226e-05,
+"ratio_d": 0.9404432191028267,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.3e-05,
+"ours": 1.1921863614146826e-05,
+"ratio_d": 0.9170664318574482,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 1.1e-05,
+"ours": 9.527830494782845e-06,
+"ratio_d": 0.8661664086166223,
+"pass": false
+},
+{
+"model": "L05s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 9.8e-06,
+"ours": 8.874822896263678e-06,
+"ratio_d": 0.9055941730881305,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 9.6e-06,
+"ours": 8.81852204234982e-06,
+"ratio_d": 0.9185960460781063,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 1.1e-05,
+"ours": 1.0536591042665997e-05,
+"ratio_d": 0.9578719129696361,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 1.8e-05,
+"ours": 1.600830839328426e-05,
+"ratio_d": 0.8893504662935701,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 2.9e-05,
+"ours": 2.4540037234827542e-05,
+"ratio_d": 0.8462081805112945,
+"pass": false
+},
+{
+"model": "L05s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 4.2e-05,
+"ours": 4.0521636780675946e-05,
+"ratio_d": 0.9648008757303798,
+"pass": true
+},
+{
+"model": "L05s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 7.6e-05,
+"ours": 8.236243289543278e-05,
+"ratio_d": 1.083716222308326,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.00021,
+"ours": 0.0002767457209050946,
+"ratio_d": 1.317836766214736,
+"pass": false
+},
+{
+"model": "L05v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.00015,
+"ours": 0.00016627909766906644,
+"ratio_d": 1.1085273177937764,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.00012,
+"ours": 0.00012059783167642416,
+"ratio_d": 1.004981930636868,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 9.4e-05,
+"ours": 8.955845534133319e-05,
+"ratio_d": 0.9527495249078,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 7.7e-05,
+"ours": 7.178940893436138e-05,
+"ratio_d": 0.9323299861605373,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 6.5e-05,
+"ours": 5.8783005063716505e-05,
+"ratio_d": 0.9043539240571771,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 6.2e-05,
+"ours": 5.595243896638404e-05,
+"ratio_d": 0.9024586930061941,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 6.2e-05,
+"ours": 5.6481357101279215e-05,
+"ratio_d": 0.9109896306657937,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 8e-05,
+"ours": 7.08019192858538e-05,
+"ratio_d": 0.8850239910731723,
+"pass": true
+},
+{
+"model": "L05v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.00015,
+"ours": 0.00012894143821510245,
+"ratio_d": 0.8596095881006831,
+"pass": false
+},
+{
+"model": "L05v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.00023,
+"ours": 0.00019349805045104995,
+"ratio_d": 0.8412958715263041,
+"pass": false
+},
+{
+"model": "L05v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.00038,
+"ours": 0.00030794187688455097,
+"ratio_d": 0.8103733602225025,
+"pass": false
+},
+{
+"model": "L05v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.00075,
+"ours": 0.0006161258510896029,
+"ratio_d": 0.8215011347861372,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.12403946434688952,
+"ratio_d": 1.033662202890746,
+"pass": true
+},
+{
+"model": "L06s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.071,
+"ours": 0.06282768103093417,
+"ratio_d": 0.8848969159286504,
+"pass": true
+},
+{
+"model": "L06s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.049,
+"ours": 0.03962327832434818,
+"ratio_d": 0.8086383331499628,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.03,
+"ours": 0.024718508782573378,
+"ratio_d": 0.8239502927524459,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.019,
+"ours": 0.016439225706272195,
+"ratio_d": 0.8652224055932735,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.012,
+"ours": 0.010076919694513726,
+"ratio_d": 0.8397433078761438,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.0094,
+"ours": 0.00796808464680316,
+"ratio_d": 0.8476685794471447,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.009,
+"ours": 0.007219376335410484,
+"ratio_d": 0.8021529261567205,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.014,
+"ours": 0.010920357281188118,
+"ratio_d": 0.7800255200848656,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.016,
+"ours": 0.012579912471711117,
+"ratio_d": 0.7862445294819448,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.02,
+"ours": 0.015979626305469275,
+"ratio_d": 0.7989813152734637,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.029,
+"ours": 0.023822037795974155,
+"ratio_d": 0.8214495791715225,
+"pass": false
+},
+{
+"model": "L06s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.056,
+"ours": 0.04637468148410215,
+"ratio_d": 0.8281193122161098,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 1.1,
+"ours": 1.1774625919575825,
+"ratio_d": 1.0704205381432568,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.68,
+"ours": 0.6115152258733981,
+"ratio_d": 0.8992870968726442,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.48,
+"ours": 0.3958550272877017,
+"ratio_d": 0.8246979735160452,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.33,
+"ours": 0.25761188365182974,
+"ratio_d": 0.7806420716722113,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.22,
+"ours": 0.18214078370376352,
+"ratio_d": 0.827912653198925,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.14,
+"ours": 0.1270250872689484,
+"ratio_d": 0.90732205192106,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.10491660998915876,
+"ratio_d": 0.8743050832429897,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.0882608467829931,
+"ratio_d": 0.7355070565249425,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.0885630490565393,
+"ratio_d": 0.8051186277867209,
+"pass": false
+},
+{
+"model": "L06v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.082,
+"ours": 0.07326706776521628,
+"ratio_d": 0.8935008264050766,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.087,
+"ours": 0.08007258857477004,
+"ratio_d": 0.9203745813191959,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.11056283140579665,
+"ratio_d": 0.9213569283816387,
+"pass": true
+},
+{
+"model": "L06v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.22,
+"ours": 0.20811633022026682,
+"ratio_d": 0.945983319183031,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 4.9,
+"ours": 5.858556481544565,
+"ratio_d": 1.1956237717437888,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 3.8,
+"ours": 3.8614397373471703,
+"ratio_d": 1.0161683519334659,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 3.2,
+"ours": 3.0248911282470687,
+"ratio_d": 0.945278477577209,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 2.8,
+"ours": 2.4656635311401396,
+"ratio_d": 0.8805941182643356,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 2.5,
+"ours": 2.173841532763293,
+"ratio_d": 0.8695366131053172,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 2.3,
+"ours": 2.0558025278623027,
+"ratio_d": 0.8938271860270882,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 2.3,
+"ours": 2.157516821932529,
+"ratio_d": 0.9380507921445779,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 2.5,
+"ours": 2.3157289252125732,
+"ratio_d": 0.9262915700850293,
+"pass": true
+},
+{
+"model": "L07s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 6.2,
+"ours": 4.946761118553336,
+"ratio_d": 0.7978646965408606,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 8.4,
+"ours": 6.764446375258632,
+"ratio_d": 0.805291235149837,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 12.0,
+"ours": 9.298926503397649,
+"ratio_d": 0.774910541949804,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 18.0,
+"ours": 14.371053202057245,
+"ratio_d": 0.7983918445587359,
+"pass": false
+},
+{
+"model": "L07s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 35.0,
+"ours": 28.341438653511673,
+"ratio_d": 0.8097553901003335,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 5.1,
+"ours": 6.106738731426375,
+"ratio_d": 1.1973997512600736,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 3.9,
+"ours": 4.025837248068377,
+"ratio_d": 1.0322659610431735,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 3.4,
+"ours": 3.1542282262693977,
+"ratio_d": 0.9277141841968817,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 2.9,
+"ours": 2.5717041723929963,
+"ratio_d": 0.8867945422044815,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 2.6,
+"ours": 2.2679923800917163,
+"ratio_d": 0.872304761573737,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 2.4,
+"ours": 2.1460486027889507,
+"ratio_d": 0.8941869178287295,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 2.5,
+"ours": 2.2533395578960707,
+"ratio_d": 0.9013358231584283,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 2.6,
+"ours": 2.419507576006497,
+"ratio_d": 0.9305798369255758,
+"pass": true
+},
+{
+"model": "L07v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 6.4,
+"ours": 5.174090461429362,
+"ratio_d": 0.8084516345983378,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 8.9,
+"ours": 7.073303495055166,
+"ratio_d": 0.7947532016915917,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 12.0,
+"ours": 9.722498363208501,
+"ratio_d": 0.8102081969340418,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 19.0,
+"ours": 15.024512832922877,
+"ratio_d": 0.7907638333117304,
+"pass": false
+},
+{
+"model": "L07v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 37.0,
+"ours": 29.628532957419498,
+"ratio_d": 0.8007711610113378,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.34,
+"ours": 0.3910085908074883,
+"ratio_d": 1.1500252670808477,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.23,
+"ours": 0.21649593212573542,
+"ratio_d": 0.941286661416241,
+"pass": true
+},
+{
+"model": "L08s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.16,
+"ours": 0.14656067291365013,
+"ratio_d": 0.9160042057103133,
+"pass": true
+},
+{
+"model": "L08s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.09954109786797871,
+"ratio_d": 0.8295091488998226,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.081,
+"ours": 0.07206690651315874,
+"ratio_d": 0.8897148952241819,
+"pass": true
+},
+{
+"model": "L08s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.053,
+"ours": 0.04916032573542534,
+"ratio_d": 0.9275533157627424,
+"pass": true
+},
+{
+"model": "L08s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.046,
+"ours": 0.040141067421871034,
+"ratio_d": 0.8726319004754572,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.043,
+"ours": 0.03598873975695628,
+"ratio_d": 0.8369474362082857,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.065,
+"ours": 0.04889738267228366,
+"ratio_d": 0.752267425727441,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.061,
+"ours": 0.04991919690400574,
+"ratio_d": 0.8183474902296023,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.07,
+"ours": 0.060075033037346244,
+"ratio_d": 0.8582147576763748,
+"pass": false
+},
+{
+"model": "L08s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.099,
+"ours": 0.08702401292470464,
+"ratio_d": 0.8790304335828751,
+"pass": true
+},
+{
+"model": "L08s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.19,
+"ours": 0.1672283971655025,
+"ratio_d": 0.8801494587658026,
+"pass": true
+},
+{
+"model": "L08v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.35,
+"ours": 0.40664046664960807,
+"ratio_d": 1.161829904713166,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.23,
+"ours": 0.22508236228219292,
+"ratio_d": 0.978618966444317,
+"pass": true
+},
+{
+"model": "L08v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.17,
+"ours": 0.1523213976273778,
+"ratio_d": 0.8960082213375165,
+"pass": true
+},
+{
+"model": "L08v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.10339379456692871,
+"ratio_d": 0.861614954724406,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.087,
+"ours": 0.07478977269175707,
+"ratio_d": 0.8596525596753687,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.055,
+"ours": 0.05089691938723325,
+"ratio_d": 0.9253985343133319,
+"pass": true
+},
+{
+"model": "L08v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.048,
+"ours": 0.041438551660120004,
+"ratio_d": 0.8633031595858334,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.045,
+"ours": 0.03704941706643176,
+"ratio_d": 0.8233203792540391,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.066,
+"ours": 0.04986922048250269,
+"ratio_d": 0.7555942497348892,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.062,
+"ours": 0.050640452966394515,
+"ratio_d": 0.8167814994579761,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.07,
+"ours": 0.060824719125408135,
+"ratio_d": 0.8689245589344018,
+"pass": false
+},
+{
+"model": "L08v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.1,
+"ours": 0.08803168131389075,
+"ratio_d": 0.8803168131389074,
+"pass": true
+},
+{
+"model": "L08v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.19,
+"ours": 0.1691020053766479,
+"ratio_d": 0.8900105546139363,
+"pass": true
+},
+{
+"model": "L09s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.61,
+"ours": 0.66579559867924,
+"ratio_d": 1.091468194556131,
+"pass": true
+},
+{
+"model": "L09s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.42,
+"ours": 0.39105679934832555,
+"ratio_d": 0.9310876174960132,
+"pass": true
+},
+{
+"model": "L09s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.33,
+"ours": 0.27842586912890926,
+"ratio_d": 0.8437147549360886,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.24,
+"ours": 0.20119518993330304,
+"ratio_d": 0.8383132913887628,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.18,
+"ours": 0.1555772495528082,
+"ratio_d": 0.8643180530711566,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.11904865359696006,
+"ratio_d": 0.9157588738227697,
+"pass": true
+},
+{
+"model": "L09s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.10781889708155408,
+"ratio_d": 0.8293761313965698,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.10529651340955119,
+"ratio_d": 0.8099731800734706,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.26,
+"ours": 0.18337688402668387,
+"ratio_d": 0.7052957077949379,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.28,
+"ours": 0.21627751348356072,
+"ratio_d": 0.7724196910127168,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.35,
+"ours": 0.2741376697555655,
+"ratio_d": 0.7832504850159016,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.5,
+"ours": 0.4061202167795566,
+"ratio_d": 0.8122404335591132,
+"pass": false
+},
+{
+"model": "L09s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.96,
+"ours": 0.7873042718913987,
+"ratio_d": 0.8201086165535404,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 3.5,
+"ours": 3.716086698729327,
+"ratio_d": 1.0617390567798077,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 2.3,
+"ours": 2.1633865291877497,
+"ratio_d": 0.9406028387772826,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 1.8,
+"ours": 1.5241241788113222,
+"ratio_d": 0.846735654895179,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 1.3,
+"ours": 1.0804186078934974,
+"ratio_d": 0.8310912368411518,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.92,
+"ours": 0.8087135935161665,
+"ratio_d": 0.8790365146914852,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.63,
+"ours": 0.5584576696383753,
+"ratio_d": 0.8864407454577385,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.52,
+"ours": 0.4378245167507477,
+"ratio_d": 0.8419702245206686,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.48,
+"ours": 0.37113239184005475,
+"ratio_d": 0.7731924830001141,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.53,
+"ours": 0.41260181014870756,
+"ratio_d": 0.7784939814126557,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.43,
+"ours": 0.3721658063130081,
+"ratio_d": 0.8655018751465305,
+"pass": false
+},
+{
+"model": "L09v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.47,
+"ours": 0.42582701759667063,
+"ratio_d": 0.9060149310567461,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.65,
+"ours": 0.6019075908458181,
+"ratio_d": 0.9260116782243355,
+"pass": true
+},
+{
+"model": "L09v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 1.2,
+"ours": 1.1445194790900934,
+"ratio_d": 0.9537662325750779,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 7.5,
+"ours": 7.775968243434653,
+"ratio_d": 1.036795765791287,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 4.5,
+"ours": 3.98584324949789,
+"ratio_d": 0.8857429443328644,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 3.0,
+"ours": 2.537143588326977,
+"ratio_d": 0.8457145294423256,
+"pass": false
+},
+{
+"model": "L10s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 1.9,
+"ours": 1.600942481423552,
+"ratio_d": 0.8426013060123958,
+"pass": false
+},
+{
+"model": "L10s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.2,
+"ours": 1.0777438083751356,
+"ratio_d": 0.898119840312613,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.74,
+"ours": 0.6696355472424147,
+"ratio_d": 0.9049129016789388,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.61,
+"ours": 0.5230954732685517,
+"ratio_d": 0.8575335627353307,
+"pass": false
+},
+{
+"model": "L10s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.55,
+"ours": 0.45774460763426167,
+"ratio_d": 0.8322629229713848,
+"pass": false
+},
+{
+"model": "L10s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.55,
+"ours": 0.4739150851319576,
+"ratio_d": 0.8616637911490138,
+"pass": false
+},
+{
+"model": "L10s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.37,
+"ours": 0.357611919917565,
+"ratio_d": 0.9665187024799055,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.38,
+"ours": 0.38176257052961904,
+"ratio_d": 1.0046383434989974,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.52,
+"ours": 0.5230960069324063,
+"ratio_d": 1.0059538594853967,
+"pass": true
+},
+{
+"model": "L10s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.98,
+"ours": 0.9820087099346917,
+"ratio_d": 1.0020497040149916,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 7.7,
+"ours": 8.106226135540537,
+"ratio_d": 1.0527566409792903,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 4.6,
+"ours": 4.156165691339194,
+"ratio_d": 0.9035142807259117,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 3.2,
+"ours": 2.646181504090847,
+"ratio_d": 0.8269317200283897,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 2.0,
+"ours": 1.6703349284887752,
+"ratio_d": 0.8351674642443876,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.3,
+"ours": 1.1250081443960358,
+"ratio_d": 0.865390880304643,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.77,
+"ours": 0.6998230574379725,
+"ratio_d": 0.9088611135558083,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.64,
+"ours": 0.547465039945472,
+"ratio_d": 0.8554141249148001,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.57,
+"ours": 0.4797998299147691,
+"ratio_d": 0.8417540875697704,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.58,
+"ours": 0.4967557321062904,
+"ratio_d": 0.8564754001832594,
+"pass": false
+},
+{
+"model": "L10v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.39,
+"ours": 0.3728650819232723,
+"ratio_d": 0.956064312623775,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.4,
+"ours": 0.39721651212581527,
+"ratio_d": 0.9930412803145381,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.54,
+"ours": 0.5437570056938874,
+"ratio_d": 1.0069574179516432,
+"pass": true
+},
+{
+"model": "L10v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 1.0,
+"ours": 1.0203952204583264,
+"ratio_d": 1.0203952204583264,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.25,
+"ours": 0.2909314712844062,
+"ratio_d": 1.1637258851376249,
+"pass": false
+},
+{
+"model": "L11s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.16,
+"ours": 0.16294641582795294,
+"ratio_d": 1.0184150989247058,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.11159838460391026,
+"ratio_d": 0.9299865383659189,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.089,
+"ours": 0.07718898641553414,
+"ratio_d": 0.8672919821970128,
+"pass": false
+},
+{
+"model": "L11s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.067,
+"ours": 0.05735078510831533,
+"ratio_d": 0.8559818672882885,
+"pass": false
+},
+{
+"model": "L11s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.046,
+"ours": 0.041623739196200125,
+"ratio_d": 0.9048638955695679,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.04,
+"ours": 0.03632602874482675,
+"ratio_d": 0.9081507186206688,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.039,
+"ours": 0.03449065975967643,
+"ratio_d": 0.8843758912737547,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.071,
+"ours": 0.05421018115823708,
+"ratio_d": 0.7635236782850293,
+"pass": false
+},
+{
+"model": "L11s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.068,
+"ours": 0.05656338285290201,
+"ratio_d": 0.8318144537191471,
+"pass": false
+},
+{
+"model": "L11s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.076,
+"ours": 0.0675081840866855,
+"ratio_d": 0.8882655800879672,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.09706081926506037,
+"ratio_d": 0.8823710842278215,
+"pass": true
+},
+{
+"model": "L11s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.2,
+"ours": 0.18579352379818806,
+"ratio_d": 0.9289676189909403,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.26,
+"ours": 0.30326093025488415,
+"ratio_d": 1.166388193288016,
+"pass": false
+},
+{
+"model": "L11v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.17,
+"ours": 0.16988808358472754,
+"ratio_d": 0.999341668145456,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.11637456259025472,
+"ratio_d": 0.8951889430019594,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.093,
+"ours": 0.08051394632585032,
+"ratio_d": 0.8657413583424766,
+"pass": false
+},
+{
+"model": "L11v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.069,
+"ours": 0.059841723841977994,
+"ratio_d": 0.8672713600286664,
+"pass": false
+},
+{
+"model": "L11v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.048,
+"ours": 0.04346385657126204,
+"ratio_d": 0.9054970119012925,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.041,
+"ours": 0.03796176706506377,
+"ratio_d": 0.9258967576844821,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.041,
+"ours": 0.0360708473802858,
+"ratio_d": 0.8797767653728243,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.074,
+"ours": 0.056803475640453314,
+"ratio_d": 0.7676145356818016,
+"pass": false
+},
+{
+"model": "L11v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.07,
+"ours": 0.059174986209544124,
+"ratio_d": 0.8453569458506303,
+"pass": false
+},
+{
+"model": "L11v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.079,
+"ours": 0.07052248952294884,
+"ratio_d": 0.8926897407968208,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.10130853219567786,
+"ratio_d": 0.9209866563243442,
+"pass": true
+},
+{
+"model": "L11v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.21,
+"ours": 0.1938489964274159,
+"ratio_d": 0.923090459178171,
+"pass": true
+},
+{
+"model": "L12s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 59.0,
+"ours": 899.0797974810064,
+"ratio_d": 15.238640635271295,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 32.0,
+"ours": 409.43131065695866,
+"ratio_d": 12.794728458029958,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 18.0,
+"ours": 234.91425719106633,
+"ratio_d": 13.050792066170352,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 9.4,
+"ours": 128.9967517726856,
+"ratio_d": 13.723058699221871,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 4.7,
+"ours": 73.94277761183717,
+"ratio_d": 15.732505874858973,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 2.4,
+"ours": 34.98951559089559,
+"ratio_d": 14.578964829539832,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 1.7,
+"ours": 22.91465943100951,
+"ratio_d": 13.479211430005595,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 1.5,
+"ours": 18.498194331580848,
+"ratio_d": 12.332129554387231,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 1.8,
+"ours": 19.339675490532226,
+"ratio_d": 10.744264161406791,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 1.7,
+"ours": 13.436071244122878,
+"ratio_d": 7.903571320072282,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 2.0,
+"ours": 13.738026967163101,
+"ratio_d": 6.869013483581551,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 2.9,
+"ours": 18.445442490036747,
+"ratio_d": 6.3604974103575,
+"pass": false
+},
+{
+"model": "L12s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 5.5,
+"ours": 34.3349856173227,
+"ratio_d": 6.242724657695036,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 200.0,
+"ours": 594.0110049848819,
+"ratio_d": 2.9700550249244095,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 110.0,
+"ours": 268.91957089746086,
+"ratio_d": 2.444723371795099,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 64.0,
+"ours": 153.4704277662641,
+"ratio_d": 2.3979754338478765,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 33.0,
+"ours": 83.59876510739524,
+"ratio_d": 2.5332959123453103,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 17.0,
+"ours": 47.369716803404,
+"ratio_d": 2.786453929612,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 9.3,
+"ours": 21.751914686924376,
+"ratio_d": 2.3389155577338037,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 6.6,
+"ours": 13.736508143993584,
+"ratio_d": 2.0812891127263007,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 5.8,
+"ours": 10.727595109730315,
+"ratio_d": 1.849585363746606,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 7.1,
+"ours": 12.447480188587988,
+"ratio_d": 1.7531662237447871,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 5.5,
+"ours": 10.862082685547295,
+"ratio_d": 1.9749241246449627,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 5.9,
+"ours": 11.862863825365555,
+"ratio_d": 2.0106548856551787,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 8.1,
+"ours": 16.314800340690905,
+"ratio_d": 2.0141728815667785,
+"pass": false
+},
+{
+"model": "L12v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 15.0,
+"ours": 30.638379859892652,
+"ratio_d": 2.0425586573261767,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.039,
+"ours": 0.053531165355568816,
+"ratio_d": 1.3725939834761234,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.027,
+"ours": 0.030744523258375733,
+"ratio_d": 1.1386860466065087,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.021,
+"ours": 0.021618632761100376,
+"ratio_d": 1.0294587029095417,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.016,
+"ours": 0.015523819134083548,
+"ratio_d": 0.9702386958802217,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.013,
+"ours": 0.012035948811739444,
+"ratio_d": 0.9258422162876496,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.011,
+"ours": 0.009333315331875158,
+"ratio_d": 0.8484832119886507,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.0095,
+"ours": 0.008506652441878317,
+"ratio_d": 0.895437099145086,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.0091,
+"ours": 0.008318016798085876,
+"ratio_d": 0.9140677800094369,
+"pass": true
+},
+{
+"model": "L13s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.016,
+"ours": 0.013740345002560422,
+"ratio_d": 0.8587715626600263,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.025,
+"ours": 0.01908866443415619,
+"ratio_d": 0.7635465773662475,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.034,
+"ours": 0.025859736375482605,
+"ratio_d": 0.7605804816318412,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.051,
+"ours": 0.039880375914605436,
+"ratio_d": 0.781968155188342,
+"pass": false
+},
+{
+"model": "L13s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.1,
+"ours": 0.07882850646159582,
+"ratio_d": 0.7882850646159582,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.2,
+"ours": 0.2591467954369211,
+"ratio_d": 1.2957339771846055,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.14732696714107885,
+"ratio_d": 1.1332843626236835,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.1,
+"ours": 0.10240582419331616,
+"ratio_d": 1.0240582419331616,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.078,
+"ours": 0.07215764680590304,
+"ratio_d": 0.9250980359731159,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.061,
+"ours": 0.0544633602648627,
+"ratio_d": 0.8928419715551262,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.044,
+"ours": 0.039669056969129604,
+"ratio_d": 0.9015694765711274,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.038,
+"ours": 0.033815137509083666,
+"ratio_d": 0.8898720397127281,
+"pass": true
+},
+{
+"model": "L13v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.036,
+"ours": 0.031169510867123894,
+"ratio_d": 0.8658197463089972,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.064,
+"ours": 0.04636715782594134,
+"ratio_d": 0.7244868410303335,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.067,
+"ours": 0.05163322359075961,
+"ratio_d": 0.7706451282202926,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.081,
+"ours": 0.06467487467976563,
+"ratio_d": 0.7984552429600694,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.09561722011239025,
+"ratio_d": 0.7968101676032522,
+"pass": false
+},
+{
+"model": "L13v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.22,
+"ours": 0.18538899138137027,
+"ratio_d": 0.842677233551683,
+"pass": false
+},
+{
+"model": "L14s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.25,
+"ours": 0.2909314712844062,
+"ratio_d": 1.1637258851376249,
+"pass": false
+},
+{
+"model": "L14s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.16,
+"ours": 0.16294641582795294,
+"ratio_d": 1.0184150989247058,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.12,
+"ours": 0.11159838460391026,
+"ratio_d": 0.9299865383659189,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.067,
+"ours": 0.05735078510831533,
+"ratio_d": 0.8559818672882885,
+"pass": false
+},
+{
+"model": "L14s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.046,
+"ours": 0.041623739196200125,
+"ratio_d": 0.9048638955695679,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.04,
+"ours": 0.03632602874482675,
+"ratio_d": 0.9081507186206688,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.039,
+"ours": 0.03449065975967643,
+"ratio_d": 0.8843758912737547,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.071,
+"ours": 0.05421018115823708,
+"ratio_d": 0.7635236782850293,
+"pass": false
+},
+{
+"model": "L14s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.091,
+"ours": 0.0675081840866855,
+"ratio_d": 0.7418481767767638,
+"pass": false
+},
+{
+"model": "L14s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.09706081926506037,
+"ratio_d": 0.8823710842278215,
+"pass": true
+},
+{
+"model": "L14s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.2,
+"ours": 0.18579352379818806,
+"ratio_d": 0.9289676189909403,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.26,
+"ours": 0.30326093025488415,
+"ratio_d": 1.166388193288016,
+"pass": false
+},
+{
+"model": "L14v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.17,
+"ours": 0.16988808358472754,
+"ratio_d": 0.999341668145456,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.13,
+"ours": 0.11637456259025472,
+"ratio_d": 0.8951889430019594,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.067,
+"ours": 0.059841723841977994,
+"ratio_d": 0.8931600573429551,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.048,
+"ours": 0.04346385657126204,
+"ratio_d": 0.9054970119012925,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.041,
+"ours": 0.03796176706506377,
+"ratio_d": 0.9258967576844821,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.041,
+"ours": 0.0360708473802858,
+"ratio_d": 0.8797767653728243,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.074,
+"ours": 0.056803475640453314,
+"ratio_d": 0.7676145356818016,
+"pass": false
+},
+{
+"model": "L14v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.068,
+"ours": 0.059174986209544124,
+"ratio_d": 0.8702203854344723,
+"pass": false
+},
+{
+"model": "L14v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.079,
+"ours": 0.07052248952294884,
+"ratio_d": 0.8926897407968208,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.10130853219567786,
+"ratio_d": 0.9209866563243442,
+"pass": true
+},
+{
+"model": "L14v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.21,
+"ours": 0.1938489964274159,
+"ratio_d": 0.923090459178171,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.0064,
+"ours": 0.008447302511849485,
+"ratio_d": 1.319891017476482,
+"pass": false
+},
+{
+"model": "L15s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.0045,
+"ours": 0.005095291759968079,
+"ratio_d": 1.1322870577706843,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.0036,
+"ours": 0.003699869066530274,
+"ratio_d": 1.0277414073695206,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.0029,
+"ours": 0.0027448750915833515,
+"ratio_d": 0.9465086522701213,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.0024,
+"ours": 0.002191047406346254,
+"ratio_d": 0.9129364193109393,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.002,
+"ours": 0.0017673963877739079,
+"ratio_d": 0.8836981938869539,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.0018,
+"ours": 0.0016500039634757468,
+"ratio_d": 0.9166688685976372,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.0018,
+"ours": 0.0016350099299070437,
+"ratio_d": 0.9083388499483577,
+"pass": true
+},
+{
+"model": "L15s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.0036,
+"ours": 0.002897950520623627,
+"ratio_d": 0.8049862557287852,
+"pass": false
+},
+{
+"model": "L15s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.0048,
+"ours": 0.0037485095662073316,
+"ratio_d": 0.7809394929598609,
+"pass": false
+},
+{
+"model": "L15s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.0063,
+"ours": 0.004992053430787471,
+"ratio_d": 0.7923894334583287,
+"pass": false
+},
+{
+"model": "L15s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.0096,
+"ours": 0.007621638839087743,
+"ratio_d": 0.7939207124049733,
+"pass": false
+},
+{
+"model": "L15s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.019,
+"ours": 0.014992254849731965,
+"ratio_d": 0.789066044722735,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.0067,
+"ours": 0.008797810807110293,
+"ratio_d": 1.3131060906134766,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.0047,
+"ours": 0.005306829714371874,
+"ratio_d": 1.129112705185505,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.0038,
+"ours": 0.0038534582146911773,
+"ratio_d": 1.0140679512345203,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.003,
+"ours": 0.0028587127382092127,
+"ratio_d": 0.9529042460697376,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.0025,
+"ours": 0.0022817058894526805,
+"ratio_d": 0.9126823557810722,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.0021,
+"ours": 0.0018399221385199287,
+"ratio_d": 0.8761533992952042,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.0019,
+"ours": 0.001716901599312719,
+"ratio_d": 0.9036324206909048,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.0019,
+"ours": 0.0017004551558890135,
+"ratio_d": 0.8949763978363229,
+"pass": true
+},
+{
+"model": "L15v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.0037,
+"ours": 0.0030114616814510206,
+"ratio_d": 0.8139085625543299,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.005,
+"ours": 0.003883731014458424,
+"ratio_d": 0.7767462028916848,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.0065,
+"ours": 0.005166170798150393,
+"ratio_d": 0.7947955074077528,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.0099,
+"ours": 0.007882356286491893,
+"ratio_d": 0.7961976046961508,
+"pass": false
+},
+{
+"model": "L15v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.019,
+"ours": 0.015500406476829943,
+"ratio_d": 0.815810867201576,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 34.0,
+"ours": 35.399682029879685,
+"ratio_d": 1.041167118525873,
+"pass": true
+},
+{
+"model": "L16s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 20.0,
+"ours": 17.80092214468545,
+"ratio_d": 0.8900461072342726,
+"pass": true
+},
+{
+"model": "L16s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 13.0,
+"ours": 11.134140627305463,
+"ratio_d": 0.8564723559465741,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 8.2,
+"ours": 6.848080862166239,
+"ratio_d": 0.8351318124592976,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 5.0,
+"ours": 4.456835219322154,
+"ratio_d": 0.8913670438644308,
+"pass": true
+},
+{
+"model": "L16s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 3.0,
+"ours": 2.587900566521626,
+"ratio_d": 0.8626335221738753,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 2.4,
+"ours": 1.935383386848643,
+"ratio_d": 0.8064097445202679,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 2.1,
+"ours": 1.6821788626869203,
+"ratio_d": 0.8010375536604382,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 3.4,
+"ours": 2.3782631041580133,
+"ratio_d": 0.6994891482817687,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 2.9,
+"ours": 2.334657766933725,
+"ratio_d": 0.8050544023909396,
+"pass": false
+},
+{
+"model": "L16s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 3.0,
+"ours": 2.679899145149529,
+"ratio_d": 0.8932997150498431,
+"pass": true
+},
+{
+"model": "L16s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 4.1,
+"ours": 3.7712669166612085,
+"ratio_d": 0.9198211991856607,
+"pass": true
+},
+{
+"model": "L16s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 7.7,
+"ours": 7.150094630238651,
+"ratio_d": 0.9285837182128117,
+"pass": true
+},
+{
+"model": "L16v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 22.0,
+"ours": 23.237779377619194,
+"ratio_d": 1.0562626989826907,
+"pass": true
+},
+{
+"model": "L16v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 13.0,
+"ours": 11.649638805456627,
+"ratio_d": 0.8961260619582021,
+"pass": true
+},
+{
+"model": "L16v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 8.8,
+"ours": 7.263092560846839,
+"ratio_d": 0.8253514273689588,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 5.3,
+"ours": 4.443447281010043,
+"ratio_d": 0.8383862794358572,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 3.2,
+"ours": 2.8687990734624123,
+"ratio_d": 0.8964997104570038,
+"pass": true
+},
+{
+"model": "L16v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 1.9,
+"ours": 1.6314713140708796,
+"ratio_d": 0.858669112668884,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 1.5,
+"ours": 1.1908705802781168,
+"ratio_d": 0.7939137201854112,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 1.3,
+"ours": 1.0130115777741922,
+"ratio_d": 0.779239675210917,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 2.1,
+"ours": 1.4189314353997755,
+"ratio_d": 0.675681635904655,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 2.1,
+"ours": 1.5616576146052847,
+"ratio_d": 0.7436464831453736,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 2.5,
+"ours": 1.9259175483393318,
+"ratio_d": 0.7703670193357327,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 3.5,
+"ours": 2.8125985245051046,
+"ratio_d": 0.8035995784300299,
+"pass": false
+},
+{
+"model": "L16v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 6.7,
+"ours": 5.418451915036837,
+"ratio_d": 0.8087241664234084,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.0011,
+"ours": 0.0013039049554471917,
+"ratio_d": 1.1853681413156287,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.00073,
+"ours": 0.0007194101978285758,
+"ratio_d": 0.9854934216829805,
+"pass": true
+},
+{
+"model": "L17s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.00053,
+"ours": 0.0004866777536332656,
+"ratio_d": 0.9182599125155955,
+"pass": true
+},
+{
+"model": "L17s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.00038,
+"ours": 0.00033125439827797533,
+"ratio_d": 0.871722100731514,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.00028,
+"ours": 0.00024149339725770648,
+"ratio_d": 0.8624764187775232,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.00019,
+"ours": 0.00016934751819708317,
+"ratio_d": 0.8913027273530693,
+"pass": true
+},
+{
+"model": "L17s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.00016,
+"ours": 0.00014446046892596483,
+"ratio_d": 0.9028779307872801,
+"pass": true
+},
+{
+"model": "L17s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.00016,
+"ours": 0.00013604240562346527,
+"ratio_d": 0.8502650351466579,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.00022,
+"ours": 0.00018246799824069305,
+"ratio_d": 0.8293999920031502,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.0004,
+"ours": 0.00028699038010654974,
+"ratio_d": 0.7174759502663743,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.00056,
+"ours": 0.0003945411820785666,
+"ratio_d": 0.7045378251402976,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.00087,
+"ours": 0.0006123343569757865,
+"ratio_d": 0.703832594225042,
+"pass": false
+},
+{
+"model": "L17s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.0017,
+"ours": 0.0012138151594526954,
+"ratio_d": 0.714008917325115,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 0.0065,
+"ours": 0.007618417371365404,
+"ratio_d": 1.172064210979293,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.0042,
+"ours": 0.004235349741176067,
+"ratio_d": 1.0084166050419208,
+"pass": true
+},
+{
+"model": "L17v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.0031,
+"ours": 0.002888304101878889,
+"ratio_d": 0.9317110006060932,
+"pass": true
+},
+{
+"model": "L17v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.0023,
+"ours": 0.0019913833319384865,
+"ratio_d": 0.865818839973255,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.0017,
+"ours": 0.0014786248735759444,
+"ratio_d": 0.8697793373976144,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.0012,
+"ours": 0.00108154069054014,
+"ratio_d": 0.9012839087834501,
+"pass": true
+},
+{
+"model": "L17v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.001,
+"ours": 0.000960759172625722,
+"ratio_d": 0.960759172625722,
+"pass": true
+},
+{
+"model": "L17v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.001,
+"ours": 0.0009321066042421105,
+"ratio_d": 0.9321066042421104,
+"pass": true
+},
+{
+"model": "L17v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.0019,
+"ours": 0.0015108155940214867,
+"ratio_d": 0.7951661021165719,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.0028,
+"ours": 0.002141978271320237,
+"ratio_d": 0.7649922397572274,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.0038,
+"ours": 0.002899844722221861,
+"ratio_d": 0.7631170321636476,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.0058,
+"ours": 0.00446952222986672,
+"ratio_d": 0.7706072810115036,
+"pass": false
+},
+{
+"model": "L17v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.011,
+"ours": 0.008831855449007098,
+"ratio_d": 0.8028959499097362,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 1.4,
+"ours": 1.2333192536044013,
+"ratio_d": 0.8809423240031439,
+"pass": true
+},
+{
+"model": "L18s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 0.73,
+"ours": 0.5597027876130511,
+"ratio_d": 0.7667161474151386,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 0.43,
+"ours": 0.32078827772405094,
+"ratio_d": 0.7460192505210487,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 0.22,
+"ours": 0.1762852707256145,
+"ratio_d": 0.8012966851164296,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.11,
+"ours": 0.10137432503833711,
+"ratio_d": 0.9215847730757919,
+"pass": true
+},
+{
+"model": "L18s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.061,
+"ours": 0.04841992611766562,
+"ratio_d": 0.7937692806174692,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.044,
+"ours": 0.03192904633098725,
+"ratio_d": 0.7256601438860738,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.038,
+"ours": 0.025820437900388224,
+"ratio_d": 0.6794852079049533,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.052,
+"ours": 0.033319115482606576,
+"ratio_d": 0.6407522208193572,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.051,
+"ours": 0.035607913408078035,
+"ratio_d": 0.6981943805505497,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.059,
+"ours": 0.04386873024098692,
+"ratio_d": 0.7435378006946936,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.085,
+"ours": 0.06430995117763341,
+"ratio_d": 0.7565876609133342,
+"pass": false
+},
+{
+"model": "L18s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.16,
+"ours": 0.12422832671540004,
+"ratio_d": 0.7764270419712502,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 6.8,
+"ours": 6.266233213929933,
+"ratio_d": 0.9215048844014607,
+"pass": true
+},
+{
+"model": "L18v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 3.7,
+"ours": 2.8683726466352337,
+"ratio_d": 0.775235850441955,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 2.2,
+"ours": 1.661212298695745,
+"ratio_d": 0.7550964994071567,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 1.2,
+"ours": 0.9300715700781821,
+"ratio_d": 0.7750596417318184,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 0.6,
+"ours": 0.550864533248998,
+"ratio_d": 0.9181075554149967,
+"pass": true
+},
+{
+"model": "L18v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.35,
+"ours": 0.2844526436994448,
+"ratio_d": 0.8127218391412708,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.27,
+"ours": 0.20410698435102773,
+"ratio_d": 0.7559517938926952,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.24,
+"ours": 0.17553589050303461,
+"ratio_d": 0.7313995437626443,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.3,
+"ours": 0.22083804460439654,
+"ratio_d": 0.7361268153479885,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.25,
+"ours": 0.214546027573575,
+"ratio_d": 0.8581841102943,
+"pass": false
+},
+{
+"model": "L18v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.28,
+"ours": 0.25355657932697506,
+"ratio_d": 0.9055592118820537,
+"pass": true
+},
+{
+"model": "L18v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.39,
+"ours": 0.36437930667682267,
+"ratio_d": 0.9343059145559556,
+"pass": true
+},
+{
+"model": "L18v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.74,
+"ours": 0.697938593014813,
+"ratio_d": 0.9431602608308284,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 390.0,
+"ours": 476.5619950491691,
+"ratio_d": 1.221953833459408,
+"pass": false
+},
+{
+"model": "L19s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 250.0,
+"ours": 256.6198972190825,
+"ratio_d": 1.0264795888763298,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 180.0,
+"ours": 171.50655185634773,
+"ratio_d": 0.9528141769797096,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 130.0,
+"ours": 115.89150129740099,
+"ratio_d": 0.8914730869030846,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 99.0,
+"ours": 84.44851601017878,
+"ratio_d": 0.853015313234129,
+"pass": false
+},
+{
+"model": "L19s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 67.0,
+"ours": 59.77988641292777,
+"ratio_d": 0.892237110640713,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 57.0,
+"ours": 51.3766418061287,
+"ratio_d": 0.9013445930899773,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 55.0,
+"ours": 48.326661292645056,
+"ratio_d": 0.8786665689571829,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 99.0,
+"ours": 75.50633586502906,
+"ratio_d": 0.7626902612629198,
+"pass": false
+},
+{
+"model": "L19s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 96.0,
+"ours": 78.89879684401384,
+"ratio_d": 0.8218624671251442,
+"pass": false
+},
+{
+"model": "L19s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 110.0,
+"ours": 93.46174836522069,
+"ratio_d": 0.8496522578656426,
+"pass": false
+},
+{
+"model": "L19s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 150.0,
+"ours": 133.43066673591096,
+"ratio_d": 0.8895377782394064,
+"pass": true
+},
+{
+"model": "L19s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 280.0,
+"ours": 254.37637403208754,
+"ratio_d": 0.9084870501145984,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 410.0,
+"ours": 496.7339807701136,
+"ratio_d": 1.2115462945612527,
+"pass": false
+},
+{
+"model": "L19v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 260.0,
+"ours": 267.5386264829553,
+"ratio_d": 1.0289947172421356,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 190.0,
+"ours": 178.83681696212963,
+"ratio_d": 0.9412464050638402,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 140.0,
+"ours": 120.87567640113875,
+"ratio_d": 0.8633976885795625,
+"pass": false
+},
+{
+"model": "L19v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 100.0,
+"ours": 88.10915213538125,
+"ratio_d": 0.8810915213538125,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 70.0,
+"ours": 62.414976310928346,
+"ratio_d": 0.8916425187275477,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 60.0,
+"ours": 53.68072727100258,
+"ratio_d": 0.8946787878500431,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 58.0,
+"ours": 50.52943492671862,
+"ratio_d": 0.8711971539089418,
+"pass": false
+},
+{
+"model": "L19v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 100.0,
+"ours": 79.11697256567646,
+"ratio_d": 0.7911697256567646,
+"pass": false
+},
+{
+"model": "L19v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 100.0,
+"ours": 82.56533795738473,
+"ratio_d": 0.8256533795738473,
+"pass": false
+},
+{
+"model": "L19v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 110.0,
+"ours": 97.6655680281515,
+"ratio_d": 0.8878688002559227,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 150.0,
+"ours": 139.30947264792508,
+"ratio_d": 0.9287298176528338,
+"pass": true
+},
+{
+"model": "L19v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 290.0,
+"ours": 265.47414459475897,
+"ratio_d": 0.9154280848095137,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 9.9,
+"ours": 10.410602688062564,
+"ratio_d": 1.0515760290972287,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 5.9,
+"ours": 5.261292866178554,
+"ratio_d": 0.8917445535895854,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 4.0,
+"ours": 3.2986719573051597,
+"ratio_d": 0.8246679893262899,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 2.4,
+"ours": 2.0297064588213303,
+"ratio_d": 0.8457110245088877,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.5,
+"ours": 1.3153149902327435,
+"ratio_d": 0.8768766601551623,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.87,
+"ours": 0.7410405763634436,
+"ratio_d": 0.8517707774292455,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.64,
+"ours": 0.5189747843570505,
+"ratio_d": 0.8108981005578914,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.56,
+"ours": 0.41481694767650523,
+"ratio_d": 0.7407445494223307,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.47,
+"ours": 0.3866805982410605,
+"ratio_d": 0.8227246771086394,
+"pass": false
+},
+{
+"model": "L20s",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.34,
+"ours": 0.3149915623920529,
+"ratio_d": 0.926445771741332,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.37,
+"ours": 0.3484044673926791,
+"ratio_d": 0.9416336956558895,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.51,
+"ours": 0.48540717860433136,
+"ratio_d": 0.9517787815771203,
+"pass": true
+},
+{
+"model": "L20s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.95,
+"ours": 0.9176662498607967,
+"ratio_d": 0.9659644735376808,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 10.0,
+"splitting_kev": 0.0,
+"published": 10.0,
+"ours": 10.825912724387678,
+"ratio_d": 1.0825912724387678,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 12.0,
+"splitting_kev": 0.0,
+"published": 6.1,
+"ours": 5.469050789278383,
+"ratio_d": 0.8965657031603907,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 14.0,
+"splitting_kev": 0.0,
+"published": 4.1,
+"ours": 3.4273594854391134,
+"ratio_d": 0.835941337911979,
+"pass": false
+},
+{
+"model": "L20v",
+"mass_gev": 17.0,
+"splitting_kev": 0.0,
+"published": 2.5,
+"ours": 2.107165404387896,
+"ratio_d": 0.8428661617551583,
+"pass": false
+},
+{
+"model": "L20v",
+"mass_gev": 21.0,
+"splitting_kev": 0.0,
+"published": 1.5,
+"ours": 1.36370235707883,
+"ratio_d": 0.90913490471922,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 30.0,
+"splitting_kev": 0.0,
+"published": 0.87,
+"ours": 0.7654119054141547,
+"ratio_d": 0.8797837993266147,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 40.0,
+"splitting_kev": 0.0,
+"published": 0.66,
+"ours": 0.5334957325606047,
+"ratio_d": 0.8083268675160676,
+"pass": false
+},
+{
+"model": "L20v",
+"mass_gev": 50.0,
+"splitting_kev": 0.0,
+"published": 0.58,
+"ours": 0.4245912689763722,
+"ratio_d": 0.732053912028228,
+"pass": false
+},
+{
+"model": "L20v",
+"mass_gev": 100.0,
+"splitting_kev": 0.0,
+"published": 0.47,
+"ours": 0.39116323849126905,
+"ratio_d": 0.8322622095558917,
+"pass": false
+},
+{
+"model": "L20v",
+"mass_gev": 200.0,
+"splitting_kev": 0.0,
+"published": 0.35,
+"ours": 0.31757707705901556,
+"ratio_d": 0.907363077311473,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.37,
+"ours": 0.35096930941169485,
+"ratio_d": 0.9485657011126888,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.51,
+"ours": 0.48881553096647223,
+"ratio_d": 0.9584618254244553,
+"pass": true
+},
+{
+"model": "L20v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.95,
+"ours": 0.9239856775357679,
+"ratio_d": 0.9726165026692294,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 2.6e-05,
+"ours": 2.4540037234827542e-05,
+"ratio_d": 0.9438475859549055,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 4.2e-05,
+"ours": 4.0521636780675946e-05,
+"ratio_d": 0.9648008757303798,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 8.9e-05,
+"ours": 8.236243289543278e-05,
+"ratio_d": 0.9254205943307054,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 50.0,
+"published": 5e-05,
+"ours": 4.4776177649125804e-05,
+"ratio_d": 0.8955235529825161,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 50.0,
+"published": 8.6e-05,
+"ours": 6.971892170806539e-05,
+"ratio_d": 0.8106851361402952,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 50.0,
+"published": 0.00018,
+"ours": 0.0001375906521855074,
+"ratio_d": 0.7643925121417078,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 150.0,
+"published": 0.00065,
+"ours": 0.0004196759863366088,
+"ratio_d": 0.6456553635947828,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 150.0,
+"published": 0.00084,
+"ours": 0.000544674479630253,
+"ratio_d": 0.648421999559825,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 150.0,
+"published": 0.0015,
+"ours": 0.0009926498193391499,
+"ratio_d": 0.6617665462260999,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 200.0,
+"published": 0.0021,
+"ours": 0.001647528552091869,
+"ratio_d": 0.784537405758033,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 200.0,
+"published": 0.0023,
+"ours": 0.0018328378605462902,
+"ratio_d": 0.796886026324474,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 200.0,
+"published": 0.004,
+"ours": 0.0031334052892916494,
+"ratio_d": 0.7833513223229123,
+"pass": false
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 250.0,
+"published": 0.0064,
+"ours": 0.0061103610475727165,
+"ratio_d": 0.9547439136832369,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 250.0,
+"published": 0.0059,
+"ours": 0.005610547920034429,
+"ratio_d": 0.9509403254295643,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 250.0,
+"published": 0.0095,
+"ours": 0.008918990680718246,
+"ratio_d": 0.9388411242861311,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 400.0,
+"splitting_kev": 300.0,
+"published": 0.032,
+"ours": 0.02935740488341515,
+"ratio_d": 0.9174189026067234,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 300.0,
+"published": 0.016,
+"ours": 0.015423696461310707,
+"ratio_d": 0.9639810288319192,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 300.0,
+"published": 0.022,
+"ours": 0.02179905536568179,
+"ratio_d": 0.990866152985536,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 1000.0,
+"splitting_kev": 350.0,
+"published": 0.14,
+"ours": 0.12344052717214675,
+"ratio_d": 0.8817180512296195,
+"pass": true
+},
+{
+"model": "O01s",
+"mass_gev": 4000.0,
+"splitting_kev": 350.0,
+"published": 0.1,
+"ours": 0.09268505696605729,
+"ratio_d": 0.9268505696605729,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.00023,
+"ours": 0.00019349805045104995,
+"ratio_d": 0.8412958715263041,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.00037,
+"ours": 0.00030794187688455097,
+"ratio_d": 0.8322753429312189,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.00074,
+"ours": 0.0006161258510896029,
+"ratio_d": 0.8326025014724364,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 50.0,
+"published": 0.00046,
+"ours": 0.00034842513457666993,
+"ratio_d": 0.7574459447318911,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 50.0,
+"published": 0.00069,
+"ours": 0.0005279610384755155,
+"ratio_d": 0.7651609253268341,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 50.0,
+"published": 0.0014,
+"ours": 0.0010328266358268336,
+"ratio_d": 0.7377333113048812,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 150.0,
+"published": 0.0045,
+"ours": 0.0034577788415841473,
+"ratio_d": 0.7683952981298106,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 150.0,
+"published": 0.0056,
+"ours": 0.0043793252847928316,
+"ratio_d": 0.7820223722844342,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 150.0,
+"published": 0.01,
+"ours": 0.007896095127395182,
+"ratio_d": 0.7896095127395182,
+"pass": false
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 200.0,
+"published": 0.01,
+"ours": 0.009764474681233546,
+"ratio_d": 0.9764474681233546,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 200.0,
+"published": 0.011,
+"ours": 0.010906507432931277,
+"ratio_d": 0.9915006757210252,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 200.0,
+"published": 0.02,
+"ours": 0.01864206012755795,
+"ratio_d": 0.9321030063778974,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 250.0,
+"published": 0.027,
+"ours": 0.026446331113692132,
+"ratio_d": 0.9794937449515605,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 250.0,
+"published": 0.025,
+"ours": 0.024522612549305784,
+"ratio_d": 0.9809045019722313,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 250.0,
+"published": 0.04,
+"ours": 0.03929594881197201,
+"ratio_d": 0.9823987202993002,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 400.0,
+"splitting_kev": 300.0,
+"published": 0.16,
+"ours": 0.1460155834258261,
+"ratio_d": 0.9125973964114131,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 300.0,
+"published": 0.072,
+"ours": 0.0726176394560293,
+"ratio_d": 1.0085783257781846,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 300.0,
+"published": 0.098,
+"ours": 0.0998329655198503,
+"ratio_d": 1.0187037297943908,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 1000.0,
+"splitting_kev": 350.0,
+"published": 0.32,
+"ours": 0.310949864452033,
+"ratio_d": 0.971718326412603,
+"pass": true
+},
+{
+"model": "O01v",
+"mass_gev": 4000.0,
+"splitting_kev": 350.0,
+"published": 0.31,
+"ours": 0.31554539804354653,
+"ratio_d": 1.017888380785634,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 0.0,
+"published": 0.025,
+"ours": 0.019968213723149882,
+"ratio_d": 0.7987285489259952,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 0.0,
+"published": 0.038,
+"ours": 0.03048655535635097,
+"ratio_d": 0.8022777725355519,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 0.0,
+"published": 0.075,
+"ours": 0.05996901939892786,
+"ratio_d": 0.7995869253190382,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 50.0,
+"published": 0.059,
+"ours": 0.04593304818733913,
+"ratio_d": 0.778526240463375,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 50.0,
+"published": 0.041,
+"ours": 0.03164995563031379,
+"ratio_d": 0.7719501373247265,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 50.0,
+"published": 0.11,
+"ours": 0.08817305550330419,
+"ratio_d": 0.8015732318482199,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 150.0,
+"published": 0.31,
+"ours": 0.28226136457280193,
+"ratio_d": 0.9105205308800063,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 150.0,
+"published": 0.18,
+"ours": 0.15915605351127643,
+"ratio_d": 0.884200297284869,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 150.0,
+"published": 0.15,
+"ours": 0.13051979210123185,
+"ratio_d": 0.8701319473415458,
+"pass": false
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 200.0,
+"published": 0.53,
+"ours": 0.506259619801689,
+"ratio_d": 0.9552068298145074,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 200.0,
+"published": 0.31,
+"ours": 0.2987758348901486,
+"ratio_d": 0.9637930157746729,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 200.0,
+"published": 0.29,
+"ours": 0.2734429259689577,
+"ratio_d": 0.942906641272268,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 250.0,
+"published": 0.69,
+"ours": 0.6729263805760309,
+"ratio_d": 0.9752556240232333,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 250.0,
+"published": 1.0,
+"ours": 0.9739167966317344,
+"ratio_d": 0.9739167966317344,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 250.0,
+"published": 0.63,
+"ours": 0.6123085886458186,
+"ratio_d": 0.9719183946759026,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 400.0,
+"splitting_kev": 300.0,
+"published": 3.4,
+"ours": 3.1152801106596852,
+"ratio_d": 0.916258856076378,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 300.0,
+"published": 2.2,
+"ours": 2.1926066035683016,
+"ratio_d": 0.9966393652583189,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 300.0,
+"published": 1.6,
+"ours": 1.5695407672487909,
+"ratio_d": 0.9809629795304943,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 1000.0,
+"splitting_kev": 350.0,
+"published": 10.0,
+"ours": 9.018534380642024,
+"ratio_d": 0.9018534380642024,
+"pass": true
+},
+{
+"model": "O04s",
+"mass_gev": 4000.0,
+"splitting_kev": 350.0,
+"published": 7.8,
+"ours": 7.4683548800023685,
+"ratio_d": 0.9574813948720985,
+"pass": true
+}
+]

@@ -1,0 +1,729 @@
+{
+ "model": "claude-opus-5-5",
+ "dry_run": false,
+ "summary": {
+  "entries": 31,
+  "compared": 3,
+  "equal": 1,
+  "equal_d19": 1,
+  "spent": 0.2821538,
+  "gate": false
+ },
+ "results": [
+  {
+   "id": "inert_doublet_kalinowski",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper's phi_S is written as ADROIT's Higgs doublet H; phi_D is named phiD.",
+    "Both doublets have hypercharge 1/2 in Q = T3 + Y (standard 2HDM normalization). <phi_S^0> = v/sqrt(2) with v = 246.22 GeV, the same as ADROIT's convention.",
+    "V enters L as -V. The paper's -1/2 m_ii^2 mass terms become +m_ii^2/2 coefficients in L.",
+    "The physical-mass relations used for the inversion are: M_H^2 = mu_2^2 + lambda_345 v^2/2; M_A^2 = mu_2^2 + (lambda_3 + lambda_4 - lambda_5) v^2/2; M_Hpm^2 = mu_2^2 + lambda_3 v^2/2; with mu_2^2 = -m22^2/2.",
+    "The quartics lambda_3, lambda_4, lambda_5 and the mass parameter m22^2 are written as formulas in the benchmark inputs M_H, M_A, M_Hpm and lambda_345. No numbers were computed."
+   ],
+   "assumptions": [
+    "Tree-level relations are used throughout: lambda_1 = M_h^2/v^2 and m11^2 = M_h^2.",
+    "H, the CP-even neutral component of phi_D, is the dark matter, following the paper (lambda_5 < 0 for this benchmark)."
+   ],
+   "equal": false,
+   "differences": [
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.1 GeV has no counterpart",
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.09 GeV is extra"
+   ],
+   "equal_d19": false,
+   "differences_d19": [
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.1 GeV has no counterpart",
+    "the state (spin 0.0, charge +0, colour 1, parity +1) at 125.09 GeV is extra"
+   ],
+   "agent_spec": {
+    "name": "inert_doublet_model_ee_benchmark",
+    "phase": "unbroken",
+    "source": "Kalinowski, Kotlarski, Robens, Sokolowska, Zarnecki, arXiv:1809.07712, eq. (2)",
+    "fields": [
+     {
+      "name": "H",
+      "role": "standard_model",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "SM-like doublet phi_S; mass parameter and quartic given by explicit terms fixed by M_h and v",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "phiD",
+      "role": "dark_matter",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "Inert doublet phi_D. Its Lagrangian mass parameter mu_2^2 = -m22^2/2 = M_H^2 - lambda_345 v^2/2 is a formula, so it is written as an explicit term. Its neutral CP-even component H (M_H = 72.77 GeV) is the dark matter.",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "M_H",
+      "value": 72.77,
+      "mass_dimension": 1,
+      "justification": "benchmark: dark matter mass (neutral scalar H)"
+     },
+     {
+      "name": "M_A",
+      "value": 107.803,
+      "mass_dimension": 1,
+      "justification": "benchmark: pseudoscalar A mass"
+     },
+     {
+      "name": "M_Hpm",
+      "value": 114.639,
+      "mass_dimension": 1,
+      "justification": "benchmark: charged scalar H+- mass"
+     },
+     {
+      "name": "lambda_2",
+      "value": 1.44513,
+      "mass_dimension": 0,
+      "justification": "benchmark: dark-sector self quartic"
+     },
+     {
+      "name": "lambda_345",
+      "value": -0.00440723,
+      "mass_dimension": 0,
+      "justification": "benchmark: lambda_3+lambda_4+lambda_5, the hHH coupling"
+     },
+     {
+      "name": "M_h",
+      "value": 125.1,
+      "mass_dimension": 1,
+      "justification": "benchmark: SM-like Higgs mass"
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "M_h**2/2",
+      "plus_hc": false,
+      "text": "+(1/2) m11^2 (phi_S^dag phi_S), with m11^2 = lambda_1 v^2 = M_h^2",
+      "indices": "H*[i] H[i]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       },
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-M_h**2/(2*v**2)",
+      "plus_hc": false,
+      "text": "-(lambda_1/2)(phi_S^dag phi_S)^2, with lambda_1 = M_h^2/v^2",
+      "indices": "H*[i] H[i] H*[j] H[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "phiD",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(M_H**2 - lambda_345*v**2/2)",
+      "plus_hc": false,
+      "text": "+(1/2) m22^2 (phi_D^dag phi_D), with -m22^2/2 = M_H^2 - lambda_345 v^2/2",
+      "indices": "phiD*[i] phiD[i]"
+     },
+     {
+      "fields": [
+       {
+        "field": "phiD",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       },
+       {
+        "field": "phiD",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-lambda_2/2",
+      "plus_hc": false,
+      "text": "-(lambda_2/2)(phi_D^dag phi_D)^2",
+      "indices": "phiD*[i] phiD[i] phiD*[j] phiD[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       },
+       {
+        "field": "phiD",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(lambda_345 + 2*(M_Hpm**2 - M_H**2)/v**2)",
+      "plus_hc": false,
+      "text": "-lambda_3 (phi_S^dag phi_S)(phi_D^dag phi_D), with lambda_3 = lambda_345 + 2(M_Hpm^2 - M_H^2)/v^2",
+      "indices": "H*[i] H[i] phiD*[j] phiD[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       },
+       {
+        "field": "phiD",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(M_A**2 + M_H**2 - 2*M_Hpm**2)/v**2",
+      "plus_hc": false,
+      "text": "-lambda_4 (phi_S^dag phi_D)(phi_D^dag phi_S), with lambda_4 = (M_A^2 + M_H^2 - 2 M_Hpm^2)/v^2",
+      "indices": "H*[i] phiD[i] phiD*[j] H[j]"
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       },
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "phiD",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(M_H**2 - M_A**2)/(2*v**2)",
+      "plus_hc": true,
+      "text": "-(lambda_5/2)[(phi_S^dag phi_D)^2 + h.c.], with lambda_5 = (M_H^2 - M_A^2)/v^2",
+      "indices": "H*[i] phiD[i] H*[j] phiD[j]"
+     }
+    ],
+    "assumptions": [
+     "The SM-like doublet's potential parameters are fixed at tree level by M_h and v: lambda_1 = M_h^2/v^2 and m11^2 = M_h^2.",
+     "All couplings are real; lambda_5 < 0, so H (CP-even) is the lightest dark particle, as the paper chooses.",
+     "The inert doublet does not couple to fermions, so there are no Yukawa terms for phiD."
+    ],
+    "dropped": [],
+    "stability": "Exact Z2 (D-symmetry): phi_D -> -phi_D. Only phi_S takes a vev, so the lightest dark scalar H is stable.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "differs",
+   "spent": 0.146851
+  },
+  {
+   "id": "scalar_singlet_higgs_portal_gambit",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "Eq. (1) is written with the signs of a potential: the mass relation m_S^2 = mu_S^2 + lambda_hS v0^2/2 requires V \u2283 +1/2 mu_S^2 S^2 + 1/2 lambda_hS S^2|H|^2 + 1/4 lambda_S S^4. These terms enter L with a minus sign.",
+    "The paper's v0 = 246 GeV with |H|^2 -> v0^2/2 matches ADROIT's <H0> = v/sqrt2, so v = 246.22 GeV is used with no rescaling.",
+    "The Lagrangian mass parameter mu_S^2 is expressed through the benchmark's physical m_S by inverting eq. (2): mu_S^2 = mS^2 - lambda_hS v^2/2.",
+    "The paper's m_S is named mS among the couplings to avoid a clash with the field-mass symbol m_S."
+   ],
+   "assumptions": [
+    "lambda_S = 0.1 is assumed because the benchmark leaves the singlet quartic unspecified; it is kept so that no term is dropped.",
+    "The singlet makes up all of the dark matter for this spec (relic_fraction 1). The paper allows a sub-component, but the relic fraction is computed, not input."
+   ],
+   "equal": false,
+   "differences": [
+    "SSSS vertices among 4 legs: 1 against 0"
+   ],
+   "equal_d19": false,
+   "differences_d19": [
+    "SSSS vertices among 4 legs: 1 against 0"
+   ],
+   "agent_spec": {
+    "name": "scalar_singlet_higgs_portal_GAMBIT_best_fit",
+    "phase": "unbroken",
+    "source": "Status of the scalar singlet dark matter model (GAMBIT), eqs. (1)-(2); high-mass best-fit benchmark m_S = 9790 GeV, lambda_hS = 3.1",
+    "fields": [
+     {
+      "name": "S",
+      "role": "dark_matter",
+      "spin": 0.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "The Lagrangian mass mu_S^2 = m_S^2 - lambda_hS v^2/2 is a formula in the benchmark's physical mass, so it is written as the explicit term -1/2 mu_S^2 S^2 (eq. 2 inverted).",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "H",
+      "role": "standard_model",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "mS",
+      "value": 9790.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark tree-level singlet mass m_S (paper's m_S), after electroweak symmetry breaking, eq. (2). Renamed mS so it does not clash with the automatic field-mass symbol m_S."
+     },
+     {
+      "name": "lambda_hS",
+      "value": 3.1,
+      "mass_dimension": 0,
+      "justification": "Benchmark Higgs-portal coupling lambda_hS."
+     },
+     {
+      "name": "lambda_S",
+      "value": 0.1,
+      "mass_dimension": 0,
+      "justification": "Singlet quartic. The paper treats it as irrelevant and does not fix it at the benchmark. An assumed value is used; it does not enter tree-level annihilation or direct detection."
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "S",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(mS**2 - lambda_hS*v**2/2)/2",
+      "plus_hc": false,
+      "text": "-1/2 mu_S^2 S^2 with mu_S^2 = m_S^2 - lambda_hS v0^2/2",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "H",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-lambda_hS/2",
+      "plus_hc": false,
+      "text": "-1/2 lambda_hS S^2 |H|^2",
+      "indices": "H*[i] H[i] S S"
+     },
+     {
+      "fields": [
+       {
+        "field": "S",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       },
+       {
+        "field": "S",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-lambda_S/4",
+      "plus_hc": false,
+      "text": "-1/4 lambda_S S^4",
+      "indices": ""
+     }
+    ],
+    "assumptions": [
+     "lambda_S = 0.1 (not fixed by the paper, which calls it irrelevant for the low-energy phenomenology)."
+    ],
+    "dropped": [],
+    "stability": "Z2 symmetry S -> -S, with no singlet vev.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "differs",
+   "spent": 0.22336840000000002
+  },
+  {
+   "id": "wino_majorana_triplet_bottaro",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper uses Q = T3 + Y, the same as ADROIT. The wino has Y = 0, so no conversion is needed.",
+    "The paper writes the Majorana triplet as a two-component Weyl spinor with the Lagrangian 1/2 chi (i sigmabar D - M_chi) chi. It is represented here as one self-conjugate (Majorana) four-component field. Its mass_gev is M in the term 1/2 M chi-bar chi, which equals the paper's M_chi.",
+    "The covariant derivative D_mu = d_mu - i g2 W^a T^a is taken to match ADROIT's gauge convention for the kinetic term. Only the triplet's SU(2) representation is specified."
+   ],
+   "assumptions": [
+    "The benchmark mass of 2860 GeV is the paper's central thermal mass for the Majorana 3-plet.",
+    "No Standard Model fermion fields are listed, because no explicit term couples to them. Their gauge interactions with the W are implicit."
+   ],
+   "equal": true,
+   "differences": [],
+   "equal_d19": true,
+   "differences_d19": [],
+   "agent_spec": {
+    "name": "pure_wino_majorana_triplet",
+    "phase": "unbroken",
+    "source": "Bottaro, Buttazzo, Costa, Franceschini, Panci, Redigolo, Vittorio, 'Closing the window on WIMP Dark Matter', arXiv:2107.09688, Eq. (2), fermionic 3-plet",
+    "fields": [
+     {
+      "name": "chi",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 2860.0,
+      "mass_justification": "Thermal freeze-out mass of the Majorana 3-plet from Table I (2.86 \u00b1 0.01 TeV, with Sommerfeld enhancement and bound-state formation). It enters as M_chi in the Majorana mass term -1/2 M_chi chi chi of Eq. (2).",
+      "charges": {
+       "su3": "1",
+       "su2": 3,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "H",
+      "role": "standard_model",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "M_chi",
+      "value": 2860.0,
+      "mass_dimension": 1,
+      "justification": "Benchmark dark matter mass of 2860 GeV (Table I, Majorana 3-plet)."
+     }
+    ],
+    "terms": [],
+    "assumptions": [
+     "The model has only gauge interactions. The SU(2)_L coupling to W^a comes from the covariant derivative in the kinetic term, D_mu = d_mu - i g2 W^a T^a, which ADROIT generates from the field's charges. No explicit interaction terms are therefore listed.",
+     "The decay operator chi H L, allowed at the renormalizable level for the 3-plet, is forbidden by a Z2 symmetry acting on the dark sector, as the paper assumes. The field chi is given dark_parity -1.",
+     "The splitting between the charged and neutral components (about 167 MeV) is radiative, from gauge loops. It is not a tree-level Lagrangian input, so at tree level the multiplet is degenerate at M_chi.",
+     "The Higgs doublet is listed because the model contains an electroweak multiplet. The fermion triplet has no renormalizable coupling to H once the Z2 is imposed."
+    ],
+    "dropped": [
+     "Dimension-7 operator c_f/Lambda_UV^3 chi^a chi^b (H^dag T^a H)(H^dag T^b H) of Eq. (5). It is non-renormalizable, and the paper gives no benchmark value for c_f or Lambda_UV; its contribution to the splitting is stated to be negligible."
+    ],
+    "stability": "A Z2 under which chi is odd forbids the renormalizable decay operator chi H L. The neutral component of the triplet is the lightest state, because the radiative splitting raises the charged components.",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "equal",
+   "spent": 0.2821538
+  },
+  {
+   "id": "higgsino_dirac_doublet_bottaro",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gcnXZXgg9zQY9DPdWn'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "dmwg_dirac_vector_zprime_v1",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfQJuUVUW5Vzi4ztvC'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "real_scalar_quintuplet_bottaro",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfS2qpgpoVsiciTwQD'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "majorana_quintuplet_mdm_bottaro",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfT6bdwkpfd8bzhwwF'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "complex_scalar_triplet_y1_bottaro",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfU7rieRb3rSg4eGjA'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "dirac_fermion_higgs_portal_eft_cpv_gambit",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfV97pMG7PnLR59eFa'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "majorana_fermion_higgs_portal_eft_resonance_gambit",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfWWUK2cpemRyRS6sM'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "u1x_vector_dm_dark_higgs_kamon",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfXXk7He1vVbVpqzAS'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "singlet_doublet_majorana_cohen",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfYdDmp1wMSHHW74AJ'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "singlet_doublet_dirac_yaguna",
+   "reference_builds": true,
+   "verdict": "error: BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cg3gfaoSHgy7NWX4G9y8L'}",
+   "spent": 0.2821538
+  },
+  {
+   "id": "singlet_triplet_fermion_choubey",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.449480",
+   "spent": 0.2821538
+  },
+  {
+   "id": "doublet_triplet_fermion_dedes",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.450824",
+   "spent": 0.2821538
+  },
+  {
+   "id": "coloured_coannihilation_scalar_triplet_desimone",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.461240",
+   "spent": 0.2821538
+  },
+  {
+   "id": "coloured_coannihilation_fermion_octet_desimone",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.459872",
+   "spent": 0.2821538
+  },
+  {
+   "id": "coloured_coannihilation_bsf_harz",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.448672",
+   "spent": 0.2821538
+  },
+  {
+   "id": "secluded_dirac_vector_pospelov",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.465544",
+   "spent": 0.2821538
+  },
+  {
+   "id": "forbidden_dark_photon_dagnolo",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.504800",
+   "spent": 0.2821538
+  },
+  {
+   "id": "dark_photon_complex_scalar_feng",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.470288",
+   "spent": 0.2821538
+  },
+  {
+   "id": "dark_photon_scalar_resonance_feng",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.461648",
+   "spent": 0.2821538
+  },
+  {
+   "id": "inelastic_pseudo_dirac_dark_photon_berlin",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.512848",
+   "spent": 0.2821538
+  },
+  {
+   "id": "dark_qed_bound_states_vonharling",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.478824",
+   "spent": 0.2821538
+  },
+  {
+   "id": "b_minus_l_rhn_zprime_okada",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.455080",
+   "spent": 0.2821538
+  },
+  {
+   "id": "lmu_minus_ltau_dirac_resonance_holst",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.470632",
+   "spent": 0.2821538
+  },
+  {
+   "id": "vector_higgs_portal_athron",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.509344",
+   "spent": 0.2821538
+  },
+  {
+   "id": "singlet_fermion_scalar_mediator_das",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.468384",
+   "spent": 0.2821538
+  },
+  {
+   "id": "two_hdm_pseudoscalar_singlet_mediator_ipek",
+   "reference_builds": false,
+   "verdict": "the reference does not build (the coupling 'y_chi' of y_\u03c7 a\u2080 \u03c7\u0304 i\u03b3\u2075 \u03c7 has no value)"
+  },
+  {
+   "id": "real_scalar_dm_vectorlike_lepton_giacchino",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.467848",
+   "spent": 0.2821538
+  },
+  {
+   "id": "majorana_dm_charged_scalar_lepton_partner_giacchino",
+   "reference_builds": true,
+   "verdict": "error: BudgetExceeded: LLM budget stopped before dispatch: $5.187922 committed of $5.500000; next request needs up to $0.443408",
+   "spent": 0.2821538
+  }
+ ]
+}

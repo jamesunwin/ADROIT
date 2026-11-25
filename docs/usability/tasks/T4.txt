@@ -1,0 +1,10 @@
+Task T4: a thermal model's verdict
+
+Real vector dark matter V_mu, a Standard Model singlet stabilised by a Z2 (its mass from a Stueckelberg term),
+couples to the Higgs doublet only through (1/2) lambda_hV V_mu V^mu H^dagger H. Take m_V = 1390 GeV and lambda_hV
+such that V makes up all the dark matter as a thermal relic (Omega h^2 = 0.12).
+
+Is this point excluded today, and by which search? Say which searches you checked.
+
+Answer: the value of lambda_hV you used, "excluded" or "not excluded", the searches that decide it, and one
+sentence on how you obtained them.

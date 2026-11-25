@@ -1,0 +1,89 @@
+[project]
+name = "adroit"
+version = "1.0.0"
+description = "ADROIT: Agentic Dark matter Reinterpretation and Operator Inference Toolkit, for dark matter direct detection"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "James Unwin", email = "unwin@uic.edu" }]
+keywords = ["agentic AI", "dark matter", "direct detection", "effective field theory", "nuclear recoil", "model selection"]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic>=2.7",
+    "numpy>=2.0",                 # numpy.trapezoid
+    "astropy>=6",
+    "scipy>=1.13",
+    "sympy>=1.12",
+    "matplotlib>=3.8",
+    "anthropic>=0.40",
+    "chromadb>=0.5",
+    # Intel Macs: the last onnxruntime with x86_64 macOS wheels is 1.22.0.
+    "onnxruntime<=1.22.0; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "onnxruntime; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+    "networkx>=3.3",
+    "pyyaml>=6.0",
+    "typer>=0.12",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+    "truststore>=0.10",          # downloads verified against the system's trust store (adroit/external/fetch.py)
+    "sqlmodel>=0.0.19",
+    "arxiv>=2.1",
+    "pypdf>=4.0",
+    "openai>=3.22.1",
+    "markdown-it-py>=3",
+]
+
+[project.optional-dependencies]
+# Real semantic retrieval (heavy: pulls torch). The default install keeps
+# the deterministic offline hash embedder.
+retrieval = [
+    # Not on Intel Macs: PyTorch's last x86_64 macOS wheels (2.2.2) are built against NumPy 1.x, and ADROIT needs
+    # NumPy 2 (numpy.trapezoid). There the extra installs nothing and retrieval keeps the hash embedder.
+    "sentence-transformers>=3.0; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+]
+references = ["nestpy==2.1.1"]
+ui = [
+    "nicegui>=2.0",
+]
+
+[project.scripts]
+adroit = "adroit.orchestrator.cli:app"
+
+[dependency-groups]
+dev = [
+    "nicegui>=2.0",
+    "pytest>=8.2",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["adroit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Drafted code waits in drafts/quarantine until reviewed: never collected, even by `pytest .` (the audit's AG-7).
+norecursedirs = [".*", "build", "dist", "*.egg", "venv", "drafts", "runs", "data", "node_modules"]
+# NiceGUI's User fixture (the workbench's tests, DM15) needs pytest-asyncio in auto mode; no
+# other tests are async. No NiceGUI main file: the workbench tests register their pages.
+asyncio_mode = "auto"
+main_file = ""
+# Plain `uv run pytest` runs only the fast, offline suite (DEVELOPMENT.md, hard rule 4).
+# Opt in explicitly: `uv run pytest -m slow` / `uv run pytest -m live`
+# (a -m on the command line overrides this default).
+addopts = "-m 'not slow and not live'"
+markers = [
+    "slow: slow tests (full validation scans, many toys); deselect with -m 'not slow'",
+    "live: tests that make real API calls; run explicitly",
+    "needs(*items): tools or data the test needs (tests/conftest.py's NEEDS); skipped, naming them, where one is absent",
+    "eos_band: the test exercises the equation of state's band, deferred to 1.0.2: certificate.EOS_BAND_ASSESSED is set for it",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

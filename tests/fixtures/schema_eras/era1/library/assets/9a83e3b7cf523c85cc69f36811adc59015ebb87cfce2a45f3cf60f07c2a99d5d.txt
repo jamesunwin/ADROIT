@@ -1,0 +1,92 @@
+assumptions: []
+chemical_equilibrium: null
+cosmology: "standard: radiation domination from a reheating temperature far above\
+  \ m_\u03C7/20, Standard Model degrees of freedom, no late entropy release"
+couplings:
+- justification: ''
+  mass_dimension: 0
+  name: g_chi
+  value: 0.001
+- justification: ''
+  mass_dimension: 0
+  name: g_q
+  value: 0.25
+dropped: []
+fields:
+- charges:
+    electric_charge: 0.0
+    extra: {}
+    hypercharge: 0.0
+    su2: 1
+    su3: '1'
+  chirality: ''
+  dark_parity: -1
+  generations: 1
+  mass_gev: 10.0
+  mass_justification: ''
+  name: chi
+  role: dark_matter
+  self_conjugate: false
+  spin: 0.5
+- charges:
+    electric_charge: 0.0
+    extra: {}
+    hypercharge: 0.0
+    su2: 1
+    su3: '1'
+  chirality: ''
+  dark_parity: 1
+  generations: 1
+  mass_gev: 125.0
+  mass_justification: ''
+  name: Zp
+  role: mediator
+  self_conjugate: true
+  spin: 1.0
+- charges:
+    electric_charge: 0.0
+    extra: {}
+    hypercharge: 0.0
+    su2: 1
+    su3: '1'
+  chirality: ''
+  dark_parity: null
+  generations: 1
+  mass_gev: null
+  mass_justification: ''
+  name: q
+  role: standard_model
+  self_conjugate: false
+  spin: 0.5
+name: vector_mediator
+phase: broken
+physical_fit: null
+relic_fraction: 1.0
+scalar_potential: null
+scalar_running: null
+source: ''
+stability: 'Z2: the dark matter is odd, every other field even'
+terms:
+- coupling: g_chi
+  fields:
+  - conjugate: true
+    field: chi
+  - conjugate: false
+    field: chi
+  - conjugate: false
+    field: Zp
+  lorentz: vector
+  plus_hc: false
+  text: ''
+- coupling: g_q
+  fields:
+  - conjugate: true
+    field: q
+  - conjugate: false
+    field: q
+  - conjugate: false
+    field: Zp
+  lorentz: vector
+  plus_hc: false
+  text: ''
+vector_currents: null

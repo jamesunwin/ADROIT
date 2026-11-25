@@ -1,0 +1,10 @@
+# The inert doublet model's field content (Deshpande & Ma; Barbieri, Hall & Rychkov):
+# a second Higgs doublet, odd under a Z2.
+name: inert_doublet
+stability: "Z2: Phi → −Phi"
+fields:
+  - name: Phi
+    role: dark_matter
+    spin: 0
+    charges: {su3: "1", su2: 2, hypercharge: 0.5}
+    dark_parity: -1

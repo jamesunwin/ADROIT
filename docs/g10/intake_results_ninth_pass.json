@@ -1,0 +1,421 @@
+{
+ "model": "claude-opus-5-5",
+ "dry_run": false,
+ "summary": {
+  "entries": 1,
+  "compared": 1,
+  "equal": 1,
+  "equal_d19": 1,
+  "spent": 0.21504800000000002,
+  "gate": true
+ },
+ "results": [
+  {
+   "id": "two_hdm_pseudoscalar_singlet_mediator_ipek",
+   "reference_builds": true,
+   "refusals": [],
+   "conventions": [
+    "The paper uses \u27e8H_i\u27e9 = v_i/\u221a2 with v = 246 GeV, the same as ADROIT's normalisation. ADROIT's v = 246.22 GeV is used in the formulas.",
+    "The paper's hypercharge convention matches Q = T3 + Y (doublets have Y = 1/2); no halving was needed.",
+    "V enters L as \u2212V: the portal V_port = iB a0 H1\u2020H2 + h.c. becomes L \u2283 \u2212iB a0 H1\u2020H2 + h.c.",
+    "Rotation to the Higgs basis: H = c\u03b2 H1 + s\u03b2 H2 and \u03a6 = \u2212s\u03b2 H1 + c\u03b2 H2. Under it H1\u2020H2 \u2192 H\u2020\u03a6 c\u03b2\u00b2 \u2212 \u03a6\u2020H s\u03b2\u00b2 + (H\u2020H \u2212 \u03a6\u2020\u03a6) s\u03b2c\u03b2. The real parts cancel against their h.c., leaving i B a0 H\u2020\u03a6 + h.c.",
+    "Physical inputs are converted to Lagrangian parameters. B = (m_A\u00b2 \u2212 m_a\u00b2) sin2\u03b8/(2v). m_A0\u00b2 = c\u00b2\u03b8 m_A\u00b2 + s\u00b2\u03b8 m_a\u00b2 and m_a0\u00b2 = s\u00b2\u03b8 m_A\u00b2 + c\u00b2\u03b8 m_a\u00b2. Here c\u00b2\u03b8 and s\u00b2\u03b8 = (1 \u00b1 sqrt(1 \u2212 sin\u00b22\u03b8))/2.",
+    "Type II Yukawas are rewritten in the Higgs basis with Y_d c\u03b2 = \u221a2 m_d/v and Y_u s\u03b2 = \u221a2 m_u/v. This gives a \u03a6 coupling of +tan\u03b2 for d-type quarks and leptons, and \u2212cot\u03b2 for up-type quarks via \u03a6\u0303. The SM Yukawas to H are left to G1.",
+    "\u03a6's neutral imaginary component equals \u2212A0 in the paper's notation, an overall sign that does not affect the spectrum."
+   ],
+   "assumptions": [],
+   "equal": true,
+   "differences": [],
+   "equal_d19": true,
+   "differences_d19": [],
+   "agent_spec": {
+    "name": "Ipek_McKeen_Nelson_pseudoscalar_portal_2HDM_typeII",
+    "phase": "unbroken",
+    "source": "arXiv:1404.3716, eqs. (3)-(23)",
+    "fields": [
+     {
+      "name": "chi",
+      "role": "dark_matter",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": 30.0,
+      "mass_justification": "Dirac DM mass m_chi = 30 GeV from the benchmark",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": -1,
+      "vev_gev": null
+     },
+     {
+      "name": "a0",
+      "role": "mediator",
+      "spin": 0.0,
+      "self_conjugate": true,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "The singlet pseudoscalar's Lagrangian mass m_a0^2 = sin^2\u03b8 m_A^2 + cos^2\u03b8 m_a^2 comes from inverting the CP-odd mass matrix. It is an explicit term.",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": 0.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "H",
+      "role": "standard_model",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "Phi",
+      "role": "other",
+      "spin": 0.0,
+      "self_conjugate": false,
+      "chirality": "",
+      "generations": 1,
+      "mass_gev": null,
+      "mass_justification": "Second doublet in the Higgs basis, with no vev. Its mass m_A0^2 = cos^2\u03b8 m_A^2 + sin^2\u03b8 m_a^2 is given by an explicit term. In the alignment limit its CP-even and charged states are degenerate with A0.",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": 0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "qL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 2,
+       "hypercharge": 0.16666666666666666,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "uR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": 0.6666666666666666,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "dR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "3",
+       "su2": 1,
+       "hypercharge": -0.3333333333333333,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "lL",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "L",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 2,
+       "hypercharge": -0.5,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     },
+     {
+      "name": "eR",
+      "role": "standard_model",
+      "spin": 0.5,
+      "self_conjugate": false,
+      "chirality": "R",
+      "generations": 3,
+      "mass_gev": null,
+      "mass_justification": "",
+      "charges": {
+       "su3": "1",
+       "su2": 1,
+       "hypercharge": -1.0,
+       "electric_charge": 0.0,
+       "extra": {}
+      },
+      "dark_parity": 1,
+      "vev_gev": null
+     }
+    ],
+    "couplings": [
+     {
+      "name": "m_chi",
+      "value": 30.0,
+      "mass_dimension": 1,
+      "justification": "benchmark DM mass"
+     },
+     {
+      "name": "m_a",
+      "value": 100.0,
+      "mass_dimension": 1,
+      "justification": "benchmark light CP-odd eigenstate mass"
+     },
+     {
+      "name": "m_A",
+      "value": 600.0,
+      "mass_dimension": 1,
+      "justification": "heavy CP-odd eigenstate mass, chosen by the zoo (m_a << m_A)"
+     },
+     {
+      "name": "y_chi",
+      "value": 0.8,
+      "mass_dimension": 0,
+      "justification": "chosen by the zoo"
+     },
+     {
+      "name": "sin2theta",
+      "value": 0.3,
+      "mass_dimension": 0,
+      "justification": "CP-odd mixing sin 2\u03b8, chosen by the zoo"
+     },
+     {
+      "name": "tanb",
+      "value": 10.0,
+      "mass_dimension": 0,
+      "justification": "tan \u03b2, chosen by the zoo"
+     },
+     {
+      "name": "y_chi_sin2theta_tanbeta",
+      "value": 2.4,
+      "mass_dimension": 0,
+      "justification": "the paper's product entering eq. (29); equals y_chi*sin2theta*tanb"
+     },
+     {
+      "name": "Gamma_a",
+      "value": 0.0,
+      "mass_dimension": 1,
+      "justification": "benchmark width input (not used in the Lagrangian)"
+     }
+    ],
+    "terms": [
+     {
+      "fields": [
+       {
+        "field": "chi",
+        "conjugate": true
+       },
+       {
+        "field": "chi",
+        "conjugate": false
+       },
+       {
+        "field": "a0",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "pseudoscalar",
+      "coupling": "y_chi",
+      "plus_hc": false,
+      "text": "y_\u03c7 a0 \u03c7\u0304 i\u03b35 \u03c7 (eq. 3)",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "a0",
+        "conjugate": false
+       },
+       {
+        "field": "a0",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-0.5*(m_A**2*(1-sqrt(1-sin2theta**2))/2 + m_a**2*(1+sqrt(1-sin2theta**2))/2)",
+      "plus_hc": false,
+      "text": "\u2212\u00bd m_a0\u00b2 a0\u00b2, m_a0\u00b2 = s\u00b2\u03b8 m_A\u00b2 + c\u00b2\u03b8 m_a\u00b2",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-(m_A**2*(1+sqrt(1-sin2theta**2))/2 + m_a**2*(1-sqrt(1-sin2theta**2))/2)",
+      "plus_hc": false,
+      "text": "\u2212m_A0\u00b2 \u03a6\u2020\u03a6, m_A0\u00b2 = c\u00b2\u03b8 m_A\u00b2 + s\u00b2\u03b8 m_a\u00b2",
+      "indices": ""
+     },
+     {
+      "fields": [
+       {
+        "field": "H",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "a0",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-I*(m_A**2-m_a**2)*sin2theta/(2*v)",
+      "plus_hc": true,
+      "text": "\u2212V_port = \u2212i B a0 H1\u2020H2 + h.c. = \u2212i B a0 H\u2020\u03a6 + h.c. in the Higgs basis, with B = (m_A\u00b2\u2212m_a\u00b2) sin2\u03b8/(2v) (eq. 17)",
+      "indices": "H*[i] Phi[i] a0"
+     },
+     {
+      "fields": [
+       {
+        "field": "qL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "dR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "sqrt(2)*m_q*tanb/v",
+      "plus_hc": true,
+      "text": "Type II: \u2212Q\u0304 Y_d H1 d_R with H1 \u2283 \u2212s\u03b2 \u03a6 gives +tan\u03b2 (\u221a2 m_d/v) Q\u0304 \u03a6 d_R + h.c.",
+      "indices": "qL*[i,c] Phi[i] dR[c]"
+     },
+     {
+      "fields": [
+       {
+        "field": "lL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": false
+       },
+       {
+        "field": "eR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "sqrt(2)*m_l*tanb/v",
+      "plus_hc": true,
+      "text": "Type II: +tan\u03b2 (\u221a2 m_e/v) L\u0304 \u03a6 e_R + h.c.",
+      "indices": "lL*[i] Phi[i] eR"
+     },
+     {
+      "fields": [
+       {
+        "field": "qL",
+        "conjugate": true
+       },
+       {
+        "field": "Phi",
+        "conjugate": true
+       },
+       {
+        "field": "uR",
+        "conjugate": false
+       }
+      ],
+      "lorentz": "scalar",
+      "coupling": "-sqrt(2)*m_q/(v*tanb)",
+      "plus_hc": true,
+      "text": "Type II: \u2212Q\u0304 Y_u H\u03032 u_R with H2 \u2283 c\u03b2 \u03a6 gives \u2212cot\u03b2 (\u221a2 m_u/v) Q\u0304 \u03a6\u0303 u_R + h.c.",
+      "indices": "eps[i,j] qL*[i,c] Phi*[j] uR[c]"
+     }
+    ],
+    "assumptions": [
+     "The singlet quartic \u03bb_a a0^4/4 is left out because it is unfixed by the benchmark (left out by the reference).",
+     "All V_2HDM quartics involving the second Higgs-basis doublet are left out (alignment limit, as stated by the reference). H keeps the SM potential, handled by G1.",
+     "\u03b8 is taken in (0, \u03c0/4) so that cos 2\u03b8 = +sqrt(1 \u2212 sin\u00b22\u03b8), with a mostly a0 since m_a < m_A.",
+     "The Higgs-basis mass term of \u03a6 has no H\u2020\u03a6 bilinear, so \u03a6 has no vev. Its CP-even and charged components are degenerate at m_A0.",
+     "a0 is Z2-even (it mixes with the 2HDM pseudoscalar). \u03c7 is the only Z2-odd field.",
+     "Gamma_a = 0 and y_chi_sin2theta_tanbeta are recorded as benchmark inputs but are not independent Lagrangian parameters."
+    ],
+    "dropped": [],
+    "stability": "\u03c7 is odd under a separate Z2 (forbids L\u0304 H\u03031 \u03c7_R); all other fields are even",
+    "relic_fraction": 1.0,
+    "cosmology": "standard: radiation domination from a reheating temperature far above m_\u03c7/20, Standard Model degrees of freedom, no late entropy release",
+    "physical_fit": null,
+    "vector_currents": null,
+    "scalar_potential": null,
+    "scalar_running": null,
+    "chemical_equilibrium": null
+   },
+   "verdict": "equal",
+   "spent": 0.21504800000000002
+  }
+ ]
+}

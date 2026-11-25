@@ -1,0 +1,31 @@
+name: complete_scalar_singlet_example
+phase: unbroken
+fields:
+- name: S
+  role: dark_matter
+  spin: 0
+  self_conjugate: true
+  dark_parity: -1
+- name: H
+  role: standard_model
+  spin: 0
+  dark_parity: 1
+  charges:
+    su2: 2
+    hypercharge: 0.5
+stability: 'Z2: S is odd, Higgs is even'
+scalar_potential:
+  basis: mass
+  higgs_field: H
+  singlet_field: S
+  scale_gev: 200
+  vacuum:
+    v_gev: 246.22
+    singlet_vev_gev: 0
+  lambda_s: 0.2
+  lambda_hs: 0.1
+  higgs_mass_gev: 125.09
+  singlet_mass_gev: 200
+physical_fit:
+  low: 0
+  high: 1

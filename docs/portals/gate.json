@@ -1,0 +1,233 @@
+{
+ "P1": {
+  "interference": {
+   "worst": 4.440892098500626e-16,
+   "pass": "True"
+  },
+  "ward": {
+   "worst": 1.1368683772161603e-13,
+   "pass": "True"
+  },
+  "textbook": {
+   "ratios": {
+    "scalar QED": 0.9999994166367754,
+    "scalar QCD": 0.9999995237795845,
+    "Dirac t-channel": 0.9999998182087887,
+    "Majorana t-channel p-wave": 0.9999866138051906,
+    "Majorana t-channel s-wave (m_f)": 1.0000024049015914
+   },
+   "pass": true
+  },
+  "WW width": {
+   "worst": 2.220446049250313e-16,
+   "pass": "True"
+  },
+  "coannihilation solver": {
+   "worst": 4.930292944216319e-05,
+   "pass": true
+  }
+ },
+ "P4": {
+  "audits": {
+   "invalid": [],
+   "pass": true
+  },
+  "references": {
+   "count": 36,
+   "unresolved_or_different": [],
+   "pass": true
+  },
+  "track1": {
+   "runs": {
+    "higgs_portal_scalar": {
+     "level": "viable",
+     "plot": true
+    },
+    "higgs_portal_dirac": {
+     "level": "excluded",
+     "plot": true
+    },
+    "higgs_portal_dirac_cpv": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "higgs_portal_majorana": {
+     "level": "excluded",
+     "plot": true
+    },
+    "higgs_portal_vector": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "singlet_scalar_mixing": {
+     "level": "excluded",
+     "plot": true
+    },
+    "dark_photon_dirac": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "dark_photon_scalar": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "inelastic_dark_photon": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "z_portal_vector": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "z_portal_axial": {
+     "level": "viable",
+     "plot": true
+    },
+    "z_portal_majorana": {
+     "level": "viable",
+     "plot": true
+    },
+    "b_minus_l": {
+     "level": "excluded",
+     "plot": true
+    },
+    "lmu_minus_ltau": {
+     "level": "overabundant",
+     "plot": true
+    },
+    "alp_portal": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "tchannel_uR_majorana": {
+     "level": "excluded",
+     "plot": true
+    },
+    "tchannel_uR_dirac": {
+     "level": "excluded",
+     "plot": true
+    },
+    "lepton_portal_muR": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "dmwg_V1": {
+     "level": "excluded",
+     "plot": true
+    },
+    "dmwg_A1": {
+     "level": "viable_pending",
+     "plot": true
+    },
+    "scalar_mediator": {
+     "level": "viable_pending",
+     "plot": true
+    }
+   },
+   "pass": true
+  },
+  "recognised": {
+   "cases": {
+    "singlet scalar": true,
+    "dark photon": true,
+    "mixing singlet": true,
+    "coloured partner": true,
+    "charged partner": true
+   },
+   "pass": true
+  }
+ },
+ "P3": {
+  "a: scalar singlet": {
+   "omega_62.27": 0.06937741907054246,
+   "omega_9790": 0.11112142795879879,
+   "resonance_excluded_by": [],
+   "contour_110_1000": "13/13",
+   "pass": false
+  },
+  "b: Z portal": {
+   "vector_below_5TeV": "53/53",
+   "axial_50_150": "10/10",
+   "axial_above_300_not_excluded": 18,
+   "pass": true
+  },
+  "c: fermion Higgs portal": {
+   "cp_conserving_outside_55_65": "43/43",
+   "cp_violating_dd_excluded": 0,
+   "cp_violating_points": 59,
+   "pass": true
+  },
+  "d: B - L": {
+   "off_resonance_excluded": "5/5",
+   "contour_points": 56,
+   "pass": true
+  }
+ },
+ "P2": {
+  "a: scalar Higgs portal": {
+   "rows": [
+    {
+     "m_S": 90.0,
+     "maddm": 0.016,
+     "adroit": 0.015216182253669481,
+     "ratio": 1.0515121160658742
+    },
+    {
+     "m_S": 100.0,
+     "maddm": 0.0167,
+     "adroit": 0.016202683292856197,
+     "ratio": 1.030693478244006
+    },
+    {
+     "m_S": 110.0,
+     "maddm": 0.0205,
+     "adroit": 0.01974366916583163,
+     "ratio": 1.0383075115276583
+    }
+   ],
+   "pass": true
+  },
+  "b: scalar mediator SS": {
+   "rows": [
+    {
+     "m_chi": 600.0,
+     "m_S": 500.0,
+     "maddm": 0.101,
+     "adroit": 0.10138056074286808,
+     "ratio": 0.9962462158417796
+    },
+    {
+     "m_chi": 800.0,
+     "m_S": 300.0,
+     "maddm": 0.224,
+     "adroit": 0.2253387367799923,
+     "ratio": 0.9940590029077009
+    }
+   ],
+   "pass": true
+  },
+  "c: t-channel S3M_uR (DMSimpt)": {
+   "rows": [
+    {
+     "m_chi": 500.0,
+     "m_phi": 1500.0,
+     "y": 1.0,
+     "maddm": 2.03,
+     "adroit": 2.1378847556971396,
+     "ratio": 0.9495366832053771,
+     "tolerance": 0.2
+    },
+    {
+     "m_chi": 500.0,
+     "m_phi": 550.0,
+     "y": 0.5,
+     "maddm": 0.225,
+     "adroit": 0.23436469312936622,
+     "ratio": 0.9600422187987291,
+     "tolerance": 0.25
+    }
+   ],
+   "pass": true
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "single_idea",
+ "title": "vector_mediator for CDMS II Si (2013)",
+ "folder": ".",
+ "created": "2026-10-11T06:06:42+00:00",
+ "inputs": {
+  "experiment": "CDMS II Si (2013)",
+  "model": "vector_mediator"
+ },
+ "steps": [],
+ "cost_usd": 0.0,
+ "outputs": [
+  ".track1.lock",
+  "direct_detection.png",
+  "parameter_plane.png",
+  "progress.json",
+  "report.md",
+  "result.evidence.json",
+  "result.json"
+ ],
+ "parent": "",
+ "children": [],
+ "calculation_started_at": "2026-10-11T06:03:51.704277+00:00",
+ "calculation_completed_at": "2026-10-11T06:06:42.020350+00:00",
+ "model_references": []
+}

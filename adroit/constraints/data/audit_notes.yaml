@@ -1,0 +1,82 @@
+# Unsigned audit notes on record values (the external audit of 2026-10-16, item 18).
+#
+# These notes are not part of any record: no record's verification_sha256 covers this file, so no signature changes
+# when a note is added or edited. Each note marks how one stored value stands against its source:
+#   exact        quoted from the source as printed
+#   approximate  a value the source does not print: a reading, a continuation or a representative example
+#   digitised    read from a figure
+#   borrowed     taken from another analysis, or from another benchmark of the same one
+#   outstanding  verified by the owner, but not yet compared independently with its numerical source
+# ``accuracy`` states how good a result resting on the value is (the owner's decisions of 2026-10-17: where the
+# approximation is an O(1) uncertainty, the result is stated as good up to an O(1) factor). A result that rests on a
+# noted record shows the note beside it (constraints.audit_notes). Changes to a record's handling or its signed text
+# are the owner's (the audit proposals of 2026-10-16, with the decisions applied).
+
+notes:
+  ccfr-1406.2332-trident:
+    - value: "heavy_m_over_g_gev = 567 GeV"
+      status: digitised
+      reason: "the figure's heavy line as read in the release audit of 2026-10-10 (before 2026-10-17, 580 GeV: the
+        digitisation's constant ratio from 114 to 646 GeV, about 2% stronger)"
+      used: "above 646 GeV, as the heavy-Z′ limit m_Z′/g′ > 567 GeV"
+      accuracy: "good to about 2%"
+    - value: "the digitised curve from 114 to 646 GeV"
+      status: digitised
+      reason: "a third party's digitisation, running at m_Z′/g′ = 578–581 GeV, up to about 2% above the figure's heavy
+        line"
+      used: "from 114 to 646 GeV"
+      accuracy: "good to about 2%"
+  sabti-1910.01649-bbn:
+    - value: "dark_photon_thermal_epsilon = 10⁻⁸"
+      status: approximate
+      reason: "Ibe et al.'s 5 MeV example (Fig. 2), a representative value, not a universal threshold"
+      used: "where a dark photon is judged thermalised at BBN"
+      accuracy: "good up to an O(1) factor in ε near 10⁻⁸: across it the mass bound moves from 8.5 MeV (Ibe et al.'s
+        freeze-in region) to 9.8 MeV (thermalised); a verdict that changes within a factor 3 of 10⁻⁸ is flagged"
+    - value: "applies_below_mev = 20 MeV"
+      status: approximate
+      reason: "Sabti et al.'s approximate range (eqs. (2)–(3)), adopted as ADROIT's cutoff"
+      used: "the mass below which the BBN bounds are applied"
+      accuracy: "decides no verdict: every bound applied lies below 10 MeV (Ibe et al.'s region below 9.2 MeV), so a
+        point between 10 and 20 MeV is allowed and one above is not tested, not excluded either way"
+  darkcast-dark-photon:
+    - value: "the mass resolutions of LHCb prompt (0.12% × m), CMS (0.7% × m) and HPS (0.85 MeV)"
+      status: borrowed
+      reason: "these searches state none; each is taken from the same collaboration's other analyses of the same
+        data, or derived from them (the record's data file quotes each)"
+      used: "the width window in which these searches are applied"
+      accuracy: "kept decisive (the owner, 2026-10-17): the resolution sets only the width window, and each value is
+        the smallest stated (conservative)"
+  atlas-1910.08447-dijet-gaussian:
+    - value: "ATLAS's truncation recipe: 0.8–1.2 M against the 10% Gaussian"
+      status: approximate
+      reason: "ATLAS's own recipe for its Gaussian limits (arXiv:1407.1376 App. A.1), with the Breit–Wigner × q q̄
+        luminosity at leading order and parton level"
+      used: "the decision for a Z′ with 10% < Γ/m ≤ 12% (since 2026-10-17)"
+      accuracy: "good up to an O(1) factor, conservative: against ATLAS's own Breit–Wigner limit for g_q = 0.5 it
+        excludes below 4.2 TeV, ATLAS below 4.6 TeV (ratio 0.45 at 4.6 TeV)"
+    - value: "σ_G = Γ/2.355"
+      status: approximate
+      reason: "a Breit–Wigner matched to a Gaussian by its full width at half maximum, its tails counted as if in
+        the peak"
+      used: "a flag where it alone excludes (before 2026-10-17, the decision)"
+      accuracy: "too strong by a factor 1.6–1.7 against ATLAS's own Breit–Wigner limits (excludes g_q = 0.5 below
+        4.9 TeV, ATLAS below 4.6 TeV)"
+    - value: "the acceptance A"
+      status: borrowed
+      reason: "from ATLAS's DM Z′ of the same width, interpolated in mass"
+      used: "every decision of this record"
+      accuracy: "good up to an O(1) factor"
+  atlas-1903.06248-dilepton:
+    - value: "the K-factor and acceptance"
+      status: borrowed
+      reason: "ATLAS's Z′_SSM fiducial σB over ADROIT's leading-order SSM σB (scripts/derive_records.py), applied to
+        other Z′ couplings"
+      used: "every decision of this record"
+      accuracy: "good up to an O(1) factor"
+  atlas-2004.14636-ww:
+    - value: "the acceptance"
+      status: borrowed
+      reason: "the paper's radion benchmark, taken as that of any narrow gluon-fused scalar"
+      used: "the singlet mixing's h₂"
+      accuracy: "good up to an O(1) factor"

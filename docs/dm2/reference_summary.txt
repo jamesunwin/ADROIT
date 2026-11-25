@@ -1,0 +1,81 @@
+# Output of docs/dm2/reference_spectra.py, run 2026-09-29 (the DM2 gate run).
+# Largest |ours/reference - 1| over 24 energies, 1-400 keV; bulk: v_min at least 50 km/s below the fastest particle.
+case                               isotope code     patched bulk      tail  published bulk      tail
+O1 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         1.2e-01   1.9e+00
+O1 alone                           Xe131   wimpy         6.6e-13   1.2e-11         1.1e-01   1.8e-01
+O3 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         2.3e-02   4.2e-02
+O3 alone                           Xe131   wimpy         2.5e-13   1.6e-13         2.8e-02   3.9e-02
+O4 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         2.6e-02   2.9e-02
+O4 alone                           Xe131   wimpy         6.8e-14   2.2e-16         2.4e-02   1.9e-02
+O5 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         1.4e-02   3.4e-02
+O5 alone                           Xe131   wimpy         3.3e-14   8.9e-16         1.4e-02   3.4e-02
+O6 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         1.7e-02   2.7e-02
+O6 alone                           Xe131   wimpy         2.2e-15   8.0e-15         1.9e-02   2.8e-02
+O7 alone                           Xe131   wimpydd       3.4e-07   1.8e-06         5.7e-02   4.1e-02
+O7 alone                           Xe131   wimpy         3.2e-12   2.7e-13         6.0e-02   6.2e-03
+O8 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         1.4e-02   3.5e-02
+O8 alone                           Xe131   wimpy         3.4e-14   1.1e-15         1.4e-02   3.4e-02
+O9 alone                           Xe131   wimpydd       4.1e-04   1.0e-03         5.4e-02   3.1e-02
+O9 alone                           Xe131   wimpy         3.2e-12   4.1e-14         5.9e-02   1.7e-02
+O10 alone                          Xe131   wimpydd       4.1e-04   1.0e-03         1.8e-02   2.8e-02
+O10 alone                          Xe131   wimpy         2.6e-15   9.1e-15         1.9e-02   2.8e-02
+O11 alone                          Xe131   wimpydd       4.1e-04   1.0e-03         1.2e-01   1.9e+00
+O11 alone                          Xe131   wimpy         6.6e-13   1.2e-11         1.1e-01   1.8e-01
+O12 alone                          Xe131   wimpydd       4.1e-04   1.0e-03         2.3e-02   4.2e-02
+O13 alone                          Xe131   wimpydd       4.1e-04   1.0e-03         8.2e-01   2.3e-02
+O14 alone                          Xe131   wimpydd       3.4e-07   1.8e-06         5.7e-02   4.0e-02
+O14 alone                          Xe131   wimpy         3.2e-12   2.7e-13         6.0e-02   6.2e-03
+O15 alone                          Xe131   wimpydd       4.1e-04   1.0e-03         2.2e-02   4.2e-02
+O15 alone                          Xe131   wimpy         2.5e-13   1.5e-13         2.8e-02   3.9e-02
+all operators                      Xe129   wimpydd       1.3e-03   0.0e+00         5.3e-02   0.0e+00
+all but O12, O13                   Xe129   wimpydd       1.3e-03   0.0e+00         5.4e-02   0.0e+00
+all but O12, O13                   Xe129   wimpy         2.9e-12   0.0e+00         6.5e-02   0.0e+00
+all operators                      Xe132   wimpydd       6.2e-04   1.6e-03         8.7e-02   2.6e-02
+all but O12, O13                   Xe132   wimpydd       6.2e-04   1.6e-03         9.2e-02   2.6e-02
+all but O12, O13                   Xe132   wimpy         5.3e-13   1.9e-13         1.1e-01   2.8e-02
+all operators                      Xe136   wimpydd       9.3e-04   4.8e-05         5.8e-02   3.9e-02
+all but O12, O13                   Xe136   wimpydd       9.3e-04   4.8e-05         6.0e-02   3.9e-02
+all but O12, O13                   Xe136   wimpy         1.3e-12   6.8e-13         1.2e-01   3.6e-02
+all operators                      Ge73    wimpydd       6.8e-04   1.6e-03         8.7e-02   1.4e-02
+all but O12, O13                   Ge73    wimpydd       6.8e-04   1.6e-03         9.0e-02   1.4e-02
+all but O12, O13                   Ge73    wimpy         1.5e-13   3.7e-14         1.1e-01   1.1e-02
+all operators                      Ge74    wimpydd       5.4e-04   3.4e-04         1.2e-01   2.3e-02
+all but O12, O13                   Ge74    wimpydd       5.4e-04   3.4e-04         1.6e-01   2.3e-02
+all but O12, O13                   Ge74    wimpy         1.6e-12   1.8e-15         1.7e-01   1.6e-02
+all operators                      I127    wimpydd       7.8e-04   0.0e+00         2.5e-01   0.0e+00
+all but O12, O13                   I127    wimpydd       7.8e-04   0.0e+00         3.2e-01   0.0e+00
+all but O12, O13                   I127    wimpy         1.3e-11   0.0e+00         5.0e-02   0.0e+00
+all operators                      Na23    wimpydd       5.5e-04   1.6e-03         1.3e-02   3.5e-02
+all but O12, O13                   Na23    wimpydd       5.5e-04   1.6e-03         1.3e-02   3.5e-02
+all but O12, O13                   Na23    wimpy         8.9e-16   2.2e-15         1.1e-02   2.9e-02
+all operators                      F19     wimpydd       8.2e-04   0.0e+00         1.9e-02   0.0e+00
+all but O12, O13                   F19     wimpydd       8.2e-04   0.0e+00         1.9e-02   0.0e+00
+all but O12, O13                   F19     wimpy         8.9e-16   0.0e+00         1.5e-02   0.0e+00
+all operators                      Ar40    wimpydd       1.0e-03   0.0e+00         2.9e-02   0.0e+00
+all but O12, O13                   Ar40    wimpydd       1.0e-03   0.0e+00         2.9e-02   0.0e+00
+all but O12, O13                   Ar40    wimpy         3.3e-15   0.0e+00         2.7e-02   0.0e+00
+all operators                      Si28    wimpydd       1.2e-03   0.0e+00         1.9e-02   0.0e+00
+all but O12, O13                   Si28    wimpydd       1.2e-03   0.0e+00         1.9e-02   0.0e+00
+all but O12, O13                   Si28    wimpy         1.3e-15   0.0e+00         1.7e-02   0.0e+00
+all operators                      O16     wimpydd       8.8e-04   1.4e-03         1.3e-02   3.2e-02
+all but O12, O13                   O16     wimpydd       8.8e-04   1.4e-03         1.3e-02   3.2e-02
+all but O12, O13                   O16     wimpy         2.4e-15   9.0e-15         1.0e-02   2.6e-02
+all operators                      Ca40    wimpydd       1.0e-03   0.0e+00 fails (TypeError)
+all but O12, O13                   Ca40    wimpydd       1.0e-03   0.0e+00 fails (TypeError)
+all but O12, O13                   Ca40    wimpy         3.8e-15   0.0e+00         2.6e-02   0.0e+00
+all operators                      C12     wimpydd       3.7e-04   0.0e+00         2.8e-02   0.0e+00
+all but O12, O13                   C12     wimpydd       3.7e-04   0.0e+00         2.8e-02   0.0e+00
+all but O12, O13                   C12     wimpy         5.1e-15   0.0e+00         2.0e-02   0.0e+00
+all operators                      Xe131   wimpydd       1.3e-03   0.0e+00         1.3e-02   0.0e+00
+all operators                      Xe131   wimpydd       3.8e-04   0.0e+00         1.2e-01   0.0e+00
+all but O12, O13                   Xe131   wimpydd       4.1e-04   1.0e-03         1.9e-01   1.5e-02
+all but O12, O13                   Xe131   wimpy         1.3e-11   1.2e-13         9.9e-02   2.6e-02
+all but O12, O13                   Xe131   wimpydd       4.1e-04   1.0e-03         6.9e-02   1.8e-02
+all but O12, O13                   Xe131   wimpy         5.2e-12   1.6e-13         8.3e-02   2.6e-02
+inelastic O1                       Xe131   wimpydd       9.4e-04   0.0e+00         1.9e+00   0.0e+00
+inelastic, all operators           Xe131   wimpydd       7.4e-04   0.0e+00         1.1e-01   0.0e+00
+exothermic O4                      Xe129   wimpydd       1.1e-03   0.0e+00         2.0e-02   0.0e+00
+exothermic, all operators          F19     wimpydd       5.1e-04   2.0e-03         1.4e-02   8.4e-02
+inelastic O4                       Ge73    wimpydd       7.5e-04   0.0e+00         2.6e-02   0.0e+00
+Helm O1 (no shell model)           W184    wimpydd       8.8e-04   3.0e-03 fails (TypeError)
+approximate O4 (no shell model)    W183    wimpydd       7.5e-01   0.0e+00 fails (TypeError)

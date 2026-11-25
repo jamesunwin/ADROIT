@@ -1,0 +1,14 @@
+# Point slots: GeV for masses, dimensionless vector couplings.
+# Masses are explicitly discrete; no mass interpolation or new significance.
+coordinates:
+  - parameter: m_chi
+    values: [6.0, 8.0, 10.0, 15.0, 20.0]
+  - parameter: g_chi
+    low: 0.0
+    high: 0.003
+fixed:
+  m_med: 125.0
+  g_q: 0.25
+  g_l: 0.0
+branches:
+  - label: positive_DM_coupling

@@ -1,0 +1,75 @@
+DirectDM → library cards, m_χ = 100 GeV
+
+universal vector (V1) (5 flavours): best five, with running
+    M_pseudo_dirac_vector    close     residual 5.1e-05   remainder O3: 0.00, O4: 0.00, O6: 0.00
+    M_vector                 close     residual 5.1e-05   remainder O3: 0.00, O4: 0.00, O6: 0.00
+    M_scalar                 close     residual 6.2e-05   remainder O1: 0.00, O3: 0.00, O4: 0.00, O6: 0.00
+    L01                      close     residual 6.2e-05   remainder O1: 0.00, O3: 0.00, O4: 0.00, O6: 0.00
+    L05                      close     residual 6.2e-05   remainder O1: 0.00, O3: 0.00, O4: 0.00, O6: 0.00
+  named, with running
+    M_vector                 close     residual 5.1e-05   remainder O3: 0.00, O4: 0.00, O6: 0.00
+    O1                       close     residual 6.2e-05   remainder O1: 0.00, O3: 0.00, O4: 0.00, O6: 0.00
+  named, without running
+    M_vector                 close     residual 5.1e-05   remainder O3: 0.00, O4: 0.00, O6: 0.00
+    O1                       close     residual 6.2e-05   remainder O1: 0.00, O3: 0.00, O4: 0.00, O6: 0.00
+
+universal axial (A1) (5 flavours): best five, with running
+    L15                      close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+    O4                       close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+    M_axial                  close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+    L10                      different residual 0.96   remainder O4: 0.93, O6: 0.21, O9: 0.00
+    L09_LZ                   different residual 0.96   remainder O1: 0.00, O4: 0.93, O5: 0.00, O6: 0.21, O9: 0.00
+  named, with running
+    M_axial                  close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+    O4                       close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+    L15                      close     residual 3.5e-05   remainder O6: 0.00, O9: 0.00
+  named, without running
+    M_axial                  same      residual 2.1e-12   remainder —
+    O4                       same      residual 3.9e-16   remainder —
+    L15                      same      residual 3.9e-16   remainder —
+
+isovector axial (3 flavours): best five, with running
+    L15                      different residual 0.29   remainder O6: 0.29
+    M_axial                  different residual 0.29   remainder O6: 0.29
+    O4                       different residual 0.29   remainder O6: 0.29
+    M_z_portal               different residual 0.3   remainder O4: 0.03, O6: 0.29, O8: 0.00, O9: 0.03
+    M_magnetic_dipole        different residual 0.63   remainder O1: 0.00, O4: 0.43, O5: 0.05, O6: 0.46
+  named, with running
+    M_axial                  different residual 0.29   remainder O6: 0.29
+    O4                       different residual 0.29   remainder O6: 0.29
+  named, without running
+    M_axial                  different residual 0.29   remainder O6: 0.29
+    O4                       different residual 0.29   remainder O6: 0.29
+
+scalar, Yukawa-like (5 flavours): best five, with running
+    L01                      same      residual 2.3e-16   remainder —
+    L05                      same      residual 2.3e-16   remainder —
+    O1                       same      residual 2.3e-16   remainder —
+    M_scalar                 same      residual 2.1e-12   remainder —
+    M_pseudo_dirac_vector    close     residual 5.3e-05   remainder O3: 0.00
+  named, with running
+    M_scalar                 same      residual 2.1e-12   remainder —
+    O1                       same      residual 2.3e-16   remainder —
+    L01                      same      residual 2.3e-16   remainder —
+  named, without running
+    M_scalar                 same      residual 2.1e-12   remainder —
+    O1                       same      residual 3.3e-16   remainder —
+    L01                      same      residual 3.3e-16   remainder —
+
+pseudoscalar, Yukawa-like (5 flavours): best five, with running
+    M_pseudoscalar           different residual 0.14   remainder O6: 0.14
+    L20                      different residual 0.14   remainder O6: 0.14
+    L04                      different residual 0.14   remainder O6: 0.14
+    O6                       different residual 0.14   remainder O6: 0.14
+    L10                      different residual 0.71   remainder O4: 0.50, O6: 0.51
+  named, with running
+    M_pseudoscalar           different residual 0.14   remainder O6: 0.14
+    O6                       different residual 0.14   remainder O6: 0.14
+  named, without running
+    M_pseudoscalar           different residual 0.14   remainder O6: 0.14
+    O6                       different residual 0.14   remainder O6: 0.14
+
+the vector card at physical couplings, against DirectDM
+    running True : physical couplings differ by 0.0056; the free fit has g_T/g_V = -0.990 (physical -0.120)
+    running False: physical couplings differ by 0.0058; the free fit has g_T/g_V = -0.990 (physical -0.120)
+

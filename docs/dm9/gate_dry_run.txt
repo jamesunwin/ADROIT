@@ -1,0 +1,25 @@
+DM9 gate, dry run: scripted agents that misbehave, fake literature and reference services ($0)
+
+LZ (Path 2), run 1                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+LZ (Path 2), run 2                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+LZ (Path 2), run 3                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+LZ (Path 2), run 4                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+LZ (Path 2), run 5                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+LZ (Path 2), run 6                       PASS  references 3/9 confirmed; audit 49/49; variants 0/1 joined, 0 picks discarded
+G1 (Path 1)                              PASS  references 1/3 confirmed; audit 26/26; variants 0/0 joined, 0 picks discarded
+G2 (Path 1)                              PASS  references 1/3 confirmed; audit 27/27; variants 0/0 joined, 0 picks discarded
+G3 (Path 1)                              PASS  references 1/3 confirmed; audit 28/28; variants 0/0 joined, 0 picks discarded
+G4 (Path 1)                              PASS  references 1/3 confirmed; audit 34/34; variants 0/0 joined, 0 picks discarded
+G5 (Path 1)                              PASS  references 1/3 confirmed; audit 22/22; variants 0/0 joined, 0 picks discarded
+G6 (Path 1)                              PASS  references 1/3 confirmed; audit 21/21; variants 0/0 joined, 0 picks discarded
+G7 (Path 1)                              PASS  references 1/3 confirmed; audit 31/31; variants 0/0 joined, 0 picks discarded
+G8 (Path 1)                              PASS  references 1/3 confirmed; audit 30/30; variants 0/0 joined, 0 picks discarded
+G9 (Path 1)                              PASS  references 1/3 confirmed; audit 27/27; variants 0/0 joined, 0 picks discarded
+G10 (Path 1)                             PASS  references 1/3 confirmed; audit 23/23; variants 0/0 joined, 0 picks discarded
+majorana_scalar (Path 1), run 1          PASS  references 1/3 confirmed; audit 26/26; variants 0/0 joined, 0 picks discarded
+majorana_scalar (Path 1), run 2          PASS  references 1/3 confirmed; audit 26/26; variants 0/0 joined, 0 picks discarded
+majorana_scalar (Path 1), run 3          PASS  references 1/3 confirmed; audit 26/26; variants 0/0 joined, 0 picks discarded
+majorana_scalar (Path 1), run 4          PASS  references 1/3 confirmed; audit 26/26; variants 0/0 joined, 0 picks discarded
+
+20/20 reports hold no unconfirmed reference.
+Control: the measure on raw agent text finds ['2612.99999', 'Smith et al. (2019)'].

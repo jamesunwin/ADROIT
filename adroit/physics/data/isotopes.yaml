@@ -1,0 +1,111 @@
+# Natural isotopic compositions, nuclear spins, and the targets built from them.
+#
+# Abundances are atom fractions: the IUPAC representative isotopic compositions
+# (Meija et al., "Isotopic compositions of the elements 2013", Pure Appl. Chem.
+# 88 (2016) 293). Checked against the element tables of WimPyDD 2.0.3, which
+# agree to their rounding. Isotope masses are taken as A atomic mass units
+# throughout (conventions.OPERATOR_MASS_GEV), which sets the mass fractions.
+
+elements:
+  Xe:
+    Z: 54
+    isotopes:   # mass number: [abundance, spin]
+      124: [0.000952, 0.0]
+      126: [0.000890, 0.0]
+      128: [0.019102, 0.0]
+      129: [0.264006, 0.5]
+      130: [0.040710, 0.0]
+      131: [0.212324, 1.5]
+      132: [0.269086, 0.0]
+      134: [0.104357, 0.0]
+      136: [0.088573, 0.0]
+  Ar:
+    Z: 18
+    isotopes:
+      36: [0.003336, 0.0]
+      38: [0.000629, 0.0]
+      40: [0.996035, 0.0]
+  Ge:
+    Z: 32
+    isotopes:
+      70: [0.2052, 0.0]
+      72: [0.2745, 0.0]
+      73: [0.0776, 4.5]
+      74: [0.3652, 0.0]
+      76: [0.0775, 0.0]
+  Si:
+    Z: 14
+    isotopes:
+      28: [0.92223, 0.0]
+      29: [0.04685, 0.5]
+      30: [0.03092, 0.0]
+  Na:
+    Z: 11
+    isotopes:
+      23: [1.0, 1.5]
+  I:
+    Z: 53
+    isotopes:
+      127: [1.0, 2.5]
+  F:
+    Z: 9
+    isotopes:
+      19: [1.0, 0.5]
+  Ca:
+    Z: 20
+    isotopes:
+      40: [0.96941, 0.0]
+      42: [0.00647, 0.0]
+      43: [0.00135, 3.5]
+      44: [0.02086, 0.0]
+      46: [0.00004, 0.0]
+      48: [0.00187, 0.0]
+  W:
+    Z: 74
+    isotopes:
+      180: [0.0012, 0.0]
+      182: [0.2650, 0.0]
+      183: [0.1431, 0.5]
+      184: [0.3064, 0.0]
+      186: [0.2843, 0.0]
+  O:
+    Z: 8
+    isotopes:
+      16: [0.99757, 0.0]
+      17: [0.00038, 2.5]
+      18: [0.00205, 0.0]
+  C:
+    Z: 6
+    isotopes:
+      12: [0.9893, 0.0]
+      13: [0.0107, 0.5]
+
+# Compounds: atoms of each element per formula unit.
+compounds:
+  NaI: {Na: 1, I: 1}          # DAMA/LIBRA, COSINE, ANAIS
+  CaWO4: {Ca: 1, W: 1, O: 4}  # CRESST
+  C3F8: {C: 3, F: 8}          # PICO-60, PICO-500
+  CF3I: {C: 1, F: 3, I: 1}    # PICO-60 (2016)
+
+# Spin expectation values <S_p>, <S_n> for isotopes with spin but without
+# shell-model responses. They set the approximate spin-dependent responses
+# (nuclear.py). An isotope with spin that is not listed has no spin-dependent
+# response.
+spin_expectations:
+  O17:
+    proton: 0.0
+    neutron: 0.5
+    source: >-
+      the value CRESST used (arXiv:1904.00498, section VI.2), citing the shell
+      model of Pacheco & Strottman, Phys. Rev. D 40 (1989) 2131, and
+      Bednyakov & Simkovic, Phys. Part. Nucl. 36 (2005) 131
+
+# 183W is deliberately left without a spin-dependent response (owner's decision,
+# 2026-09-29). No shell-model structure function exists for this heavy,
+# deformed nucleus, and the published estimates of <S_n> span a factor of six:
+# -0.031 (odd-group model, from its magnetic moment; hep-ph/0502232, Table II),
+# -0.17 (single-particle shell model; hep-ph/0406218), average -0.1 (Del Nobile,
+# arXiv:2104.12785, Table 9). CRESST (arXiv:1904.00498), RES-NOVA
+# (arXiv:2601.16251) and the effective-operator reanalysis of CRESST-II
+# (arXiv:1805.06113) all leave it out. Its spin-independent scattering is kept.
+# 43Ca, 29Si and 13C likewise have no spin-dependent response here.

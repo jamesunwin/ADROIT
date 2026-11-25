@@ -1,0 +1,41 @@
+# DM4 gate: LZ's reduction of 616 models to 293. N = events to separate at 2σ (4/J), on xenon with LZ's efficiency; nuclear responses: haxton_2022.
+
+models: 616; with no events in the window: 4 (O01s@400,d=350, O01v@400,d=350, O04s@400,d=350, O04v@400,d=350)
+
+1. Pairs differing by a constant (coefficients proportional at every mass):
+   L1/L5: yes, L2/L8: yes, L3/L17: yes, L4/L20: yes, L11/L14: yes
+   other proportional pairs: none
+
+2. Isoscalar against isovector: the smallest N over masses from 30 GeV (LZ's degenerate list marked *):
+   * L7   N = 3.47e+04
+   * L15  N = 1.44e+04
+   * L19  N = 1.3e+04
+   * L11  N = 1.28e+04
+   * L14  N = 1.28e+04
+   * L10  N = 1.19e+04
+   * L20  N = 9.59e+03
+   * L4   N = 9.59e+03
+   * L2   N = 6.73e+03
+   * L8   N = 6.73e+03
+     L1   N = 18.2
+     L5   N = 18.2
+     L16  N = 7.35
+     L12  N = 6.62
+     L3   N = 5.59
+     L17  N = 5.59
+     L13  N = 4.2
+     L9   N = 4.06
+     L6   N = 3.21
+     L18  N = 1.93
+   * O4 (inelastic) N = 1.37e+04;   O1 (inelastic) N = 1.01
+
+3. Masses: N between 400 and 1000, and 1000 and 4000 GeV (the smaller), and between 200 and 400 GeV, over the 40 Lagrangian models:
+   400–4000 GeV: min 169, median 301
+   200–400 GeV:  min 36.9, median 66, max 1.83e+03
+
+4. Not stated by LZ: the inelastic models at δ = 0 are elastic O1 and O4, the nonrelativistic limits of L1 and L15 (L15 → −4 O4). N between O1(δ=0) and L1, and O4(δ=0) and L15, at the same mass and isospin:
+   O1s@400: 6.43e+14, O1s@1000: 3.46e+14, O1s@4000: 4.5e+15, O1v@400: 3e+14, O1v@1000: 5.63e+14, O1v@4000: 4.09e+14, O4s@400: 1.13e+15, O4s@1000: 7.51e+14, O4s@4000: inf, O4v@400: 3.75e+14, O4v@1000: 4.5e+14, O4v@4000: 2.5e+14
+
+Counts:
+   LZ's stated rules, applied literally: 23 Lagrangian spectra × 11 masses + 72 inelastic = 325 (322 without the unphysical points); LZ: 293
+   numerical classes at N events (single linkage, all 612 physical models): N=30: 36, N=100: 97, N=300: 164, N=1000: 220, N=3000: 270, N=10000: 319

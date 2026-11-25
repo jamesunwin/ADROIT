@@ -1,0 +1,25 @@
+# The literature's verdict on each historical search with events (DM10's historical-excess suite).
+# Keys are the records of adroit/experiments/data/historical/. Each verdict quotes its source.
+# significance: below_evidence — the excess is not evidence (the suite's rule: global Z < 3).
+# standard: the reading the literature tested, and its verdict — excluded (the suite's rule:
+#   the joint test of the search and the null searches rejects it, p_PG < 0.01).
+cdms_ii_si_2013:
+  significance:
+    verdict: below_evidence
+    source: >-
+      arXiv:1304.4279: local p = 0.19% for background alone; "we do not believe this result
+      rises to the level of a discovery"
+  standard:
+    candidate: {label: "O1s@8.6 (the paper's best fit)", card_id: O1, isospin: s, mass_gev: 8.6}
+    verdict: excluded
+    source: >-
+      LUX 2013 (arXiv:1310.8214): "in strong disagreement with low-mass WIMP signal
+      interpretations of the results from several recent direct detection experiments";
+      SuperCDMS 2014 (arXiv:1402.7137): 1.2e-42 cm² at 8 GeV, "in tension with WIMP
+      interpretations of recent experiments"
+cdms_ii_ge_2009:
+  significance:
+    verdict: below_evidence
+    source: >-
+      arXiv:0912.3592: P(two or more background events) = 23%; "cannot be interpreted as
+      significant evidence for WIMP interactions"

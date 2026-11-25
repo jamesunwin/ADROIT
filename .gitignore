@@ -1,0 +1,56 @@
+.env
+.DS_Store
+/data/
+runs/
+# independent audit reports, kept out of the repository
+/audit/
+# private personal model and experimental libraries (ADROIT_PROJECTS_DIR default)
+/projects/
+__pycache__/
+*.pyc
+.venv/
+# A local interpreter choice (e.g. a native arm64 build on Apple silicon).
+.python-version
+*.sqlite
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# LaTeX build artifacts; .tex/.bib sources are tracked.
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+docs/*.pdf
+docs/paper/*.pdf
+docs/paper/*.log
+projects/
+
+# Local-only development state: session worktrees (each with its own .venv)
+# and per-machine settings. Never part of a reproducible launch.
+.claude/worktrees/
+.claude/settings.local.json
+docs/paper/drafts/*.pdf
+docs/paper/assets/*.pdf
+
+# Raw source data of a case study (examples/<case>/data/<dataset>/): large,
+# and often not redistributable. Commit only catalogues and manifests.
+examples/*/data/*/
+
+# Correspondence drafts (never committed)
+drafts/
+
+# a copy of .env beside it (.env.local, .env.bak): never committed either (AL3-30)
+.env.*
+!.env.example
+
+# Local working material, never part of the release
+output/
+scratch_evidence/
+docs/paper/

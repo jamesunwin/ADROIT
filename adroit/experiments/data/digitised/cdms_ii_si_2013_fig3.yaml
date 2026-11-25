@@ -1,0 +1,6 @@
+source: arXiv:1304.4279 (CDMS II, PRL 111 (2013) 251301), Fig. 3
+method: markers counted in the nuclear-recoil yield band (-1.8 to +1.2 sigma), by
+  colour (recoil energy) and side of the timing cut; axes from the drawn ticks
+edges_kev: [7.0, 20.0, 30.0, 100.0]
+surface_events_failing_timing: [22, 6, 0]
+candidates_passing_timing: [3, 0, 0]

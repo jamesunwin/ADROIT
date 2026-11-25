@@ -1,0 +1,28 @@
+# The Intel test (the batch plan's §8): ruff and the fast suite on an Intel (x86_64) macOS runner, on every push and
+# on demand. This machine is Apple silicon, so the native Intel run is here; the Rosetta run is recorded in
+# docs/intel_test.md. The runner has no tools folder and no data/external: a test that needs one of their items
+# skips, naming it, by its module's own marker or by @pytest.mark.needs (tests/conftest.py's NEEDS, each item checked
+# by the package's own availability function: DIAMX, the CRESST-III and CDMSlite releases, Yellin's code, the B16 solar
+# model, PPPC, the PDG's R ratio, DarkCast, the production tables, MadGraph, the UFO models, DirectDM; B20-08). Tests
+# of a refusal or a pending outcome without a tool are not marked and run here. On Apple silicon under these conditions
+# (2026-10-20): none failed, 2,889 passed, 266 skipped; no test reaches the network, no secret is used, nothing is paid.
+name: intel
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  fast-suite:
+    runs-on: macos-15-intel
+    timeout-minutes: 120
+    env:
+      OMP_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.26"
+      - run: uv python install 3.12
+      - run: uv sync --frozen
+      - run: python3 -c "import platform; print(platform.machine())"
+      - run: uv run ruff check adroit tests scripts
+      - run: uv run pytest -q -p no:cacheprovider --ignore=tests/live
