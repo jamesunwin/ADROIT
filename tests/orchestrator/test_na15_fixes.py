@@ -455,6 +455,7 @@ def test_ingest_refuses_bytes_that_are_not_the_assets(tmp_path) -> None:
 
 # --- NA15-09 ---------------------------------------------------------------------------------------------------
 
+@pytest.mark.needs("revised_xenon")
 def test_an_alternative_with_no_events_on_a_target_separates_by_its_rate(monkeypatch) -> None:
     """One alternative's rate zero on argon, the other's not: r = 0, N = 4 events (∞ had been stored); both zero, or
     no rate on the signal's target: not separable there."""

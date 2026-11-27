@@ -114,7 +114,7 @@ def _run_pages(root: Path) -> None:
         page(path)
 
     # Native fit (``advanced.native_page``) is not served in 1.0.0: withdrawn by the owner (JU1, 2026-11-16), its
-    # purpose unclear from its page; deferred to 1.0.1 (the deferred list, OR-03). Its studies still open.
+    # purpose unclear from its page; deferred to 1.0.2 (the deferred list, OR-03). Its studies still open.
 
     @ui.page("/new/single")
     def new_single() -> None:

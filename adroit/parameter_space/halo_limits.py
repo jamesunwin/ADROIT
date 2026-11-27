@@ -246,11 +246,12 @@ def blind_at_table(module: str, kind: str, mass_gev: float, key: str) -> bool:
     from adroit.core.dm_state import CrossSectionKind, DarkMatterParticle
     from adroit.experiments import registry
     from adroit.experiments.base import REFERENCE_SIGMA_CM2, reference_interaction
+    from adroit.parameter_space import limits
     m = registry.load_module(module)
     k = CrossSectionKind(kind)
     signal = m.expected_signal(DarkMatterParticle(mass_gev=mass_gev),
                                reference_interaction(k, REFERENCE_SIGMA_CM2, mass_gev), _TABLES[key],
-                               m.conventions().model_for(k), m.published_target(k))
+                               limits.limit_model(m, k), m.published_target(k))
     return signal.total_events == 0.0
 
 

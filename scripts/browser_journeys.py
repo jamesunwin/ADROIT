@@ -936,9 +936,10 @@ def journey_standard_models(browser, root: Path) -> list[str]:
         page = browser.page()
         page.goto(bench.url + "/new/single")
         page.wait_text("Not offered:")
+        text = " ".join(page.text().split())
         missing = [e.title for e in library.ENTRIES if (e.typed.unsupported or e.typed.no_recoil)
-                   and e.title not in page.text()]
-        assert not missing, f"not named under the picker: {missing}"
+                   and " ".join(f"{e.title}: {e.typed.unsupported or e.typed.no_recoil}".split()) not in text]
+        assert not missing, f"not named under the picker with its reason: {missing}"      # (R9-07: names and reasons)
         seen.append(f"the {len(library.ENTRIES) - len(offered)} standard models the page cannot compute are named "
                     "under the picker, each with why")
         for entry in offered:

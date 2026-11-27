@@ -6,7 +6,7 @@ summary is unchanged. Whether a fit explains the signal is said from the study's
 over every fit it evaluated: the sampled masses, the refined points where the relic density is right and the
 equation-of-state refits), never from the absence of a row; what each sampled or refined point shows is then said as
 of that point (the auditor's audit of 2026-11-19, MF-06). The same summary for the Constrain-a-model and Signal-best-fits
-reports, and the rewording of the reports' detailed text, are deferred to 1.0.1 (OB-09).
+reports, and the rewording of the reports' detailed text, are deferred to 1.0.2 (OB-09).
 """
 from __future__ import annotations
 

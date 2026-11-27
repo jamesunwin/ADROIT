@@ -21,9 +21,32 @@ from adroit.parameter_space.relations import CouplingRelation
 
 
 def _entry(spec: ModelSpec):
+    """The bound standard entry ``spec`` is: by its name; or, for an entry Explain a signal refuses (``unsupported``),
+    by its structure too, so that renaming it cannot escape the refusal (the signal/DD audit's R9-04: a renamed copy of
+    the inelastic dark photon had been computed as an elastic dark photon). A renamed copy of a supported entry is not
+    the entry and goes to the general maps, as before (OB-11)."""
     from adroit.parameter_space import library
     entry = library.BY_ID.get(spec.name)
-    return entry if entry is not None and entry.typed.bind else None
+    if entry is not None and entry.typed.bind:
+        return entry
+    shape = structure(spec)
+    matches = [e for e in _bound_entries() if e.typed.unsupported and _structure_of(e.id) == shape]
+    return matches[0] if len(matches) == 1 else None
+
+
+def _bound_entries() -> list:
+    from adroit.parameter_space import library
+    return [e for e in library.BY_ID.values() if e.typed.bind]
+
+
+_STRUCTURES: dict[str, tuple] = {}
+
+
+def _structure_of(entry_id: str) -> tuple:
+    from adroit.parameter_space import library
+    if entry_id not in _STRUCTURES:
+        _STRUCTURES[entry_id] = structure(library.BY_ID[entry_id].benchmark_spec())
+    return _STRUCTURES[entry_id]
 
 
 def structure(spec: ModelSpec) -> tuple:
@@ -77,6 +100,7 @@ def bind(spec: ModelSpec):
     mediators = [f for f in spec.fields if f.role is FieldRole.mediator]
     if dm.mass_gev is None or (mediators and mediators[0].mass_gev is None):
         raise Unsupported(f"{entry.title}: every new field needs its mass")
+    _held_fields(spec, entry, typed, dm, mediators)
     update = {"m_chi": dm.mass_gev}
     if mediators:
         update["m_med"] = mediators[0].mass_gev
@@ -88,6 +112,43 @@ def bind(spec: ModelSpec):
     notes = [f"the standard library's {entry.id}, read with its own engine ({type(entry.model_class).__name__}): "
              + ", ".join(f"{slot} = {formula}" for slot, formula in typed.slots.items())]
     return entry.model_class.model_copy(deep=True), point, notes
+
+
+def _held_fields(spec: ModelSpec, entry, typed, dm, mediators) -> None:
+    """Every supplied physical value is followed or refused, never silently replaced by the engine's (the signal/DD
+    audit's R9-03: a Z mass of 1000 GeV had been computed at 91.19, and a VEV given to the inert doublet's odd scalar
+    as the unbroken inert vacuum). Followed: the dark matter's and the first mediator's masses and any mass a slot
+    formula reads (``m_<field>``). Held: every other field's mass, and every field's vacuum value, as the benchmark
+    declares them."""
+    import re
+
+    from adroit.parameter_space.classify import Unsupported
+    own = {f.name: f for f in entry.benchmark_spec().fields}
+    formulas = " ".join(typed.slots.values())
+    followed = {dm.name} | ({mediators[0].name} if mediators else set()) | {
+        name for name in own if re.search(rf"\bm_{re.escape(name)}\b", formulas)}
+
+    def same(a, b) -> bool:
+        if a is None or b is None:
+            return a is b
+        if isinstance(a, list) or isinstance(b, list):
+            return isinstance(a, list) and isinstance(b, list) and len(a) == len(b) and all(
+                math.isclose(x, y, rel_tol=1e-12, abs_tol=0) for x, y in zip(a, b))
+        return math.isclose(a, b, rel_tol=1e-12, abs_tol=0)
+    for f in spec.fields:
+        b = own.get(f.name)
+        if b is None:
+            continue
+        if not same(f.vev_gev, b.vev_gev):
+            raise Unsupported(f"{entry.title}: its engine computes the benchmark's vacuum ({f.name}'s vev: "
+                              f"{'none' if b.vev_gev is None else f'{b.vev_gev:g} GeV'}); another ({f.vev_gev}) "
+                              "changes the model, and is not computed by it")
+        if f.name not in followed and not (same(f.mass_gev, b.mass_gev) and same(f.masses_gev, b.masses_gev)):
+            given = f.masses_gev if f.masses_gev is not None else f.mass_gev
+            held = b.masses_gev if b.masses_gev is not None else b.mass_gev
+            where = f"{held} GeV" if held is not None else "its Standard Model or engine value (not stated)"
+            raise Unsupported(f"{entry.title}: its engine holds {f.name}'s mass at {where}; another ({given} GeV) is "
+                              "not computed by it")
 
 
 def relations(spec: ModelSpec) -> list[CouplingRelation] | None:

@@ -22,6 +22,7 @@ def test_distinct_masses_with_identical_display_labels():
         exclusion.ExclusionRequest(bespoke={"10": rows[0].interaction, "10.0": rows[1].interaction})
 
 
+@pytest.mark.needs("revised_xenon")
 def test_audit_twelve_mass_user_model_grid_completes():
     request = signal.SignalRequest(experiment="CDMS II Si (2013)",
         user_models=[signal.UserModel(spec=simplified.model("vector", 10, 1000),

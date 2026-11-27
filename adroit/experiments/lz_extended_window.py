@@ -180,7 +180,10 @@ class LzExtendedWindow(ExperimentModule):
                         halo: HaloModel, model: NuclearModel,
                         target: Target | None = None) -> ExpectedSignal:
         """dN/dE = exposure × ε(E) × dR/dE in true recoil energy on ``ENERGIES_KEV``, summed over the target's
-        elements."""
+        elements. The revised responses' runtime must be installed for ``haxton_2022``, or this refuses, naming what
+        is missing (``prescription.require``; V1-01: they had silently become the shell model's)."""
+        from adroit.experiments.prescription import require
+        require(model, target or self.target())
         rate = sum(element_rates(ENERGIES_KEV, particle, interaction, target or self.target(),
                                  halo, model).values())
         density = EXPOSURE_KG_DAY * self.efficiency * rate

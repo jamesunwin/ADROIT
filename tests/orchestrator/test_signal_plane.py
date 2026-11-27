@@ -106,9 +106,15 @@ def _t1(halo_label: str):
     xs, ys = [0.01, 0.37, 2.2], [5.0, 10.0, 20.0]
     rows = [SimpleNamespace(point=Point(m_chi=y, m_med=1000, g_chi=x, g_q=0.25), excluded={}, omega_h2=0.1)
             for y in ys for x in xs]
-    roots = [Crossing(point=Point(m_chi=10, m_med=1000, g_chi=g, g_q=0.25), status="viable", kind="contour",
-                      converged=True, halo=halo_label, nominal_status="viable", certificate=_certificate("viable"))
-             for g in (0.37, 2.2)]
+    from adroit.parameter_space.scan import PointResult
+
+    def root(g):         # its saved comparisons: one, halo-independent (the dwarfs' J-factors are their own)
+        p = Point(m_chi=10, m_med=1000, g_chi=g, g_q=0.25)
+        return Crossing(point=p, status="viable", kind="contour", converged=True, halo=halo_label,
+                        nominal_status="viable", certificate=_certificate("viable"),
+                        evaluation=PointResult(point=p, omega_h2=0.12, dd_kind="none", dd_sigma_cm2=0.0, dd_limit_cm2=None,
+                                               excluded={"gamma rays (Fermi-LAT dwarfs)": False}))
+    roots = [root(g) for g in (0.37, 2.2)]
     request = SimpleNamespace(x=SimpleNamespace(parameter="g_chi", log=True), y=SimpleNamespace(parameter="m_chi",
                               log=True), model_class=Spin1Class())
     scan = SimpleNamespace(points=rows, xs=xs, ys=ys, request=request)
@@ -171,6 +177,100 @@ def test_the_figure_draws_the_signal_and_the_joint_readings_from_the_stored_plan
     stored = SimpleNamespace(band=[], signal_plane=plane)
     plots.plane(t1.scan, t1.verdict, tmp_path / "plane.png", **idea.plane_overlays(stored))
     assert (tmp_path / "plane.png").exists()
+    assert not any(label.startswith("meets the signal criterion") for label in labels)   # off by default (2026-11-26)
+    labels.clear()
+    plots.plane(t1.scan, t1.verdict, tmp_path / "plane.png", signal_region=True, **idea.plane_overlays(stored))
     assert any(label.startswith("meets the signal criterion") for label in labels)
     assert "relic contour: a joint thermal explanation of the signal" in labels
     assert "relic contour: does not explain the signal" in labels
+
+
+# --- R9-05 (the signal/DD audit): "each search's published halo" is one halo only where the halos are the same --------
+
+@pytest.mark.parametrize("decided_by, same", [("LZ WS2022+WS2024", False), (CDMS, True)])
+def test_published_halos_are_compared_not_assumed_equal(cdms, decided_by, same) -> None:
+    """CDMS II Si (v₀ 220 km/s) and LZ (v₀ 238 km/s) publish different halos: a plane whose points LZ decided is not
+    "the signal and the constraints at the same single halo"; one decided by the signal search itself is."""
+    module, _ = cdms
+    t1 = _t1("")
+    evaluation = SimpleNamespace(dd_channels=[SimpleNamespace(limit=SimpleNamespace(source=decided_by))],
+                                 excluded={})
+    t1.verdict.crossings = [c.model_copy(update={"evaluation": None}) for c in t1.verdict.crossings]
+    for c in t1.verdict.crossings:
+        object.__setattr__(c, "evaluation", evaluation)
+    plane = idea.signal_plane(_request("published"), Spin1Class(), module, 0.5, t1)
+    assert plane.same_halo is same
+    assert plane.joint[0] == ("explains_one_halo" if same else "unresolved_halo")
+    if not same:
+        assert "LZ WS2022+WS2024" in plane.constraints_halo and "differ" in plane.constraints_halo
+
+
+
+# --- RA-04 (the repairs audit): every halo-dependent comparison counts, not only direct detection's -----------------
+
+def _with_compared(t1, compared: dict | None):
+    """The stand-in study's roots with their saved comparisons replaced (None: saved without them)."""
+    from adroit.parameter_space.scan import PointResult
+    t1.verdict.crossings = [c.model_copy(update={"evaluation": None if compared is None else PointResult(
+        point=c.point, omega_h2=0.12, dd_kind="none", dd_sigma_cm2=0.0, dd_limit_cm2=None, excluded=compared)})
+        for c in t1.verdict.crossings]
+    return t1
+
+
+@pytest.mark.parametrize("compared, same", [
+    ({"capture in the Sun (IceCube)": False}, False),            # the audit's case: capture at the default halo
+    ({"γ-ray lines (Fermi-LAT, H.E.S.S.)": False}, False),       # a published Galactic profile, not the local halo
+    ({"gamma rays (Fermi-LAT dwarfs)": False, "colliders (CMS)": None}, True),   # nothing halo-dependent
+    ({"direct detection": False}, False),                       # RB-03: compared, its limits' sources not saved
+    (None, False),                                               # saved without its comparisons: nothing shown
+])
+def test_every_halo_dependent_comparison_is_compared(cdms, compared, same) -> None:
+    module, _ = cdms
+    plane = idea.signal_plane(_request("published"), Spin1Class(), module, 0.5, _with_compared(_t1(""), compared))
+    assert plane.same_halo is same
+    assert plane.joint[0] == ("explains_one_halo" if same else "unresolved_halo")
+
+
+# --- RB-01: a saved plane is shown with today's reading of its stored points, the change said -------------------------
+
+def test_a_saved_plane_is_read_again_and_the_change_is_said(cdms, monkeypatch) -> None:
+    """A plane saved when its first crossing read "excluded", that crossing decided only by a record whose version is
+    not known: the report and the plot read it as undecided now, keep its saved signal assessment, and say so."""
+    from tests.parameter_space.test_point_assessment import _decided_by
+    module, _ = cdms
+    t1 = _t1("")
+    plane = idea.signal_plane(_request("published"), Spin1Class(), module, 0.5, t1)
+    held = _decided_by({"gamma rays (Fermi-LAT dwarfs)": True}, {"fermi-1503.02641-dsph": ""})
+    t1.verdict.crossings = [held.model_copy(update={"point": t1.verdict.crossings[0].point}), t1.verdict.crossings[1]]
+    old = plane.crossings[0].model_copy(update={"experimental": plane.crossings[0].experimental.model_copy(
+        update={"state": "excluded", "excluded_by": ["gamma rays (Fermi-LAT dwarfs)"]})})
+    saved = plane.model_copy(update={"crossings": [old, plane.crossings[1]], "joint": ["excluded", plane.joint[1]]})
+    result = SimpleNamespace(signal_plane=saved, track1=t1, band=[], request=SimpleNamespace(experiment=CDMS))
+    assert idea.plane_overlays(result)["joint"][0] == "unresolved_experiment"     # what the plot draws
+    assert any("Read again with the current reader" in line for line in idea.signal_plane_section(result))
+    text = "\n".join(idea.signal_plane_section(result))     # RE-04: the hatching it describes is what is drawn
+    assert "hatched region is where" not in text and "experimental exclusions" in text
+    now, changed = idea.current_plane(result)
+    assert changed == [0] and now.joint[0] == "unresolved_experiment"
+    assert now.crossings[0].signal == saved.crossings[0].signal                   # the saved calculation, kept
+
+
+@pytest.mark.parametrize("compared, same", [
+    ({"direct detection": False}, False),                  # legacy DD, its limits' sources not saved
+    ({"capture in the Sun (IceCube)": False}, False),       # an older capture plane
+    ({"gamma rays (Fermi-LAT dwarfs)": False}, True),       # halo-independent: the saved flag stands
+])
+def test_a_saved_planes_common_halo_is_established_again_from_its_points(cdms, compared, same) -> None:
+    """RC-04 (the second recheck): a plane saved with "the same single halo" whose points' evidence does not establish
+    it had kept the flag, and its regenerated report said "a thermal explanation ... at the same single halo"."""
+    module, _ = cdms
+    t1 = _t1("")
+    saved = idea.signal_plane(_request("published"), Spin1Class(), module, 0.5, t1)
+    assert saved.same_halo and saved.joint[0] == "explains_one_halo"           # as it was saved
+    result = SimpleNamespace(signal_plane=saved, track1=_with_compared(t1, compared), band=[],
+                             request=SimpleNamespace(experiment=CDMS))
+    now, changed = idea.current_plane(result)
+    assert now.same_halo is same
+    assert now.joint[0] == ("explains_one_halo" if same else "unresolved_halo") and (changed == [] if same else 0 in changed)
+    text = "\n".join(idea.signal_plane_section(result))
+    assert ("at the same single halo" in text) is same

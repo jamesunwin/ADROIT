@@ -21,6 +21,7 @@ from adroit.experiments.base import ExperimentModule
 from adroit.inference import signal_fit
 from adroit.parameter_space.classes import Point
 from adroit.parameter_space.fit_inversion import tied
+from adroit.physics.haxton import ResponsesUnavailable
 
 
 class FitSettings(StrictModel):
@@ -325,6 +326,8 @@ def fit_trials(
             evaluations += 1
             try:
                 cache[g] = evaluator(point.model_copy(update={"g_chi": g}))
+            except ResponsesUnavailable:      # an installation the request needs, not an invalid point: refused (F1-01)
+                raise
             except (ValueError, RuntimeError, ArithmeticError) as error:
                 invalid[repr(g)] = str(error)
                 cache[g] = None
@@ -347,6 +350,8 @@ def fit_trials(
         if invalid:
             result.resolved = False
             result.reason = "invalid regions leave physical fit coverage partial"
+    except ResponsesUnavailable:
+        raise
     except (ValueError, RuntimeError, ArithmeticError) as error:
         result = PhysicalFit(bounds=bounds, settings=settings, reason=str(error))
     result.evaluations = evaluations

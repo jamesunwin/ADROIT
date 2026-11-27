@@ -61,8 +61,8 @@ async def test_explain_a_signal_shows_native_options_only_for_a_pair_and_launche
 
 
 def test_native_fit_is_withdrawn_from_the_workbench_and_the_cli_listing(tmp_path) -> None:
-    """The owner's JU1 (2026-11-16): Native fit is not part of 1.0.0 (deferred to 1.0.1). Its page is not served and not
-    in the menu; its command stays callable (its studies, tests and 1.0.1) but is not listed in the CLI's help."""
+    """The owner's JU1 (2026-11-16): Native fit is not part of 1.0.0 (deferred to 1.0.2). Its page is not served and not
+    in the menu; its command stays callable (its studies, tests and 1.0.2) but is not listed in the CLI's help."""
     from nicegui import app as nicegui_app
     from adroit.ui import style
     build_pages(tmp_path)

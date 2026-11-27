@@ -382,8 +382,13 @@ def experimental_exclusion(point) -> list[str]:
     c = getattr(point, "certificate", None)
     if c is None or getattr(point, "status", "") != "pending" or c.computed_status != "excluded":
         return []
-    if any(x.state in OPEN and x.name not in THERMAL_CHECKS for x in c.checks):
+    open_ = [x for x in c.checks if x.state in OPEN and x.name not in THERMAL_CHECKS]
+    if any(x.name != "records" for x in open_):
         return []
+    if open_:          # only a record's version open: the deciders whose own records are established (RB-01)
+        from adroit.parameter_space.assessment import from_crossing
+        a = from_crossing(point)
+        return list(a.experimental.excluded_by) if a.experimental.state == "excluded" else []
     return list(c.computed_excluded_by)
 
 
@@ -405,7 +410,9 @@ def status_words(point) -> str:
     (``experimental_exclusion``: the owner, 2026-11-23); a central exclusion the region leaves pending, qualified
     (``central_exclusion``: the owner, 2026-11-24)."""
     if by := experimental_exclusion(point):
-        return f"excluded by {', '.join(by)}"
+        from adroit.parameter_space.assessment import experimental_words, from_crossing
+        a = from_crossing(point)          # its words carry an open record's qualification, where one is open
+        return experimental_words(a) if a.experimental.qualifications else f"excluded by {', '.join(by)}"
     if words := central_exclusion(point):
         return words
     c = getattr(point, "certificate", None)

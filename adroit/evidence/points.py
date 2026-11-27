@@ -328,9 +328,13 @@ def explain(where, point_id: str) -> PointExplanation:
     comparisons = []
     # a comparison that excludes stands where only the point's thermal claim is open (the owner, 2026-11-23)
     waiting = [] if experimental_exclusion(saved) else _waiting(saved)
+    from adroit.parameter_space.verdict import unestablished
+    held = unestablished(evaluation)          # read a record of unknown version: pending, never excluded (RD-05)
     for name, value in evaluation.excluded.items():
         mine = [p for p in pending if _concerns(name, p)]
-        if value and name not in excluded and waiting:     # the stored decision, not the raw comparison (M1)
+        if name in held and name not in excluded:          # its saved ratio still shown, with why it decides nothing
+            group, mine = 'pending', [*mine, *([held[name]] if held[name] not in mine else [])]
+        elif value and name not in excluded and waiting:   # the stored decision, not the raw comparison (M1)
             group, mine = 'pending', [*mine, f'{name}: excluded by its own comparison (nominal); the point\'s claim '
                                              f'waits for its certificate: {waiting[0]}']
         else:

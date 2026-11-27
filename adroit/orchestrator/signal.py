@@ -395,6 +395,14 @@ def _checked(request: SignalRequest) -> tuple[SignalRequest, ExperimentModule]:
         if model.catalog_reference:
             Catalog().verify_calculation(model.catalog_reference,model.spec,'track2',model.derivation)
     module = modules.load_module(request.experiment)
+    from adroit.experiments.prescription import require_module
+    require_module(module)          # its nuclear inputs installed, or refused now (V1-01)
+    for name in request.null_modules:                       # and each null search's (F1-01)
+        try:
+            null = modules.load_module(name)
+        except (KeyError, ValueError, OSError, RuntimeError):
+            continue                                        # an unknown null search is refused below, by name
+        require_module(null)
     if hasattr(module,'bound') and module.bound.contract.role!='signal':
         raise ValueError('private null input cannot be selected as the signal search')
     for name in request.null_modules:

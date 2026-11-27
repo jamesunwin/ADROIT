@@ -296,6 +296,8 @@ PROMISES = {
     "agents/budget.py:__init__": "not a new file: a lost ledger is never made anew (CO-05)",
     "agents/budget.py:recover_torn_tail": "not a new file: a lost ledger is never made anew (CO-05)",
     "ui/pages.py:_status_row": "not a file: a button never replaced under a click",
+    "orchestrator/reassess.py:_reserve": "not a person's path written in place: a new folder claimed by its exclusive "
+                                         "creation, an existing one refused (test_reassess, R9-02, RD-01)",
 }
 
 

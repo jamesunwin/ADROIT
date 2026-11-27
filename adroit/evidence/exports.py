@@ -152,7 +152,7 @@ def tables(where) -> dict[str, bytes]:
     return out
 
 
-def figures(where, formats: tuple[str, ...] = ('pdf', 'svg')) -> dict[str, bytes]:
+def figures(where, formats: tuple[str, ...] = ('pdf', 'svg'), warning_marks: bool = True) -> dict[str, bytes]:
     """The parameter plane (with Explain a signal's band) and direct detection redrawn from the saved scan and verdict
     in each format, with the saved PNGs. Nothing is evaluated and no current limit is read (S18-11): direct
     detection shows the σ and limit saved with each relic-contour point. A result without a scan has none.
@@ -206,7 +206,7 @@ def figures(where, formats: tuple[str, ...] = ('pdf', 'svg')) -> dict[str, bytes
     with tempfile.TemporaryDirectory(prefix='adroit-figures-') as folder:
         for fmt in formats:
             plane = plots.plane(track1.scan, track1.verdict, Path(folder) / f'parameter_plane.{fmt}', title=title,
-                                **overlays)
+                                warning_marks=warning_marks, **overlays)
             out[plane.name] = plane.read_bytes()
             dd = plots.direct_detection_saved(track1.verdict, Path(folder) / f'direct_detection.{fmt}')
             if dd:

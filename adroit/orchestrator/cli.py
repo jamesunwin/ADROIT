@@ -172,9 +172,10 @@ def reassess(study: str = typer.Argument(..., help="a saved study's folder"),
     """Calculate what a saved study lacks, nothing else, into a new child study: Explain a signal, the signal
     requirement on its plane; Constrain a model, the halo work of each thermal point whose halo coverage is incomplete,
     its saved evaluation reused (docs/validation_and_audits.md). $0."""
-    from adroit.orchestrator.reassess import reassess as run
+    from adroit.orchestrator.reassess import next_free, reassess as run
     source = Path(study)
-    folder, report = run(source, Path(out) if out else source.with_name(source.name + "_reassessed"), budget)
+    folder, report = run(source, Path(out) if out else next_free(source.with_name(source.name + "_reassessed")),
+                         budget)
     typer.echo(report[:4000])
     typer.echo(f"written to {folder}")
 
@@ -983,7 +984,7 @@ def _single_idea_run(request, propagation: str, discovery: str, halo: str, out: 
     typer.echo(f"written to {folder}")
 
 
-@app.command(name="native-fit", hidden=True)    # withdrawn from 1.0.0 (the owner's JU1): kept for 1.0.1, not listed
+@app.command(name="native-fit", hidden=True)    # withdrawn from 1.0.0 (the owner's JU1): kept for 1.0.2, not listed
 def native_fit(model: Path = typer.Argument(..., help="typed physical model YAML"),
                domain: Path = typer.Option(...,"--domain",help="named physical domain YAML"),
                null_experiment: str = typer.Option("PICO-60 C3F8 (2019)","--null",

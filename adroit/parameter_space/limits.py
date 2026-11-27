@@ -107,6 +107,21 @@ def exact_environment(on: bool = True):
             os.environ[EXACT_VARIABLE] = before
 
 
+def limit_model(module, kind):
+    """The nuclear model ``module``'s reference limit of ``kind`` is computed with: Klos et al.'s structure factors for
+    the xenon searches' SD limits (``xenon.SD_MODEL``, as their ``reference_limits``), the conventions' model otherwise.
+    Anything that rescales a prediction onto that limit (the SD proton–neutron correction) must use the same (1.0.1:
+    the xenon correction had used the conventions' shell model, about 25 times too large). Kept here, outside the code
+    the limit tables are fingerprinted by, so that it changes no stored table; ``tests/parameter_space/
+    test_sd_nuclear_consistency.py`` checks it against what ``reference_limits`` uses."""
+    from adroit.core.dm_state import CrossSectionKind
+    from adroit.experiments.xenon import SD_MODEL, DiamxXenon
+    k = CrossSectionKind(kind)
+    if isinstance(module, DiamxXenon) and k in (CrossSectionKind.sd_proton, CrossSectionKind.sd_neutron):
+        return SD_MODEL
+    return module.conventions().model_for(k)
+
+
 def tolerance(module: str, kind: str, mass_gev: float) -> float:
     """η of the module's limit at the mass as ``per_module95`` gives it now: 0 when computed directly; at a halo of
     the region, the margin its comparison there must clear (``halo_limits``)."""

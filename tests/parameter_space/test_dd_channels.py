@@ -203,7 +203,8 @@ def test_the_reference_route_is_used_only_with_the_modules_own_conventions() -> 
             return [1e-46 for _ in masses]
 
         def conventions(self):
-            return type("C", (), {"halo": HaloModel(), "nuclear_model": None, "spin_dependent_model": None})()
+            return type("C", (), {"halo": HaloModel(), "nuclear_model": None, "spin_dependent_model": None,
+                                  "model_for": lambda self, kind: None})()
 
         def expected_signal(self, p, i, halo, nuclear):
             used.append(("direct", halo.v0_km_s))
@@ -212,14 +213,18 @@ def test_the_reference_route_is_used_only_with_the_modules_own_conventions() -> 
         def upper_limits(self, signals, cl=0.9):
             return []
     base = dict(card_id="O1", values={"c_p": 1e-8, "c_n": 1e-8}, masses_gev=[100.0])
-    for request in (exclusion.ExclusionRequest(**base, halo=HaloModel(v0_km_s=238.0)),
+    # a different halo (v0 220, not the module's 238) or spin: the direct route, which honours them
+    for request in (exclusion.ExclusionRequest(**base, halo=HaloModel(v0_km_s=220.0)),
                     exclusion.ExclusionRequest(**base, spin=0.0)):
         used.clear()
         exclusion._module_limits(Module(), request, [100.0])
         assert used and "reference" not in used
-    used.clear()
-    exclusion._module_limits(Module(), exclusion.ExclusionRequest(**base), [100.0])
-    assert used == ["reference"]
+    # none stated, the module's own stated explicitly, or only its label changed: the reference route (V1-02, RA-03)
+    for request in (exclusion.ExclusionRequest(**base), exclusion.ExclusionRequest(**base, halo=HaloModel()),
+                    exclusion.ExclusionRequest(**base, halo=HaloModel(label="the SHM, renamed"))):
+        used.clear()
+        exclusion._module_limits(Module(), request, [100.0])
+        assert used == ["reference"]
 
 
 def test_the_anapole_cards_description_has_the_sign_its_terms_give() -> None:
@@ -412,3 +417,29 @@ def test_an_operator_structures_limit_keeps_the_fallback_of_its_rows(monkeypatch
     finally:
         monkeypatch.undo()
         operator_limits.limit95.cache_clear()
+
+
+@pytest.mark.needs("cresst")
+def test_revalidation_keeps_a_dominant_contact_parts_validation(monkeypatch):
+    """RB-04 (the recheck): CRESST-III's flavour-vector limit at 5 GeV is validated by its dominant contact O1 part;
+    after a JSON round trip, revalidation had judged only the full structure (O1, O3, O4, O5, O6) and lost it. Now the
+    saved basis is judged again against the status files, with no new physics: unchanged status, still validated."""
+    from adroit.core.dm_state import DarkMatterParticle
+    from adroit.experiments import registry
+    from adroit.orchestrator import exclusion
+    from adroit.library.interactions import registry as cards
+    monkeypatch.setattr(registry, "module_names", lambda: [CRESST])
+    particle = DarkMatterParticle(mass_gev=5.0)
+    interaction = cards.resolve("M_vector", particle, {"g_chi": 1.0, "m_med": 100.0, "gV_p": 2.0, "gV_n": 1.0})
+    request = exclusion.ExclusionRequest(bespoke={repr(5.0): interaction}, masses_gev=[5.0], modules=[CRESST],
+                                         telescopes=False, confidence_level=0.95, workers=1)
+    result = exclusion.run(request)
+    [row] = result.per_module
+    again = exclusion.revalidate(type(result).model_validate_json(result.model_dump_json()))
+    assert row.validated == [True] and again.per_module[0].validated == [True]
+    assert row.validation_basis[repr(5.0)]["part"] == "contact"
+    expected_signals = []
+    monkeypatch.setattr(type(registry.load_module(CRESST)), "expected_signal",
+                        lambda *a, **k: expected_signals.append(a))
+    exclusion.revalidate(result)
+    assert not expected_signals                          # revalidation computes no physics

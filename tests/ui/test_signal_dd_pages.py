@@ -1,6 +1,6 @@
 """The workbench's pages read the one stored assessment (the owner's plan of 2026-11-24): a thermal root excluded at
 the halo region's centre whose robustness is incomplete is listed with its own status and explained, qualified, on its
-point page; never as plain pending. Headless (NiceGUI's ``User``); the real-browser journeys are deferred to 1.0.1
+point page; never as plain pending. Headless (NiceGUI's ``User``); the real-browser journeys are deferred to 1.0.2
 (the owner, 2026-11-24). The root is the saved vector study's 88.59 GeV point (``tests/fixtures/vector_dd_pending``)."""
 import gzip
 import json

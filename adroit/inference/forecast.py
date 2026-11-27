@@ -46,7 +46,10 @@ class Separation(StrictModel):
 
 def target_spectrum(particle: DarkMatterParticle, interaction: InteractionModel, target: str,
                     halo: HaloModel, model: NuclearModel) -> tuple[np.ndarray, float]:
-    """(normalised spectrum, total rate per kg per day) on the forecast window."""
+    """(normalised spectrum, total rate per kg per day) on the forecast window. Refuses ``haxton_2022`` without its
+    inputs for ``target`` (``experiments.prescription.require``; F1-01)."""
+    from adroit.experiments.prescription import require
+    require(model, targets.target(target))
     rate = np.asarray(rates.differential_rate(ENERGIES_KEV, particle, interaction,
                                               targets.target(target), halo, model).rate)
     total = float(np.trapezoid(rate, ENERGIES_KEV))
@@ -57,7 +60,11 @@ def separate(label_a: str, a: tuple[DarkMatterParticle, InteractionModel],
              label_b: str, b: tuple[DarkMatterParticle, InteractionModel], signal_target: str,
              halo: HaloModel | None = None,
              model: NuclearModel = NuclearModel.haxton_2022) -> Separation:
-    """The fewest events, on any target, that would separate a from b at 2σ."""
+    """The fewest events, on any target, that would separate a from b at 2σ. Refuses ``haxton_2022`` without its
+    runtime (``experiments.prescription.require``), never computing the shell model's responses under its name."""
+    from adroit.experiments.prescription import require
+    for each in sorted({*TARGETS, signal_target}):      # every target's inputs, before any spectrum (F1-01)
+        require(model, targets.target(each))
     halo = halo or HaloModel()
     spectra = {t: (target_spectrum(*a, t, halo, model), target_spectrum(*b, t, halo, model))
                for t in {*TARGETS, signal_target}}

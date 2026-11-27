@@ -101,7 +101,8 @@ class ModuleLimits(StrictModel):
     mu_up: list[float]
     validated: list[bool]
     route: str                  # "reference SI", "reference SD-proton", ... or "direct"
-    fidelity: str
+    fidelity: str               # the module's own fidelity class (``ModuleInfo.fidelity``), not this calculation's:
+                                # whether a mass is validated is ``validated`` (with why not, ``unvalidated``)
     note: str = ""
     # why a direct-route mass is unvalidated, by mass (repr); left out of the serialised form when empty
     unvalidated: dict[str, str] = Field(default_factory=dict, exclude_if=lambda v: not v)
@@ -110,6 +111,14 @@ class ModuleLimits(StrictModel):
     # why the limits decide exclusions only (D1: a maximum-gap fallback, ``limits.fallback``), or ""; left out of the
     # serialised form when empty
     excludes_only: str = Field(default="", exclude_if=lambda v: not v)
+    # the nuclear prescription each direct-route mass was computed with (repr of the mass → ``NuclearModel`` value),
+    # so that revalidation judges the calculation made (the repairs audit's RA-03); absent in older results, whose
+    # direct route used ``_direct_model``
+    nuclear_models: dict[str, str] = Field(default_factory=dict, exclude_if=lambda v: not v)
+    # where a direct-route mass was validated by its dominant contact part: that part's share of the events and its
+    # prescription, so that revalidation judges the same basis (the recheck's RB-04); absent otherwise and in older
+    # results
+    validation_basis: dict[str, dict] = Field(default_factory=dict, exclude_if=lambda v: not v)
 
     def omission_reason(self, index: int) -> str:
         """Why this mass cannot contribute to a validated constraint."""
@@ -241,14 +250,23 @@ def direct_validation(module: ExperimentModule, interaction: InteractionModel, p
     contact = all(c.q_power == 0 and (c.mediator_mass_gev is None or c.mediator_mass_gev >= CONTACT_MEDIATOR_GEV)
                   for c in live)
     operators = {c.operator for c in live}
-    if not splitting and contact and operators == {1}:
-        return "" if _validated(name, CrossSectionKind.si, mass) else \
-            "unvalidated: the module's spin-independent procedure is not validated at this mass"
-    if not splitting and contact and operators == {4}:
-        needed = {CrossSectionKind.sd_proton for c in live if c.proton} | {CrossSectionKind.sd_neutron for c in live
-                                                                         if c.neutron}
+    if not splitting and contact and operators in ({1}, {4}):
+        # The validated procedure is the module's reference limit, with its own nuclear prescription: a direct-route
+        # limit with another prescription is not thereby validated (the independent audit's V1-02: the shell model
+        # had been marked validated, fidelity A, where PandaX-4T's SD-proton procedure is validated with Klos et al.'s)
+        from adroit.parameter_space.limits import limit_model
+        needed = {CrossSectionKind.si} if operators == {1} else (
+            {CrossSectionKind.sd_proton for c in live if c.proton} | {CrossSectionKind.sd_neutron for c in live
+                                                                     if c.neutron})
         missing = sorted(k.value for k in needed if not _validated(name, k, mass))
-        return "" if not missing else f"unvalidated: the module's {' and '.join(missing)} procedure is not validated here"
+        if missing:
+            return ("unvalidated: the module's spin-independent procedure is not validated at this mass"
+                    if operators == {1} else
+                    f"unvalidated: the module's {' and '.join(missing)} procedure is not validated here")
+        other = sorted(f"{k.value} with {limit_model(module, k).value}" for k in needed
+                       if limit_model(module, k) is not model)
+        return "" if not other else (f"unvalidated: the module's procedure is validated for {', '.join(other)} "
+                                     f"responses; this limit is computed with {model.value}")
     found = structures.matching(interaction, particle)
     what = f"O{', O'.join(str(o) for o in sorted(operators))}" + (f", δ = {splitting:g} keV" if splitting else "")
     if found is None:
@@ -283,20 +301,26 @@ def contact_part(interaction: InteractionModel) -> InteractionModel | None:
 
 def _direct_reasons(module: ExperimentModule, request: "ExclusionRequest", masses: list[float],
                     particles: list[DarkMatterParticle], interactions: list[InteractionModel],
-                    signals: list) -> dict[str, str]:
+                    signals: list, basis: dict | None = None) -> dict[str, str]:
     """Why each direct-route mass is unvalidated ('' if validated): by the full structure, or by its contact
-    O₁/O₄ part where that part gives the module's events to within ``DOMINANT``."""
+    O₁/O₄ part where that part gives the module's events to within ``DOMINANT`` (that basis put in ``basis``)."""
     conventions = module.conventions()
     halo = request.halo or conventions.halo
     out = {}
     for m, p, i, s in zip(masses, particles, interactions, signals):
-        model = request.nuclear_model or _direct_model(conventions, i)
+        model = request.nuclear_model or prescription(module, i, p)
         why = direct_validation(module, i, p, model)
         part = contact_part(i) if why else None
         if part is not None and s.total_events > 0:
-            share = module.expected_signal(p, part, halo, model).total_events / s.total_events
+            # the full calculation is validated where it gives, within DOMINANT, the events of its contact part
+            # computed as the validated procedure computes it (that part's own prescription: RA-06, the dominant part
+            # had been judged with the full calculation's prescription, then refused for not being the validated one)
+            validated = prescription(module, part, p)
+            share = module.expected_signal(p, part, halo, validated).total_events / s.total_events
             if abs(share - 1.0) <= DOMINANT:
-                why = direct_validation(module, part, p, model)
+                why = direct_validation(module, part, p, validated)
+                if basis is not None:
+                    basis[repr(m)] = {"part": "contact", "share": share, "prescription": validated.value}
         out[repr(m)] = why
     return out
 
@@ -314,8 +338,14 @@ def revalidate(result: "ExclusionResult") -> "ExclusionResult":
         for m in r.masses_gev:
             particle = DarkMatterParticle(mass_gev=m, mass_splitting_kev=request.splitting_kev, spin=request.spin)
             interaction = interaction_at(request, particle)
-            why[repr(m)] = direct_validation(module, interaction, particle, request.nuclear_model or
-                                             _direct_model(module.conventions(), interaction))
+            computed = r.nuclear_models.get(repr(m))      # the prescription it was computed with, where recorded
+            model = NuclearModel(computed) if computed else (request.nuclear_model or
+                                                              _direct_model(module.conventions(), interaction))
+            why[repr(m)] = direct_validation(module, interaction, particle, model)
+            basis = r.validation_basis.get(repr(m))       # validated by its dominant contact part: the same basis,
+            part = contact_part(interaction) if why[repr(m)] and basis else None   # its share as saved (RB-04)
+            if part is not None and abs(basis["share"] - 1.0) <= DOMINANT:
+                why[repr(m)] = direct_validation(module, part, particle, NuclearModel(basis["prescription"]))
         modules.append(r.model_copy(update={"validated": [not why[repr(m)] for m in r.masses_gev],
                                             "unvalidated": {k: v for k, v in why.items() if v}}))
     return result.model_copy(update={"per_module": modules})
@@ -324,6 +354,35 @@ def revalidate(result: "ExclusionResult") -> "ExclusionResult":
 def modules_load(name: str) -> ExperimentModule:
     """The experiment module of that name (``experiments.registry.load_module``)."""
     return modules.load_module(name)
+
+
+def same_halo(a, b) -> bool:
+    """Whether two halos are the same distribution: every physical field equal, the display label aside (the repairs
+    audit's RA-03: a changed label had switched the route and the nuclear prescription). The policy is exact
+    equality, with no tolerance: any numerical change, however small, is a different halo, computed by the direct
+    route, which takes the same prescription (``prescription``)."""
+    if a is None or b is None:
+        return a is b
+    return a.model_dump(exclude={"label"}) == b.model_dump(exclude={"label"})
+
+
+def prescription(module: ExperimentModule, interaction: InteractionModel, particle: DarkMatterParticle) -> NuclearModel:
+    """The nuclear prescription for a direct-route calculation, whatever the route (RA-03): for an interaction of O₁
+    alone, or O₄ alone (one response, whatever its propagator or splitting), the one the module's validated reference
+    limit of that kind uses (``limits.limit_model``: Helm for SI, Klos et al.'s for the xenon searches' SD), so that
+    its limit can be validated; otherwise ``_direct_model`` (the full set of responses). The interaction is read from
+    its live coefficients, as ``direct_validation`` reads it."""
+    from adroit.parameter_space.limits import limit_model
+    live = [c for c in interaction.coefficients if c.proton or c.neutron]
+    operators = {c.operator for c in live}
+    if operators in ({1}, {4}):           # one response (M, or Σ′ and Σ″), whatever the propagator or splitting
+        kinds = {CrossSectionKind.si} if operators == {1} else (
+            {CrossSectionKind.sd_proton for c in live if c.proton} | {CrossSectionKind.sd_neutron for c in live
+                                                                     if c.neutron})
+        models = {limit_model(module, k) for k in kinds}
+        if len(models) == 1:
+            return models.pop()
+    return _direct_model(module.conventions(), interaction)
 
 
 def _direct_model(conventions, interaction: InteractionModel) -> NuclearModel:
@@ -346,7 +405,10 @@ def _module_limits(module: ExperimentModule, request: ExclusionRequest,
     interactions = [interaction_at(request, p) for p in particles]
     # The reference route is the collaboration's own procedure with its own halo, nuclear model and fermionic
     # dark matter; a request that sets any of them goes by the direct route, which honours them.
-    own_conventions = request.halo is None and request.nuclear_model is None and request.spin == 0.5
+    # A halo stated but identical to the module's published one is its own (V1-02: stating it had switched the route,
+    # and with it the SD nuclear prescription, while keeping the validation claim).
+    own_halo = request.halo is None or same_halo(request.halo, module.conventions().halo)
+    own_conventions = own_halo and request.nuclear_model is None and request.spin == 0.5
     routes = [None if request.splitting_kev or not own_conventions else _reference_route(i, p.mass_gev)
               for i, p in zip(interactions, particles)]
     kinds = {r[0] for r in routes if r is not None}
@@ -360,12 +422,13 @@ def _module_limits(module: ExperimentModule, request: ExclusionRequest,
     else:
         kind, route = None, "direct"
         conventions = module.conventions()
-        signals = [module.expected_signal(p, i, request.halo or conventions.halo,
-                                          request.nuclear_model or _direct_model(conventions, i))
-                   for p, i in zip(particles, interactions)]
+        models = [request.nuclear_model or prescription(module, i, p) for p, i in zip(particles, interactions)]
+        signals = [module.expected_signal(p, i, request.halo or conventions.halo, model)
+                   for p, i, model in zip(particles, interactions, models)]
         live = [s for s in signals if s.total_events > 0.0]
         kappas = iter(module.upper_limits(live, cl=request.confidence_level) if live else [])
         mu = [math.sqrt(next(kappas)) if s.total_events > 0.0 else math.inf for s in signals]
+    basis: dict = {}                     # a dominant contact part's validation, where that decided (RB-04)
     if hasattr(module, "accepts_validation"):
         why = {repr(m): "" if module.accepts_validation(p, i, request.confidence_level) else
                "outside the module's validated mass/interaction domain" for m, p, i in zip(masses, particles, interactions)}
@@ -373,13 +436,16 @@ def _module_limits(module: ExperimentModule, request: ExclusionRequest,
         why = {repr(m): "" if _validated(module.info.name, kind, m) else
                f"outside the module's validated {kind.value} masses" for m in masses}
     else:
-        why = _direct_reasons(module, request, masses, particles, interactions, signals)
+        why = _direct_reasons(module, request, masses, particles, interactions, signals, basis)
     from adroit.parameter_space.limits import fallback_of
     return ModuleLimits(experiment=module.info.name, masses_gev=masses, mu_up=mu, excludes_only=fallback_of(module),
                         validated=[not why[repr(m)] for m in masses], route=route,
                         fidelity=module.info.fidelity.value,
                         note="" if kind else "validated by the response structure (direct route)",
                         unvalidated={k: v for k, v in why.items() if v},
+                        nuclear_models={} if kind else {repr(m): model.value for m, model in zip(masses, models)
+                                                                if model is not None},
+                        validation_basis={} if kind else basis,
                         confidence_level=request.confidence_level)
 
 
@@ -451,6 +517,8 @@ def run(request: ExclusionRequest) -> ExclusionResult:
             continue
         masses = request.masses_by_module.get(name, request.masses_gev)
         try:
+            from adroit.experiments.prescription import require_module
+            require_module(module, request.nuclear_model)       # its nuclear inputs, before any spectrum (F1-01)
             per_module.append(_module_limits(module, request, masses))
         except (RuntimeError, OSError, subprocess.SubprocessError) as error:     # one module never stops the others
             skipped[name] = f"the module's calculation failed: {type(error).__name__}: {error}"

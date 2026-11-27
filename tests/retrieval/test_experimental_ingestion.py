@@ -19,6 +19,7 @@ def test_pdf_pages_and_fragment_positions_are_not_concatenated(tmp_path):
     assert item.pages[0].media_box==(0,0,600,400) and item.pages[0].crop_box==(0,0,600,400)
 
 
+@pytest.mark.needs("poppler")
 def test_scanned_page_render_is_bounded_and_remains_uninterpreted(tmp_path):
     from PIL import Image
     from io import BytesIO

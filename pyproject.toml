@@ -1,6 +1,6 @@
 [project]
 name = "adroit"
-version = "1.0.0"
+version = "1.0.1"
 description = "ADROIT: Agentic Dark matter Reinterpretation and Operator Inference Toolkit, for dark matter direct detection"
 readme = "README.md"
 license = "BSD-3-Clause"

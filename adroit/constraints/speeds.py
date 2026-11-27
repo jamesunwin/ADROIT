@@ -10,7 +10,7 @@ is the stellar line-of-sight dispersion.
 The dwarfs' speed is a convention, one value for every dwarf: σ = 10 km/s, so v_rel = √6 × 10 km/s = 8.2 × 10⁻⁵ c, a
 fair single value for the classical dwarfs (their dispersions are about 6–12 km/s). The ultra-faint dwarfs are nearer
 3–5 km/s: there a p-wave rate (∝ v²) would be several times smaller, and a Sommerfeld-enhanced one (∝ 1/v) larger. No
-verdict seen depends on the choice (the owner's review, 2026-11-16); a value for each dwarf is deferred to 1.0.1
+verdict seen depends on the choice (the owner's review, 2026-11-16); a value for each dwarf is deferred to 1.0.2
 (the deferred list).
 """
 

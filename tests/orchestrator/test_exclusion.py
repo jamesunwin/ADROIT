@@ -113,3 +113,84 @@ def test_neutrino_telescopes_bound_the_strength_through_capture() -> None:
     sd_bb = next(t for t in limits if t.record_id.endswith("-sd") and t.channel == "bb")
     assert math.isnan(sd_bb.mu_up[0])                          # b b̄ starts at 35 GeV
     assert 0.0 < sd_bb.mu_up[1] < math.inf and sd_bb.verified
+
+
+# --- V1-02 (the independent audit of 1.0.1): stating the module's own halo keeps its SD prescription and validation ---
+
+@pytest.mark.needs("diamx")
+@pytest.mark.parametrize("halo", ["omitted", "stated, identical"])
+def test_stating_the_published_halo_keeps_the_reference_route(monkeypatch, halo) -> None:
+    """PandaX-4T, pure-proton O4 at 250 GeV: omitting the halo and stating the module's identical published halo take
+    the same reference SD-proton route (Klos et al.'s responses); no spectrum is computed with the shell model."""
+    from adroit.experiments import registry
+    module = registry.load_module("PandaX-4T Run0+Run1")
+    asked, spectra = [], []
+    monkeypatch.setattr(type(module), "reference_limits",
+                        lambda self, kind, masses, **k: (asked.append(kind), [1e-41] * len(masses))[1])
+    monkeypatch.setattr(type(module), "expected_signal", lambda self, *a, **k: spectra.append(a) or (_ for _ in ()).throw(
+        AssertionError("no direct spectrum should be computed")))
+    request = exclusion.ExclusionRequest(card_id="O4", values={"c_p": 1e-6, "c_n": 0.0}, masses_gev=[250.0],
+                                         modules=["PandaX-4T Run0+Run1"],
+                                         halo=None if halo == "omitted" else module.conventions().halo)
+    limits = exclusion._module_limits(module, request, [250.0])
+    assert limits.route == "reference SD-proton" and [k.value for k in asked] == ["SD-proton"] and not spectra
+
+
+@pytest.mark.needs("diamx")
+def test_a_direct_limit_with_another_prescription_is_not_marked_validated() -> None:
+    from adroit.core.dm_state import DarkMatterParticle, NuclearModel
+    from adroit.experiments import registry
+    module = registry.load_module("PandaX-4T Run0+Run1")
+    particle = DarkMatterParticle(mass_gev=250.0)
+    interaction = exclusion.library.resolve("O4", particle, {"c_p": 1e-6, "c_n": 0.0})
+    assert exclusion.direct_validation(module, interaction, particle, NuclearModel.klos) == ""
+    why = exclusion.direct_validation(module, interaction, particle, NuclearModel.shell_model)
+    assert why.startswith("unvalidated") and "klos" in why and "shell_model" in why
+
+
+# --- RA-03 (the repairs audit): a halo's identity is physical, and the prescription does not follow the route -------
+
+@pytest.mark.needs("diamx")
+def test_a_label_alone_keeps_the_route_and_a_physical_change_keeps_the_prescription(monkeypatch) -> None:
+    """PandaX-4T, pure-proton O4 at 250 GeV. Only the label changed: the reference route. v0 changed by one ULP: a
+    different halo, so the direct route, but computed with the limit's own Klos prescription and so validated."""
+    import math as _math
+    from adroit.experiments import registry
+    from adroit.core.dm_state import NuclearModel
+    module = registry.load_module("PandaX-4T Run0+Run1")
+    published = module.conventions().halo
+    seen = []
+    monkeypatch.setattr(type(module), "reference_limits", lambda self, kind, masses, **k: [1e-41] * len(masses))
+    monkeypatch.setattr(type(module), "expected_signal", lambda self, p, i, halo, model, *a: (
+        seen.append(model), ExpectedSignal(experiment="x", interaction_id="i", particle=p, total_events=3.0,
+                                           observable=[1.0], density=[1.0]))[1])
+    monkeypatch.setattr(type(module), "upper_limits", lambda self, signals, cl=0.9: [1.0] * len(signals))
+
+    def run(halo):
+        request = exclusion.ExclusionRequest(card_id="O4", values={"c_p": 1e-6, "c_n": 0.0}, masses_gev=[250.0],
+                                             modules=["PandaX-4T Run0+Run1"], halo=halo)
+        return exclusion._module_limits(module, request, [250.0])
+    relabelled = run(published.model_copy(update={"label": "renamed"}))
+    assert relabelled.route == "reference SD-proton" and not seen
+    nudged = run(published.model_copy(update={"v0_km_s": _math.nextafter(published.v0_km_s, 1e9)}))
+    assert nudged.route == "direct" and set(seen) == {NuclearModel.klos}
+    assert nudged.nuclear_models == {repr(250.0): "klos"}
+
+
+def test_a_saved_result_is_revalidated_with_the_prescription_it_was_computed_with(monkeypatch) -> None:
+    """A recorded prescription is the one judged; an older result without one is judged with the prescription its
+    direct route used then (``_direct_model``), never credited with today's."""
+    from adroit.core.dm_state import NuclearModel
+    judged = []
+    monkeypatch.setattr(exclusion, "direct_validation", lambda module, i, p, model: judged.append(model) or "")
+    monkeypatch.setattr(exclusion, "modules_load", lambda name: type("M", (), {"conventions": lambda self: type(
+        "C", (), {"nuclear_model": NuclearModel.helm, "spin_dependent_model": NuclearModel.shell_model})()})())
+    request = exclusion.ExclusionRequest(card_id="O4", values={"c_p": 1e-6, "c_n": 0.0}, masses_gev=[250.0])
+    row = exclusion.ModuleLimits(experiment="x", masses_gev=[250.0], mu_up=[1.0], validated=[True], route="direct",
+                                 fidelity="A")
+    def saved(module_row):
+        return type("Saved", (), {"per_module": [module_row], "request": request,
+                                   "model_copy": lambda self, update: update})()
+    exclusion.revalidate(saved(row))                                                  # older: no prescription recorded
+    exclusion.revalidate(saved(row.model_copy(update={"nuclear_models": {repr(250.0): "klos"}})))
+    assert judged == [NuclearModel.shell_model, NuclearModel.klos]

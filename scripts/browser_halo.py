@@ -518,7 +518,7 @@ def journey_shmpp_track1(browser, root: Path) -> list[str]:
         assert data["halo_resolution"]["identity"].startswith(identity), "the page shows the result's identity"
         page.click_text("Explain a point")
         page.wait(lambda: "at the fixed benchmark halo (SHM++" in page.text(), "the point table names SHM++",
-                  timeout=60)
+                  timeout=120)        # 60 s timed out once under load (the 1.0.1 release checks), as other waits here
         seen.append(f"the study: its halo line (identity {identity}) and the point table's SHM++ column")
         page.goto("about:blank", ready=False)
         bench.restart()

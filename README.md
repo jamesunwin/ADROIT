@@ -268,7 +268,7 @@ The current software citation is:
 | Importing a limit or signal | [Experimental input guide](docs/experimental_interpretation_and_anomaly_intake.md) |
 | Several calculations or an exported study | [Batches and bundles](docs/workbench_batches_and_bundles.md) |
 | What was calculated at a point | [Inspecting studies](docs/workbench_inspection.md) |
-| Scope and known limitations | [Release notes](docs/release_notes_v1.0.0.md) |
+| Scope and known limitations | [Release notes](docs/release_notes_v1.0.0.md), and what 1.0.1 changed ([1.0.1](docs/release_notes_v1.0.1.md)) |
 | How it was validated and audited | [Validation and audits](docs/validation_and_audits.md) |
 | Development history | [Changelog](CHANGELOG.md), [build record](docs/adroit_build.md) and [development guide](DEVELOPMENT.md) |
 

@@ -42,7 +42,7 @@ GLOSSARY = {
 
 NAV_GROUPS = [("", [("Home", "/"), ("Studies", "/studies"), ("Batches", "/batches"), ("Open a bundle", "/bundle")]),
               ("Run", [("Constrain a model", "/new/track1"), ("Signal best fits", "/new/track2"),
-                       ("Explain a signal", "/new/single")]),          # Native fit: withdrawn, 1.0.1 (JU1)
+                       ("Explain a signal", "/new/single")]),          # Native fit: withdrawn, 1.0.2 (JU1)
               ("Libraries", [("Model library", "/models"), ("Records", "/records")]),
               ("Add data", [("Add a limit", "/experiments"), ("Add a signal", "/new/anomaly")])]
 CONTENT = "max-w-6xl mx-auto w-full"

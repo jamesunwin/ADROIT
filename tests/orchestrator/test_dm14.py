@@ -142,6 +142,7 @@ def test_promotion_refuses_a_candidate_its_completions_would_not_reproduce(candi
     assert promote.completion_refusal(elastic) == "" and len(promote.models_for(None, elastic)) == 2
 
 
+@pytest.mark.needs("revised_xenon")
 def test_promotion_reports_built_and_dropped_class_members(tmp_path, monkeypatch):
     request = signal.SignalRequest(experiment=SI, null_modules=[], toys=200, leaders=1,
                                    candidates=[signal.Candidate(label=f"O1s@{m}", card_id="O1", isospin="s",
@@ -196,6 +197,7 @@ def test_the_builder_is_not_asked_for_an_inelastic_candidate(tmp_path, monkeypat
                         "own couplings")
 
 
+@pytest.mark.needs("revised_xenon")
 def test_promotion_studies_a_model_again_outside_the_earlier_mass_window(tmp_path, monkeypatch):
     """Minor (after R6): completions were de-duplicated by name across masses, so a far mass was never studied."""
     pool = {"O1s@10": signal.Candidate(label="O1s@10", card_id="O1", isospin="s", mass_gev=10.0),

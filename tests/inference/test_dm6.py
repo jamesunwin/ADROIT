@@ -87,6 +87,7 @@ def test_the_tournament_refuses_an_infinite_joint_evidence() -> None:
         dm_tournament.run([infinite])
 
 
+@pytest.mark.needs("revised_xenon")
 def test_the_forecast_separates_isospin_through_rates() -> None:
     p = DarkMatterParticle(mass_gev=100.0)
     s = (p, registry.resolve("O1", p, registry.isospin_values("O1", "s", 1e-5)))

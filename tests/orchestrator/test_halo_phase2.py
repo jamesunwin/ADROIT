@@ -132,7 +132,7 @@ def test_capture_the_galactic_searches_and_the_descriptions_take_the_benchmark(t
     from adroit.parameter_space import dd_channels
     state, _ = table_state
     factors = []
-    monkeypatch.setattr(dd_channels, "_single_kind_factor", lambda *a: factors.append(a[-1]) or 1.0)
+    monkeypatch.setattr(dd_channels, "_single_kind_factor", lambda *a: factors.append(a[4]) or 1.0)   # the velocities
     with halo_limits.using(state):
         assert halo_limits.capture_halo() == plus().sun
         rho = halo_limits.recorded_densities()

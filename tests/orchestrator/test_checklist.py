@@ -155,3 +155,33 @@ def test_an_item_compared_without_any_verdict_is_undecided_with_its_reasons() ->
     assert entries["colliders"].status is Status.undecided and entries["direct_detection"].status is Status.computed
     assert not entries["colliders"].planned
     assert "undecided (compared by the run, but no verdict anywhere" in viability.report(list(entries.values()))
+
+
+# --- R9-06 (the signal/DD audit): a fixed-coupling study's checklist shows what it computed ---------------------------
+
+def test_a_fixed_coupling_study_keeps_its_computed_physics_in_the_checklist() -> None:
+    """A completed wino study (fixed couplings, no coupling plane: ``track1`` is None; the audit's smoke study, saved as
+    ``tests/fixtures/wino_fixed_coupling.json.gz``): its thermal point at 3040 GeV (Ωh² = 0.12, excluded by γ-ray
+    lines), its Sommerfeld-enhanced abundance and its constraint comparisons had read "not yet computed" and "does
+    not apply". The report and the evidence bundle read the same entries (``result.viability``)."""
+    import gzip
+    from pathlib import Path
+
+    from adroit.orchestrator import checklist
+    from adroit.orchestrator.single_idea import SingleIdeaResult, report
+    path = Path(__file__).parents[1] / "fixtures" / "wino_fixed_coupling.json.gz"
+    study = SingleIdeaResult.model_validate_json(gzip.open(path).read())
+    assert study.track1 is None and study.thermal[0].omega_h2 == pytest.approx(0.12, rel=1e-4)
+    entries = {e.id: e for e in checklist.for_single_idea(study)}
+    assert entries["relic_abundance"].status.value == "computed" and "3040" in entries["relic_abundance"].detail
+    assert entries["sommerfeld_bound_states"].status.value == "computed"
+    assert "Sommerfeld" in entries["sommerfeld_bound_states"].detail
+    for item, name in (("indirect_detection", "γ-ray lines"), ("cmb_annihilation", "CMB (Planck)")):
+        assert entries[item].status.value == "computed" and name in entries[item].detail
+    assert entries["colliders"].status.value != "does not apply"
+    assert "evaluated masses" in entries["indirect_detection"].detail and "grid points" not in \
+        entries["indirect_detection"].detail                       # band masses are not a grid
+    saved = report(study)
+    assert "As saved with the study, not rebuilt" in saved          # the old stored checklist, said to be the old one
+    body = report(study.model_copy(update={"viability": list(entries.values())}))
+    assert "no visible annihilation channel" not in body and "| Relic abundance | applies, not yet computed" not in body

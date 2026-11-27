@@ -217,3 +217,18 @@ def test_discovery_requirements_reach_the_grid_view_and_the_table(saved) -> None
     assert grid.status == 'pending' and grid.reason.startswith('discovery: unprocessed monojet')
     assert any(c.group == 'pending' and c.constraint == 'discovery' for c in pts.explain(saved, 'grid:1').comparisons)
     assert any(r['point'] == 'grid:1' and r['observable'] == 'constraint discovery' for r in exports.table(saved))
+
+
+def test_an_unestablished_comparison_is_one_pending_card_with_its_ratio(saved) -> None:
+    """RD-05 (the third recheck): the point's status read pending, but its card for the same comparison had appeared
+    under both excluded (with no reason) and pending. A record of unknown version that no table places qualifies every
+    comparison, so direct detection here is one pending card, with the reason and its saved ratio."""
+    import json
+    data = json.loads(saved.read_text())
+    data["scan"]["points"][0]["records"] = {"a-record-of-unknown-version": ""}
+    saved.write_text(json.dumps(data))
+    found = pts.explain(saved, "grid:0")
+    cards = [c for c in found.comparisons if c.constraint == "direct detection"]
+    assert [c.group for c in cards] == ["pending"]
+    assert any("a-record-of-unknown-version" in r for r in cards[0].reasons)
+    assert found.row.status == "pending"

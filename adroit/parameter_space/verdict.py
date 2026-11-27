@@ -223,6 +223,17 @@ def theory_status(r: PointResult) -> tuple[list[str], list[str]]:
     return excluded, pending
 
 
+# a crossing's flags that inform rather than warn (1.0.1): its halo region's outcome, the equation of state's band where
+# every table agrees, and a metastable vacuum that outlives the universe (it passes). Every other flag is a warning
+# that the crossing's verdict may be unreliable (a record's edge, the generic route's limits, ...).
+INFORMATIONAL_FLAGS = ("halo: ", "the equation of state's band: ", "theory: the electroweak vacuum is metastable")
+
+
+def reliability_warnings(crossing) -> list[str]:
+    """The crossing's flags that warn its verdict may be unreliable (``INFORMATIONAL_FLAGS`` aside)."""
+    return [f for f in crossing.flags if not f.startswith(INFORMATIONAL_FLAGS)]
+
+
 def metastable_flag(r: PointResult) -> list[str]:
     """A flag for a declared vacuum that is metastable but outlives the universe (it passes)."""
     c = r.vacuum_certificate
@@ -247,6 +258,30 @@ def unfinite_reasons(bad: dict[str, float]) -> list[str]:
             "computed again" for k, v in bad.items()]
 
 
+def unestablished(r) -> dict[str, str]:
+    """A saved evaluation's comparisons that read a record whose version used is not known (``PointResult.records``:
+    "" where it changed while in use), each with its pending reason: they decide nothing, as a comparison that is not
+    a finite number decides nothing (the RA-01 recheck's RB-01). Which comparisons read which record is
+    ``constraints.record_constraints``; a record it cannot place leaves every comparison unestablished."""
+    from adroit.constraints.record_constraints import qualified
+    ids = sorted(rid for rid, v in (getattr(r, "records", None) or {}).items() if not v)
+    if not ids:
+        return {}
+    compared = set(r.excluded) | set(r.ratios) | set(r.chi2)
+    halo = getattr(r, "halo", None)                  # and every comparison only a halo sample holds (RD-04)
+    compared |= {k for s in (getattr(halo, "samples", None) or []) for k in s.outcomes}
+    blocked = qualified(ids)
+    names = compared if blocked is None else compared & blocked
+    return {n: f"{n}: reads {', '.join(ids)}, whose version used is not known; it decides nothing until computed "
+               "again" for n in sorted(names)}
+
+
+def established_exclusions(r) -> dict[str, bool | None]:
+    """``r.excluded`` with each comparison ``unestablished`` read as undecided (None): what a plot may shade."""
+    held = unestablished(r)
+    return {k: (None if k in held else v) for k, v in r.excluded.items()}
+
+
 def _combination(ratios: dict[str, float], chi2: dict[str, float], likelihood: LikelihoodSettings,
                  levels: dict | None, sided: dict | None, bad: dict[str, float]) -> tuple[float, list[str]]:
     """(r_comb, its exclusion or []) of the combination without ``bad``'s comparisons. Each limit's q is nonnegative,
@@ -266,15 +301,18 @@ def classify(cls, r: PointResult, likelihood: LikelihoodSettings | None = None) 
     not a finite number (``unfinite``) is pending, in either mode."""
     p = r.point
     bad = unfinite(r.ratios, r.chi2)
+    held = unestablished(r)              # read records of unknown version: they decide nothing either (RB-01)
     if likelihood is None:
-        excluded = [k for k, v in r.excluded.items() if v and k not in bad]
+        excluded = [k for k, v in r.excluded.items() if v and k not in bad and k not in held]
         r_comb = None
     else:
-        cuts = [k for k, v in r.excluded.items() if v and k not in r.ratios and k not in r.chi2]
+        cuts = [k for k, v in r.excluded.items() if v and k not in r.ratios and k not in r.chi2 and k not in held]
+        # the combination without the comparisons not established: the rest's q a lower bound where only ratios are
+        # left out, so its exclusion stands on established comparisons; nothing where a Δχ² is left out
         r_comb, by = _combination(r.ratios, r.chi2, likelihood, r.ratio_confidence_levels or None,
-                                  r.ratio_sidedness or None, bad)
+                                  r.ratio_sidedness or None, {**bad, **{k: None for k in held}})
         excluded = cuts + by
-    pending = unfinite_reasons(bad)
+    pending = unfinite_reasons(bad) + list(held.values())
     if r.model_pending is not None:                   # the engine's reasons, saved with the evaluation (F19-07)
         pending += r.model_pending
     elif hasattr(cls, "pending"):                     # a portal model names what applies but is not computed
@@ -314,9 +352,10 @@ def _sample_status(r: PointResult, s, base_excluded: list[str], base_pending: li
     halo = set(halo_region.HALO_CONSTRAINTS)
     excluded = list(base_excluded)
     unsaved = []
+    held = unestablished(r)              # a record of unknown version decides nothing at any halo (RC-01)
     bad = unfinite({k: o.ratio for k, o in s.outcomes.items() if o.ratio is not None}, {})
     if likelihood is None:
-        excluded += [k for k, o in s.outcomes.items() if o.excluded and k not in bad]
+        excluded += [k for k, o in s.outcomes.items() if o.excluded and k not in bad and k not in held]
     else:
         levels = dict(r.ratio_confidence_levels) if r.ratio_confidence_levels else None   # None: a result saved
         sided = dict(r.ratio_sidedness) if r.ratio_sidedness else None                    # before they were
@@ -334,10 +373,14 @@ def _sample_status(r: PointResult, s, base_excluded: list[str], base_pending: li
                     sided[k] = o.sidedness or "unknown"
             ratios[k] = o.ratio
         excluded += [k for k, o in s.outcomes.items()
-                     if o.excluded and (o.ratio is None or not o.exact or k in unsaved) and k not in bad]
+                     if o.excluded and (o.ratio is None or not o.exact or k in unsaved) and k not in bad
+                     and k not in held]
         bad = bad | unfinite(ratios, r.chi2)
-        excluded += _combination(ratios, r.chi2, likelihood, levels, sided, bad)[1]
+        # the combination without the comparisons not established, as at the centre: a lower bound where only ratios
+        # are left out, nothing where a Δχ² is
+        excluded += _combination(ratios, r.chi2, likelihood, levels, sided, {**bad, **{k: None for k in held}})[1]
     pending = base_pending + [x for x in s.pending if x not in base_pending]
+    pending += [x for x in held.values() if x not in pending]
     pending += [x for x in unfinite_reasons(bad) if x not in pending]
     pending += [f"the combined likelihood at v₀ = {s.v0_km_s:.0f}, v_esc = {s.v_esc_km_s:.0f} km/s leaves out {k}: "
                 "its statistical construction there was not saved (an older result); re-run the point" for k in unsaved]

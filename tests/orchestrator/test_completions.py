@@ -161,6 +161,7 @@ def test_an_idea_run_says_which_model_files_are_computed_and_writes_completions(
     assert "computed by Track 1 as it stands" in "\n".join(runs.write_models(tmp_path / "s", singlet))
 
 
+@pytest.mark.needs("poppler")
 def test_a_paper_step_offers_the_completions(tmp_path) -> None:
     from adroit.library.personal import Catalog
     from adroit.orchestrator.model_intake import Intake

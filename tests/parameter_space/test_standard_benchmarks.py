@@ -236,3 +236,42 @@ def test_a_model_whose_engine_computes_no_recoil_is_not_offered_for_a_signal() -
         assert entry.typed.no_recoil and STANDARD + entry_id not in standard_options("track1")
         assert entry.title in standard_unsupported()
     assert library.entry("inelastic_dark_photon").title in standard_unsupported()
+
+
+# --- R9-03 and R9-04 (the signal/DD audit): a supplied physical value is followed or refused, and a refusal follows
+# the model's physics, not its name ---------------------------------------------------------------------------------
+
+@pytest.mark.parametrize("name", ["inelastic_dark_photon", "my_inelastic_dark_photon", "a copy"])
+def test_the_inelastic_dark_photon_is_refused_whatever_its_name(name) -> None:
+    """Renamed, it had been computed as an elastic dark photon (0.021 accepted CDMS II Si events) although its
+    benchmark declares a 0.5 GeV splitting."""
+    spec = library.entry("inelastic_dark_photon").benchmark_spec()
+    edited = _with(spec.model_copy(update={"name": name}), **{c.name: c.value * 1.1 for c in spec.couplings
+                                                              if c.value})
+    for model in (spec.model_copy(update={"name": name}), edited):
+        with pytest.raises(Unsupported, match="inelastic"):
+            classify(model)
+
+
+def test_a_held_mass_or_vacuum_is_refused_never_replaced() -> None:
+    spec = library.entry("z_portal_axial").benchmark_spec()
+    heavy_z = spec.model_copy(update={"fields": [f.model_copy(update={"mass_gev": 1000.0}) if f.name == "Z" else f
+                                                 for f in spec.fields]})
+    with pytest.raises(Unsupported, match="holds Z's mass"):
+        classify(heavy_z)
+    spec = library.entry("inert_doublet").benchmark_spec()
+    broken = spec.model_copy(update={"fields": [f.model_copy(update={"vev_gev": 10.0})
+                                                if f.role.value == "dark_matter" else f for f in spec.fields]})
+    with pytest.raises(Unsupported, match="vacuum"):
+        classify(broken)
+
+
+@pytest.mark.parametrize("entry_id", ["z_portal_axial", "inert_doublet", "b_minus_l"])
+def test_the_followed_masses_still_move_the_point(entry_id) -> None:
+    """The dark matter's and the first mediator's masses are followed, as before."""
+    spec = library.entry(entry_id).benchmark_spec()
+    dm = spec.dark_matter
+    moved = spec.model_copy(update={"fields": [f.model_copy(update={"mass_gev": f.mass_gev * 1.2})
+                                               if f.name == dm.name else f for f in spec.fields]})
+    _, p, _ = classify(moved)
+    assert p.m_chi == pytest.approx(dm.mass_gev * 1.2)

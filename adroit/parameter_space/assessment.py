@@ -127,6 +127,9 @@ REGION = {"excluded throughout the tested halo region": "excluded_throughout",
           "halo-sensitive": "halo_sensitive", "halo coverage incomplete": "incomplete",
           "pending throughout the tested halo region": "pending_throughout"}
 THERMAL_CHECKS = ("root", "thermal_history", "eos_band")
+# the thermal checks a certificate must hold for "satisfied" (the signal/DD audit's R9-01: an empty list had read as
+# satisfied); the band check is judged where present (certificates before the equation-of-state policy have none)
+REQUIRED_THERMAL = ("root", "thermal_history")
 QUALIFYING = ("records", "finite_comparisons", "discovery")      # a decisive experiment's own prerequisites
 CENTRE = "the region's centre (the Standard Halo Model at v₀ 233, v_esc 528 km/s, ρ₀ 0.4 GeV cm⁻³)"
 
@@ -138,6 +141,9 @@ def nominal_exclusions(c) -> list[str]:
     saved = getattr(c, "nominal_excluded_by", None)
     if saved:
         return list(saved)
+    certificate = getattr(c, "certificate", None)      # a gated exclusion's deciders, kept by its certificate (RC-02)
+    if certificate is not None and certificate.computed_status == "excluded" and certificate.computed_excluded_by:
+        return list(certificate.computed_excluded_by)
     evaluation = getattr(c, "evaluation", None)
     found = [k for k, v in ((evaluation.excluded if evaluation is not None else {}) or {}).items() if v]
     return found or list(getattr(c, "excluded_by", []) or [])
@@ -157,10 +163,46 @@ def from_crossing(c, signal: SignalAssessment | None = None) -> PointAssessment:
     qualifications = [x.reason or x.name for name, x in checks.items() if name in QUALIFYING and x.state in
                       ("failed", "unknown")]
     excluded = reference == "excluded"
+    # An open prerequisite of the experimental comparison (an unknown or failed record version, a non-finite
+    # comparison, a discovery to resolve) leaves "not excluded" unestablished: undecided, its reason kept (R9-01). An
+    # exclusion stands only on a deciding comparison whose own records are established (the repairs audit's RA-01): a
+    # record of unknown version qualifies the comparisons that read it (``record_constraints``), so an exclusion
+    # decided only by such comparisons is undecided, while one with an independently supported decider stays,
+    # qualified (``experimental_words``).
+    by = nominal_exclusions(c) if excluded else []
+    open_records = _unknown_records(certificate, checks) if excluded else []
+    if excluded and open_records:          # an empty decider list never bypasses an open record (RC-02)
+        from adroit.constraints.record_constraints import qualified
+        from adroit.parameter_space.verdict import unfinite
+        blocked = qualified(open_records)
+        evaluation = getattr(c, "evaluation", None)
+
+        def held(decider: str) -> bool:
+            if blocked is None:
+                return True
+            if decider.startswith("the combined likelihood"):
+                # it rests on the comparisons it combined: every saved one but those it names as left out ("…
+                # without X"; a non-finite one is left out always). It is held if any of those reads an open
+                # record (RB-01, RC-02): an old combination that included one; a new one that left it out stands.
+                if evaluation is None:
+                    return True
+                left_out = decider.split(" without ", 1)[1] if " without " in decider else ""
+                combined = (set(evaluation.ratios) | set(evaluation.chi2)) - set(
+                    unfinite(evaluation.ratios, evaluation.chi2))
+                return any(k in blocked and k not in left_out for k in combined)
+            return decider in blocked
+        standing = [b for b in by if not held(b)]
+        if not standing:
+            excluded = False
+            qualifications = [f"no deciding comparison stands on established records: {', '.join(by) or 'none was saved'} "
+                              f"read {', '.join(sorted(open_records))}, whose version used is not known",
+                              *qualifications]
+        by = standing
+    allowed = reference == "viable" and not qualifications
     experimental = ExperimentalAssessment(
-        state="excluded" if excluded else "not_excluded" if reference == "viable" else "undecided",
+        state="excluded" if excluded else "not_excluded" if allowed else "undecided",
         halo=CENTRE if over_region else region or "the halo the point was judged at",
-        excluded_by=nominal_exclusions(c) if excluded else [], qualifications=qualifications)
+        excluded_by=by if excluded else [], qualifications=qualifications)
     regional = RegionalAssessment(state=REGION.get(region, "one_halo"), detail=region)
     if getattr(c, "kind", "") not in ("contour", "point") or certificate is None:
         thermal = ThermalAssessment(state="not_applicable" if getattr(c, "kind", "") not in ("contour", "point")
@@ -170,9 +212,19 @@ def from_crossing(c, signal: SignalAssessment | None = None) -> PointAssessment:
         failed = [x.reason or x.name for x in own if x.state == "failed"]
         unknown = [x.reason or x.name for x in own if x.state == "unknown" and not (x.name == "eos_band" and
                                                                                    _band_waits_on_others(x))]
+        unknown += [f"{n}: not recorded in the point's certificate" for n in REQUIRED_THERMAL if n not in checks]
         thermal = ThermalAssessment(state="failed" if failed else "unknown" if unknown else "satisfied",
                                     reasons=failed or unknown)
     return PointAssessment(experimental=experimental, regional=regional, thermal=thermal, signal=signal)
+
+
+def _unknown_records(certificate, checks: dict) -> list[str]:
+    """The records whose version the point's calculation used is not known, where its records check says so (RA-01)."""
+    check = checks.get("records")
+    if certificate is None or check is None or check.state not in ("failed", "unknown"):
+        return []
+    found = [r for r, v in (certificate.bound.records or {}).items() if not v]
+    return found or ["(a record the certificate does not name)"]
 
 
 def _band_waits_on_others(check) -> bool:
@@ -191,13 +243,14 @@ def experimental_words(a: PointAssessment) -> str:
     if e.state != "excluded":
         return ""
     by = ", ".join(e.excluded_by) or "its constraints"
+    note = f" (open: {'; '.join(e.qualifications)})" if e.qualifications else ""
     if r.state == "excluded_throughout":
-        return f"excluded by {by} throughout the tested halo region"
+        return f"excluded by {by} throughout the tested halo region{note}"
     if r.state == "one_halo":
-        return f"excluded by {by}"
+        return f"excluded by {by}{note}"
     tail = {"halo_sensitive": "halo-sensitive across the tested region",
             "incomplete": "halo robustness incomplete"}.get(r.state, f"over the region: {r.detail}")
-    return f"excluded at the central SHM by {by}; {tail}"
+    return f"excluded at the central SHM by {by}; {tail}{note}"
 
 
 JOINT = {
@@ -236,7 +289,8 @@ def joint(a: PointAssessment, same_halo: bool) -> tuple[str, str]:
     if a.experimental.state == "excluded":
         return "excluded", experimental_words(a)
     if a.experimental.state == "undecided":
-        return "unresolved_experiment", JOINT["unresolved_experiment"]
+        open_ = a.experimental.qualifications
+        return "unresolved_experiment", JOINT["unresolved_experiment"] + (f" ({'; '.join(open_)})" if open_ else "")
     if a.regional.state == "one_halo":
         if same_halo:
             return "explains_one_halo", JOINT["explains_one_halo"]

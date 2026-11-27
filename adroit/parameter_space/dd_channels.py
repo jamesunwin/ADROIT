@@ -16,7 +16,10 @@ with its own validated 95% limits (``limits.per_module95``):
   signs. A module validated for one kind only (PICO's proton limit; CRESST-III's and CDMSlite's neutron limits)
   has its ratio scaled by its own rate ratio F = rate(c₄ᵖ, c₄ⁿ)/rate(the published coupling alone), computed
   with its target's nuclear responses, halo and nuclear model at the point's mass (2026-10-12, the owner's
-  choice): exact within the module's nuclear model, signs included. For fluorine F stays within a few percent;
+  choice): signs included, a ratio of recoil rates at the nucleus before the detector's acceptance. It is not the
+  detector-level ratio (the independent audit's V1-03: at 250 GeV in xenon, 35.87 against 32.83 accepted for equal
+  couplings, 9%; 16.87 against 14.70 for opposite ones, 15%), so near a limit it decides only to that accuracy; a
+  margin or an accepted-count factor is deferred to 1.0.2. For fluorine F stays within a few percent;
   for germanium, whose other-nucleon spin is small but not negligible, it can be much larger.
 
 **The outcome.** The point is excluded if any channel exceeds its limit. If none does, and a non-zero channel
@@ -42,6 +45,8 @@ from __future__ import annotations
 
 import math
 from contextvars import ContextVar
+
+from pydantic import Field
 
 from adroit.core.state import StrictModel
 from adroit.parameter_space import limit_tables, limits
@@ -124,6 +129,9 @@ class ChannelOutcome(StrictModel):
 
     kind: str
     sigma_cm2: float                           # the compared σ (SI with c₁ᵖ ≠ c₁ⁿ: in the deciding module)
+    # SD with both nucleons coupling, against a module validated for this kind only: the module's rate ratio F
+    # (``single_kind_factor``) the ratio includes; ``sigma_cm2`` stays the model's own σ, never σ × F (1.0.1)
+    rate_factor: float | None = Field(default=None, exclude_if=lambda v: v is None)
     limit: limits.StatisticalLimit | None = None
     ratio: float | None = None
     ratio_band: tuple[float, float] | None = None   # [r(1 − δ)², r(1 + δ)²] with an amplitude uncertainty
@@ -202,16 +210,25 @@ def single_kind_factor(module: str, kind: str, mass: float, other_over_mine: flo
             then has no limit from the module, with the reason (the audit loop's AL1-13, 2026-11-14: taken as no
             factor, the ratio had been compared without it, and no reason given).
     """
+    from adroit.core.dm_state import CrossSectionKind
+    from adroit.experiments import registry as modules
     from adroit.parameter_space import halo_limits
     state = halo_limits.active()
+    m = modules.load_module(module)
+    k = CrossSectionKind(kind)
+    # the module's limit's own nuclear model and target, in the cache key too (1.0.1: the xenon searches' correction
+    # had used the conventions' shell model against limits computed with Klos et al.'s, about 25 times too large)
     return _single_kind_factor(module, kind, mass, other_over_mine,
-                               None if state is None else halo_limits.velocities(state))
+                               None if state is None else halo_limits.velocities(state),
+                               limits.limit_model(m, k).value, m.published_target(k).model_dump_json())
 
 
 @limit_tables.held(4096, lambda module, *_: limit_tables.inputs(module))      # by the module's inputs (DY-01)
 def _single_kind_factor(module: str, kind: str, mass: float, other_over_mine: float,
-                        velocities: tuple | None) -> float | None:
-    from adroit.core.dm_state import DarkMatterParticle
+                        velocities: tuple | None, model: str, target: str) -> float | None:
+    """``single_kind_factor`` with the limit's nuclear model and target (``ExperimentModule.limit_model``,
+    ``published_target``) named, so a cached factor never outlives a change of either."""
+    from adroit.core.dm_state import DarkMatterParticle, NuclearModel, Target
     from adroit.experiments import registry as modules
     from adroit.library.interactions import registry
     from adroit.parameter_space import halo_limits
@@ -219,10 +236,11 @@ def _single_kind_factor(module: str, kind: str, mass: float, other_over_mine: fl
     conv = m.conventions()
     halo = conv.halo if velocities is None else halo_limits.halo_at(velocities)
     particle = DarkMatterParticle(mass_gev=mass)
+    nuclear, isotopes = NuclearModel(model), Target.model_validate_json(target)
 
     def events(c_p: float, c_n: float) -> float:
         interaction = registry.resolve("O4", particle, {"c_p": c_p, "c_n": c_n})
-        return m.expected_signal(particle, interaction, halo, conv.spin_dependent_model).total_events
+        return m.expected_signal(particle, interaction, halo, nuclear, isotopes).total_events
     mine, other = (1.0, other_over_mine)
     both = events(mine, other) if kind == "SD-proton" else events(other, mine)
     alone = events(1.0, 0.0) if kind == "SD-proton" else events(0.0, 1.0)
@@ -291,14 +309,19 @@ def _decisive_row(kind: str, rows: list[tuple], omitted: tuple, how: str, band_n
                   unreliable: str) -> ChannelOutcome:
     """The deciding module of per-module (low, high) ratios: the one whose low end is largest if any exceeds 1,
     else the one whose high end is largest; a band where low and high differ."""
-    low, high, sigma, module, value = (max(rows, key=lambda r: r[0]) if any(r[0] > 1.0 for r in rows)
-                                       else max(rows, key=lambda r: r[1]))
+    low, high, sigma, module, value, *rest = (max(rows, key=lambda r: r[0]) if any(r[0] > 1.0 for r in rows)
+                                              else max(rows, key=lambda r: r[1]))
+    factor = rest[0] if rest else None
+    applied = (f"; the ratio includes the module's rate ratio F = {factor:.4g} for the other nucleon's coupling "
+               "(σ is the model's own)") if factor is not None else ""
     limit = limits.StatisticalLimit(value=value, confidence_level=0.95, source=module, omitted=dict(omitted),
                                     sidedness=limits.sidedness(module),
-                                    construction=f"module procedure at CL=0.95, {how} ({limits.sidedness(module)})")
+                                    construction=f"module procedure at CL=0.95, {how} ({limits.sidedness(module)})"
+                                                 + applied)
     banded = not math.isclose(low, high, rel_tol=1e-12)
     return ChannelOutcome(kind=kind, sigma_cm2=sigma, limit=limit, ratio=high, unreliable=unreliable,
-                          ratio_band=(low, high) if banded else None, uncertainty_note=band_note if banded else "")
+                          ratio_band=(low, high) if banded else None, uncertainty_note=band_note if banded else "",
+                          rate_factor=factor)
 
 
 def _sd_with_interference(channel: Channel, other: Channel, mass: float) -> ChannelOutcome | None:
@@ -336,7 +359,7 @@ def _sd_with_interference(channel: Channel, other: Channel, mass: float) -> Chan
         if factor is None:
             rows.append((r, r, channel.sigma_cm2, module, value))
         else:
-            rows.append((r * factor, r * factor, channel.sigma_cm2 * factor, module, value))
+            rows.append((r * factor, r * factor, channel.sigma_cm2, module, value, factor))
         _check(_clear(rows[-1][0] * down, eta_r) and _clear(rows[-1][1] * up, eta_r), f"{channel.kind} ({module})")
     if not rows and mine:              # every validated module set aside (AL1-13): no limit, with the reasons
         return ChannelOutcome(kind=channel.kind, sigma_cm2=channel.sigma_cm2, unreliable=channel.unreliable,

@@ -10,7 +10,15 @@ that checks a refusal or a pending outcome when a tool is absent is not marked: 
 """
 
 import functools
+import os
 from collections.abc import Callable
+
+# The tests read the command line's plain text: Typer forces a coloured, styled terminal when GITHUB_ACTIONS (or
+# FORCE_COLOR, PY_COLORS) is set, and its ANSI codes then split the words and option names the tests look for (the CI
+# diagnosis of 2026-11-25: 58 of 63 failures on the Intel runner). Typer's own switch turns that off; it is read when
+# Typer is first imported, so it is set here, before anything imports it, and subprocesses inherit it. The command
+# line itself, outside the tests, is unchanged.
+os.environ.setdefault("_TYPER_FORCE_DISABLE_TERMINAL", "1")
 from importlib import import_module
 from pathlib import Path
 
@@ -123,6 +131,8 @@ NEEDS: dict[str, tuple[str, Callable[[], bool]]] = {
     "directdm": ("DirectDM and its environment (.venv-directdm)", _true("adroit.library.interactions.quark_level",
                                                                          "available")),
     "revised_xenon": ("Haxton & McElvain's revised xenon density matrices (Elastic)", _revised_xenon),
+    "poppler": ("Poppler's pdftoppm, which renders PDF pages for preview (an external program; pypdf has none)",
+                lambda: __import__("shutil").which("pdftoppm") is not None),
     "eos": ("Saikawa & Shirai's equation-of-state tables (fetched by setup, not shipped: every thermal-relic verdict's "
             "band reads them)", _fetched("adroit.constraints.relic", "EOS_ITEM")),
 }

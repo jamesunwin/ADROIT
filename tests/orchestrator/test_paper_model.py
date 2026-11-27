@@ -9,6 +9,7 @@ from adroit.orchestrator.model_approval import model_identity
 from adroit.core.model_preferences import StyleDeclaration
 from tests.experimental_fixtures import paper
 
+@pytest.mark.needs("poppler")
 def test_selected_pdf_pages_equation_original_and_model_revision_retained(tmp_path):
     service=Intake(Catalog(tmp_path/'models'))
     session=service.start(.5)
@@ -39,6 +40,7 @@ def test_selected_pdf_pages_equation_original_and_model_revision_retained(tmp_pa
     with pytest.raises(ValueError,match='source missing or modified'):
         service.catalog.load(r.reference)
 
+@pytest.mark.needs("poppler")
 def test_missing_equation_pages_and_credentials_blocked(tmp_path):
     service=Intake(Catalog(tmp_path/'models'))
     session=service.start(.5)
@@ -55,6 +57,7 @@ def test_missing_equation_pages_and_credentials_blocked(tmp_path):
     with pytest.raises(ValueError):
         prepare(service,arxiv='https://localhost/secret',pages=[1],equation='1')
 
+@pytest.mark.needs("poppler")
 def test_bounded_arxiv_retrieval_pins_actual_bytes_and_version(tmp_path,monkeypatch):
     service=Intake(Catalog(tmp_path/'models'))
     pdf=paper(tmp_path/'source.pdf')

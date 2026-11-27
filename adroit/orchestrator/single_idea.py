@@ -987,6 +987,8 @@ def _checked(request: SingleIdeaRequest) -> tuple[SingleIdeaRequest, Profile | N
         from adroit.library.personal import Catalog
         Catalog().verify_calculation(request.catalog_reference,request.spec,'track2',request.derivation)
     module = modules.load_module(request.experiment)
+    from adroit.experiments.prescription import require_module
+    require_module(module)          # its nuclear inputs installed, or refused now (V1-01)
     verified = getattr(module, "verified", True) is not False
     if not verified and not request.unverified_records and not getattr(module,'interpretation_confirmed',False):
         raise ValueError(f"the anomaly record {request.experiment!r} has not been verified by a person")
@@ -1138,6 +1140,36 @@ def _draw_plane(result: "SingleIdeaResult", folder: Path) -> None:
                     **plane_overlays(result))
 
 
+def current_plane(result: "SingleIdeaResult"):
+    """(the saved plane as read today, the indices of crossings whose reading changed): each saved signal assessment
+    (a calculation) kept, the stored points' experimental, regional and thermal readings and the joint row taken
+    again from them with today's reader (``assessment.from_crossing``, ``joint``), never from the copies saved beside
+    them (the RB-01 recheck: a saved plane had kept "excluded" where its record is not established). The result's
+    bytes are not changed; a changed reading is said where it is shown (``signal_plane_section``)."""
+    from adroit.parameter_space import assessment as A
+    plane, t1 = getattr(result, "signal_plane", None), getattr(result, "track1", None)
+    if plane is None or t1 is None or t1.verdict is None or len(plane.crossings) != len(t1.verdict.crossings):
+        return plane, []
+    now = [A.from_crossing(c, saved.signal) for c, saved in zip(t1.verdict.crossings, plane.crossings)]
+    same, constraints = plane.same_halo, plane.constraints_halo
+    if same and not plane.assignment and constraints.startswith("each search's published halo"):
+        # the common halo established again from the saved points' own evidence, never carried over as a saved flag
+        # (the recheck's RC-04); a signal search whose module cannot be read establishes nothing
+        try:
+            from adroit.experiments import registry
+            differ = _published_halos_differ(registry.load_module(result.request.experiment), t1)
+        except Exception as error:  # noqa: BLE001 - not established, said
+            differ = [f"the signal search's own halo ({type(error).__name__})"]
+        if differ:
+            same = False
+            constraints = (f"each search's published halo, which differ or are not established: {', '.join(differ)}")
+    joint = [A.joint(a, same)[0] for a in now]
+    changed = [i for i, (old, new) in enumerate(zip(plane.joint, joint)) if old != new
+               or plane.crossings[i].experimental != now[i].experimental]
+    return plane.model_copy(update={"crossings": now, "joint": joint, "same_halo": same,
+                                    "constraints_halo": constraints}), changed
+
+
 def plane_overlays(result: "SingleIdeaResult") -> dict:
     """What Explain a signal draws on its plane beyond the constraints, from the stored result only (the study's own
     figure and every export read this one function): the fitted band (its fixed-mass 68% physical-fit intervals) and,
@@ -1147,7 +1179,7 @@ def plane_overlays(result: "SingleIdeaResult") -> dict:
     # a fit whose 68% region is disconnected keeps every piece (the plan's section 2), never one span across a gap
     pieces = [(b.m_chi, r.low, r.high) for b in result.band if b.point and _eligible(b) and b.physical_fit
               and len(b.physical_fit.regions) > 1 for r in b.physical_fit.regions]
-    plane = result.signal_plane
+    plane, _ = current_plane(result)        # the stored points read today, the saved signal assessments kept (RB-01)
     return {"band": band, "band_pieces": pieces, "signal": [g.state for g in plane.grid] if plane else None,
             "assessments": plane.crossings if plane else None, "joint": plane.joint if plane else None,
             "signal_label": f"meets the signal criterion ({plane.halo})" if plane else ""}
@@ -1177,7 +1209,11 @@ def signal_plane(request: SingleIdeaRequest, cls: ModelClass, module: Experiment
         where, constraints, same = "the search's published halo", "the tested halo region", False
     else:
         where = constraints = "each search's published halo"
-        same = True
+        differ = _published_halos_differ(module, t1)
+        same = not differ
+        if differ:                  # the word "published" is not one halo (the signal/DD audit's R9-05)
+            constraints = (f"each search's published halo, which differ: {', '.join(differ)} "
+                           f"{'uses' if len(differ) == 1 else 'use'} another than {request.experiment}")
     assignment = ""
     if request.spec.relic_fraction != 1:
         same = False
@@ -1192,6 +1228,46 @@ def signal_plane(request: SingleIdeaRequest, cls: ModelClass, module: Experiment
     return SignalPlane(experiment=request.experiment, halo=where, constraints_halo=constraints, same_halo=same,
                        assignment=assignment, null_log_l=null, grid=grid, crossings=crossings,
                        joint=[A.joint(a, same)[0] for a in crossings])
+
+
+def _published_halos_differ(module, t1) -> list[str]:
+    """The halo-dependent comparisons of the plane's points whose halo is not the signal search's (R9-05, and the
+    repairs audit's RA-04: only direct detection's had been compared). Every constraint in
+    ``halo_region.HALO_CONSTRAINTS`` that a point compared counts: direct detection by each deciding limit's module
+    (its ``conventions().halo``); capture in the Sun by the default halo it is computed in under the published halos;
+    the γ-ray line and antiproton searches by their own published Galactic profiles, which are not the signal's local
+    halo and so never established the same. A point saved without its comparisons establishes nothing, so it is
+    named too. Halos are compared physically (``exclusion.same_halo``: every field but the label)."""
+    from adroit.core.dm_state import HaloModel
+    from adroit.experiments import registry
+    from adroit.orchestrator.exclusion import same_halo
+    from adroit.parameter_space.halo_region import HALO_CONSTRAINTS
+    mine = module.conventions().halo
+    differ: set[str] = set()
+    sources: set[str] = set()
+    for c in t1.verdict.crossings:
+        evaluation = getattr(c, "evaluation", None)
+        if evaluation is None:
+            differ.add("a point saved without its comparisons")
+            continue
+        compared = {name for name in (getattr(evaluation, "excluded", None) or {}) if name in HALO_CONSTRAINTS}
+        mine_sources = {ch.limit.source for ch in getattr(evaluation, "dd_channels", None) or []
+                        if ch.limit is not None and ch.limit.source}
+        if "direct detection" in compared and not mine_sources:
+            differ.add("direct detection (its limits' sources were not saved)")    # unknown, not the same (RB-03)
+        sources |= mine_sources
+        if "capture in the Sun (IceCube)" in compared and not same_halo(HaloModel(), mine):
+            differ.add("capture in the Sun (IceCube)")
+        differ |= {name for name in compared if name in ("γ-ray lines (Fermi-LAT, H.E.S.S.)", "antiprotons (AMS-02)")}
+    for name in sorted(sources):
+        try:
+            theirs = registry.load_module(name).conventions().halo
+        except (KeyError, ValueError, RuntimeError, OSError):
+            differ.add(name)                # not established to be the same: never claimed so
+            continue
+        if not same_halo(theirs, mine):
+            differ.add(name)
+    return sorted(differ)
 
 
 def _with_plane(level: str, text: str, plane: SignalPlane | None) -> tuple[str, str]:
@@ -1400,7 +1476,7 @@ def signal_plane_section(result: SingleIdeaResult) -> list[str]:
     the criterion and the halo it was assessed at, and each thermal crossing's signal, constraint and joint readings.
     A result written before it says that its plane is a constraint plane only."""
     from adroit.parameter_space.assessment import JOINT, experimental_words
-    plane = result.signal_plane
+    plane, changed = current_plane(result)
     if plane is None:
         return ["This result was written before the signal requirement was imposed on its plane: the plane below is "
                 "a constraint plane only, and none of its points is shown to explain the signal.", ""]
@@ -1413,7 +1489,13 @@ def signal_plane_section(result: SingleIdeaResult) -> list[str]:
                 not plane.assignment else "")
              + (f" Density assignment: {plane.assignment}." if plane.assignment else ""),
              "The magenta band is the fit's fixed-mass 68% physical-fit intervals (not a joint region across mass "
-             "and coupling); the hatched region is where the physical prediction meets the criterion.", ""]
+             "and coupling), and the thermal solutions are coloured by whether they lie inside it at their mass; "
+             "shading and hatching mark experimental exclusions, each named in the figure's legend (the signal "
+             "criterion's region is drawn only where asked for).", ""]
+    if changed:
+        lines += [f"Read again with the current reader: {len(changed)} thermal crossing(s) read differently from the "
+                  "readings saved with the study (an experimental input not established, for example); the saved "
+                  "signal assessments are kept, and the result itself is unchanged.", ""]
     if not plane.crossings:
         return lines
     x, y = t1.scan.request.x.parameter, t1.scan.request.y.parameter
@@ -1503,8 +1585,13 @@ def _checklist(result: SingleIdeaResult) -> str:
     from adroit.constraints import viability
     from adroit.orchestrator import checklist
     entries = result.viability or checklist.for_single_idea(result)
-    return viability.report(entries).replace("## Viability checklist (thermal freeze-out)",
+    text = viability.report(entries).replace("## Viability checklist (thermal freeze-out)",
                                              "## 4. Viability checklist (thermal freeze-out)", 1)
+    if result.viability:            # the checklist as the study saved it, not rebuilt with today's code (R9-06)
+        text = text.replace("## 4. Viability checklist (thermal freeze-out)",
+                            "## 4. Viability checklist (thermal freeze-out)\n\nAs saved with the study, not rebuilt "
+                            "with the current code.", 1)
+    return text
 
 
 def _native_report(result: JointResult) -> list[str]:

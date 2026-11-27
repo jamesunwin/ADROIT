@@ -1,5 +1,5 @@
 """The plan's three mutation controls (the owner's plan of 2026-11-24, section 5), headless (the owner, 2026-11-24: the
-real-browser versions deferred to 1.0.1). Each invariant passes on the code as built (its baseline) and fails, at its
+real-browser versions deferred to 1.0.2). Each invariant passes on the code as built (its baseline) and fails, at its
 named invariant, with one defect restored in the production code:
 
 (a) a fitted amplitude substituted for the physical count;

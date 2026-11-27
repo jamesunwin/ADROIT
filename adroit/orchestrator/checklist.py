@@ -137,7 +137,7 @@ def _reasons(name: str, texts: list[str], limit: int = 2) -> str:
             ) if found else ""
 
 
-def scan_evidence(scan, crossings: list | None = None, notes: list[str] | None = None
+def scan_evidence(scan, crossings: list | None = None, notes: list[str] | None = None, noun: str = "grid points"
                   ) -> tuple[dict[str, list[str]], list[str], set[str]]:
     """({item: lines}, names without an item, items with a verdict somewhere): each constraint's verdicts over the
     grid's points and on the thermal contour's certified roots; an item whose constraints decided nothing anywhere
@@ -159,7 +159,7 @@ def scan_evidence(scan, crossings: list | None = None, notes: list[str] | None =
         some = any(v is not None for v in [*values, *roots])
         decided |= {item} if some else set()
         texts = [t for p in points for t in p.pending] + list(notes or [])
-        evidence.setdefault(item, []).append(f"{name}: {_verdicts(values)} grid points{_contour(name, crossings)}"
+        evidence.setdefault(item, []).append(f"{name}: {_verdicts(values)} {noun}{_contour(name, crossings)}"
                                              + ("" if some else _reasons(name, texts)))
     return evidence, sorted(unmapped), decided
 
@@ -294,7 +294,7 @@ def for_track1(result) -> list[Entry]:
 def for_single_idea(result) -> list[Entry]:
     """The checklist of a single-idea result: its Track 1 study's, with the signal fit and the null experiments as
     direct-detection evidence."""
-    entries = for_track1(result.track1) if result.track1 is not None else _base(result.request.spec)
+    entries = for_track1(result.track1) if result.track1 is not None else _fixed(result)
     r = result.request
     fit = (f"the fit to {r.experiment} at {len(r.masses_gev)} masses: {result.level or 'no level'}"
            + (f", global Z = {result.global_z:.2f}" if result.global_method else ""))
@@ -304,6 +304,48 @@ def for_single_idea(result) -> list[Entry]:
     return [e.model_copy(update={"status": Status.computed, "planned": "", "detail": f"{fit}; {e.detail}"
                                  if e.status is Status.computed else fit}) if e.id == "direct_detection" else e
             for e in entries]
+
+
+def _fixed(result) -> list[Entry]:
+    """The checklist of a single-idea study with no coupling plane (fixed couplings: the electroweak multiplets), from
+    what it saved: its band's and thermal points' relic densities and constraint comparisons, their certificates, and
+    its engine's relic physics (the signal/DD audit's R9-06: it had read "not yet computed" and "does not apply" beside
+    the calculations). Nothing is computed here."""
+    from types import SimpleNamespace
+    entries = _base(result.request.spec)
+    points = [b for b in [*result.band, *result.thermal] if b.evaluation is not None]
+    if not points:
+        return entries
+    thermal = [b for b in result.thermal if b.evaluation is not None]
+    evidence, unmapped, decided = scan_evidence(SimpleNamespace(points=[b.evaluation for b in points]), thermal, [],
+                                                noun="evaluated masses (band and thermal points)")
+    relic = [f"Ωh² computed at {len(points)} mass(es): " + ", ".join(
+        f"{b.m_chi:.4g} GeV: {b.omega_h2:.3g}" for b in points if b.omega_h2 is not None)]
+    if thermal:
+        relic.append("thermal point(s): " + ", ".join(f"{b.m_chi:.6g} GeV ({b.status or 'unclassified'})"
+                                                     for b in thermal))
+    evidence.setdefault("relic_abundance", []).extend(relic)
+    try:
+        from adroit.parameter_space.classify import classify
+        engine, _, _ = classify(result.request.spec)
+        physics = relic_physics(engine, points[0].point or points[0].evaluation.point)
+    except Exception:  # noqa: BLE001 - a description, never a verdict
+        physics = {}
+    evidence.setdefault("coannihilation_resonance_threshold", []).extend(
+        physics[k] for k in ("resonances", "coannihilation") if k in physics)
+    if "long_range" in physics:
+        evidence.setdefault("sommerfeld_bound_states", []).append(physics["long_range"])
+    for item, lines in _certificates(thermal).items():
+        evidence.setdefault(item, []).extend(lines)
+    evidence = {k: v for k, v in evidence.items() if v}
+    scanned = {item for b in points for n in b.evaluation.excluded if (item := item_of(n))}
+    entries = apply(entries, evidence, undecided={k for k in scanned - decided
+                                                  if k not in ("relic_abundance", "coannihilation_resonance_threshold",
+                                                               "sommerfeld_bound_states")})
+    if unmapped:
+        entries.append(Entry(id="unmapped", group="searches", title="Other constraints", status=Status.computed,
+                             detail="compared, with no checklist item: " + ", ".join(unmapped)))
+    return entries
 
 
 def lagrangian_evidence(result) -> dict[str, list[str]]:

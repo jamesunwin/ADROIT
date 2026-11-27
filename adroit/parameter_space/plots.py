@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import math
+
 import numpy as np
 
 from adroit.parameter_space import limits
@@ -14,6 +16,9 @@ COLOURS = {"direct detection": "tab:blue", "gamma rays (Fermi-LAT dwarfs)": "tab
            "capture in the Sun (IceCube)": "tab:orange", "colliders (CMS)": "0.55", "perturbativity": "tab:purple",
            "invisible Higgs width (ATLAS)": "tab:brown", "invisible Z width (LEP)": "tab:pink"}
 STATUS = {"viable": "tab:green", "pending": "gold", "excluded": "tab:red"}
+# the hatches of the constraints COLOURS does not shade: every exclusion is drawn, none left to the notes (the owner,
+# 2026-11-26: the CMS dijet search excluded the whole axial plane and nothing showed it)
+HATCHES = ("\\\\\\", "xx", "...", "++", "||", "--", "oo", "**")
 LABELS = {"m_chi": "dark matter mass m_χ (GeV)", "m_med": "mediator mass (GeV)", "g_chi": "g_χ", "g_q": "g_q",
           "g_l": "g_ℓ"}
 
@@ -42,8 +47,13 @@ JOINT_MARKS = {   # a crossing's joint reading on Explain a signal's plane (``as
 def plane(result: ScanResult, verdict: Verdict, path: Path, title: str = "",
           band: list[tuple[float, float, float, float]] | None = None, signal: list[str] | None = None,
           assessments=None, joint: list[str] | None = None, signal_label: str = "",
-          band_pieces: list[tuple[float, float, float]] | None = None) -> Path:
+          band_pieces: list[tuple[float, float, float]] | None = None, warning_marks: bool = True,
+          signal_region: bool = False) -> Path:
     """Each constraint's excluded region, the Ωh² = target contour, and the contour's points by status.
+
+    ``warning_marks``: draw a diamond on each thermal point whose report carries a warning (the default, as every
+    study's plot). False leaves them out, the warnings staying in the report (the paper's B − L figure, 2026-11-25;
+    1.0.2 keeps a mark only for a warning that could change the verdict, OT-16).
 
     ``band``: an anomaly's 68% best-fit region as (m_χ, x low, best, high),
     where x is the scanned physical parameter m_med or g_chi: fixed-mass physical-fit intervals, not a joint confidence
@@ -54,30 +64,45 @@ def plane(result: ScanResult, verdict: Verdict, path: Path, title: str = "",
     excluded with a distinct outline, never as plain pending (the owner's plan of 2026-11-24, section 3), read from
     the stored assessment (``assessment.from_crossing``; ``assessments`` where the study stored them).
 
-    Explain a signal's plane (the plan's section 2) adds, from its stored assessment: ``signal``, each scan point's
-    signal state (hatched where its physical prediction meets the signal criterion; a cross where it was not assessed),
-    and ``joint``, each crossing's row of the decision table, which its marker shows.
+    Every constraint that excludes somewhere is drawn: those in ``COLOURS`` shaded, every other hatched
+    (``HATCHES``), each named in the legend (the owner, 2026-11-26).
+
+    Explain a signal's plane (``band`` given) colours each thermal point by whether it lies inside the fitted 68%
+    interval at its mass, the band as drawn (interpolated in log mass between the fitted masses; outside it below or
+    above them). Its signal assessment is in the report; ``signal_region`` also draws, hatched, where each scan point's
+    physical prediction meets the signal criterion (2ΔlnL ≥ 1 against background alone; off by default, the owner,
+    2026-11-26: beside the 68% band it read as a second fit region). Without a band, ``joint`` (each crossing's row of
+    the decision table) sets the markers.
     """
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     xs, ys = np.array(result.xs), np.array(result.ys)
     shape = (len(ys), len(xs))
-    fig, ax = plt.subplots(figsize=(7.5, 6))
+    plt.rcParams.update({"hatch.linewidth": 0.35, "hatch.color": "0.45"})   # thin, light: every exclusion shown,
+    fig, ax = plt.subplots(figsize=(7.5, 6))                                 # the points and band still legible
     handles = []
+    from adroit.parameter_space.verdict import established_exclusions
+    shown = [established_exclusions(p) for p in result.points]   # a record of unknown version shades nothing (RB-01)
     for name, colour in COLOURS.items():
-        grid = np.array([np.nan if p.excluded.get(name) is None else float(p.excluded[name])
-                         for p in result.points]).reshape(shape)
+        grid = np.array([np.nan if e.get(name) is None else float(e[name]) for e in shown]).reshape(shape)
         if np.nansum(grid) > 0:
             ax.contourf(xs, ys, grid, levels=[0.5, 1.5], colors=[colour], alpha=0.3)
             handles.append(plt.Rectangle((0, 0), 1, 1, color=colour, alpha=0.3, label=f"excluded: {name}"))
+    others = sorted({k for e in shown for k, v in e.items() if v and k not in COLOURS})
+    for name, hatch in zip(others, HATCHES * (len(others) // len(HATCHES) + 1)):
+        grid = np.array([np.nan if e.get(name) is None else float(e[name]) for e in shown]).reshape(shape)
+        ax.contourf(xs, ys, grid, levels=[0.5, 1.5], colors="none", hatches=[hatch], zorder=2)
+        ax.contour(xs, ys, np.nan_to_num(grid), levels=[0.5], colors="0.45", linewidths=0.5, zorder=2)
+        handles.append(plt.Rectangle((0, 0), 1, 1, facecolor="none", edgecolor="0.45", hatch=hatch,
+                                     label=f"excluded: {name}"))
     omega = np.array([p.omega_h2 or np.nan for p in result.points]).reshape(shape)
     if np.isfinite(omega).any() and np.nanmin(omega) < verdict.target < np.nanmax(omega):
         ax.contour(xs, ys, omega, levels=[verdict.target], colors="black", linewidths=1.8)
         handles.append(plt.Line2D([], [], color="black", lw=1.8, label=f"Ωh² = {verdict.target:.3g} (grid interpolation only)"))
     x_of = lambda p: getattr(p, result.request.x.parameter)      # noqa: E731
     y_of = lambda p: getattr(p, result.request.y.parameter)      # noqa: E731
-    if signal is not None and len(signal) == len(result.points):
+    if signal_region and signal is not None and len(signal) == len(result.points):
         meets = np.array([1.0 if s == "meets" else 0.0 for s in signal]).reshape(shape)
         if meets.any():
             ax.contourf(xs, ys, meets, levels=[0.5, 1.5], colors="none", hatches=["///"], zorder=3)
@@ -90,7 +115,52 @@ def plane(result: ScanResult, verdict: Verdict, path: Path, title: str = "",
                        linewidths=0.6, zorder=3)
             handles.append(plt.Line2D([], [], marker="x", ls="", color="0.45", label="signal not assessed here"))
     contour = [(i, c) for i, c in enumerate(verdict.crossings) if c.kind == "contour" and c.converged]
-    if joint is not None and len(joint) == len(verdict.crossings):
+    banded = bool(band) and result.request.y.parameter == "m_chi" and result.request.x.parameter in ("m_med", "g_chi")
+    if banded:
+        rows = sorted(band)
+        pieces: dict[float, list[tuple[float, float]]] = {}
+        for m, lo, hi in band_pieces or []:                # a fitted mass whose 68% region is disconnected
+            pieces.setdefault(m, []).append((lo, hi))
+        fitted = sorted({r[0] for r in rows} | set(pieces))
+        logx = bool(result.request.x.log) and all(v > 0 for r in rows for v in (r[1], r[3]))
+
+        def axis(v):                # the coupling as the axis draws it: the fill joins its vertices in this coordinate
+            return math.log(v) if logx else v
+
+        def inside(p) -> bool | None:
+            """Inside the fitted 68% interval at the point's mass (RE-02, RE-03): at a fitted mass, its own
+            interval or pieces; between two fitted masses, the band as drawn (interpolated in log mass, and in log
+            coupling on a log axis); None (not established) next to a disconnected fitted mass, whose connectivity the
+            band does not establish, and outside the fitted masses, False."""
+            m, x = p.m_chi, x_of(p)
+            if not fitted or not fitted[0] <= m <= fitted[-1]:
+                return False
+            exact = next((f for f in fitted if math.isclose(f, m, rel_tol=1e-9)), None)
+            if exact is not None:
+                if exact in pieces:
+                    return any(lo <= x <= hi for lo, hi in pieces[exact])
+                row = next(r for r in rows if r[0] == exact)
+                return bool(row[1] <= x <= row[3])
+            below = max(f for f in fitted if f < m)
+            above = min(f for f in fitted if f > m)
+            if below in pieces or above in pieces:
+                return None
+            if logx and x <= 0:
+                return False
+            ms = np.log([r[0] for r in rows])
+            lo = np.interp(math.log(m), ms, [axis(r[1]) for r in rows])
+            hi = np.interp(math.log(m), ms, [axis(r[3]) for r in rows])
+            return bool(lo <= axis(x) <= hi)
+        for flag, face, words in ((True, STATUS["excluded"], "inside the fitted 68% interval at its mass"),
+                                  (False, "white", "outside it"),
+                                  (None, "lightgrey", "not established (next to a disconnected interval)")):
+            pts = [c.point for _, c in contour if inside(c.point) is flag]
+            if pts:
+                ax.scatter([x_of(p) for p in pts], [y_of(p) for p in pts], s=24, color=face, edgecolor="black",
+                           linewidths=0.6, zorder=6)
+                handles.append(plt.Line2D([], [], marker="o", ls="", color=face, markeredgecolor="black",
+                                          label=f"Ωh² = {verdict.target:.3g}: {words}"))
+    elif joint is not None and len(joint) == len(verdict.crossings):
         shown = set()
         for i, c in contour:
             marker, colour, words = JOINT_MARKS.get(joint[i], ("o", "gold", "unresolved"))
@@ -112,13 +182,15 @@ def plane(result: ScanResult, verdict: Verdict, path: Path, title: str = "",
                            edgecolor="black", linewidths=0.4, zorder=5)
                 handles.append(plt.Line2D([], [], marker="o", ls="", color=colour, markeredgecolor="black",
                                           label=f"relic contour: {status}"))
-        if central:
-            pts = [c.point for i, c in contour if i in central]
+        groups: dict[str, list] = {}
+        for i, c in contour:
+            if i in central:
+                groups.setdefault(_why_held(c, read[i]), []).append(c.point)
+        for words, pts in groups.items():      # each by its own reason (a label had blamed the halo for every one)
             ax.scatter([x_of(p) for p in pts], [y_of(p) for p in pts], s=30, color=STATUS["excluded"],
                        edgecolor="gold", linewidths=1.6, zorder=5)
             handles.append(plt.Line2D([], [], marker="o", ls="", color=STATUS["excluded"], markeredgecolor="gold",
-                                      markeredgewidth=1.6, label="relic contour: excluded at the central SHM, "
-                                      "not established throughout the halo region"))
+                                      markeredgewidth=1.6, label=f"relic contour: {words}"))
     if band and result.request.y.parameter == "m_chi" and result.request.x.parameter in ("m_med", "g_chi"):
         rows = sorted(band)
         ys_b = [r[0] for r in rows]
@@ -134,13 +206,15 @@ def plane(result: ScanResult, verdict: Verdict, path: Path, title: str = "",
             ax.plot([lo, hi], [m, m], color="magenta", lw=2.4, solid_capstyle="butt", zorder=4)
         handles.append(plt.Line2D([], [], color="magenta", lw=2.4,
                                   label="the physical fit's disconnected 68% intervals at a fixed mass"))
-    flagged = [c.point for c in verdict.crossings if c.flags]
+    from adroit.parameter_space.verdict import reliability_warnings
+    flagged = [c.point for c in verdict.crossings if warning_marks and reliability_warnings(c)]   # never an
+    # informational note (1.0.1); none where the caller leaves the marks to the report (``warning_marks``)
     if flagged:
         ax.scatter([getattr(p, result.request.x.parameter) for p in flagged],
                    [getattr(p, result.request.y.parameter) for p in flagged], s=90, facecolors="none",
                    edgecolors="black", linewidths=1.2, marker="D", zorder=6)
         handles.append(plt.Line2D([], [], marker="D", ls="", markerfacecolor="none", markeredgecolor="black",
-                                  label="unreliable (see the contour table)"))
+                                  label="verdict may be unreliable (warning in the report)"))
     for axis, values, setter in ((result.request.x, result.xs, ax.set_xscale),
                                  (result.request.y, result.ys, ax.set_yscale)):
         name, options = _scale(axis.log, values)
@@ -165,10 +239,50 @@ def _scale(log: bool, values) -> tuple[str, dict]:
     return "symlog", {"linthresh": min(abs(v) for v in values if v) or 1.0}
 
 
-def direct_detection_saved(verdict: Verdict, path: Path) -> Path | None:
+
+def _why_held(crossing, assessment) -> str:
+    """Why a point excluded at the reference halo is not itself "excluded", in the plane's legend: the halo region
+    where its exclusion is not established throughout it; else the equation of state's band where the point is
+    EOS-sensitive (excluded at the nominal root, not at every table's); else another open check, named in the report.
+    (A single label had said "not established throughout the halo region" for every such point, also for points
+    excluded throughout it and held by the equation of state: the B − L example's six.)"""
+    if assessment.regional.state not in ("excluded_throughout", "one_halo"):
+        return "excluded at the central SHM, not established throughout the halo region"
+    if any(str(p).startswith("EOS-sensitive") for p in (crossing.pending or [])):
+        return "excluded at the nominal equation of state, not with every table of its band"
+    return "excluded at the reference halo, held by another open check (see the report)"
+
+
+def _limit_for_model(evaluation) -> tuple[float | None, tuple[float, float] | None] | None:
+    """The 95% limit a saved point's own σ is compared with, in the same convention as its saved comparison (1.0.1,
+    the independent audits' V1-04 and F1-03): (a single limit, or None; the limit's range, or None).
+
+    - No deciding channel: the saved limit.
+    - A single ratio: σ ÷ that ratio. With both nucleons coupling against a module validated for one kind, that is
+      L/F (F the module's rate ratio, ``ChannelOutcome.rate_factor``). (A point saved before 1.0.1 stored σ × F with
+      the ratio σF/L, so this gives its saved L.)
+    - A two-limit interference band [r_low, r_high]: no single limit (no one end decides a straddling band), only its
+      range [σ/r_high, σ/r_low], open-ended above (∞) where r_low = 0, i.e. where the couplings can cancel.
+
+    So a point is drawn above its limit when its comparison excludes it, below when it allows it, and inside its range
+    when the band leaves it undecided. None where nothing was compared."""
+    channel = next((c for c in evaluation.dd_channels if c.kind == evaluation.dd_kind and c.ratio), None)
+    sigma = evaluation.dd_sigma_cm2
+    if channel is None or not sigma or sigma <= 0:
+        return (evaluation.dd_limit_cm2, None) if evaluation.dd_limit_cm2 is not None else None
+    if channel.ratio_band is not None:
+        low, high = channel.ratio_band
+        if high > 0:
+            return None, (sigma / high, sigma / low if low > 0 else math.inf)
+    return sigma / channel.ratio, None
+
+
+def direct_detection_saved(verdict: Verdict, path: Path, title: str = "Direct detection along the thermal-relic "
+                                                                       "contour (saved)") -> Path | None:
     """Direct detection along the relic contour from saved evaluations only (the stacked audit's S18-11): each
-    converged contour point's saved σ and the 95% limit saved with it; nothing is evaluated and no current limit
-    table is read. A point saved without its evaluation is left out; with none, there is no figure."""
+    converged contour point's saved σ and the 95% limit of its saved comparison (``_limit_for_model``); nothing is
+    evaluated and no current limit table is read. A point saved without its evaluation is left out; with none, there
+    is no figure. A new Constrain a model study draws through this too (``direct_detection``; F1-02)."""
     saved = sorted(((c, c.evaluation) for c in verdict.crossings if c.kind == "contour" and c.converged
                     and c.evaluation is not None and c.evaluation.dd_kind in ("SI", "SD-proton", "SD-neutron")),
                    key=lambda pair: pair[0].point.m_chi)
@@ -179,15 +293,25 @@ def direct_detection_saved(verdict: Verdict, path: Path) -> Path | None:
     import matplotlib.pyplot as plt
     kind = saved[0][1].dd_kind
     fig, ax = plt.subplots(figsize=(7, 5))
-    bounds = [(c.point.m_chi, e.dd_limit_cm2) for c, e in saved if e.dd_limit_cm2 is not None]
-    if bounds:
-        ax.plot([m for m, _ in bounds], [v for _, v in bounds], color="tab:blue", marker=".",
-                label="95% limit saved with each point")
+    rows = [(c.point.m_chi, _limit_for_model(e)) for c, e in saved]
+    single = [(m, b[0]) for m, b in rows if b is not None and b[0] is not None]
+    if single:
+        ax.plot([m for m, _ in single], [v for _, v in single], color="tab:blue", marker=".",
+                label="95% limit for the model's own couplings (σ ÷ its saved comparison ratio)")
+    banded = [(m, b[1]) for m, b in rows if b is not None and b[1] is not None]
+    if banded:
+        tops = [lo * 1e3 if math.isinf(hi) else hi for _, (lo, hi) in banded]
+        ax.vlines([m for m, _ in banded], [lo for _, (lo, _) in banded], tops, color="tab:blue", alpha=0.45, lw=2.2,
+                  label="the limit's range over proton–neutron interference (undecided where it crosses the point)")
+        open_ = [(m, top) for (m, (_, hi)), top in zip(banded, tops) if math.isinf(hi)]
+        if open_:
+            ax.scatter([m for m, _ in open_], [top for _, top in open_], marker="^", color="tab:blue", alpha=0.6,
+                       label="open-ended: the couplings can cancel", zorder=4)
     ax.scatter([c.point.m_chi for c, _ in saved], [e.dd_sigma_cm2 for _, e in saved],
                c=[STATUS.get(c.status, "grey") for c, _ in saved], edgecolor="black", linewidths=0.4, s=24,
-               label="the model on its relic contour (saved)", zorder=5)
+               label="the model on its relic contour", zorder=5)
     ax.set(xscale="log", yscale="log", xlabel="dark matter mass m_χ (GeV)",
-           ylabel=f"σ_{kind} per nucleon (cm²)", title="Direct detection along the thermal-relic contour (saved)")
+           ylabel=f"σ_{kind} per nucleon (cm²)", title=title)
     ax.legend(fontsize=8)
     fig.tight_layout()
     from adroit.evidence.bindings import write_figure    # its digest kept for the report's binding
@@ -197,7 +321,14 @@ def direct_detection_saved(verdict: Verdict, path: Path) -> Path | None:
 
 
 def direct_detection(result: ScanResult, verdict: Verdict, path: Path) -> Path | None:
-    """The model's cross-section along the relic contour, against the validated envelope of the modules."""
+    """The model's cross-section along the relic contour against its limits. Where the thermal points carry their
+    comparisons (every new study), each is drawn against its own comparison's limit, in the same convention
+    (``direct_detection_saved``; the follow-up audit's F1-02: the pure-nucleon limit had been drawn against a mixed
+    spin-dependent point's own σ, an excluded point below its curve). Otherwise (a study saved before its points kept
+    their comparisons), against the limits for a pure coupling of the kind, labelled as such and not as the model's
+    own boundary: where both nucleons couple, the point's comparison is not drawn (the repairs audit's RA-05)."""
+    if any(c.kind == "contour" and c.converged and c.evaluation is not None for c in verdict.crossings):
+        return direct_detection_saved(verdict, path, "Direct detection along the thermal-relic contour")
     kind = next((p.dd_kind for p in result.points if p.dd_kind in ("SI", "SD-proton", "SD-neutron")), None)
     crossings = [c for c in verdict.crossings if c.kind == "contour" and c.converged]
     if kind is None or not crossings:
@@ -212,18 +343,20 @@ def direct_detection(result: ScanResult, verdict: Verdict, path: Path) -> Path |
     fig, ax = plt.subplots(figsize=(7, 5))
     finite = np.isfinite(best)
     ax.plot(np.array(grid)[finite], np.array(best)[finite], color="tab:blue",
-            linestyle="--", label=f"native 90% validated envelope ({kind})")
+            linestyle="--", label=f"native 90% validated envelope, for a pure {kind} coupling")
     masses = sorted(set(p.m_chi for p in pts) | set(p.point.m_chi for p in result.points))
     pairs = [(m, limits.at95(kind, m).value) for m in masses]
     pairs = [(m, v) for m, v in pairs if v is not None]
     if pairs:
         ax.plot([m for m, _ in pairs], [v for _, v in pairs], color="tab:blue", marker=".",
-                label="95% module calculation (at evaluated masses)")
+                label=f"95% limit for a pure {kind} coupling (not this model's comparison where both nucleons "
+                      "couple; see the report)")
     colours = [STATUS[c.status] for c in sorted(crossings, key=lambda c: c.point.m_chi)]
     ax.scatter([p.m_chi for p in pts], sig, c=colours, edgecolor="black", linewidths=0.4, s=24,
                label="the model on its relic contour", zorder=5)
     ax.set(xscale="log", yscale="log", xlabel="dark matter mass m_χ (GeV)",
-           ylabel=f"σ_{kind} per nucleon (cm²)", title="Direct detection along the thermal-relic contour")
+           ylabel=f"σ_{kind} per nucleon (cm²)",
+           title="Direct detection along the relic contour (pure-coupling limits)")
     ax.legend(fontsize=8)
     fig.tight_layout()
     from adroit.evidence.bindings import write_figure    # its digest kept for the report's binding
