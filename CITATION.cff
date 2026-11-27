@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use ADROIT, please cite it using the metadata below, together with the codes and data releases your results used (see the README)."
+type: software
+title: "ADROIT: the Agentic Dark matter Reinterpretation and Operator Inference Toolkit"
+abstract: >-
+  ADROIT is a toolkit for reinterpreting dark matter searches and inferring the
+  interactions behind them. It computes direct-detection limits and signal fits
+  for any non-relativistic operator, judges thermal-relic models against
+  collider, astrophysical, cosmological and direct-detection constraints, and
+  builds any freeze-out model from its Lagrangian. Language-model agents propose
+  models, plans and inputs; deterministic code checks every proposal before it
+  reaches a result.
+authors:
+  - family-names: Unwin
+    given-names: James
+version: "1.0.1"
+date-released: "2026-11-27"
+license: BSD-3-Clause
+repository-code: "https://github.com/jamesunwin/ADROIT"
+doi: 10.5281/zenodo.24591541
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24591541
+    description: "All versions (resolves to the latest)"
+  - type: doi
+    value: 10.5281/zenodo.24591542
+    description: "Version 1.0.1"
+keywords:
+  - dark matter
+  - direct detection
+  - relic density
+  - reinterpretation
+  - effective field theory
+  - language-model agents
